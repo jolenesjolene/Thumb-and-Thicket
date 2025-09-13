@@ -1,0 +1,17 @@
+{
+  "variants":{
+		"axis=x":[
+		{ "model": "minecraft:block/oak_log", "x": 90, "y": 90 }
+						
+	],
+		"axis=y":[
+		{ "model": "thumbandthicket:block/oak_log", "weight":50},
+		{ "model": "thumbandthicket:block/oak_hollow1", "weight":1},
+		{ "model": "thumbandthicket:block/oak_hollow2", "weight":1},
+		{ "model": "thumbandthicket:block/oak_hollow3", "weight":1}
+	],
+		"axis=z": [
+		{ "model": "minecraft:block/oak_log","x": 90 }
+	]
+  }
+}

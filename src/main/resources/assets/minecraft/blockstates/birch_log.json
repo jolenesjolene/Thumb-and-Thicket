@@ -1,0 +1,17 @@
+{
+  "variants":{
+		"axis=x":[
+		{ "model": "minecraft:block/birch_log", "x": 90, "y": 90 }
+						
+	],
+		"axis=y":[
+		{ "model": "thumbandthicket:block/birch_log", "weight":50},
+		{ "model": "thumbandthicket:block/birch_hollow1", "weight":1},
+		{ "model": "thumbandthicket:block/birch_hollow2", "weight":1},
+		{ "model": "thumbandthicket:block/birch_hollow3", "weight":1}
+	],
+		"axis=z": [
+		{ "model": "minecraft:block/birch_log","x": 90 }
+	]
+  }
+}
