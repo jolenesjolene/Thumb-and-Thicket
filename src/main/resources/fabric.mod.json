@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "thumbandthicket",
+	"version": "${version}",
+	"name": "Thumb and Thicket",
+	"description": "A soft overhaul to Minecraft's nature!",
+	"authors": [
+		"Lily & Jolene <3"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/Thumb-and-Thicket",
+		"sources": "https://github.com/jolenesjolene/Thumb-and-Thicket"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/thumbandthicket/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.jolene.thumbandthicket.ThumbAndThicket"
+		],
+		"fabric-datagen": [
+			"net.jolene.thumbandthicket.ThumbAndThicketDataGenerator"
+		],
+		"client": [
+			"net.jolene.thumbandthicket.ThumbAndThicketClient"
+			]
+	},
+	"mixins": [
+		"thumbandthicket.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
