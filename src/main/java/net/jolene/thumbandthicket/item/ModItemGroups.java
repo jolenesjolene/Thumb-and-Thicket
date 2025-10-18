@@ -2,8 +2,6 @@ package net.jolene.thumbandthicket.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.jolene.thumbandthicket.ThumbAndThicket;
-import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
