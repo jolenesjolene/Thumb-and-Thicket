@@ -1,3 +1,4 @@
+# Thumb and Thicket
 ### **We Add**
 ***
 * Puffed Dandelions + area particles
@@ -37,3 +38,4 @@
 * Goldenrod
 * New textures for sticks, and some of the floor plants, to fit the mod, still looking vanilla.
 * Some sort of new grass, that mixes in and has a slight yellow tinge on the top, think it could look nice
+* Hares
