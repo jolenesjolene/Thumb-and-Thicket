@@ -3,8 +3,11 @@
   "package": "net.jolene.thumbandthicket.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BlockAccessor",
     "BlockMixin",
-    "ExampleMixin"
+    "ExampleMixin",
+    "PillarBlockMixin",
+    "SettingsAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
