@@ -163,7 +163,7 @@ public class PillarBlockMixin extends Block {
                     BlockPos neighborPos = pos.offset(dir);
                     BlockState neighborState = world.getBlockState(neighborPos);
 
-                    if (neighborState.getBlock() == this && neighborState.contains(SIDE) && neighborState.get(SIDE) != Side.NONE) {
+                    if (neighborState.getBlock() == this && neighborState.contains(SIDE) && neighborState.get(SIDE) != Side.NONE && neighborState.get(AXIS) == axis) {
                         BlockState updatedNeighbor = calculateSlice(neighborState, world, neighborPos);
                         if (!neighborState.equals(updatedNeighbor)) {
                             world.setBlockState(neighborPos, updatedNeighbor, Block.NOTIFY_ALL);

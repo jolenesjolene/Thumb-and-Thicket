@@ -3,30 +3,29 @@
 	"credit": "Made by gayasslily",
 	"textures": {
 		"top": "block/log_slice",
-		"inner": "block/log_inner",
 		"particle": "block/log",
 		"bark": "block/log",
-		"roots_base": "block/slice_roots_base",
-		"roots_mid": "block/slice_roots_mid",
-		"roots_top": "block/slice_roots_top"
+		"roots_base": "block/roots_base",
+		"roots_mid": "block/roots_mid",
+		"roots_top": "block/roots_top"
 	},
 	"elements": [
 		{
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
 			"faces": {
-				"north": {"uv": [0, 16, 16, 0], "texture": "#inner"},
+				"north": {"uv": [0, 16, 16, 0], "texture": "#bark"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#bark"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#bark"},
-				"west": {"uv": [16, 0, 0, 16], "texture": "#inner"},
-				"up": {"uv": [16, 16, 0, 0], "texture": "#top"},
-				"down": {"uv": [16, 0, 0, 16], "texture": "#top"}
+				"west": {"uv": [0, 0, 16, 16], "texture": "#bark"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#top"}
 			}
 		},
 		{
-			"from": [0, 0.001, 0],
-			"to": [32, 0.001, 32],
-			"color": 8,
+			"from": [-8, 0.001, -8],
+			"to": [24, 0.001, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 0, -8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
 				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
@@ -37,10 +36,9 @@
 			}
 		},
 		{
-			"from": [0, 0.75, 0],
-			"to": [32, 0.75, 32],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 1, 0]},
-			"color": 8,
+			"from": [-8, 0.75, -8],
+			"to": [24, 0.75, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 1, -8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
 				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
@@ -51,9 +49,9 @@
 			}
 		},
 		{
-			"from": [0, 1.5, 0],
-			"to": [32, 1.5, 32],
-			"color": 8,
+			"from": [-8, 1.5, -8],
+			"to": [24, 1.5, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 0, -8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},
 				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},

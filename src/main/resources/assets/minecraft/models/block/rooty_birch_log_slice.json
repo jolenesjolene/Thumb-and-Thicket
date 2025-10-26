@@ -1,0 +1,12 @@
+{
+  "parent": "thumbandthicket:block/rooty_log_slice",
+  "textures": {
+    "top": "block/birch_log_slice",
+    "inner": "block/birch_log_inner",
+    "particle": "block/birch_log",
+    "bark": "block/birch_log",
+    "roots_base": "block/birch_slice_roots_base",
+    "roots_mid": "block/birch_slice_roots_mid",
+    "roots_top": "block/birch_slice_roots_top"
+  }
+}
