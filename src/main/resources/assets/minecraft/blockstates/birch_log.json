@@ -1,0 +1,53 @@
+{
+  "variants": {
+    "rooty=false,slice=top_left,axis=y": {"model": "thumbandthicket:block/birch_log_slice", "x": 0, "y": 0},
+    "rooty=false,slice=top_right,axis=y": {"model": "thumbandthicket:block/birch_log_slice", "x": 0, "y": 270},
+    "rooty=false,slice=lower_left,axis=y": {"model": "thumbandthicket:block/birch_log_slice", "x": 0, "y": 90},
+    "rooty=false,slice=lower_right,axis=y": {"model": "thumbandthicket:block/birch_log_slice", "x": 0, "y": 180},
+
+    "rooty=false,slice=top_left,axis=x": {"model": "thumbandthicket:block/birch_log_slice", "x": 270, "y": 90},
+    "rooty=false,slice=top_right,axis=x": {"model": "thumbandthicket:block/birch_log_slice", "x": 90, "y": 90},
+    "rooty=false,slice=lower_left,axis=x": {"model": "thumbandthicket:block/birch_log_slice", "x": 270, "y": 270},
+    "rooty=false,slice=lower_right,axis=x": {"model": "thumbandthicket:block/birch_log_slice", "x": 90, "y": 270},
+
+    "rooty=false,slice=top_left,axis=z": {"model": "thumbandthicket:block/birch_log_slice", "x": 270, "y": 0},
+    "rooty=false,slice=top_right,axis=z": {"model": "thumbandthicket:block/birch_log_slice", "x": 90, "y": 0},
+    "rooty=false,slice=lower_left,axis=z": {"model": "thumbandthicket:block/birch_log_slice", "x": 270, "y": 180},
+    "rooty=false,slice=lower_right,axis=z": {"model": "thumbandthicket:block/birch_log_slice", "x": 90, "y": 180},
+
+    "rooty=true,slice=top_left,axis=y,side=top": {"model": "thumbandthicket:block/rooty_birch_log__slice", "x": 0, "y": 0},
+    "rooty=true,slice=top_right,axis=y,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 0, "y": 270},
+    "rooty=true,slice=lower_left,axis=y,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 0, "y": 90},
+    "rooty=true,slice=lower_right,axis=y,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 0, "y": 180},
+
+    "rooty=true,slice=top_left,axis=x,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 270, "y": 90},
+    "rooty=true,slice=top_right,axis=x,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 90},
+    "rooty=true,slice=lower_left,axis=x,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 270, "y": 270},
+    "rooty=true,slice=lower_right,axis=x,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 270},
+
+    "rooty=true,slice=top_left,axis=z,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 270, "y": 0},
+    "rooty=true,slice=top_right,axis=z,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 0},
+    "rooty=true,slice=lower_left,axis=z,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 270, "y": 180},
+    "rooty=true,slice=lower_right,axis=z,side=top": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 180},
+
+    "rooty=true,slice=top_left,axis=y,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 180, "y": 0},
+    "rooty=true,slice=top_right,axis=y,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 180, "y": 270},
+    "rooty=true,slice=lower_left,axis=y,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 180, "y": 90},
+    "rooty=true,slice=lower_right,axis=y,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 180, "y": 180},
+
+    "rooty=true,slice=top_left,axis=x,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 270},
+    "rooty=true,slice=top_right,axis=x,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 180},
+    "rooty=true,slice=lower_left,axis=x,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 0},
+    "rooty=true,slice=lower_right,axis=x,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 90},
+
+    "rooty=true,slice=top_left,axis=z,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 180},
+    "rooty=true,slice=top_right,axis=z,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 270},
+    "rooty=true,slice=lower_left,axis=z,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 90},
+    "rooty=true,slice=lower_right,axis=z,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log_slice", "x": 90, "y": 0},
+
+
+    "rooty=true,slice=none,axis=x,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log", "x": 90, "y": 0},
+    "rooty=true,slice=none,axis=y,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log", "x": 90, "y": 0},
+    "rooty=true,slice=none,axis=z,side=bottom": {"model": "thumbandthicket:block/rooty_birch_log", "x": 90, "y": 0}
+  }
+}

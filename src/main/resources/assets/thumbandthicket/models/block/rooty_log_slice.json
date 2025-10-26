@@ -1,0 +1,67 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by gayasslily",
+	"textures": {
+		"top": "block/log_slice",
+		"inner": "block/log_inner",
+		"particle": "block/log",
+		"bark": "block/log",
+		"roots_base": "block/roots_base",
+		"roots_mid": "block/roots_mid",
+		"roots_top": "block/roots_top"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 16, 16, 0], "texture": "#inner"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#bark"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#bark"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#inner"},
+				"up": {"uv": [16, 16, 0, 0], "texture": "#top"},
+				"down": {"uv": [16, 0, 0, 16], "texture": "#top"}
+			}
+		},
+		{
+			"from": [0, 0.001, 0],
+			"to": [32, 0.001, 32],
+			"color": 8,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
+				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
+				"south": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
+				"west": {"uv": [0, 0, 16, 0], "texture": "#roots_base"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#roots_base"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#roots_base"}
+			}
+		},
+		{
+			"from": [0, 0.75, 0],
+			"to": [32, 0.75, 32],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 1, 0]},
+			"color": 8,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
+				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
+				"south": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
+				"west": {"uv": [0, 0, 16, 0], "texture": "#roots_mid"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#roots_mid"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#roots_mid"}
+			}
+		},
+		{
+			"from": [0, 1.5, 0],
+			"to": [32, 1.5, 32],
+			"color": 8,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},
+				"east": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},
+				"south": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},
+				"west": {"uv": [0, 0, 16, 0], "texture": "#roots_top"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#roots_top"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#roots_top"}
+			}
+		}
+	]
+}
