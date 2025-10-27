@@ -1,7 +1,7 @@
 package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
-import net.jolene.thumbandthicket.util.Side;
+import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -35,7 +35,7 @@ public class PillarBlockMixin extends Block {
     private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
         AbstractBlock.Settings settings = (PillarBlock.class.cast(this)).getSettings();
         SettingsAccessor accessor = (SettingsAccessor) settings;
-        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(ROOTY).add(SLICE).add(SIDE);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
@@ -43,21 +43,20 @@ public class PillarBlockMixin extends Block {
         Block pillarBlock = PillarBlock.class.cast(this);
         BlockState defaultBlockState = pillarBlock.getDefaultState();
         if (defaultBlockState.contains(ROOTY) && defaultBlockState.contains(SLICE)) {
-            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, false).with(SLICE, Slice.NONE).with(SIDE, Side.NONE));
+            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, Rooty.NONE).with(SLICE, Slice.ZERO).with(ROOTY, Rooty.NONE));
         }
     }
 
     @Inject(method = "getPlacementState", at = @At("RETURN"), cancellable = true)
     private void modifyPlacementState(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
         BlockState state = cir.getReturnValue();
-        if (state.contains(ROOTY) && state.contains(SIDE) && state.contains(SLICE)) {
+        if (state.contains(ROOTY) && state.contains(ROOTY) && state.contains(SLICE)) {
             World world = ctx.getWorld();
             BlockPos pos = ctx.getBlockPos();
 
             state = determineSide(state, world, pos);
-            if (state.get(SIDE) != Side.NONE) {
+            if (state.get(ROOTY) != Rooty.NONE) {
                 state = calculateSlice(state, world, pos);
-                state = state.with(ROOTY, true);
             }
             state = inheritSliceAlongAxis(state, world, pos);
 
@@ -69,26 +68,26 @@ public class PillarBlockMixin extends Block {
     private BlockState determineSide(BlockState state, World world, BlockPos pos) {
         Direction.Axis axis = state.get(AXIS);
 
-        if (!state.contains(SIDE)) return state;
+        if (!state.contains(ROOTY)) return state;
 
         if (axis.isVertical()) {
             Block below = world.getBlockState(pos.down()).getBlock();
             Block above = world.getBlockState(pos.up()).getBlock();
-            if (below == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.BOTTOM);
-            if (above == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.TOP);
+            if (below == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.BOTTOM);
+            if (above == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.TOP);
         } else if (axis == Direction.Axis.X) {
             Block west = world.getBlockState(pos.west()).getBlock();
             Block east = world.getBlockState(pos.east()).getBlock();
-            if (west == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.BOTTOM);
-            if (east == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.TOP);
+            if (west == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.BOTTOM);
+            if (east == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.TOP);
         } else {
             Block north = world.getBlockState(pos.north()).getBlock();
             Block south = world.getBlockState(pos.south()).getBlock();
-            if (north == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.BOTTOM);
-            if (south == ModBlocks.ROOT_BLOCK) return state.with(SIDE, Side.TOP);
+            if (north == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.BOTTOM);
+            if (south == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.TOP);
         }
 
-        return state.with(SIDE, Side.NONE);
+        return state.with(ROOTY, Rooty.NONE);
     }
 
     @Unique
@@ -105,14 +104,14 @@ public class PillarBlockMixin extends Block {
         for (int i = 0; i < dirs.length; i++) {
             BlockState neighbor = world.getBlockState(pos.offset(dirs[i]));
             connected[i] = neighbor.getBlock() == block &&
-                    neighbor.contains(SIDE) &&
-                    neighbor.get(SIDE) != Side.NONE;
+                    neighbor.contains(ROOTY) &&
+                    neighbor.get(ROOTY) != Rooty.NONE;
         }
 
-        if (connected[0] && connected[1]) return state.with(SLICE, Slice.LOWER_LEFT);
-        if (connected[1] && connected[2]) return state.with(SLICE, Slice.LOWER_RIGHT);
-        if (connected[2] && connected[3]) return state.with(SLICE, Slice.TOP_RIGHT);
-        if (connected[3] && connected[0]) return state.with(SLICE, Slice.TOP_LEFT);
+        if (connected[0] && connected[1]) return state.with(SLICE, Slice.THREE);
+        if (connected[1] && connected[2]) return state.with(SLICE, Slice.FOUR);
+        if (connected[2] && connected[3]) return state.with(SLICE, Slice.TWO);
+        if (connected[3] && connected[0]) return state.with(SLICE, Slice.ONE);
 
         return state;
     }
@@ -163,7 +162,7 @@ public class PillarBlockMixin extends Block {
                     BlockPos neighborPos = pos.offset(dir);
                     BlockState neighborState = world.getBlockState(neighborPos);
 
-                    if (neighborState.getBlock() == this && neighborState.contains(SIDE) && neighborState.get(SIDE) != Side.NONE && neighborState.get(AXIS) == axis) {
+                    if (neighborState.getBlock() == this && neighborState.contains(ROOTY) && neighborState.get(ROOTY) != Rooty.NONE && neighborState.get(AXIS) == axis) {
                         BlockState updatedNeighbor = calculateSlice(neighborState, world, neighborPos);
                         if (!neighborState.equals(updatedNeighbor)) {
                             world.setBlockState(neighborPos, updatedNeighbor, Block.NOTIFY_ALL);

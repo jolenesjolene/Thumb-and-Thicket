@@ -1,7 +1,7 @@
 package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
-import net.jolene.thumbandthicket.util.Side;
+import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -24,12 +24,12 @@ public class BlockMixin {
     private void modifyPlacementState(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
         Block block = (Block)(Object)this;
         BlockState state = block.getDefaultState();
-        if (state.contains(ROOTY) && state.contains(SIDE)) {
+        if (state.contains(ROOTY) && state.contains(ROOTY)) {
             if (state.get(AXIS).isVertical()) {
                 Block blockDown = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(Direction.Axis.Y,-1)).getBlock();
                 Block blockUp = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(Direction.Axis.Y,+1)).getBlock();
-                if (blockDown.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(SIDE, Side.TOP));
-                if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(SIDE, Side.BOTTOM));
+                if (blockDown.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.TOP));
+                if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
         }
     }

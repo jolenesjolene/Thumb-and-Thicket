@@ -3,11 +3,11 @@ package net.jolene.thumbandthicket.util;
 import net.minecraft.util.StringIdentifiable;
 
 public enum Slice implements StringIdentifiable {
-    TOP_LEFT("top_left"),
-    TOP_RIGHT("top_right"),
-    LOWER_LEFT("lower_left"),
-    LOWER_RIGHT("lower_right"),
-    NONE("none");
+    ZERO("0"),
+    ONE("1"),
+    TWO("2"),
+    THREE("3"),
+    FOUR("4");
 
 
     private final String name;

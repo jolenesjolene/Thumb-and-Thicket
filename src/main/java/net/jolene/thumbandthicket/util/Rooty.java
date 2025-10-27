@@ -2,7 +2,7 @@ package net.jolene.thumbandthicket.util;
 
 import net.minecraft.util.StringIdentifiable;
 
-public enum Side implements StringIdentifiable {
+public enum Rooty implements StringIdentifiable {
     TOP("top"),
     BOTTOM("bottom"),
     NONE("none");
@@ -10,7 +10,7 @@ public enum Side implements StringIdentifiable {
 
     private final String name;
 
-    Side(
+    Rooty(
             final String name
     ) {
         this.name = name;
