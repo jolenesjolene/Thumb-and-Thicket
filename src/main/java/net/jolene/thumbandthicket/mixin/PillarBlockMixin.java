@@ -108,9 +108,9 @@ public class PillarBlockMixin extends Block {
                     neighbor.get(ROOTY) != Rooty.NONE;
         }
 
-        if (connected[0] && connected[1]) return state.with(SLICE, Slice.THREE);
-        if (connected[1] && connected[2]) return state.with(SLICE, Slice.FOUR);
-        if (connected[2] && connected[3]) return state.with(SLICE, Slice.TWO);
+        if (connected[0] && connected[1]) return state.with(SLICE, Slice.TWO);
+        if (connected[1] && connected[2]) return state.with(SLICE, Slice.THREE);
+        if (connected[2] && connected[3]) return state.with(SLICE, Slice.FOUR);
         if (connected[3] && connected[0]) return state.with(SLICE, Slice.ONE);
 
         return state;
@@ -132,7 +132,7 @@ public class PillarBlockMixin extends Block {
 
         for (BlockPos neighborPos : new BlockPos[]{neighborPos1, neighborPos2}) {
             BlockState neighbor = world.getBlockState(neighborPos);
-            if (neighbor.getBlock() == block && neighbor.contains(SLICE)) {
+            if (neighbor.getBlock() == block && neighbor.contains(SLICE) && neighbor.get(AXIS) == axis) {
                 return state.with(SLICE, neighbor.get(SLICE));
             }
         }

@@ -1,5 +1,5 @@
 {
-  "parent": "thumbandthicket:block/rooty_log_slice",
+  "parent": "thumbandthicket:block/rooty_log_slice_mirrored",
   "textures": {
     "top": "block/birch_log_slice",
     "inner": "block/birch_log_inner",
