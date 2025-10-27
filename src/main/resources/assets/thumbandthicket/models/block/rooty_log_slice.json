@@ -2,9 +2,9 @@
 	"format_version": "1.9.0",
 	"credit": "Made by gayasslily",
 	"textures": {
-		"top": "#slice",
+		"top": "#top",
 		"inner": "#inner",
-		"particle": "#log",
+		"particle": "#top",
 		"bark": "#log",
 		"roots": "#roots"
 	},
@@ -22,8 +22,8 @@
 			}
 		},
 		{
-			"from": [0, 0, 16],
-			"to": [0, 32, 32],
+			"from": [0.01, 0, 16],
+			"to": [0.01, 32, 32],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 16]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 0], "rotation": 270, "texture": "#roots"},
@@ -48,8 +48,8 @@
 			}
 		},
 		{
-			"from": [16, 0, 0],
-			"to": [32, 32, 0],
+			"from": [16, 0, 0.01],
+			"to": [32, 32, 0.01],
 			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 0]},
 			"faces": {
 				"north": {"uv": [8, 16, 0, 0], "rotation": 180, "texture": "#roots"},
