@@ -20,10 +20,10 @@
     "rooty=top,slice=3,axis=y": {"model": "minecraft:block/rooty_birch_log_slice", "x": 180, "y": 270},
     "rooty=top,slice=4,axis=y": {"model": "minecraft:block/rooty_birch_log_slice", "x": 180, "y": 0},
 
-    "rooty=top,slice=1,axis=x": {"model": "minecraft:block/rooty_birch_log_slice", "x": 270, "y": 90},
-    "rooty=top,slice=2,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_mirrored", "x": 270, "y": 90},
-    "rooty=top,slice=3,axis=x": {"model": "minecraft:block/rooty_birch_log_slice", "x": 90, "y": 270},
-    "rooty=top,slice=4,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_mirrored", "x": 90, "y": 270},
+    "rooty=top,slice=1,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_horizontal_mirrored", "x": 180, "y": 90},
+    "rooty=top,slice=2,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_horizontal", "x": 180, "y": 90},
+    "rooty=top,slice=3,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_horizontal_mirrored", "x": 0, "y": 0},
+    "rooty=top,slice=4,axis=x": {"model": "minecraft:block/rooty_birch_log_slice_horizontal", "x": 0, "y": 0},
 
     "rooty=top,slice=1,axis=z": {"model": "minecraft:block/rooty_birch_log_slice_mirrored", "x": 270, "y": 180},
     "rooty=top,slice=2,axis=z": {"model": "minecraft:block/rooty_birch_log_slice", "x": 270, "y": 180},
