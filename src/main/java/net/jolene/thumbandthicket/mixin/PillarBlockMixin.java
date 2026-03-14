@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
+import net.jolene.thumbandthicket.block.RootBlock;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.AbstractBlock;
@@ -9,11 +10,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.block.NeighborUpdater;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -150,6 +153,22 @@ public class PillarBlockMixin extends Block {
                             }
                         }
                     }
+
+                BlockState blockBelow = world.getBlockState(pos.offset(Direction.Axis.Y, -1));
+                if (blockBelow.getBlock() instanceof RootBlock) {
+                    newState = newState.with(ROOTY, Rooty.BOTTOM);
+                }
+
+                BlockState blockAbove = world.getBlockState(pos.offset(Direction.Axis.Y, +1));
+                if (blockAbove.isIn(BlockTags.LOGS) && blockAbove.contains(SLICE)) {
+
+                    BlockState newStateAbove = blockAbove.with(SLICE, state.get(SLICE));
+
+                    if (!blockAbove.equals(newStateAbove)) {
+                        world.setBlockState(pos.offset(Direction.Axis.Y, +1), newStateAbove, Block.NOTIFY_ALL);
+                    }
+                    super.neighborUpdate(blockAbove, world, pos, sourceBlock, sourcePos, notify);
+                }
 
                 if (!state.equals(newState)) {
                     world.setBlockState(pos, newState, Block.NOTIFY_ALL);

@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "rooty=none,slice=1,axis=y": {"model": "minecraft:block/oak_log_slice", "x": 0, "y": 0},
+    "rooty=none,slice=2,axis=y": {"model": "minecraft:block/oak_log_slice", "x": 0, "y": 90},
+    "rooty=none,slice=3,axis=y": {"model": "minecraft:block/oak_log_slice", "x": 0, "y": 180},
+    "rooty=none,slice=4,axis=y": {"model": "minecraft:block/oak_log_slice", "x": 0, "y": 270},
+
+    "rooty=top,slice=1,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 180, "y": 90},
+    "rooty=top,slice=2,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 180, "y": 180},
+    "rooty=top,slice=3,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 180, "y": 270},
+    "rooty=top,slice=4,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 180, "y": 0},
+
+    "rooty=bottom,slice=1,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 0, "y": 0},
+    "rooty=bottom,slice=2,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 0, "y": 90},
+    "rooty=bottom,slice=3,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 0, "y": 180},
+    "rooty=bottom,slice=4,axis=y": {"model": "minecraft:block/rooty_oak_log_slice", "x": 0, "y": 270},
+
+    "rooty=bottom,slice=0,axis=x": {"model": "minecraft:block/rooty_oak_log", "x": 90, "y": 90},
+    "rooty=bottom,slice=0,axis=y": {"model": "minecraft:block/rooty_oak_log", "x": 0, "y": 0},
+    "rooty=bottom,slice=0,axis=z": {"model": "minecraft:block/rooty_oak_log", "x": 270, "y": 0},
+
+    "rooty=top,slice=0,axis=x": {"model": "minecraft:block/rooty_oak_log", "x": 90, "y": 270},
+    "rooty=top,slice=0,axis=y": {"model": "minecraft:block/rooty_oak_log", "x": 180, "y": 0},
+    "rooty=top,slice=0,axis=z": {"model": "minecraft:block/rooty_oak_log", "x": 90, "y": 0}
+  }
+}

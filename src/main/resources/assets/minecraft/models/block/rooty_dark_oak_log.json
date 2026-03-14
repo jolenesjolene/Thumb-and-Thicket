@@ -1,0 +1,10 @@
+{
+  "parent": "thumbandthicket:block/rooty_log",
+  "textures": {
+    "top": "block/dark_oak_log_top",
+    "bark": "block/dark_oak_log",
+    "roots_base": "block/dark_oak_roots_base",
+    "roots_mid": "block/dark_oak_roots_mid",
+    "roots_top": "block/dark_oak_roots_top"
+  }
+}
