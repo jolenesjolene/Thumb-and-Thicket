@@ -14,7 +14,8 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.create().nonOpaque().hardness(3.0F).sounds(BlockSoundGroup.WOOD)), "root_block", true);
+    public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.create().nonOpaque().hardness(3.0F).sounds(BlockSoundGroup.HANGING_ROOTS)), "root_block", true);
+    public static final Block PUFFED_DANDELION = register(new RootBlock(AbstractBlock.Settings.create().nonOpaque().hardness(3.0F).sounds(BlockSoundGroup.GRASS)), "puffed_dandelion", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

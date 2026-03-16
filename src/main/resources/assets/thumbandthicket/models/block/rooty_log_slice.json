@@ -1,6 +1,7 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made by gayasslily",
+	"ambientocclusion": false,
 	"textures": {
 		"top": "#top",
 		"inner": "#inner",

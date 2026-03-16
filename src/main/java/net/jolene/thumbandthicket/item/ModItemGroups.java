@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.jolene.thumbandthicket.ThumbAndThicket;
+import net.jolene.thumbandthicket.block.ModBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -16,7 +17,9 @@ public class ModItemGroups {
                 FabricItemGroup.builder().icon(() -> new ItemStack(Items.ROOTED_DIRT))
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
-
+                            entries.add(ModBlocks.ROOT_BLOCK);
+                            entries.add(Items.DANDELION);
+                            entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(Items.LILAC);
 
                         }).build());
