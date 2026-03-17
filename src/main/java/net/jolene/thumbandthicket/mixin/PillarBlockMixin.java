@@ -10,12 +10,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -56,43 +56,36 @@ public class PillarBlockMixin extends Block {
             World world = ctx.getWorld();
             BlockPos pos = ctx.getBlockPos();
 
-            state = determineSide(state, world, pos);
+            state = thumbandthicket$determineRootSide(state, world, pos);
             if (state.get(ROOTY) != Rooty.NONE) {
-                state = calculateSlice(state, world, pos);
+                state = thumbandthicket$calculateSlice(state, world, pos);
             }
+            state = inheritSlice(state, world, pos);
 
             cir.setReturnValue(state);
         }
     }
 
     @Unique
-    private BlockState determineSide(BlockState state, World world, BlockPos pos) {
-        Direction.Axis axis = state.get(AXIS);
+    private BlockState thumbandthicket$determineRootSide(BlockState state, World world, BlockPos pos) {
 
-        if (!state.contains(ROOTY)) return state;
+        Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, ModBlocks.ROOT_BLOCK);
+        if (!state.contains(ROOTY) || rootBlockDirection == null) return state;
 
-        if (axis.isVertical()) {
-            BlockState below = world.getBlockState(pos.down());
-            BlockState above = world.getBlockState(pos.up());
-            if (below.getBlock() == ModBlocks.ROOT_BLOCK && below.get(AXIS) == axis) return state.with(ROOTY, Rooty.BOTTOM);
-            if (above.getBlock() == ModBlocks.ROOT_BLOCK && above.get(AXIS) == axis) return state.with(ROOTY, Rooty.TOP);
-        } else if (axis == Direction.Axis.X) {
-            BlockState west = world.getBlockState(pos.west());
-            BlockState east = world.getBlockState(pos.east());
-            if (west.getBlock() == ModBlocks.ROOT_BLOCK && west.get(AXIS) == axis) return state.with(ROOTY, Rooty.BOTTOM);
-            if (east.getBlock() == ModBlocks.ROOT_BLOCK && east.get(AXIS) == axis) return state.with(ROOTY, Rooty.TOP);
-        } else {
-            BlockState north = world.getBlockState(pos.north());
-            BlockState south = world.getBlockState(pos.south());
-            if (north.getBlock() == ModBlocks.ROOT_BLOCK && north.get(AXIS) == axis) return state.with(ROOTY, Rooty.BOTTOM);
-            if (south.getBlock() == ModBlocks.ROOT_BLOCK && south.get(AXIS) == axis) return state.with(ROOTY, Rooty.TOP);
+        switch (rootBlockDirection) {
+            case DOWN, WEST, NORTH -> {
+                if (world.getBlockState(pos.offset(rootBlockDirection)).getBlock() == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.BOTTOM);
+            }
+            case UP, EAST, SOUTH -> {
+                if (world.getBlockState(pos.offset(rootBlockDirection)).getBlock() == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.TOP);
+            }
         }
 
         return state;
     }
 
     @Unique
-    private BlockState calculateSlice(BlockState state, World world, BlockPos pos) {
+    private BlockState thumbandthicket$calculateSlice(BlockState state, World world, BlockPos pos) {
         Direction.Axis axis = state.get(AXIS);
         Block block = state.getBlock();
 
@@ -121,16 +114,23 @@ public class PillarBlockMixin extends Block {
         Direction.Axis axis = state.get(AXIS);
         Block block = state.getBlock();
 
-        Direction dir1, dir2;
-        if (axis == Direction.Axis.Y) {
-            dir1 = Direction.UP; dir2 = Direction.DOWN;
-            BlockPos neighborPos1 = pos.offset(dir1);
-            BlockPos neighborPos2 = pos.offset(dir2);
+        Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, state.getBlock());
 
-            for (BlockPos neighborPos : new BlockPos[]{neighborPos1, neighborPos2}) {
-                BlockState neighbor = world.getBlockState(neighborPos);
-                if (neighbor.getBlock() == block && neighbor.contains(SLICE) && neighbor.get(AXIS) == axis) {
-                    return state.with(SLICE, neighbor.get(SLICE));
+        Direction dir1, dir2;
+        if (rootBlockDirection != null) {
+            if (world.getBlockState(pos.offset(rootBlockDirection)).contains(AXIS)) {
+                if (axis == world.getBlockState(pos.offset(rootBlockDirection)).get(AXIS)) {
+                    dir1 = thumbandthicket$getInvertedDirection(rootBlockDirection);
+                    dir2 = rootBlockDirection;
+                    BlockPos neighborPos1 = pos.offset(dir1);
+                    BlockPos neighborPos2 = pos.offset(dir2);
+
+                    for (BlockPos neighborPos : new BlockPos[]{neighborPos1, neighborPos2}) {
+                        BlockState neighbor = world.getBlockState(neighborPos);
+                        if (neighbor.getBlock() == block && neighbor.contains(SLICE) && neighbor.get(AXIS) == axis) {
+                            return state.with(SLICE, neighbor.get(SLICE));
+                        }
+                    }
                 }
             }
         }
@@ -142,40 +142,16 @@ public class PillarBlockMixin extends Block {
         if (!world.isClient) {
             BlockState newState = state;
             Direction.Axis axis = newState.get(AXIS);
+            Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, ModBlocks.ROOT_BLOCK);
 
             if (newState.contains(SLICE)) {
-                newState = calculateSlice(newState, world, pos);
 
-                Direction[] neighbors;
-                    neighbors = new Direction[]{Direction.UP, Direction.DOWN};
-                    for (Direction dir : neighbors) {
-                        BlockPos neighborPos = pos.offset(dir);
-                        BlockState neighborState = world.getBlockState(neighborPos);
 
-                        if (neighborState.contains(ROOTY) && neighborState.get(AXIS) == axis) {
-                            BlockState updatedNeighbor = calculateSlice(neighborState, world, neighborPos);
-                            if (!neighborState.equals(updatedNeighbor)) {
-                                world.setBlockState(neighborPos, updatedNeighbor, Block.NOTIFY_ALL);
-                            }
-                        }
-                    }
-
-                BlockState blockBelow = world.getBlockState(pos.down());
-                if (blockBelow.getBlock() instanceof RootBlock) {
-                    newState = newState.with(ROOTY, Rooty.BOTTOM);
-                }
-
-                BlockState blockAbove = world.getBlockState(pos.up());
-
-                if (blockAbove.isIn(BlockTags.LOGS) && blockAbove.contains(SLICE) && blockBelow.contains(SLICE)) {
-
-                    if (blockBelow.get(SLICE) != Slice.ZERO) {
-                        BlockState newStateAbove = blockAbove.with(SLICE, state.get(SLICE));
-
-                        if (!blockAbove.equals(newStateAbove)) {
-                            world.setBlockState(pos.offset(Direction.Axis.Y, +1), newStateAbove, Block.NOTIFY_ALL);
-                        }
-                        super.neighborUpdate(blockAbove, world, pos, sourceBlock, sourcePos, notify);
+                if (rootBlockDirection != null) {
+                    BlockState blockBelow = world.getBlockState(pos.offset(rootBlockDirection));
+                    if (blockBelow.get(AXIS) == axis) {
+                        newState = thumbandthicket$determineRootSide(newState, world, pos);
+                        newState = thumbandthicket$calculateSlice(newState, world, pos);
                     }
                 }
 
@@ -186,5 +162,43 @@ public class PillarBlockMixin extends Block {
         }
 
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    }
+
+    @Unique
+    private static @NotNull Direction thumbandthicket$getInvertedDirection(Direction rootBlockDirection) {
+        Direction rootBlockDirectionInverted = rootBlockDirection;
+
+        switch (rootBlockDirection) {
+            case UP -> rootBlockDirectionInverted = Direction.DOWN;
+            case DOWN -> rootBlockDirectionInverted = Direction.UP;
+            case WEST -> rootBlockDirectionInverted = Direction.EAST;
+            case EAST -> rootBlockDirectionInverted = Direction.WEST;
+            case NORTH -> rootBlockDirectionInverted = Direction.SOUTH;
+            case SOUTH -> rootBlockDirectionInverted = Direction.NORTH;
+        }
+        return rootBlockDirectionInverted;
+    }
+
+    @Unique
+    private Direction thumbandthicket$determineRootBlockDirection(BlockState state, BlockPos pos, World world, Block block) {
+        Direction.Axis axis = state.get(AXIS);
+
+        if (axis.isVertical()) {
+            BlockState below = world.getBlockState(pos.down());
+            BlockState above = world.getBlockState(pos.up());
+            if (below.getBlock() == block && below.get(AXIS) == axis) return Direction.DOWN;
+            if (above.getBlock() == block && above.get(AXIS) == axis) return Direction.UP;
+        } else if (axis == Direction.Axis.X) {
+            BlockState west = world.getBlockState(pos.west());
+            BlockState east = world.getBlockState(pos.east());
+            if (west.getBlock() == block && west.get(AXIS) == axis) return Direction.WEST;
+            if (east.getBlock() == block && east.get(AXIS) == axis) return Direction.EAST;
+        } else {
+            BlockState north = world.getBlockState(pos.north());
+            BlockState south = world.getBlockState(pos.south());
+            if (north.getBlock() == block && north.get(AXIS) == axis) return Direction.NORTH;
+            if (south.getBlock() == block && south.get(AXIS) == axis) return Direction.SOUTH;
+        }
+        return null;
     }
 }
