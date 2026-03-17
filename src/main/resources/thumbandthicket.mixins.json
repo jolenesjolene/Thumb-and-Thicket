@@ -8,6 +8,7 @@
     "ExampleMixin",
     "PillarBlockMixin",
     "SettingsAccessor",
+    "TreeFeatureMixin",
     "TrunkPlacerMixin"
   ],
   "injectors": {

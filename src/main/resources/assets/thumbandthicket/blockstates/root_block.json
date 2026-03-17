@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "thumbandthicket:block/root_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "thumbandthicket:block/root_block"
+    },
+    "axis=z": {
+      "model": "thumbandthicket:block/root_block_horizontal",
+      "x": 90
     }
   }
 }

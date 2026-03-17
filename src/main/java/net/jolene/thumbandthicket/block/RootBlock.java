@@ -26,8 +26,8 @@ public class RootBlock extends PillarBlock {
 
             BlockState newState = blockAbove.with(ROOTY, Rooty.BOTTOM);
 
-            if (!blockAbove.equals(newState)) {
-                world.setBlockState(pos.offset(Direction.Axis.Y, +1), newState, Block.NOTIFY_ALL);
+            if (!blockAbove.equals(newState) && blockAbove.get(AXIS) == state.get(AXIS)) {
+                world.setBlockState(pos.up(), newState, Block.NOTIFY_ALL);
             }
             super.neighborUpdate(blockAbove, world, pos, sourceBlock, sourcePos, notify);
         }

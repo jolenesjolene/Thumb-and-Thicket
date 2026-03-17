@@ -26,8 +26,8 @@ public class BlockMixin {
         BlockState state = block.getDefaultState();
         if (state.contains(ROOTY) && state.contains(ROOTY)) {
             if (state.get(AXIS).isVertical()) {
-                Block blockDown = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(Direction.Axis.Y,-1)).getBlock();
-                Block blockUp = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(Direction.Axis.Y,+1)).getBlock();
+                Block blockDown = ctx.getWorld().getBlockState(ctx.getBlockPos().down()).getBlock();
+                Block blockUp = ctx.getWorld().getBlockState(ctx.getBlockPos().up()).getBlock();
                 if (blockDown.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.TOP));
                 if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
