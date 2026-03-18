@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/root/root_block"
+    "all": "thumbandthicket:block/root_block"
   }
 }

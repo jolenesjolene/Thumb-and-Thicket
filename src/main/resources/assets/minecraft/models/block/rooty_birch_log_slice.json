@@ -5,9 +5,6 @@
     "inner": "block/log/birch_log_inner",
     "particle": "block/birch_log",
     "bark": "block/birch_log",
-    "roots": "block/birch_roots_big",
-    "roots_base": "block/birch_roots_big_base",
-    "roots_mid": "block/birch_roots_big_mid",
-    "roots_top": "block/birch_roots_big_top"
+    "roots": "block/roots/birch_roots_big_1"
   }
 }
