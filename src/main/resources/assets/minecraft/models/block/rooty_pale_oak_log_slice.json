@@ -1,0 +1,10 @@
+{
+  "parent": "thumbandthicket:block/rooty_log_slice",
+  "textures": {
+    "top": "block/log/pale_oak_log_slice",
+    "inner": "block/log/pale_oak_log_inner",
+    "particle": "block/pale_oak_log",
+    "bark": "block/pale_oak_log",
+    "roots": "block/roots/pale_oak_roots_big_1"
+  }
+}

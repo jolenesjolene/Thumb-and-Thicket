@@ -1,0 +1,8 @@
+{
+  "parent": "thumbandthicket:block/rooty_log",
+  "textures": {
+    "top": "block/jungle_log_top",
+    "bark": "block/jungle_log",
+    "roots": "block/roots/jungle_root_0"
+  }
+}

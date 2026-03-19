@@ -1,0 +1,9 @@
+{
+  "parent": "thumbandthicket:block/log_slice",
+  "textures": {
+    "top": "block/log/jungle_log_slice",
+    "inner": "block/log/jungle_log_inner",
+    "particle": "block/jungle_log",
+    "bark": "block/jungle_log"
+  }
+}

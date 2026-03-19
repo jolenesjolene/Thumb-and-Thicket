@@ -6,6 +6,7 @@
     "BlockAccessor",
     "BlockMixin",
     "ExampleMixin",
+    "GiantTrunkPlacerMixin",
     "PillarBlockMixin",
     "SettingsAccessor",
     "TreeFeatureMixin",
