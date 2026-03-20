@@ -51,48 +51,51 @@ public class TrunkPlacerMixin {
 
         BlockState newState = state;
 
-        if (state.contains(ROOTY) && state.contains(SLICE)) {
-            WorldAccess worldAccess = (WorldAccess) world;
 
-            newState = thumbandthicket$determineRootSide(newState, worldAccess, pos);
+        if (!((TrunkPlacer) (Object) this instanceof DarkOakTrunkPlacer)) {
+            if (state.contains(ROOTY) && state.contains(SLICE)) {
+                WorldAccess worldAccess = (WorldAccess) world;
 
-            if (newState.get(ROOTY) != Rooty.NONE) {
-                newState = thumbandthicket$calculateSlice(newState, worldAccess, pos);
-            }
+                newState = thumbandthicket$determineRootSide(newState, worldAccess, pos);
 
-            newState = inheritSlice(newState, worldAccess, pos);
-        }
+                if (newState.get(ROOTY) != Rooty.NONE) {
+                    newState = thumbandthicket$calculateSlice(newState, worldAccess, pos);
+                }
 
-        original.call(instance, pos, newState);
-    }
-
-    @WrapOperation(method = "getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;Ljava/util/function/Function;)Z", at = @At(value = "INVOKE", target = "Ljava/util/function/BiConsumer;accept(Ljava/lang/Object;Ljava/lang/Object;)V"))
-    private void modifyDarkOakLog(BiConsumer instance, Object posObj, Object stateObj, Operation<Void> original, @Local(argsOnly = true) TestableWorld world, @Local(argsOnly = true) TreeFeatureConfig config, @Local(argsOnly = true) Random random, @Local(argsOnly = true) BlockPos pos) {
-        BlockState newState = config.trunkProvider.get(random, pos);
-
-        if ((TrunkPlacer) (Object) this instanceof DarkOakTrunkPlacer) {
-            BlockState blockBelow = ((WorldAccess) world).getBlockState(pos.down());
-            if (blockBelow.isOf(ModBlocks.ROOT_BLOCK)) {
-                newState = newState.with(ModProperties.ROOTY, Rooty.BOTTOM);
-            } else if (blockBelow.isIn(BlockTags.DIRT)) {
-                ((WorldAccess) world).setBlockState(pos.down(), ModBlocks.ROOT_BLOCK.getDefaultState(), Block.NOTIFY_NEIGHBORS);
-                newState = newState.with(ModProperties.ROOTY, Rooty.BOTTOM);
-            } else {
-                newState = newState.with(ModProperties.ROOTY, Rooty.NONE);
-            }
-
-            int dx = pos.getX() % 2;
-            int dz = pos.getZ() % 2;
-            if (dx == 1 && dz == 1) newState = newState.with(ModProperties.SLICE, Slice.ONE);
-            else if (dx == 0 && dz == 1) newState = newState.with(ModProperties.SLICE, Slice.TWO);
-            else if (dx == 0 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.THREE);
-            else if (dx == 1 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.FOUR);
-
-            if (!blockBelow.isOf(newState.getBlock()) || (blockBelow.contains(SLICE) && blockBelow.get(SLICE) == Slice.ZERO)) {
-                newState = newState.with(SLICE, Slice.ZERO);
+                newState = inheritSlice(newState, worldAccess, pos);
             }
         }
 
         original.call(instance, pos, newState);
     }
+
+//    @WrapOperation(method = "getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;Ljava/util/function/Function;)Z", at = @At(value = "INVOKE", target = "Ljava/util/function/BiConsumer;accept(Ljava/lang/Object;Ljava/lang/Object;)V"))
+//    private void modifyDarkOakLog(BiConsumer instance, Object posObj, Object stateObj, Operation<Void> original, @Local(argsOnly = true) TestableWorld world, @Local(argsOnly = true) TreeFeatureConfig config, @Local(argsOnly = true) Random random, @Local(argsOnly = true) BlockPos pos) {
+//        BlockState newState = config.trunkProvider.get(random, pos);
+//
+//        if ((TrunkPlacer) (Object) this instanceof DarkOakTrunkPlacer) {
+//            BlockState blockBelow = ((WorldAccess) world).getBlockState(pos.down());
+//            if (blockBelow.isOf(ModBlocks.ROOT_BLOCK)) {
+//                newState = newState.with(ModProperties.ROOTY, Rooty.BOTTOM);
+//            } else if (blockBelow.isIn(BlockTags.DIRT)) {
+//                ((WorldAccess) world).setBlockState(pos.down(), ModBlocks.ROOT_BLOCK.getDefaultState(), Block.NOTIFY_NEIGHBORS);
+//                newState = newState.with(ModProperties.ROOTY, Rooty.BOTTOM);
+//            } else {
+//                newState = newState.with(ModProperties.ROOTY, Rooty.NONE);
+//            }
+//
+//            int dx = pos.getX() % 2;
+//            int dz = pos.getZ() % 2;
+//            if (dx == 1 && dz == 1) newState = newState.with(ModProperties.SLICE, Slice.ONE);
+//            else if (dx == 0 && dz == 1) newState = newState.with(ModProperties.SLICE, Slice.TWO);
+//            else if (dx == 0 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.THREE);
+//            else if (dx == 1 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.FOUR);
+//
+//            if (!blockBelow.isOf(newState.getBlock()) || (blockBelow.contains(SLICE) && blockBelow.get(SLICE) == Slice.ZERO)) {
+//                newState = newState.with(SLICE, Slice.ZERO);
+//            }
+//        }
+//
+//        original.call(instance, pos, newState);
+//    }
 }

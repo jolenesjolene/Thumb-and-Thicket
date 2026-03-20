@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.create().nonOpaque().hardness(3.0F).sounds(BlockSoundGroup.HANGING_ROOTS)), "root_block", true);
+    public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.create().hardness(3.0F).sounds(BlockSoundGroup.HANGING_ROOTS)), "root_block", true);
     public static final Block ROOTED_GRASS = register(new RootedDirtBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_grass", true);
     public static final Block PUFFED_DANDELION = register(new PuffedDandelionBlock(AbstractBlock.Settings.copy(Blocks.DANDELION)), "puffed_dandelion", true);
 

@@ -3,6 +3,6 @@
   "textures": {
     "top": "block/birch_log_top",
     "bark": "block/birch_log",
-    "roots": "block/roots/birch_root_0"
+    "roots": "block/roots/birch_roots_0"
   }
 }

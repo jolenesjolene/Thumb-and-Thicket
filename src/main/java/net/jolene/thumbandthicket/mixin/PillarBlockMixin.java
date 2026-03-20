@@ -73,7 +73,17 @@ public class PillarBlockMixin extends Block {
             Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, ModBlocks.ROOT_BLOCK);
 
             if (newState.contains(SLICE)) {
-
+                Direction logBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, state.getBlock());
+                if (logBlockDirection != null){
+                    Direction invertedlogBlockDirection = thumbandthicket$getInvertedDirection(logBlockDirection);
+                    BlockState logBelow = world.getBlockState(pos.offset(logBlockDirection));
+                    BlockState logBelow1 = world.getBlockState(pos.offset(invertedlogBlockDirection));
+                    if (logBelow.contains(SLICE) && logBelow.get(SLICE) != Slice.ZERO) {
+                        newState = newState.with(SLICE, logBelow.get(SLICE));
+                    } else if (logBelow1.contains(SLICE) && logBelow1.get(SLICE) != Slice.ZERO){
+                        newState = newState.with(SLICE, logBelow1.get(SLICE));
+                    }
+                }
 
                 if (rootBlockDirection != null) {
                     BlockState blockBelow = world.getBlockState(pos.offset(rootBlockDirection));
