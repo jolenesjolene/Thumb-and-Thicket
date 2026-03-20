@@ -2,11 +2,9 @@ package net.jolene.thumbandthicket.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
