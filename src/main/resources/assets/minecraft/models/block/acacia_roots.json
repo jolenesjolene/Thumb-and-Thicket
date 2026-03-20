@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/roots",
+  "textures": {
+    "roots": "block/roots/acacia_roots_1"
+  }
+}

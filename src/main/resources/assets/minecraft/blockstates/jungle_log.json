@@ -1,26 +1,525 @@
 {
-  "variants": {
-    "rooty=none,slice=1,axis=y": {"model": "minecraft:block/jungle_log_slice", "x": 0, "y": 0},
-    "rooty=none,slice=2,axis=y": {"model": "minecraft:block/jungle_log_slice", "x": 0, "y": 90},
-    "rooty=none,slice=3,axis=y": {"model": "minecraft:block/jungle_log_slice", "x": 0, "y": 180},
-    "rooty=none,slice=4,axis=y": {"model": "minecraft:block/jungle_log_slice", "x": 0, "y": 270},
-
-    "rooty=top,slice=1,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 180, "y": 90},
-    "rooty=top,slice=2,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 180, "y": 180},
-    "rooty=top,slice=3,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 180, "y": 270},
-    "rooty=top,slice=4,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 180, "y": 0},
-
-    "rooty=bottom,slice=1,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 0, "y": 0},
-    "rooty=bottom,slice=2,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 0, "y": 90},
-    "rooty=bottom,slice=3,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 0, "y": 180},
-    "rooty=bottom,slice=4,axis=y": {"model": "minecraft:block/rooty_jungle_log_slice", "x": 0, "y": 270},
-
-    "rooty=bottom,slice=0,axis=x": {"model": "minecraft:block/rooty_jungle_log", "x": 90, "y": 90},
-    "rooty=bottom,slice=0,axis=y": {"model": "minecraft:block/rooty_jungle_log", "x": 0, "y": 0},
-    "rooty=bottom,slice=0,axis=z": {"model": "minecraft:block/rooty_jungle_log", "x": 270, "y": 0},
-
-    "rooty=top,slice=0,axis=x": {"model": "minecraft:block/rooty_jungle_log", "x": 90, "y": 270},
-    "rooty=top,slice=0,axis=y": {"model": "minecraft:block/rooty_jungle_log", "x": 180, "y": 0},
-    "rooty=top,slice=0,axis=z": {"model": "minecraft:block/rooty_jungle_log", "x": 90, "y": 0}
-  }
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top|bottom|none",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log",
+        "y": 0,
+        "x": 0
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top|bottom|none",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log",
+        "y": 0,
+        "x": 90
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top|bottom|none",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice"
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top|bottom|none",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "y": 90
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top|bottom|none",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "y": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top|bottom|none",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "y": 270
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top|bottom|none",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top|bottom|none",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top|bottom|none",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top|bottom|none",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top|bottom|none",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 270
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top|bottom|none",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top|bottom|none",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top|bottom|none",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_log_slice",
+        "x": 90,
+        "y": 0
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top|bottom|none",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "bottom",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots"
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "bottom",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots",
+        "x": 270
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "bottom",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots",
+        "y": 0,
+        "x": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots",
+        "y": 180,
+        "x": 270
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top",
+        "slice": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big"
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "bottom",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 90
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "bottom",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "bottom",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 270
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "bottom",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 90,
+        "x": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 180,
+        "x": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 180,
+        "y": 270
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 180
+      },
+      "when": {
+        "axis": "y",
+        "rooty": "top",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "bottom",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "y": 270,
+        "x": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "bottom",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "bottom",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "bottom",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 270,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 90,
+        "y": 270
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "rooty": "top",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 270
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "bottom",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "bottom",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "bottom",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 90
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "bottom",
+        "slice": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 270
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top",
+        "slice": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 270,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top",
+        "slice": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big_inverted",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "axis": "z",
+        "rooty": "top",
+        "slice": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/jungle_roots_big",
+        "x": 90
+      },
+      "when": {
+          "axis": "z",
+          "rooty": "top",
+          "slice": "4"
+      }
+    }
+  ]
 }

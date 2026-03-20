@@ -1,0 +1,9 @@
+{
+  "parent": "thumbandthicket:block/log_slice",
+  "textures": {
+    "top": "block/log/mangrove_log_slice",
+    "inner": "block/log/mangrove_log_inner",
+    "particle": "block/mangrove_log",
+    "bark": "block/mangrove_log"
+  }
+}

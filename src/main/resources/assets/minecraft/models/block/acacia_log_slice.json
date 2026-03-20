@@ -1,0 +1,9 @@
+{
+  "parent": "thumbandthicket:block/log_slice",
+  "textures": {
+    "top": "block/log/oak_log_slice",
+    "inner": "block/log/oak_log_inner",
+    "particle": "block/acacia_log",
+    "bark": "block/oak_log"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/big_roots",
+  "textures": {
+    "roots": "block/roots/jungle_roots_big"
+  }
+}

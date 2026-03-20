@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "minecraft:block/oak_log",
+        "model": "minecraft:block/mangrove_log",
         "x": 90,
         "y": 270
       },
@@ -14,7 +14,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log",
+        "model": "minecraft:block/mangrove_log",
         "y": 0,
         "x": 0
       },
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log",
+        "model": "minecraft:block/mangrove_log",
         "y": 0,
         "x": 90
       },
@@ -38,7 +38,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice"
+        "model": "minecraft:block/mangrove_log_slice"
       },
       "when": {
         "axis": "y",
@@ -48,7 +48,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "y": 90
       },
       "when": {
@@ -59,7 +59,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "y": 180
       },
       "when": {
@@ -70,7 +70,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "y": 270
       },
       "when": {
@@ -81,7 +81,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 270,
         "y": 90
       },
@@ -93,7 +93,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 270,
         "y": 270
       },
@@ -105,7 +105,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 90,
         "y": 270
       },
@@ -117,7 +117,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 90,
         "y": 90
       },
@@ -129,7 +129,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 270
       },
       "when": {
@@ -140,7 +140,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 270,
         "y": 180
       },
@@ -152,7 +152,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 90,
         "y": 180
       },
@@ -164,7 +164,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_log_slice",
+        "model": "minecraft:block/mangrove_log_slice",
         "x": 90,
         "y": 0
       },
@@ -176,7 +176,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots",
+        "model": "minecraft:block/mangrove_roots",
         "x": 270,
         "y": 270
       },
@@ -188,7 +188,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots"
+        "model": "minecraft:block/mangrove_roots"
       },
       "when": {
         "axis": "y",
@@ -198,7 +198,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots",
+        "model": "minecraft:block/mangrove_roots",
         "x": 270
       },
       "when": {
@@ -209,7 +209,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots",
+        "model": "minecraft:block/mangrove_roots",
         "x": 90,
         "y": 270
       },
@@ -221,7 +221,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots",
+        "model": "minecraft:block/mangrove_roots",
         "y": 0,
         "x": 180
       },
@@ -233,7 +233,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots",
+        "model": "minecraft:block/mangrove_roots",
         "y": 180,
         "x": 270
       },
@@ -245,7 +245,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big"
+        "model": "minecraft:block/mangrove_roots_big"
       },
       "when": {
         "axis": "y",
@@ -255,7 +255,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 90
       },
       "when": {
@@ -266,7 +266,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 180
       },
       "when": {
@@ -277,7 +277,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 270
       },
       "when": {
@@ -288,7 +288,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 90,
         "x": 180
       },
@@ -300,7 +300,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 180,
         "x": 180
       },
@@ -312,7 +312,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 180,
         "y": 270
       },
@@ -324,7 +324,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 180
       },
       "when": {
@@ -335,7 +335,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 270,
         "y": 90
       },
@@ -347,7 +347,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "y": 270,
         "x": 270
       },
@@ -359,7 +359,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 90,
         "y": 270
       },
@@ -371,7 +371,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 90,
         "y": 90
       },
@@ -383,7 +383,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 270,
         "y": 90
       },
@@ -395,7 +395,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 270,
         "y": 270
       },
@@ -407,7 +407,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 90,
         "y": 270
       },
@@ -419,7 +419,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 90,
         "y": 90
       },
@@ -431,7 +431,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 270
       },
       "when": {
@@ -442,7 +442,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 270,
         "y": 180
       },
@@ -454,7 +454,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 90,
         "y": 180
       },
@@ -466,7 +466,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 90
       },
       "when": {
@@ -477,7 +477,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 270
       },
       "when": {
@@ -488,7 +488,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 270,
         "y": 180
       },
@@ -500,7 +500,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big_inverted",
+        "model": "minecraft:block/mangrove_roots_big_inverted",
         "x": 90,
         "y": 180
       },
@@ -512,7 +512,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/oak_roots_big",
+        "model": "minecraft:block/mangrove_roots_big",
         "x": 90
       },
       "when": {
