@@ -19,6 +19,7 @@ public class ModItemGroups {
                         .entries((displayContext, entries) -> {
                             entries.add(ModBlocks.ROOT_BLOCK);
                             entries.add(ModBlocks.ROOTED_GRASS);
+                            entries.add(Items.OAK_SAPLING);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(Items.LILAC);
