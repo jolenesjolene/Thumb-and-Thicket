@@ -5,6 +5,7 @@
   "mixins": [
     "BlockAccessor",
     "BlockMixin",
+    "DarkOakTrunkPlacerMixin",
     "ExampleMixin",
     "GiantTrunkPlacerMixin",
     "PillarBlockMixin",
