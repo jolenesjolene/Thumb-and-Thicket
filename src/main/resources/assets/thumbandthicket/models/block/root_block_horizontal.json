@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "side": "thumbandthicket:block/root_block",
-    "end": "thumbandthicket:block/root_block"
-  }
-}
