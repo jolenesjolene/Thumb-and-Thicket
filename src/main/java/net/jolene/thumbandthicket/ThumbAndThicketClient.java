@@ -23,6 +23,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ModColors.registerBlockColors();
+        ModColors.registerItemColors();
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> client.execute(() -> {
             for (RegistryEntry<Block> entry : Registries.BLOCK.iterateEntries(BlockTags.LOGS)) {
@@ -48,6 +49,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
                 }
         );
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOT_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CLOVERS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PUFFED_DANDELION, RenderLayer.getCutout());
     }
