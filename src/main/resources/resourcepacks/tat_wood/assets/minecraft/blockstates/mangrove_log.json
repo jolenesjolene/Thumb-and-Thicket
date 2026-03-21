@@ -176,7 +176,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots",
+        "model": "minecraft:block/mangrove_roots_log",
         "x": 270,
         "y": 270
       },
@@ -188,7 +188,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots"
+        "model": "minecraft:block/mangrove_roots_log"
       },
       "when": {
         "axis": "y",
@@ -198,7 +198,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots",
+        "model": "minecraft:block/mangrove_roots_log",
         "x": 270
       },
       "when": {
@@ -209,7 +209,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots",
+        "model": "minecraft:block/mangrove_roots_log",
         "x": 90,
         "y": 270
       },
@@ -221,7 +221,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots",
+        "model": "minecraft:block/mangrove_roots_log",
         "y": 0,
         "x": 180
       },
@@ -233,7 +233,7 @@
     },
     {
       "apply": {
-        "model": "minecraft:block/mangrove_roots",
+        "model": "minecraft:block/mangrove_roots_log",
         "y": 180,
         "x": 270
       },
