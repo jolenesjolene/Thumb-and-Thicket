@@ -2,21 +2,24 @@ package net.jolene.thumbandthicket;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItemGroups;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spongepowered.asm.mixin.Unique;
 
 import static net.jolene.thumbandthicket.util.ModProperties.ROOTY;
 import static net.jolene.thumbandthicket.util.ModProperties.SLICE;
@@ -30,6 +33,7 @@ public class ThumbAndThicket implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
+        registerResourcePacks();
 		LOGGER.info("Muddy!");
 	}
 
@@ -142,4 +146,15 @@ public class ThumbAndThicket implements ModInitializer {
         return state;
     }
 
+    public static void registerResourcePacks() {
+        ModContainer modContainer = FabricLoader.getInstance()
+                .getModContainer(MOD_ID)
+                .orElseThrow(() -> new IllegalStateException("Missing mod modContainer"));
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                Identifier.of(MOD_ID, "tat_wood"), modContainer,
+                Text.translatable("pack.thumbandthicket.wood_states"),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
+    }
 }

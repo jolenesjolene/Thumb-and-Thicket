@@ -1,0 +1,11 @@
+{
+  "pack": {
+    "description": "Woodier Wood and loggier Logs",
+    "name": "pack.thumbandthicket.wood_states",
+    "pack_format": 16,
+    "supported_formats": {
+      "min_inclusive": 16,
+      "max_inclusive": 46
+    }
+  }
+}

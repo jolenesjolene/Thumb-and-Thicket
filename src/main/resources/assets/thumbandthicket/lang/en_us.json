@@ -3,5 +3,6 @@
   "block.thumbandthicket.root_block": "Root Block",
   "block.thumbandthicket.puffed_dandelion": "Puffed Dandelion",
   "block.thumbandthicket.rooted_grass": "Rooted Grass",
-  "block.thumbandthicket.clovers": "Clovers"
+  "block.thumbandthicket.clovers": "Clovers",
+  "pack.thumbandthicket.wood_states": "Thumb and Thicket Wood Overrides"
 }
