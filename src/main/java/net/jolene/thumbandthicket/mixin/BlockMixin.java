@@ -2,18 +2,20 @@ package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.Rooty;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.util.math.Direction;
+import net.minecraft.state.StateManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static net.jolene.thumbandthicket.util.ModProperties.*;
 import static net.minecraft.block.PillarBlock.AXIS;
+import static net.minecraft.state.property.Properties.BLOCK_FACE;
+import static net.minecraft.state.property.Properties.FACING;
 
 @Mixin(Block.class)
 public class BlockMixin {
@@ -32,5 +34,13 @@ public class BlockMixin {
                 if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
         }
+    }
+
+
+    @Inject(method = "appendProperties", at = @At("TAIL"))
+    private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
+        Block block = (Block) (Object) this;
+        if (block instanceof MushroomPlantBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
+        if (block instanceof FungusBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
     }
 }

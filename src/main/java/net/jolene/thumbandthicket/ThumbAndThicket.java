@@ -12,6 +12,9 @@ import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -33,7 +36,7 @@ public class ThumbAndThicket implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
-        registerResourcePacks();
+        thumbandthicket$registerResourcePacks();
 		LOGGER.info("Muddy!");
 	}
 
@@ -118,7 +121,7 @@ public class ThumbAndThicket implements ModInitializer {
         return state;
     }
 
-    public static BlockState inheritSlice(BlockState state, WorldAccess world, BlockPos pos) {
+    public static BlockState thumbandthicket$inheritSlice(BlockState state, WorldAccess world, BlockPos pos) {
 
         Direction.Axis axis = state.get(AXIS);
         Block block = state.getBlock();
@@ -146,7 +149,7 @@ public class ThumbAndThicket implements ModInitializer {
         return state;
     }
 
-    public static void registerResourcePacks() {
+    public static void thumbandthicket$registerResourcePacks() {
         ModContainer modContainer = FabricLoader.getInstance()
                 .getModContainer(MOD_ID)
                 .orElseThrow(() -> new IllegalStateException("Missing mod modContainer"));
@@ -156,5 +159,15 @@ public class ThumbAndThicket implements ModInitializer {
                 Text.translatable("pack.thumbandthicket.wood_states"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
+    }
+
+    public static Item thumbandthicket$getItemByName(String name) {
+        for (Item item : Registries.ITEM) {
+            Identifier id = Registries.ITEM.getId(item);
+            if (id.getPath().equals(name)) {
+                return item;
+            }
+        }
+        return Items.AIR;
     }
 }

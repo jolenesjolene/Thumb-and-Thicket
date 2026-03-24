@@ -59,7 +59,7 @@ public class PillarBlockMixin extends Block {
             if (state.get(ROOTY) != Rooty.NONE) {
                 state = thumbandthicket$calculateSlice(state, world, pos);
             }
-            state = inheritSlice(state, world, pos);
+            state = thumbandthicket$inheritSlice(state, world, pos);
 
             cir.setReturnValue(state);
         }

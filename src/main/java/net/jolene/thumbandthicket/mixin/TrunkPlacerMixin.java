@@ -57,7 +57,7 @@ public class TrunkPlacerMixin {
                     newState = thumbandthicket$calculateSlice(newState, worldAccess, pos);
                 }
 
-                newState = inheritSlice(newState, worldAccess, pos);
+                newState = thumbandthicket$inheritSlice(newState, worldAccess, pos);
             }
         }
 
