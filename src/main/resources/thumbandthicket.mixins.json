@@ -9,7 +9,6 @@
     "ExampleMixin",
     "FungusBlockMixin",
     "GiantTrunkPlacerMixin",
-    "ItemMixin",
     "MushroomPlantBlockMixin",
     "PillarBlockMixin",
     "SettingsAccessor",

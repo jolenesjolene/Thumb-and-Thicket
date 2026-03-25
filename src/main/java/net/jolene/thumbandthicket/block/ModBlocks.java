@@ -18,6 +18,7 @@ public class ModBlocks {
     public static final Block ROOTED_GRASS = register(new RootedDirtBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_grass", true);
     public static final Block PUFFED_DANDELION = register(new PuffedDandelionBlock(AbstractBlock.Settings.copy(Blocks.DANDELION)), "puffed_dandelion", true);
     public static final Block CLOVERS = register(new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "clovers", true);
+    public static final Block SNOWY_GRASS = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.SHORT_GRASS)), "snowy_grass", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);
@@ -35,6 +36,7 @@ public class ModBlocks {
             entries.addBefore(Items.HANGING_ROOTS, ROOT_BLOCK);
             entries.addAfter(Items.ROOTED_DIRT, ROOTED_GRASS);
             entries.addAfter(Items.PINK_PETALS, CLOVERS);
+            entries.addAfter(Items.SHORT_GRASS, SNOWY_GRASS);
         });
     }
 

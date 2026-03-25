@@ -17,10 +17,11 @@
 * Root blocks, spread Rooted Dirt and Rooted Grass Blocks, generated under any tree
 * 2x2 Logs
 * Rooted Dirt, Grass and Roots under trees
+* Mushrooms on Trees
+
 ### **Maybe We Add**
 ***
 * Pebbles, Seashells
-* Mushrooms on Trees (workout how before pushed to 'We Add')
 * Bark from stripping logs (needs uses before pushed to 'We Add')
 * Lemon, pears, other fruit??
 * Lavender
@@ -40,3 +41,4 @@
 * Some sort of new grass, that mixes in and has a slight yellow tinge on the top, think it could look nice
 * Hares
 * Airbubble plant + waterlogged stuff
+* Caves that conform to their overworld biomes' temperature
