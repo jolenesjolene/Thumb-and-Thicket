@@ -8,6 +8,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItemGroups;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
@@ -36,6 +37,7 @@ public class ThumbAndThicket implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
+        ModItems.initialize();
         thumbandthicket$registerResourcePacks();
 		LOGGER.info("Muddy!");
 	}

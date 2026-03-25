@@ -5,6 +5,8 @@
   "mixins": [
     "BlockAccessor",
     "BlockMixin",
+    "CactusBlockMixin",
+    "CactusFlowerBlockMixin",
     "DarkOakTrunkPlacerMixin",
     "ExampleMixin",
     "FungusBlockMixin",

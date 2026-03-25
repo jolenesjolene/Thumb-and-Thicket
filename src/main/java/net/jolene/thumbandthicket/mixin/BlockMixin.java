@@ -1,5 +1,6 @@
 package net.jolene.thumbandthicket.mixin;
 
+import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.*;
@@ -14,8 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static net.jolene.thumbandthicket.util.ModProperties.*;
 import static net.minecraft.block.PillarBlock.AXIS;
-import static net.minecraft.state.property.Properties.BLOCK_FACE;
-import static net.minecraft.state.property.Properties.FACING;
+import static net.minecraft.state.property.Properties.*;
 
 @Mixin(Block.class)
 public class BlockMixin {
@@ -42,5 +42,6 @@ public class BlockMixin {
         Block block = (Block) (Object) this;
         if (block instanceof MushroomPlantBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
         if (block instanceof FungusBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
+        if (block instanceof CactusFlowerBlock) builder.add(AGE_2);
     }
 }
