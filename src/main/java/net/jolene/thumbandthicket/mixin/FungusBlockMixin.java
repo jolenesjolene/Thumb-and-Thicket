@@ -5,17 +5,24 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FungusBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.enums.BlockFace;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+
+import java.util.function.BiFunction;
 
 import static net.jolene.thumbandthicket.util.ModProperties.AMOUNT;
 import static net.minecraft.state.property.Properties.BLOCK_FACE;
@@ -25,6 +32,41 @@ import static net.minecraft.state.property.Properties.FACING;
 public class FungusBlockMixin extends Block {
     public FungusBlockMixin(Settings settings) {
         super(settings);
+    }
+
+    @Unique
+    private static final BiFunction<BlockState, Integer, VoxelShape> FACING_AND_AMOUNT_TO_SHAPE = Util.memoize((state, amount) -> {
+        VoxelShape[] voxelShapes = new VoxelShape[]{Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 3.0, 16.0), Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 3.0, 16.0)};
+        VoxelShape[] voxelShapesWallSouth = new VoxelShape[]{Block.createCuboidShape(8, 8, 0, 16, 16, 3), Block.createCuboidShape(8, 0, 0, 16, 8, 3), Block.createCuboidShape(0, 0, 0, 8, 8, 3), Block.createCuboidShape(0, 8, 0, 8, 16, 3)};
+        VoxelShape[] voxelShapesWallWest = new VoxelShape[]{Block.createCuboidShape(13, 8, 8, 16, 16, 16), Block.createCuboidShape(13, 0, 8, 16, 8, 16), Block.createCuboidShape(13, 0, 0, 16, 8, 8), Block.createCuboidShape(13, 8, 0, 16, 16, 8)};
+        VoxelShape[] voxelShapesWallNorth = new VoxelShape[]{Block.createCuboidShape(8, 8, 13, 16, 16, 16), Block.createCuboidShape(8, 0, 13, 16, 8, 16), Block.createCuboidShape(0, 0, 13, 8, 8, 16), Block.createCuboidShape(0, 8, 13, 8, 16, 16)};
+        VoxelShape[] voxelShapesWallEast = new VoxelShape[]{Block.createCuboidShape(0, 8, 8, 3, 16, 16), Block.createCuboidShape(0, 0, 8, 3, 8, 16), Block.createCuboidShape(0, 0, 0, 3, 8, 8), Block.createCuboidShape(0, 8, 0, 3, 16, 8)};
+        VoxelShape[] voxelShapesCeiling = new VoxelShape[]{Block.createCuboidShape(8, 13, 8, 16, 16, 16), Block.createCuboidShape(8, 13, 0, 16, 16, 8), Block.createCuboidShape(0, 13, 0, 8, 16, 8), Block.createCuboidShape(0, 13, 8, 8, 16, 16)};
+        VoxelShape voxelShape = VoxelShapes.empty();
+        Direction facing = state.get(FACING);
+        switch (state.get(BLOCK_FACE)) {
+            case FLOOR -> voxelShapes = voxelShapes;
+            case WALL -> {
+                switch (facing) {
+                    case NORTH -> voxelShapes = voxelShapesWallNorth;
+                    case EAST -> voxelShapes = voxelShapesWallEast;
+                    case SOUTH -> voxelShapes = voxelShapesWallSouth;
+                    case WEST -> voxelShapes = voxelShapesWallWest;
+                }
+            }
+            case CEILING -> voxelShapes = voxelShapesCeiling;
+        }
+        for (int i = 0; i < amount; ++i) {
+            int j = Math.floorMod(i - facing.getHorizontal(), 4);
+            voxelShape = VoxelShapes.union(voxelShape, voxelShapes[j]);
+        }
+        return voxelShape;
+    });
+
+
+    @WrapMethod(method = "getOutlineShape")
+    private VoxelShape thumbandthicket$getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context, Operation<VoxelShape> original) {
+        return FACING_AND_AMOUNT_TO_SHAPE.apply(state, state.get(AMOUNT));
     }
 
     @Override
