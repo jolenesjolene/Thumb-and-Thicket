@@ -2,7 +2,10 @@ package net.jolene.thumbandthicket.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
+import net.jolene.thumbandthicket.effect.ModEffects;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
@@ -11,18 +14,24 @@ import net.minecraft.registry.Registry;
 
 public class ModItems {
 
-    public static final FoodComponent PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.3f).build();
 
-    public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(16).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
+    // The Prickly Effect will cause nearby entities to take cactus-like damage from the player
+
+    public static final FoodComponent PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodComponent GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(ModEffects.PRICKLY, 100, 0), 1.0F).build();
+
+    public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
+    public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
 
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);
     }
 
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
                 .register(group -> {
-                    group.addAfter(Items.APPLE, ModItems.PRICKLY_PEAR);
+                    group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
+                    group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });
     }
 }

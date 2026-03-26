@@ -23,6 +23,7 @@ public class ModItemGroups {
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(ModItems.PRICKLY_PEAR);
+                            entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
                             entries.add(Items.RED_MUSHROOM);
                             entries.add(Items.BROWN_MUSHROOM);
 

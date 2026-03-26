@@ -2,8 +2,12 @@
   "itemgroup.thumbandthicket.thumbandthicket": "Thumb & Thicket",
   "block.thumbandthicket.puffed_dandelion": "Puffed Dandelion",
   "item.thumbandthicket.prickly_pear": "Prickly Pear",
+  "item.thumbandthicket.golden_prickly_pear": "Golden Prickly Pear",
   "block.thumbandthicket.clovers": "Clovers",
   "block.thumbandthicket.root_block": "Root Block",
   "block.thumbandthicket.rooted_grass": "Rooted Grass",
+
+  "effect.thumbandthicket.prickly": "Prickly",
+
   "pack.thumbandthicket.wood_states": "Thumb and Thicket Wood Overrides"
 }
