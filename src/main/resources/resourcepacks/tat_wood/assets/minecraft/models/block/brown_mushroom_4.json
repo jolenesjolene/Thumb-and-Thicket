@@ -1,6 +1,6 @@
 {
   "parent": "thumbandthicket:block/mushroom_4",
   "textures": {
-    "fungus": "block/brown_mushroom"
+    "fungus": "block/brown_mushroom_4"
   }
 }

@@ -20,6 +20,8 @@ public class ModItemGroups {
                             entries.add(ModBlocks.ROOT_BLOCK);
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(Items.OAK_SAPLING);
+                            entries.add(Items.BROWN_MUSHROOM);
+                            entries.add(ModItems.PRICKLY_PEAR);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(Items.LILAC);
