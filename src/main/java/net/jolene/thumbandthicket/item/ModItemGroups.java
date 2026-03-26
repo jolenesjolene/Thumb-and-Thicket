@@ -14,17 +14,17 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
         public static final ItemGroup THUMB_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
                 Identifier.of(ThumbAndThicket.MOD_ID, "thumb_and_thicket"),
-                FabricItemGroup.builder().icon(() -> new ItemStack(Items.ROOTED_DIRT))
+                FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.PRICKLY_PEAR))
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
                             entries.add(ModBlocks.ROOT_BLOCK);
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(Items.OAK_SAPLING);
-                            entries.add(Items.BROWN_MUSHROOM);
-                            entries.add(ModItems.PRICKLY_PEAR);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
-                            entries.add(Items.LILAC);
+                            entries.add(ModItems.PRICKLY_PEAR);
+                            entries.add(Items.RED_MUSHROOM);
+                            entries.add(Items.BROWN_MUSHROOM);
 
                         }).build());
 
