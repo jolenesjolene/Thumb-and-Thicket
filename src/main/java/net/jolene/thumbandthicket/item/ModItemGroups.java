@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
         public static final ItemGroup THUMB_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
                 Identifier.of(ThumbAndThicket.MOD_ID, "thumb_and_thicket"),
-                FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.PRICKLY_PEAR))
+                FabricItemGroup.builder().icon(() -> new ItemStack(Items.OAK_SAPLING))
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
                             entries.add(ModBlocks.ROOT_BLOCK);
