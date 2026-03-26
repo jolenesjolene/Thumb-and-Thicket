@@ -35,7 +35,7 @@ public abstract class MushroomPlantBlockMixin extends Block {
 
     @Unique
     private static final BiFunction<BlockState, Integer, VoxelShape> FACING_AND_AMOUNT_TO_SHAPE = Util.memoize((state, amount) -> {
-        VoxelShape[] voxelShapesFloor = new VoxelShape[]{Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 3.0, 16.0), Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 3.0, 16.0)};
+        VoxelShape[] voxelShapesFloor = new VoxelShape[]{Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 9.0, 16.0), Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 9.0, 8.0), Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 9.0, 8.0), Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 9.0, 16.0)};
         VoxelShape[] voxelShapesWallSouth = new VoxelShape[]{Block.createCuboidShape(8, 8, 0, 16, 16, 3), Block.createCuboidShape(8, 0, 0, 16, 8, 3), Block.createCuboidShape(0, 0, 0, 8, 8, 3), Block.createCuboidShape(0, 8, 0, 8, 16, 3)};
         VoxelShape[] voxelShapesWallWest = new VoxelShape[]{Block.createCuboidShape(13, 8, 8, 16, 16, 16), Block.createCuboidShape(13, 0, 8, 16, 8, 16), Block.createCuboidShape(13, 0, 0, 16, 8, 8), Block.createCuboidShape(13, 8, 0, 16, 16, 8)};
         VoxelShape[] voxelShapesWallNorth = new VoxelShape[]{Block.createCuboidShape(8, 8, 13, 16, 16, 16), Block.createCuboidShape(8, 0, 13, 16, 8, 16), Block.createCuboidShape(0, 0, 13, 8, 8, 16), Block.createCuboidShape(0, 8, 13, 8, 16, 16)};

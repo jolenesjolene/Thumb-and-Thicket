@@ -1,0 +1,22 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by gayasslily",
+	"textures": {
+		"fungus": "#fungus"
+	},
+	"elements": [
+		{
+			"from": [2, 5, 13],
+			"to": [5, 5, 16],
+			"rotation": {"angle": -45, "axis": "x", "origin": [5, 5, 16]},
+			"faces": {
+				"north": {"uv": [3, 0, 6, 0], "texture": "#fungus"},
+				"east": {"uv": [0, 0, 3, 0], "texture": "#fungus"},
+				"south": {"uv": [0, 0, 3, 0], "texture": "#fungus"},
+				"west": {"uv": [1, 0, 4, 0], "texture": "#fungus"},
+				"up": {"uv": [5, 0, 8, 3], "texture": "#fungus"},
+				"down": {"uv": [5, 0, 8, 3], "texture": "#fungus"}
+			}
+		}
+	]
+}

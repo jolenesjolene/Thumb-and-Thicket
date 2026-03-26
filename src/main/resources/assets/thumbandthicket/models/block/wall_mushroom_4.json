@@ -1,0 +1,23 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by gayasslily",
+	"textures": {
+		"fungus": "#fungus",
+		"particle": "block/brown_mushroom"
+	},
+	"elements": [
+		{
+			"from": [9, 13, 12],
+			"to": [15, 13, 16],
+			"rotation": {"angle": -45, "axis": "x", "origin": [12, 13, 16]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 0], "texture": "#fungus"},
+				"east": {"uv": [0, 0, 4, 0], "texture": "#fungus"},
+				"south": {"uv": [0, 0, 6, 0], "texture": "#fungus"},
+				"west": {"uv": [0, 0, 4, 0], "texture": "#fungus"},
+				"up": {"uv": [0, 3, 6, 7], "texture": "#fungus"},
+				"down": {"uv": [0, 3, 6, 7], "texture": "#fungus"}
+			}
+		}
+	]
+}
