@@ -30,7 +30,7 @@ loom {
 
 fabricApi {
 	configureDataGeneration {
-		client = true
+        modId = "thumbandthicket"
 	}
 }
 
@@ -42,8 +42,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "maven.modrinth:vanillabackport:dQd9n3aB"
-	
+    modImplementation "maven.modrinth:vanillabackport:MXn5I7VI"
+    modImplementation "maven.modrinth:platform:WeSu6O41"
+
 }
 
 processResources {

@@ -95,9 +95,11 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
 
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity instanceof ItemEntity item && (item.getStack().isOf(ModItems.PRICKLY_PEAR) || item.getStack().isOf(ModBlocks.CACTUS_FLOWER.get().asItem()) || item.getStack().isOf(Blocks.CACTUS.asItem()))) {
-            return;
+        if (getAge(state) == MAX_AGE){
+            if (entity instanceof ItemEntity item && (item.getStack().isOf(ModItems.PRICKLY_PEAR) || item.getStack().isOf(ModBlocks.CACTUS_FLOWER.get().asItem()) || item.getStack().isOf(Blocks.CACTUS.asItem()))) {
+                return;
+            }
+            entity.damage(world.getDamageSources().cactus(), 1.0f);
         }
-        entity.damage(world.getDamageSources().cactus(), 1.0f);
     }
 }

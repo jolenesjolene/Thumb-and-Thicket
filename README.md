@@ -3,7 +3,7 @@
 ***
 * Puffed Dandelions + area particles
 * Roots on cave ceilings
-* Snowy Grass, broken gives snowball (not right click because could accidentally do and ruin aesthetic me thinks, change if you disagree though).
+* Snowy Grass, broken gives snowball (not right-click because could accidentally do and ruin aesthetic me thinks, change if you disagree though).
 * Leaf Piles have particles
 * Big Lily Pads, and Variated Lily Pads, new textures and stems
 * Clovers, 4 Leaf Clovers, place-able like leaf litter, drops 4 leafed one by chance
