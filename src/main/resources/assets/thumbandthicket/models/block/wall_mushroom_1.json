@@ -1,5 +1,6 @@
 {
 	"format_version": "1.9.0",
+  "ambientocclusion": false,
 	"credit": "Made by gayasslily",
 	"textures": {
 		"fungus": "#fungus"
