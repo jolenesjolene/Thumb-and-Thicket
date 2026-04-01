@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.jolene.thumbandthicket.block.entity.ModBlockEntities;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItemGroups;
 import net.jolene.thumbandthicket.item.ModItems;
@@ -13,6 +14,7 @@ import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -38,6 +40,7 @@ public class ThumbAndThicket implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
         ModItems.initialize();
+        ModBlockEntities.register();
         thumbandthicket$registerResourcePacks();
 		LOGGER.info("Muddy!");
 	}
@@ -171,5 +174,15 @@ public class ThumbAndThicket implements ModInitializer {
             }
         }
         return Items.AIR;
+    }
+
+    public static Block thumbandthicket$getBlockByName(String name) {
+        for (Block block : Registries.BLOCK) {
+            Identifier id = Registries.BLOCK.getId(block);
+            if (id.getPath().equals(name)) {
+                return block;
+            }
+        }
+        return Blocks.AIR;
     }
 }
