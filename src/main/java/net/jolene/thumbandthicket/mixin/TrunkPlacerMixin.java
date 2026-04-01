@@ -12,6 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
@@ -35,6 +37,10 @@ public class TrunkPlacerMixin {
         replacer.accept(pos, state);
 
         if (world instanceof WorldAccess worldAccess) {
+            DimensionType dimensionType = worldAccess.getDimension();
+//            if (dimensionType == DimensionTypes.OVERWORLD) {
+//
+//            }
             worldAccess.setBlockState(pos, state, Block.NOTIFY_ALL);
         }
     }
