@@ -1,525 +1,316 @@
 {
   "multipart": [
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log",
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top|bottom|none",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log", "x": 90, "y": 270},
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "0", "snipped":  true}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log",
-        "y": 0,
-        "x": 0
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top|bottom|none",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log", "y": 0, "x": 0},
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "0", "snipped":  true}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log",
-        "y": 0,
-        "x": 90
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top|bottom|none",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log", "y": 0, "x": 90},
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "0", "snipped":  true}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice"
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top|bottom|none",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_hollow", "x": 90, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log_scratched", "x": 90, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log", "x": 90, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "y": 90
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top|bottom|none",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_hollow", "y": 0, "x": 0, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log_scratched", "y": 0, "x": 0, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log", "y": 0, "x": 0, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "y": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top|bottom|none",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_hollow", "y": 0, "x": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log_scratched", "y": 0, "x": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_log", "y": 0, "x": 90, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "y": 270
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top|bottom|none",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_branch", "x": 90, "y": 270, "weight": 7}
+      ],
+        "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 270,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top|bottom|none",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_branch", "y": 0, "x": 0, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 270,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top|bottom|none",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_log_branch", "y": 0, "x": 90, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top|bottom|none",
-        "slice": "3"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice"},
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "1"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 90,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top|bottom|none",
-        "slice": "4"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "y": 90},
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "2"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 270
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top|bottom|none",
-        "slice": "1"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "y": 180},
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "3"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 270,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top|bottom|none",
-        "slice": "2"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "y": 270},
+      "when": {"axis": "y", "rooty": "top|bottom|none", "slice": "4"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 90,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top|bottom|none",
-        "slice": "3"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 270, "y": 90},
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "1"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_log_slice",
-        "x": 90,
-        "y": 0
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top|bottom|none",
-        "slice": "4"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 270, "y": 270},
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "2"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots",
-        "x": 270,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "bottom",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 90, "y": 270},
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "3"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots"
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "bottom",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 90, "y": 90},
+      "when": {"axis": "x", "rooty": "top|bottom|none", "slice": "4"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots",
-        "x": 270
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "bottom",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 270},
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "1"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots",
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 270, "y": 180},
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "2"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots",
-        "y": 0,
-        "x": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 90, "y": 180},
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "3"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots",
-        "y": 180,
-        "x": 270
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top",
-        "slice": "0"
-      }
+      "apply": {"model": "[modid]:block/[modded_wood]_log_slice", "x": 90, "y": 0},
+      "when": {"axis": "z", "rooty": "top|bottom|none", "slice": "4"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big"
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "bottom",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "x": 270, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "x": 270, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "bottom", "slice": "0"}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 90
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "bottom",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "bottom", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "bottom",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "x": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "x": 270, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "bottom", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 270
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "bottom",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "x": 90, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "x": 90, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 90,
-        "x": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "y": 0, "x": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "y": 0, "x": 180, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 180,
-        "x": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots", "y": 180, "x": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_1", "y": 180, "x": 270, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top", "slice": "0", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 180,
-        "y": 270
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "bottom", "slice": "1", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 180
-      },
-      "when": {
-        "axis": "y",
-        "rooty": "top",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 90, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "bottom", "slice": "2", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 270,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "bottom",
-        "slice": "1"
-      }
+      "apply":[
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 180, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "bottom", "slice": "3", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "y": 270,
-        "x": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "bottom",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "bottom", "slice": "4", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "bottom",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 90, "x": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 90, "x": 180, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top", "slice": "1", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 90,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "bottom",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 180, "x": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 180, "x": 180, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top", "slice": "2", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 270,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 180, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 180, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top", "slice": "3", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 270,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 180, "weight": 7}
+      ],
+      "when": {"axis": "y", "rooty": "top",  "slice": "4", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 90,
-        "y": 270
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 270, "y": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 270, "y": 90, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "bottom", "slice": "1", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 90,
-        "y": 90
-      },
-      "when": {
-        "axis": "x",
-        "rooty": "top",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "y": 270, "x": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "y": 270, "x": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "bottom", "slice": "2", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 270
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "bottom",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 90, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 90, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "bottom", "slice": "3", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 270,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "bottom",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 90, "y": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 90, "y": 90, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "bottom", "slice": "4", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 90,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "bottom",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 270, "y": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 270, "y": 90, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top", "slice": "1", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 90
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "bottom",
-        "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 270, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 270, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top", "slice": "2", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 270
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top",
-        "slice": "1"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 90, "y": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 90, "y": 270, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top", "slice": "3", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 270,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top",
-        "slice": "2"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 90, "y": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 90, "y": 90, "weight": 7}
+      ],
+      "when": {"axis": "x", "rooty": "top", "slice": "4", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big_inverted",
-        "x": 90,
-        "y": 180
-      },
-      "when": {
-        "axis": "z",
-        "rooty": "top",
-        "slice": "3"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 270, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "bottom", "slice": "1", "snipped":  false}
     },
     {
-      "apply": {
-        "model": "modid:block/[modded_log]_roots_big",
-        "x": 90
-      },
-      "when": {
-          "axis": "z",
-          "rooty": "top",
-          "slice": "4"
-      }
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 270, "y": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 270, "y": 180, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "bottom", "slice": "2", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 90, "y": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 90, "y": 180, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "bottom", "slice": "3", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 90, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "bottom", "slice": "4", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 270, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 270, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top", "slice": "1", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 270, "y": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 270, "y": 180, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top", "slice": "2", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted", "x": 90, "y": 180, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_inverted_1", "x": 90, "y": 180, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top", "slice": "3", "snipped":  false}
+    },
+    {
+      "apply": [
+        {"model": "[modid]:block/[modded_wood]_roots_big", "x": 90, "weight": 7},
+        {"model": "[modid]:block/[modded_wood]_roots_big_1", "x": 90, "weight": 7}
+      ],
+      "when": {"axis": "z", "rooty": "top", "slice": "4", "snipped":  false}
     }
   ]
 }

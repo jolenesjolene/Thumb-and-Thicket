@@ -2,10 +2,8 @@ package net.jolene.thumbandthicket.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FungusBlock;
-import net.minecraft.block.ShapeContext;
+import net.jolene.thumbandthicket.block.ModBlockTags;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.BlockFace;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.registry.tag.BlockTags;
@@ -18,8 +16,11 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.function.BiFunction;
@@ -30,39 +31,47 @@ import static net.minecraft.state.property.Properties.FACING;
 
 @Mixin(FungusBlock.class)
 public class FungusBlockMixin extends Block {
+    @Shadow
+    @Final
+    protected static VoxelShape SHAPE;
+
     public FungusBlockMixin(Settings settings) {
         super(settings);
     }
 
     @Unique
     private static final BiFunction<BlockState, Integer, VoxelShape> FACING_AND_AMOUNT_TO_SHAPE = Util.memoize((state, amount) -> {
-        VoxelShape[] voxelShapes = new VoxelShape[]{Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 3.0, 16.0), Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 3.0, 8.0), Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 3.0, 16.0)};
+        VoxelShape[] voxelShapesFloor = new VoxelShape[]{Block.createCuboidShape(8.0, 0.0, 8.0, 16.0, 9.0, 16.0), Block.createCuboidShape(8.0, 0.0, 0.0, 16.0, 9.0, 8.0), Block.createCuboidShape(0.0, 0.0, 0.0, 8.0, 9.0, 8.0), Block.createCuboidShape(0.0, 0.0, 8.0, 8.0, 9.0, 16.0)};
         VoxelShape[] voxelShapesWallSouth = new VoxelShape[]{Block.createCuboidShape(8, 8, 0, 16, 16, 3), Block.createCuboidShape(8, 0, 0, 16, 8, 3), Block.createCuboidShape(0, 0, 0, 8, 8, 3), Block.createCuboidShape(0, 8, 0, 8, 16, 3)};
         VoxelShape[] voxelShapesWallWest = new VoxelShape[]{Block.createCuboidShape(13, 8, 8, 16, 16, 16), Block.createCuboidShape(13, 0, 8, 16, 8, 16), Block.createCuboidShape(13, 0, 0, 16, 8, 8), Block.createCuboidShape(13, 8, 0, 16, 16, 8)};
         VoxelShape[] voxelShapesWallNorth = new VoxelShape[]{Block.createCuboidShape(8, 8, 13, 16, 16, 16), Block.createCuboidShape(8, 0, 13, 16, 8, 16), Block.createCuboidShape(0, 0, 13, 8, 8, 16), Block.createCuboidShape(0, 8, 13, 8, 16, 16)};
         VoxelShape[] voxelShapesWallEast = new VoxelShape[]{Block.createCuboidShape(0, 8, 8, 3, 16, 16), Block.createCuboidShape(0, 0, 8, 3, 8, 16), Block.createCuboidShape(0, 0, 0, 3, 8, 8), Block.createCuboidShape(0, 8, 0, 3, 16, 8)};
         VoxelShape[] voxelShapesCeiling = new VoxelShape[]{Block.createCuboidShape(8, 13, 8, 16, 16, 16), Block.createCuboidShape(8, 13, 0, 16, 16, 8), Block.createCuboidShape(0, 13, 0, 8, 16, 8), Block.createCuboidShape(0, 13, 8, 8, 16, 16)};
         VoxelShape voxelShape = VoxelShapes.empty();
+        VoxelShape[] voxelShapes = new VoxelShape[]{voxelShape};
         Direction facing = state.get(FACING);
-        switch (state.get(BLOCK_FACE)) {
-            case FLOOR -> voxelShapes = voxelShapes;
-            case WALL -> {
-                switch (facing) {
-                    case NORTH -> voxelShapes = voxelShapesWallNorth;
-                    case EAST -> voxelShapes = voxelShapesWallEast;
-                    case SOUTH -> voxelShapes = voxelShapesWallSouth;
-                    case WEST -> voxelShapes = voxelShapesWallWest;
+        if (state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            switch (state.get(BLOCK_FACE)) {
+                case FLOOR -> voxelShapes = voxelShapesFloor;
+                case WALL -> {
+                    switch (facing) {
+                        case NORTH -> voxelShapes = voxelShapesWallNorth;
+                        case EAST -> voxelShapes = voxelShapesWallEast;
+                        case SOUTH -> voxelShapes = voxelShapesWallSouth;
+                        case WEST -> voxelShapes = voxelShapesWallWest;
+                    }
                 }
+                case CEILING -> voxelShapes = voxelShapesCeiling;
             }
-            case CEILING -> voxelShapes = voxelShapesCeiling;
-        }
-        for (int i = 0; i < amount; ++i) {
-            int j = Math.floorMod(i - facing.getHorizontal(), 4);
-            voxelShape = VoxelShapes.union(voxelShape, voxelShapes[j]);
+            for (int i = 0; i < amount; ++i) {
+                int j = Math.floorMod(i - facing.getHorizontal(), 4);
+                voxelShape = VoxelShapes.union(voxelShape, voxelShapes[j]);
+            }
+        } else {
+            voxelShape = SHAPE;
         }
         return voxelShape;
     });
-
 
     @WrapMethod(method = "getOutlineShape")
     private VoxelShape thumbandthicket$getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context, Operation<VoxelShape> original) {
@@ -72,17 +81,22 @@ public class FungusBlockMixin extends Block {
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 
-        Direction direction = thumbandthicket$getDirection(state);
+        Direction direction = thumbandthicket$getDirection(state).getOpposite();
         BlockPos blockPos = pos.offset(direction);
+
+        if (!state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            BlockPos pos1 = pos.down();
+            return world.getBlockState(pos1).isFullCube(world, pos1) && (world.getBaseLightLevel(pos1, 0) < 13 || world.getBlockState(pos1).isIn(BlockTags.MUSHROOM_GROW_BLOCK));
+        }
         return world.getBlockState(blockPos).isSideSolidFullSquare(world, blockPos, direction.getOpposite()) && (world.getBaseLightLevel(pos, 0) < 13 || world.getBlockState(blockPos).isIn(BlockTags.MUSHROOM_GROW_BLOCK));
     }
 
     @Unique
     private static Direction thumbandthicket$getDirection(BlockState state) {
         return switch (state.get(BLOCK_FACE)) {
-            case CEILING -> Direction.UP;
-            case FLOOR -> Direction.DOWN;
-            default -> state.get(Properties.FACING);
+            case CEILING -> Direction.DOWN;
+            case FLOOR -> Direction.UP;
+            default -> state.get(FACING);
         };
     }
 
@@ -93,9 +107,8 @@ public class FungusBlockMixin extends Block {
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        if (!context.shouldCancelInteraction() && context.getStack().isOf(this.asItem()) && state.get(AMOUNT) < 4) {
-            return true;
-        }
+        if (!state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) return false;
+        if (!context.shouldCancelInteraction() && context.getStack().isOf(this.asItem()) && state.get(AMOUNT) < 4) return true;
         return super.canReplace(state, context);
     }
 
@@ -103,14 +116,25 @@ public class FungusBlockMixin extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Block block = this;
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+        if (!block.getDefaultState().isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            return block.getDefaultState();
+        }
         if (blockState.isOf(this)) {
             return blockState.with(AMOUNT, Math.min(4, blockState.get(AMOUNT) + 1));
         }
         for (Direction direction : ctx.getPlacementDirections()) {
-            BlockState blockState1 = direction.getAxis() == Direction.Axis.Y ? block.getDefaultState().with(BLOCK_FACE, direction == Direction.UP ? BlockFace.FLOOR : BlockFace.CEILING).with(Properties.FACING, ctx.getHorizontalPlayerFacing()) : block.getDefaultState().with(BLOCK_FACE, BlockFace.WALL).with(FACING, direction.getOpposite());
+            BlockState blockState1 = direction.getAxis() == Direction.Axis.Y ? block.getDefaultState().with(BLOCK_FACE, direction == Direction.UP ? BlockFace.CEILING : BlockFace.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()) : block.getDefaultState().with(BLOCK_FACE, BlockFace.WALL).with(FACING, direction.getOpposite());
             if (!blockState1.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState1;
         }
         return null;
+    }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (thumbandthicket$getDirection(state).getOpposite() == direction && !canPlaceAt(state, world, pos)) {
+            return Blocks.AIR.getDefaultState();
+        }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 }

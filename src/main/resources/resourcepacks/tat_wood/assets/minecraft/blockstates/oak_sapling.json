@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "minecraft:block/oak_seed"
+    },
+    "age=1": {
+      "model": "minecraft:block/oak_sapling_small"
+    },
+    "age=2": {
+      "model": "minecraft:block/oak_sapling"
+    },
+    "age=3": {
+      "model": "minecraft:block/oak_sapling_tall"
+    }
+  }
+}

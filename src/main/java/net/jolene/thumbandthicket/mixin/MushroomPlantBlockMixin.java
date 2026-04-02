@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import net.jolene.thumbandthicket.block.ModBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BlockFace;
 import net.minecraft.item.ItemPlacementContext;
@@ -16,7 +17,9 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.function.BiFunction;
@@ -27,6 +30,10 @@ import static net.minecraft.state.property.Properties.FACING;
 
 @Mixin(MushroomPlantBlock.class)
 public abstract class MushroomPlantBlockMixin extends Block {
+
+    @Shadow
+    @Final
+    protected static VoxelShape SHAPE;
 
     public MushroomPlantBlockMixin(Settings settings) {
         super(settings);
@@ -44,21 +51,25 @@ public abstract class MushroomPlantBlockMixin extends Block {
         VoxelShape voxelShape = VoxelShapes.empty();
         VoxelShape[] voxelShapes = new VoxelShape[]{voxelShape};
         Direction facing = state.get(FACING);
-        switch (state.get(BLOCK_FACE)) {
-            case FLOOR -> voxelShapes = voxelShapesFloor;
-            case WALL -> {
-                switch (facing) {
-                    case NORTH -> voxelShapes = voxelShapesWallNorth;
-                    case EAST -> voxelShapes = voxelShapesWallEast;
-                    case SOUTH -> voxelShapes = voxelShapesWallSouth;
-                    case WEST -> voxelShapes = voxelShapesWallWest;
+        if (state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            switch (state.get(BLOCK_FACE)) {
+                case FLOOR -> voxelShapes = voxelShapesFloor;
+                case WALL -> {
+                    switch (facing) {
+                        case NORTH -> voxelShapes = voxelShapesWallNorth;
+                        case EAST -> voxelShapes = voxelShapesWallEast;
+                        case SOUTH -> voxelShapes = voxelShapesWallSouth;
+                        case WEST -> voxelShapes = voxelShapesWallWest;
+                    }
                 }
+                case CEILING -> voxelShapes = voxelShapesCeiling;
             }
-            case CEILING -> voxelShapes = voxelShapesCeiling;
-        }
-        for (int i = 0; i < amount; ++i) {
-            int j = Math.floorMod(i - facing.getHorizontal(), 4);
-            voxelShape = VoxelShapes.union(voxelShape, voxelShapes[j]);
+            for (int i = 0; i < amount; ++i) {
+                int j = Math.floorMod(i - facing.getHorizontal(), 4);
+                voxelShape = VoxelShapes.union(voxelShape, voxelShapes[j]);
+            }
+        } else {
+            voxelShape = SHAPE;
         }
         return voxelShape;
     });
@@ -73,6 +84,11 @@ public abstract class MushroomPlantBlockMixin extends Block {
 
         Direction direction = thumbandthicket$getDirection(state).getOpposite();
         BlockPos blockPos = pos.offset(direction);
+
+        if (!state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            BlockPos pos1 = pos.down();
+            return world.getBlockState(pos1).isFullCube(world, pos1) && (world.getBaseLightLevel(pos1, 0) < 13 || world.getBlockState(pos1).isIn(BlockTags.MUSHROOM_GROW_BLOCK));
+        }
         return world.getBlockState(blockPos).isSideSolidFullSquare(world, blockPos, direction.getOpposite()) && (world.getBaseLightLevel(pos, 0) < 13 || world.getBlockState(blockPos).isIn(BlockTags.MUSHROOM_GROW_BLOCK));
     }
 
@@ -92,9 +108,8 @@ public abstract class MushroomPlantBlockMixin extends Block {
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        if (!context.shouldCancelInteraction() && context.getStack().isOf(this.asItem()) && state.get(AMOUNT) < 4) {
-            return true;
-        }
+        if (!state.isIn(ModBlockTags.STACKABLE_MUSHROOMS)) return false;
+        if (!context.shouldCancelInteraction() && context.getStack().isOf(this.asItem()) && state.get(AMOUNT) < 4) return true;
         return super.canReplace(state, context);
     }
 
@@ -102,6 +117,9 @@ public abstract class MushroomPlantBlockMixin extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Block block = this;
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+        if (!block.getDefaultState().isIn(ModBlockTags.STACKABLE_MUSHROOMS)) {
+            return block.getDefaultState();
+        }
         if (blockState.isOf(this)) {
             return blockState.with(AMOUNT, Math.min(4, blockState.get(AMOUNT) + 1));
         }

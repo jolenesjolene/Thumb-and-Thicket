@@ -7,6 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 
 public class ModBlockTags {
     public static final TagKey<Block> ROOTY_BLOCKS = block("rooty_blocks");
+    public static final TagKey<Block> STACKABLE_MUSHROOMS = block("stackable_mushrooms");
 
     private static TagKey<Block> block(String name) {
         return TagKey.of(RegistryKeys.BLOCK, ThumbAndThicket.id(name));

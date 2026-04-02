@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/sapling_seed",
+  "textures": {
+    "seed": "block/saplings/oak_seed"
+  }
+}
