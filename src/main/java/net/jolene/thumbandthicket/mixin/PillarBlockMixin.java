@@ -8,9 +8,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -33,18 +42,18 @@ public class PillarBlockMixin extends Block {
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
     private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
-        AbstractBlock.Settings settings = (PillarBlock.class.cast(this)).getSettings();
+        Settings settings = (PillarBlock.class.cast(this)).getSettings();
         SettingsAccessor accessor = (SettingsAccessor) settings;
-        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY);
-        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.CHERRY_WOOD) builder.add(SLICE).add(ROOTY);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY).add(SNIPPED);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.CHERRY_WOOD) builder.add(SLICE).add(ROOTY).add(SNIPPED);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void appendLogPropertiesValue(AbstractBlock.Settings settings, CallbackInfo ci) {
+    private void appendLogPropertiesValue(Settings settings, CallbackInfo ci) {
         Block pillarBlock = PillarBlock.class.cast(this);
         BlockState defaultBlockState = pillarBlock.getDefaultState();
         if (defaultBlockState.contains(ROOTY) && defaultBlockState.contains(SLICE)) {
-            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, Rooty.NONE).with(SLICE, Slice.ZERO).with(ROOTY, Rooty.NONE));
+            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, Rooty.NONE).with(SLICE, Slice.ZERO).with(ROOTY, Rooty.NONE).with(SNIPPED, false));
         }
     }
 
@@ -100,5 +109,22 @@ public class PillarBlockMixin extends Block {
         }
 
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    }
+
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (state.isIn(BlockTags.LOGS) && state.contains(SNIPPED) && !world.isClient) {
+            if (state.get(SNIPPED) == false && stack.isOf(Items.SHEARS)) {
+                EquipmentSlot slot = null;
+                switch (hand) {
+                    case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
+                    case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
+                }
+                if (!player.isCreative()) stack.damage(1, player, slot);
+                world.setBlockState(pos, state.with(SNIPPED, true));
+                return ItemActionResult.success(!state.get(SNIPPED));
+            }
+        }
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 }

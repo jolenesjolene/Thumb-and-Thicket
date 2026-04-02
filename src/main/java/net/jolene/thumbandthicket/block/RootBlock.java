@@ -12,6 +12,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -24,6 +25,7 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public RootBlock(Settings settings) {
         super(settings);
+        super.setDefaultState(this.getDefaultState().with(Properties.AXIS, Direction.Axis.Y));
     }
 
     @Override
@@ -48,11 +50,13 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
     @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (world.getBlockEntity(pos) instanceof RootBlockEntity rootBlockEntity && !world.isClient) {
-            if (random.nextInt(25) == 0 && world.getBlockState(pos.up()).isOf(Blocks.AIR)) {
-                Block sapling = rootBlockEntity.thumbandthicket$getSapling();
-                if (sapling != Blocks.AIR) {
-                    BlockState saplingBlock = sapling.getDefaultState();
-                    world.setBlockState(pos.up(), saplingBlock, Block.NOTIFY_ALL);
+            if (world.getBlockState(pos.north()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.east()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.south()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.west()).isIn(ModBlockTags.ROOTY_BLOCKS)) {
+                if (random.nextInt(25) == 0 && world.getBlockState(pos.up()).isOf(Blocks.AIR)) {
+                    Block sapling = rootBlockEntity.thumbandthicket$getSapling();
+                    if (sapling != Blocks.AIR) {
+                        BlockState saplingBlock = sapling.getDefaultState();
+                        world.setBlockState(pos.up(), saplingBlock, Block.NOTIFY_ALL);
+                    }
                 }
             }
         }
