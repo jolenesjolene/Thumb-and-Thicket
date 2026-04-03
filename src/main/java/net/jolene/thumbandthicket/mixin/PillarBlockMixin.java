@@ -12,8 +12,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
@@ -119,7 +124,27 @@ public class PillarBlockMixin extends Block {
                     case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
                 }
                 if (!player.isCreative()) stack.damage(1, player, slot);
-                world.setBlockState(pos, state.with(SNIPPED, true));
+                BlockState newState = state.with(SNIPPED, true);
+                world.setBlockState(pos, newState);
+                if (world instanceof ServerWorld serverWorld) {
+                    serverWorld.spawnParticles(
+                            new BlockStateParticleEffect(ParticleTypes.BLOCK, newState),
+                            pos.getX() + 0.25,
+                            pos.getY() + 0.25,
+                            pos.getZ() + 0.25,
+                            16,
+                            0.5, 0.5, 0.5,
+                            0.5
+                    );
+                }
+                world.playSound(
+                        null,
+                        pos,
+                        SoundEvents.ENTITY_SHEEP_SHEAR,
+                        SoundCategory.BLOCKS,
+                        1.0F,
+                        1.0F
+                );
                 return ItemActionResult.success(!state.get(SNIPPED));
             }
         }
