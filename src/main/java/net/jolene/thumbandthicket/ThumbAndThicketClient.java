@@ -9,6 +9,7 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.util.ModColors;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;

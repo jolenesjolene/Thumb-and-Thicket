@@ -11,6 +11,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Rarity;
 
 public class ModItems {
 
@@ -21,7 +22,7 @@ public class ModItems {
     public static final FoodComponent GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(ModEffects.PRICKLY, 100, 0), 1.0F).build();
 
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
-    public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
+    public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
 
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);

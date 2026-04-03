@@ -6,6 +6,7 @@ import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +26,9 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -113,7 +117,10 @@ public class PillarBlockMixin extends Block {
 
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
-
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.cuboid(-0.00001, -0.00001, -0.00001, 1.00001, 1.00001, 1.00001);
+    }
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.isIn(BlockTags.LOGS) && state.contains(SNIPPED) && !world.isClient) {

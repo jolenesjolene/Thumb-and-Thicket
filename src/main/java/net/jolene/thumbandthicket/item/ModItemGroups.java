@@ -17,8 +17,6 @@ public class ModItemGroups {
                 FabricItemGroup.builder().icon(() -> new ItemStack(Items.OAK_SAPLING))
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
-                            entries.add(ModBlocks.ROOT_BLOCK);
-                            entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(Items.OAK_SAPLING);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
@@ -26,6 +24,8 @@ public class ModItemGroups {
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
                             entries.add(Items.RED_MUSHROOM);
                             entries.add(Items.BROWN_MUSHROOM);
+                            entries.add(ModBlocks.ROOTED_GRASS);
+                            entries.add(ModBlocks.ROOT_BLOCK);
 
                         }).build());
 
