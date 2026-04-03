@@ -1,5 +1,6 @@
-// 1.21.1	2026-04-02T14:32:09.9440237	Thumb & Thicket/Model Definitions
-8901e0d1c2d30018bd9bf4b04f4fb642ac8454a5 assets\thumbandthicket\models\item\clovers.json
-117d5d2c0bd4ce1fb19d75fa35fb65d3f06e1d94 assets\thumbandthicket\models\item\puffed_dandelion.json
-a2da452e4ec9a6f262a5e5667ffa4c73793413e8 assets\thumbandthicket\models\item\prickly_pear.json
-f598880a5e47998f2fdaf77bcefd4776d686fc1e assets\thumbandthicket\models\item\snowy_grass.json
+// 1.21.1	2026-04-03T01:30:51.389262362	Thumb & Thicket/Model Definitions
+21df67bc34c08e6e8415497a5b24535ef449df2e assets/thumbandthicket/models/item/golden_prickly_pear.json
+a2da452e4ec9a6f262a5e5667ffa4c73793413e8 assets/thumbandthicket/models/item/prickly_pear.json
+8901e0d1c2d30018bd9bf4b04f4fb642ac8454a5 assets/thumbandthicket/models/item/clovers.json
+f598880a5e47998f2fdaf77bcefd4776d686fc1e assets/thumbandthicket/models/item/snowy_grass.json
+117d5d2c0bd4ce1fb19d75fa35fb65d3f06e1d94 assets/thumbandthicket/models/item/puffed_dandelion.json

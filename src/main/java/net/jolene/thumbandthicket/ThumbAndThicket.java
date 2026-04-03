@@ -161,7 +161,7 @@ public class ThumbAndThicket implements ModInitializer {
 
         ResourceManagerHelper.registerBuiltinResourcePack(
                 Identifier.of(MOD_ID, "tat_wood"), modContainer,
-                Text.translatable("pack.thumbandthicket.wood_states"),
+                Text.translatable("pack.thumbandthicket.name"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
     }

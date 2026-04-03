@@ -16,6 +16,7 @@ public class ModModelProvider extends FabricModelProvider {
     public static final Map<Model, List<Item>> ITEM_MODEL_LISTS = Map.ofEntries(
             Map.entry(Models.GENERATED, List.of(
                     ModItems.PRICKLY_PEAR,
+                    ModItems.GOLDEN_PRICKLY_PEAR,
                     ModBlocks.SNOWY_GRASS.asItem(),
                     ModBlocks.CLOVERS.asItem(),
                     ModBlocks.PUFFED_DANDELION.asItem()
@@ -31,6 +32,7 @@ public class ModModelProvider extends FabricModelProvider {
             Map.entry(Models.CUBE_ALL, List.of(
             )),
             Map.entry(Models.CROSS, List.of(
+                    ModBlocks.PUFFED_DANDELION,
                     ModBlocks.SNOWY_GRASS
             ))
     );

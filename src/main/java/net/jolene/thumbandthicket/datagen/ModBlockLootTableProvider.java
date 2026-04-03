@@ -17,5 +17,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(ModBlocks.ROOT_BLOCK, drops(ModBlocks.ROOT_BLOCK));
         addDrop(ModBlocks.ROOTED_GRASS, drops(Blocks.ROOTED_DIRT));
+        addDrop(ModBlocks.PUFFED_DANDELION, drops(ModBlocks.PUFFED_DANDELION));
     }
 }
