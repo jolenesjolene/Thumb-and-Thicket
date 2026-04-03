@@ -37,6 +37,7 @@ public class ModBlocks {
             entries.addAfter(Items.ROOTED_DIRT, ROOTED_GRASS);
             entries.addAfter(Items.PINK_PETALS, CLOVERS);
             entries.addAfter(Items.SHORT_GRASS, SNOWY_GRASS);
+            entries.addAfter(Items.DANDELION, PUFFED_DANDELION);
         });
     }
 

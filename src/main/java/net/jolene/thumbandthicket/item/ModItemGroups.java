@@ -24,6 +24,7 @@ public class ModItemGroups {
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
                             entries.add(Items.RED_MUSHROOM);
                             entries.add(Items.BROWN_MUSHROOM);
+                            entries.add(ModBlocks.SNOWY_GRASS);
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(ModBlocks.ROOT_BLOCK);
 

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "minecraft:block/cactus_flower"
+    },
+    "age=1": {
+      "model": "minecraft:block/cactus_flower"
+    },
+    "age=2": {
+      "model": "minecraft:block/open_cactus_flower"
+    }
+  }
+}

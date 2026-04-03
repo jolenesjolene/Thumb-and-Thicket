@@ -1,0 +1,45 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "thumbandthicket:block/cactus_flower",
+		"particle": "thumbandthicket:block/cactus_flower"
+	},
+	"elements": [
+		{
+			"from": [-3, 0, 8],
+			"to": [19, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [8, 0, 8, 16], "texture": "#missing"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#0"},
+				"west": {"uv": [8, 0, 8, 16], "texture": "#missing"},
+				"up": {"uv": [0, 8, 16, 8], "texture": "#missing"},
+				"down": {"uv": [0, 8, 16, 8], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [8, 0, -3],
+			"to": [8, 16, 19],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [8, 0, 8, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [8, 0, 8, 16], "texture": "#missing"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#0"},
+				"up": {"uv": [8, 0, 8, 16], "texture": "#missing"},
+				"down": {"uv": [8, 0, 8, 16], "texture": "#missing"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "flower",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}
