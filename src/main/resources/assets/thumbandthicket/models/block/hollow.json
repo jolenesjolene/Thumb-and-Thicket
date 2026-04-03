@@ -1,0 +1,23 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by gayasslily",
+    "textures": {
+      "hollow": "#hollow"
+    },
+	"elements": [
+		{
+			"from": [0, 0, -0.01],
+			"to": [16, 16, -0.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -2]},
+			"color": 4,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#hollow"},
+				"east": {"uv": [0, 0, 0, 16], "texture": "#hollow"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#hollow"},
+				"west": {"uv": [2, 0, 2, 16], "texture": "#hollow"},
+				"up": {"uv": [0, 2, 16, 2], "texture": "#hollow"},
+				"down": {"uv": [0, 0, 16, 0], "texture": "#hollow"}
+			}
+		}
+	]
+}
