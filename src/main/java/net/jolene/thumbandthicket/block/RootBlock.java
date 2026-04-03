@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
@@ -44,22 +45,41 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
         if (world.isClient) {
             return null;
         }
-        return validateTicker(type, ROOT_BLOCK_ENTITY, ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
-    }
+        return validateTicker(type, ROOT_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> {
 
-    @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.getBlockEntity(pos) instanceof RootBlockEntity rootBlockEntity && !world.isClient) {
-            if (world.getBlockState(pos.north()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.east()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.south()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.west()).isIn(ModBlockTags.ROOTY_BLOCKS)) {
-                if (random.nextInt(25) == 0 && world.getBlockState(pos.up()).isOf(Blocks.AIR)) {
-                    Block sapling = rootBlockEntity.thumbandthicket$getSapling();
+            if (world1.getTime() % 20 != 0) return;
+
+            if (world1.getBlockState(pos.north()).isIn(ModBlockTags.ROOTY_BLOCKS) &&
+                    world1.getBlockState(pos.east()).isIn(ModBlockTags.ROOTY_BLOCKS) &&
+                    world1.getBlockState(pos.south()).isIn(ModBlockTags.ROOTY_BLOCKS) &&
+                    world1.getBlockState(pos.west()).isIn(ModBlockTags.ROOTY_BLOCKS)) {
+
+                if (world1.random.nextInt(25) == 0 && world1.getBlockState(pos.up()).isOf(Blocks.AIR)) {
+                    Block sapling = ((RootBlockEntity) blockEntity).thumbandthicket$getSapling();
                     if (sapling != Blocks.AIR) {
-                        BlockState saplingBlock = sapling.getDefaultState();
-                        world.setBlockState(pos.up(), saplingBlock, Block.NOTIFY_ALL);
+                        world1.setBlockState(pos.up(), sapling.getDefaultState(), Block.NOTIFY_ALL);
                     }
                 }
             }
-        }
+
+            if (world1.random.nextInt(3) == 0) {
+
+                BlockPos targetPos = pos.add(
+                        world1.random.nextInt(3) - 1,
+                        world1.random.nextInt(3) - 1,
+                        world1.random.nextInt(3) - 1
+                );
+
+                BlockState targetState = world1.getBlockState(targetPos);
+
+                if (targetState.isOf(Blocks.DIRT)) {
+                    world1.setBlockState(targetPos, Blocks.ROOTED_DIRT.getDefaultState(), Block.NOTIFY_ALL);
+                }
+                else if (targetState.isOf(Blocks.GRASS_BLOCK)) {
+                    world1.setBlockState(targetPos, ModBlocks.ROOTED_GRASS.getDefaultState(), Block.NOTIFY_ALL);
+                }
+            }
+        });
     }
 
     @Override
