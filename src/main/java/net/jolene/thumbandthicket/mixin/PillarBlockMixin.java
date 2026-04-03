@@ -119,7 +119,10 @@ public class PillarBlockMixin extends Block {
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(-0.00001, -0.00001, -0.00001, 1.00001, 1.00001, 1.00001);
+        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE && !state.get(SNIPPED)) {
+            return VoxelShapes.cuboid(-0.000025, -0.000025, -0.000025, 1.000025, 1.000025, 1.000025);
+        }
+        return VoxelShapes.fullCube();
     }
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
