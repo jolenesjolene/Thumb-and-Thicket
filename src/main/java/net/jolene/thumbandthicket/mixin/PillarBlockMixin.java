@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
+import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
@@ -150,7 +151,7 @@ public class PillarBlockMixin extends Block {
                 world.playSound(
                         null,
                         pos,
-                        SoundEvents.ENTITY_SHEEP_SHEAR,
+                        ModSounds.SNIP,
                         SoundCategory.BLOCKS,
                         1.0F,
                         1.0F
