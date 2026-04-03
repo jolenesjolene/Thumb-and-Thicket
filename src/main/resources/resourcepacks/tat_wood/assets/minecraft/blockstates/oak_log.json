@@ -123,7 +123,7 @@
         {"model": "minecraft:block/oak_roots_3", "x": 270, "y": 270, "weight": 4},
         {"model": "minecraft:block/oak_roots_4", "x": 270, "y": 270, "weight": 4}
       ],
-      "when": {"axis": "x", "rooty": "bottom", "slice": "0"}
+      "when": {"axis": "x", "rooty": "bottom", "slice": "0", "snipped":  false}
     },
     {
       "apply": [
