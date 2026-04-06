@@ -27,6 +27,7 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -148,13 +149,14 @@ public class PillarBlockMixin extends Block {
                             0.5
                     );
                 }
+                float f = MathHelper.nextBetween(world.random, 0.8f, 1.2f);
                 world.playSound(
                         null,
                         pos,
                         ModSounds.SNIP,
                         SoundCategory.BLOCKS,
                         1.0F,
-                        1.0F
+                        f
                 );
                 return ItemActionResult.success(!state.get(SNIPPED));
             }

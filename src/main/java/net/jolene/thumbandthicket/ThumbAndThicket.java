@@ -164,6 +164,12 @@ public class ThumbAndThicket implements ModInitializer {
                 Text.translatable("pack.thumbandthicket.name"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                Identifier.of(MOD_ID, "tat_worldgen"), modContainer,
+                Text.translatable("pack.thumbandthicket.data_name"),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
     }
 
     public static Item thumbandthicket$getItemByName(String name) {

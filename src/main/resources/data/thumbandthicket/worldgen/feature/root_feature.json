@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:disk",
+  "config": {
+    "half_height": {
+      "maxinclusive": 3,
+      "mininclusive": 1
+    },
+    "radius": {
+      "type": "minecraft:uniform",
+      "maxinclusive": 3,
+      "mininclusive": 2
+    },
+    "state_provider": {
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "name": "thumbandthicket:rooted_grass"
+        }
+      },
+      "rules": [
+        {
+          "if_true": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:dirt"
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "name": "minecraft:rooted_dirt"
+            }
+          }
+        },
+        {
+          "if_true": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:grass_block"
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "name": "thumbandthicket:rooted_grass"
+            }
+          }
+        }
+      ]
+    },
+    "target": {
+      "type": "minecraft:matching_blocks",
+      "blocks":[
+        "minecraft:grass_block",
+        "minecraft:dirt"
+      ]
+    }
+  }
+}
