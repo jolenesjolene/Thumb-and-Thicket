@@ -5,6 +5,11 @@
 - Retextures
   - ~~Sugar Cane~~
   - Wheat
+  - Grass Blocks
+  - Saplings
+  - Logs
+
+
 - Cactus Flower
   - ~~Prickly Pear grows on Cactus Flower~~
   - ~~Blockstates~~
