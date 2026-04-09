@@ -85,6 +85,7 @@
   - Textures
 - Barnacles
   - Block
+  - Stuck to Turtles (can be brushed off)
   - Worldgen
   - Textures
 - Airbubble Plant
@@ -157,6 +158,7 @@
   - Pigs
   - Silverfish
   - Spiders
+  - Polar Bears
   - etc.
 
 ### World
@@ -176,6 +178,7 @@
   - Overworld Biomes
     - Transition Biomes
     - Clearings in Forests
+    - Mud in Rivers and Oceans instead of Dirt
   - Cave Biomes
     - Hot Caves/Sand Caves
       - Cave
@@ -188,7 +191,7 @@
       - Cave
       - Worldgen
 
-
+- Water Caustics
 - Port Crop wilting system from Progression Respun
   - new Textures
   - Villager AI
