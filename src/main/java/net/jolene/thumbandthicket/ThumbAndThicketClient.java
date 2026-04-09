@@ -10,7 +10,6 @@ import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModColors;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -57,5 +56,6 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CLOVERS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PUFFED_DANDELION, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SNOWY_SHORT_GRASS, RenderLayer.getCutout());
     }
 }

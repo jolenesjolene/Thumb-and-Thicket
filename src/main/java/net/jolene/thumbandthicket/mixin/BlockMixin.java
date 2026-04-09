@@ -4,8 +4,12 @@ import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.*;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,9 +22,12 @@ import static net.minecraft.block.PillarBlock.AXIS;
 import static net.minecraft.state.property.Properties.*;
 
 @Mixin(Block.class)
-public class BlockMixin {
+public abstract class BlockMixin {
 
     @Shadow private BlockState defaultState;
+
+    @Shadow
+    public abstract BlockState getDefaultState();
 
     @Inject(method = "getPlacementState", at = @At("HEAD"), cancellable = true)
     private void modifyPlacementState(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
@@ -34,8 +41,10 @@ public class BlockMixin {
                 if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
         }
+        if (this instanceof Waterloggable && state.contains(LAVALOGGED)) {
+            cir.setReturnValue (defaultState.with(LAVALOGGED, false));
+        }
     }
-
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
     private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){

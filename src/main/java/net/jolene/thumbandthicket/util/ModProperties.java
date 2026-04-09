@@ -9,4 +9,5 @@ public class ModProperties {
     public static final EnumProperty<Slice> SLICE = EnumProperty.of("slice", Slice.class);
     public static final IntProperty AMOUNT = IntProperty.of("amount", 1, 4);
     public static final BooleanProperty SNIPPED = BooleanProperty.of("snipped");
+    public static final BooleanProperty LAVALOGGED = BooleanProperty.of("lavalogged");
 }

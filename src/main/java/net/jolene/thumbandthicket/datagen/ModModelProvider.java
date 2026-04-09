@@ -17,7 +17,7 @@ public class ModModelProvider extends FabricModelProvider {
             Map.entry(Models.GENERATED, List.of(
                     ModItems.PRICKLY_PEAR,
                     ModItems.GOLDEN_PRICKLY_PEAR,
-                    ModBlocks.SNOWY_GRASS.asItem(),
+                    ModBlocks.SNOWY_SHORT_GRASS.asItem(),
                     ModBlocks.CLOVERS.asItem(),
                     ModBlocks.PUFFED_DANDELION.asItem()
             )),
@@ -33,7 +33,7 @@ public class ModModelProvider extends FabricModelProvider {
             )),
             Map.entry(Models.CROSS, List.of(
                     ModBlocks.PUFFED_DANDELION,
-                    ModBlocks.SNOWY_GRASS
+                    ModBlocks.SNOWY_SHORT_GRASS
             ))
     );
 

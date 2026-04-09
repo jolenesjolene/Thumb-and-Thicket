@@ -1,0 +1,190 @@
+# Thumb and Thicket
+## TO DO
+
+### Foliage on Land
+- Retextures
+  - ~~Sugar Cane~~
+  - Wheat
+- Cactus Flower
+  - ~~Prickly Pear grows on Cactus Flower~~
+  - ~~Blockstates~~
+  - Loot Table
+  - Golden Flower
+  - Worldgen with different Ages
+  - Textures
+    - ~~Pear~~
+    - Flower
+- Clovers
+  - ~~Block~~
+  - Worldgen
+  - Textures
+- Puffed Dandelions
+  - ~~Block~~
+  - Particles
+  - Worldgen
+  - Textures
+- Roots
+  - Blockstates
+  - Longer Roots/Stackable Roots
+  - Worldgen
+    - on Cave Ceilings
+    - under Trees in Air Pockets
+  - Textures
+- Grass Variants
+  - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
+    - ~~Blocks~~
+    - Worldgen
+    - Textures
+  - Tinged Grass Variants
+    - Block
+    - Worldgen
+    - Textures
+- Mushrooms
+  - ~~Placement Logic~~
+  - Worldgen
+  - Loot Table
+  - Textures
+- Lavender
+  - Block
+  - Particles
+  - Worldgen
+  - Textures
+- Small Lilac
+  - Block
+  - Worldgen
+  - Textures
+- Flowers 
+  - stack up to 3
+  - Logic
+  - Worldgen
+    - Faery Circles
+- Purple Mushroom
+  - Block
+  - Worldgen
+  - Textures
+- Make all growing Plants snippable
+
+### Foliage in/around Water
+- Lilypads
+  - Stems
+  - Big Lilypads (2x2)
+  - Worldgen
+  - Textures
+- Milkweed
+  - Block
+  - Worldgen
+  - Textures
+- Duckweed
+  - Block
+  - Worldgen
+  - Textures
+- Barnacles
+  - Block
+  - Worldgen
+  - Textures
+- Airbubble Plant
+  - Stems
+  - Blocks
+  - Logic
+  - Worldgen
+  - Textures
+- Algae
+  - Block
+  - Worldgen
+  - Fish consume
+  - Textures
+- More Deep Sea Stuff
+
+
+- Make stuff compostable!!
+
+### Trees
+- ~~Roots~~
+- ~~Branches, Hollows, Scratches~~
+- ~~Trees replant~~
+- ~~2x2 Stems~~
+- ~~Blockstate Logic~~
+- Worldgen
+  - ~~Rootblocks~~
+  - Rooted Dirt and Grass
+  - Roots underneath
+- Sapling Retextures
+- Sap
+- Azalea Woodset
+
+### Mobs
+- Hare
+  - Mob
+  - Drops
+  - Behavior
+  - Textures
+- Deer
+  - Mob
+  - Drops
+  - Behavior
+  - Textures
+- Golden Moobloom Mob/Plant
+  - Mob
+  - Golden Dandelion Backport
+  - Behavior 
+  - How is it planted???
+  - Textures
+- Eggs
+  - Chicken and Parrots lay Eggs as Blocks
+  - Blocks
+  - Textures
+- More Fish
+- Big Clam
+  - Mob
+  - Pearls 
+  - Behavior
+  - ~~Textures~~
+- More Animal Behaviors
+  - seeking Shelter
+  - Dogs howl at Moon
+  - healing through food
+  - Squids blind you
+  - interactions with other mobs
+    - Ocelots lead Players to Temples
+- updated Mob Models
+  - Cow
+  - Sheep
+  - Pigs
+  - Silverfish
+  - Spiders
+  - etc.
+
+### World
+- Rooted Grass
+  - ~~Block~~
+  - Worldgen
+  - ~~Textures~~
+- Permafrost
+  - Block
+  - Worldgen
+  - Textures
+- Wet Sand
+  - Blockstate Logic
+  - Worldgen
+  - Textures
+- Biomes
+  - Overworld Biomes
+    - Transition Biomes
+    - Clearings in Forests
+  - Cave Biomes
+    - Hot Caves/Sand Caves
+      - Cave
+      - Worldgen
+    - Cold Caves
+      - Cave
+      - Worldgen
+    - Mushroom Caves
+      - New Tall Mushrooms
+      - Cave
+      - Worldgen
+
+
+- Port Crop wilting system from Progression Respun
+  - new Textures
+  - Villager AI
+  - make less bad
