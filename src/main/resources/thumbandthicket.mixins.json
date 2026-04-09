@@ -16,7 +16,7 @@
     "SaplingBlockMixin",
     "SettingsAccessor",
     "TreeFeatureMixin",
-    "TrunkPlacerMixin",
+    "TrunkPlacerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
