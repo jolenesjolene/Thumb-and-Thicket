@@ -24,6 +24,11 @@ public class ModBlocks {
     public static final Block SNOWY_TALL_GRASS = register(new TallPlantBlock(AbstractBlock.Settings.copy(Blocks.TALL_GRASS)), "snowy_tall_grass", true);
     public static final Block SNOWY_SHORT_FERN = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.FERN)), "snowy_fern", true);
     public static final Block SNOWY_LARGE_FERN = register(new TallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "snowy_large_fern", true);
+    public static final Block TINGED_SHORT_GRASS = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.SHORT_GRASS)), "tinged_short_grass", true);
+    public static final Block LAVENDER = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.POPPY)), "lavender", true);
+    public static final Block SHORT_LILAC = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
+    public static final Block PURPLE_MUSHROOM = register(new MushroomBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
+    public static final Block MILKWEED = register(new TallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

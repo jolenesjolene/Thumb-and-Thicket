@@ -41,7 +41,7 @@
     - Worldgen
     - Textures
   - Tinged Grass Variants
-    - Block
+    - ~~Block~~
     - Worldgen
     - Textures
 - Mushrooms
@@ -65,6 +65,7 @@
     - Faery Circles
 - Purple Mushroom
   - Block
+  - Configured Feature
   - Worldgen
   - Textures
 - Make all growing Plants snippable
@@ -134,6 +135,11 @@
   - Golden Dandelion Backport
   - Behavior 
   - How is it planted???
+  - Textures
+- Bear
+  - Mob
+  - Drops
+  - Behavior
   - Textures
 - Eggs
   - Chicken and Parrots lay Eggs as Blocks
