@@ -42,3 +42,6 @@
 * Hares
 * Airbubble plant + waterlogged stuff
 * Caves that conform to their overworld biomes' temperature
+
+
+Join the [Discord](https://discord.gg/uMgXFXVtT) to see WIP Showcases!
