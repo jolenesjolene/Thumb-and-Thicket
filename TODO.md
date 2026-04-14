@@ -8,8 +8,12 @@
   - Grass Blocks
   - Saplings
   - Logs
+  - Leaves (maybe with blockstate variations)
 
 
+- Spore Blossom
+  - Age Blockstates
+  - Textures
 - Cactus Flower
   - ~~Prickly Pear grows on Cactus Flower~~
   - ~~Blockstates~~
@@ -66,6 +70,16 @@
 - Purple Mushroom
   - Block
   - Configured Feature
+  - Worldgen
+  - Textures
+- Pale Gourd
+  - Block
+  - Gourd 0' Lanterns
+  - Worldgen
+  - Textures
+- Poison Ivy
+  - Block
+  - States
   - Worldgen
   - Textures
 - Make all growing Plants snippable
@@ -158,6 +172,7 @@
   - Squids blind you
   - interactions with other mobs
     - Ocelots lead Players to Temples
+  - Mobs have Litters
 - updated Mob Models
   - Cow
   - Sheep

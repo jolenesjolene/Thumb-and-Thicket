@@ -15,8 +15,10 @@
     "PillarBlockMixin",
     "SaplingBlockMixin",
     "SettingsAccessor",
+    "ShearsItemMixin",
     "TreeFeatureMixin",
-    "TrunkPlacerMixin"
+    "TrunkPlacerMixin",
+    "VineBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

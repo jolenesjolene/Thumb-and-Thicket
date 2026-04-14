@@ -37,9 +37,6 @@ public abstract class BlockMixin {
                 if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
         }
-        if (this instanceof Waterloggable && state.contains(LAVALOGGED)) {
-            cir.setReturnValue (defaultState.with(LAVALOGGED, false));
-        }
     }
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
