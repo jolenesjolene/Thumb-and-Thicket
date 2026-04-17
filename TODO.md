@@ -155,6 +155,16 @@
   - Drops
   - Behavior
   - Textures
+- Beaver
+  - Mob
+  - Drops
+  - Behavior
+  - Textures
+- Mandrake???
+  - Mob
+  - Drops
+  - Behavior
+  - Textures
 - Eggs
   - Chicken and Parrots lay Eggs as Blocks
   - Blocks
