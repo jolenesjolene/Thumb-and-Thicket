@@ -12,10 +12,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.jolene.thumbandthicket.util.ModProperties.*;
+import static net.jolene.thumbandthicket.util.ModProperties.SNIPPED;
 
-@Mixin(VineBlock.class)
-public class VineBlockMixin {
+@Mixin(SugarCaneBlock.class)
+public class SugarCaneBlockMixin {
+
     @WrapMethod(method = "randomTick")
     private void thumbandthicket$cancelWhenSnipped(BlockState state, ServerWorld world, BlockPos pos, Random random, Operation<Void> original) {
         if (!state.get(SNIPPED)) original.call(state, world, pos, random);
@@ -28,8 +29,8 @@ public class VineBlockMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void thumbandthicket$appendSnippedProperty(AbstractBlock.Settings settings, CallbackInfo ci) {
-        Block vineBlock = VineBlock.class.cast(this);
-        BlockState defaultBlockState = vineBlock.getDefaultState();
-        ((BlockAccessor) vineBlock).invokeSetDefaultState(defaultBlockState.with(SNIPPED, false));
+        Block sugarCaneBlock = SugarCaneBlock.class.cast(this);
+        BlockState defaultBlockState = sugarCaneBlock.getDefaultState();
+        ((BlockAccessor) sugarCaneBlock).invokeSetDefaultState(defaultBlockState.with(SNIPPED, false));
     }
 }

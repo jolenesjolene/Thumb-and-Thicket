@@ -16,6 +16,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
+import static net.jolene.thumbandthicket.util.ModProperties.SNIPPED;
+
 @Mixin(SaplingBlock.class)
 public class SaplingBlockMixin extends Block {
 
@@ -32,7 +34,7 @@ public class SaplingBlockMixin extends Block {
 
     protected SaplingBlockMixin(Settings settings) {
         super(settings);
-        super.setDefaultState(this.getDefaultState().with(AGE, 0).with(STAGE, 0));
+        super.setDefaultState(this.getDefaultState().with(SNIPPED, false).with(AGE, 0).with(STAGE, 0));
     }
 
     @WrapMethod(method = "getOutlineShape")

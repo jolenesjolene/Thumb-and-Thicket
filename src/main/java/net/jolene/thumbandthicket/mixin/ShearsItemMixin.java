@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SaplingBlock;
 import net.minecraft.block.VineBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +20,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
+import static net.jolene.thumbandthicket.block.ModBlockTags.SNIPPABLE;
 import static net.jolene.thumbandthicket.util.ModProperties.SNIPPED;
 
 @Mixin(ShearsItem.class)
@@ -32,7 +34,7 @@ public class ShearsItemMixin {
         Hand hand = context.getHand();
         PlayerEntity player = context.getPlayer();
         ItemStack stack = context.getStack();
-        if (state.contains(SNIPPED) && state.getBlock() instanceof VineBlock) {
+        if (state.contains(SNIPPED) && (state.isIn(SNIPPABLE) || state.getBlock() instanceof SaplingBlock)) {
             if (!state.get(SNIPPED)) {
                 world.setBlockState(pos, state.with(SNIPPED, true));
                 EquipmentSlot slot = null;

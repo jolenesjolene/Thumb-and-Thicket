@@ -54,12 +54,12 @@
   - Loot Table
   - Textures
 - Lavender
-  - Block
+  - ~~Block~~
   - Particles
   - Worldgen
   - Textures
 - Small Lilac
-  - Block
+  - ~~Block~~
   - Worldgen
   - Textures
 - Flowers 
@@ -69,6 +69,7 @@
     - Faery Circles
 - Purple Mushroom
   - Block
+  - ~~Big Block~~
   - Configured Feature
   - Worldgen
   - Textures

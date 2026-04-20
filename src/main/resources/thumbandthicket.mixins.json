@@ -16,6 +16,8 @@
     "SaplingBlockMixin",
     "SettingsAccessor",
     "ShearsItemMixin",
+    "SnowBlockMixin",
+    "SugarCaneBlockMixin",
     "TreeFeatureMixin",
     "TrunkPlacerMixin",
     "VineBlockMixin"

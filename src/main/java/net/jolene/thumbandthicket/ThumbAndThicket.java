@@ -12,6 +12,8 @@ import net.jolene.thumbandthicket.item.ModItemGroups;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
+import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
+import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -41,6 +43,9 @@ public class ThumbAndThicket implements ModInitializer {
 		ModBlocks.registerModBlocks();
         ModItems.initialize();
         ModBlockEntities.register();
+        ModFeatures.registerModFeatures();
+        ModFeatureReplacements.removeFeatures();
+        ModFeatureReplacements.addFeatures();
         thumbandthicket$registerResourcePacks();
 		LOGGER.info("Muddy!");
 	}

@@ -1,10 +1,17 @@
 package net.jolene.thumbandthicket.world.gen.feature;
 
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.HugeBrownMushroomFeature;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 
-public class ModFeatures<FC extends FeatureConfig> {
-//    public static final Feature<HugeMushroomFeatureConfig> HUGE_BROWN_MUSHROOM = Feature.register("huge_brown_mushroom", new HugeBrownMushroomFeature(HugeMushroomFeatureConfig.CODEC));
+import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
+
+public class ModFeatures {
+
+    public static final Identifier HUGE_PURPLE_MUSHROOM_ID = Identifier.of(MOD_ID, "example_feature");
+    public static final HugePurpleMushroomFeature HUGE_PURPLE_MUSHROOM_FEATURE = new HugePurpleMushroomFeature(HugeMushroomFeatureConfig.CODEC);
+    public static void registerModFeatures() {
+        Registry.register(Registries.FEATURE, HUGE_PURPLE_MUSHROOM_ID, HUGE_PURPLE_MUSHROOM_FEATURE);
+    }
 }
