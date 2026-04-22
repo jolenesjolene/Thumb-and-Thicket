@@ -19,6 +19,7 @@ public class ModItemGroups {
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
                             entries.add(Items.OAK_SAPLING);
+                            entries.add(Items.SHEARS);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(ModBlocks.CLOVERS);

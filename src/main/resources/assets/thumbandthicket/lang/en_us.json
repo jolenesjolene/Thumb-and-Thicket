@@ -12,5 +12,9 @@
   "pack.thumbandthicket.name": "TaT §7§oWood Overrides ❤",
   "pack.thumbandthicket.desc": "§eWoodier Wood and Loggier Logs!",
 
-  "sounds.thumbandthicket.snip": "Snips Log"
+  "sounds.thumbandthicket.snip": "Snips Log",
+
+  "tooltip.thumbandthicket.shears1": "§7Snip plants to stop them ",
+  "tooltip.thumbandthicket.shears2": "§7from growing, §oor §r§7to remove ",
+  "tooltip.thumbandthicket.shears3": "§7imperfections from logs!"
 }

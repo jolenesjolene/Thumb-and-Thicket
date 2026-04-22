@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
+import net.jolene.thumbandthicket.item.ModItemTooltips;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModColors;
 import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
@@ -27,6 +28,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModColors.registerBlockColors();
         ModColors.registerItemColors();
+        ModItemTooltips.registerModItemTooltips();
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
 
