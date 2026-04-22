@@ -6,6 +6,7 @@ import net.jolene.thumbandthicket.block.ModBlockTags;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,5 +20,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.ROOTY_BLOCKS).add(Blocks.ROOTED_DIRT, ModBlocks.ROOT_BLOCK, ModBlocks.ROOTED_GRASS);
         getOrCreateTagBuilder(ModBlockTags.STACKABLE_MUSHROOMS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM);
         getOrCreateTagBuilder(ModBlockTags.SNIPPABLE).add(Blocks.VINE, Blocks.SUGAR_CANE);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(ModBlocks.SNOWY_SHORT_GRASS);
     }
 }
