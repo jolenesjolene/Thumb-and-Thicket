@@ -3,6 +3,7 @@ package net.jolene.thumbandthicket.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.block.ModBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -20,16 +21,27 @@ public class ModItemGroups {
                             entries.add(Items.OAK_SAPLING);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
+                            entries.add(ModBlocks.CLOVERS);
+                            entries.add(ModBlocks.LAVENDER);
+                            entries.add(ModBlocks.MILKWEED);
+                            entries.add(ModBlocks.PURPLE_MUSHROOM);
+                            entries.add(ModBlocks.PURPLE_MUSHROOM_BLOCK);
+                            entries.add(ModBlocks.TINGED_SHORT_GRASS);
+                            entries.add(ModBlocks.SHORT_LILAC);
+                            entries.add(Blocks.LILAC);
                             entries.add(ModItems.PRICKLY_PEAR);
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
                             entries.add(Items.RED_MUSHROOM);
                             entries.add(Items.BROWN_MUSHROOM);
                             entries.add(Items.WHEAT_SEEDS);
                             entries.add(Items.WHEAT);
-                            entries.add(ModBlocks.SNOWY_SHORT_GRASS);
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(ModBlocks.ROOT_BLOCK);
-
+                            entries.add(ModBlocks.SNOWY_SHORT_GRASS);
+                            entries.add(ModBlocks.SNOWY_TALL_GRASS);
+                            entries.add(ModBlocks.SNOWY_SHORT_FERN);
+                            entries.add(ModBlocks.SNOWY_LARGE_FERN);
+                            entries.add(ModBlocks.SNOWY_BUSH);
                         }).build());
 
 

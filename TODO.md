@@ -10,7 +10,10 @@
   - Logs
   - Leaves (maybe with blockstate variations)
 
-
+- Lupine
+  - 4 Random Colours (Textures)
+  - Block
+  - Worldgen
 - Spore Blossom
   - Age Blockstates
   - Textures
