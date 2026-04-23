@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.mixin;
 
 import net.jolene.thumbandthicket.block.ShortSnowyPlantBlock;
 import net.jolene.thumbandthicket.block.TallSnowyPlantBlock;
+import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SnowyBlock;
@@ -19,19 +20,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SnowyBlock.class)
 public class SnowyBlockMixin {
 
-    @Inject(method = "getStateForNeighborUpdate", at = @At("HEAD"), cancellable = true)
-    private void thumbandthicket$snowyIfSnowyPlant(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos, CallbackInfoReturnable<BlockState> cir) {
-        if ((world.getBlockState(pos.up()).getBlock() instanceof ShortSnowyPlantBlock) || (world.getBlockState(pos.up()).getBlock() instanceof TallSnowyPlantBlock)) cir.setReturnValue(state.with(SnowyBlock.SNOWY, true));
-    }
-
-    @Inject(method = "getPlacementState", at = @At("HEAD"), cancellable = true)
-    private void thumbandthicket$snowyIfSnowyPlant(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
-        World world = ctx.getWorld();
-        BlockPos pos = ctx.getBlockPos();
-        Block snowyBlock = SnowyBlock.class.cast(this);
-        BlockState defaultBlockState = snowyBlock.getDefaultState();
-        if ((world.getBlockState(pos.up()).getBlock() instanceof ShortSnowyPlantBlock) || (world.getBlockState(pos.up()).getBlock() instanceof TallSnowyPlantBlock)) {
-            cir.setReturnValue(defaultBlockState.with(SnowyBlock.SNOWY, true));
-        }
+    @Inject(method = "isSnow", at = @At("HEAD"), cancellable = true)
+    private static void thumbandthicket$snowyIfSnowyPlant(BlockState state, CallbackInfoReturnable<Boolean> cir) {
+        if (state.contains(ModProperties.LAYERS)) cir.setReturnValue(state.get(ModProperties.LAYERS) > 0);
     }
 }

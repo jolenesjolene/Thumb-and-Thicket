@@ -115,14 +115,6 @@ public class ShortSnowyPlantBlock extends ShortPlantBlock {
         return 0;
     }
 
-//    @Override
-//    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-//        if (world.getLightLevel(LightType.BLOCK, pos) > 11) {
-//            SnowBlock.dropStacks(state, world, pos);
-//            world.removeBlock(pos, false);
-//        }
-//    }
-
     @Override
     protected float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
         if (state.get(ModProperties.LAYERS) == 0 || player.getMainHandStack().getItem() instanceof ShearsItem) {
