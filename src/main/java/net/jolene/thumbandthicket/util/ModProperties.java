@@ -11,4 +11,5 @@ public class ModProperties {
     public static final IntProperty LAYERS = IntProperty.of("layers", 0, 8);
     public static final BooleanProperty SNIPPED = BooleanProperty.of("snipped");
     public static final BooleanProperty LAVALOGGED = BooleanProperty.of("lavalogged");
+    public static final BooleanProperty TOP = BooleanProperty.of("top");
 }
