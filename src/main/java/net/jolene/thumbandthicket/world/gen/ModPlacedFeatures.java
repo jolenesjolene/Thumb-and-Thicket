@@ -7,6 +7,8 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 import java.util.List;
 
@@ -15,12 +17,14 @@ import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> HUGE_PURPLE_MUSHROOM_PLACED = registerKey("huge_purple_mushroom_placed");
     public static final RegistryKey<PlacedFeature> SNOWY_GRASS = registerKey("snowy_grass_placed");
+//    public static final RegistryKey<PlacedFeature> SNOWY_TAIGA_GRASS = registerKey("snowy_taiga_grass_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
-        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY));
+        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
+//        register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

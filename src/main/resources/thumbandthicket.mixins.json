@@ -12,6 +12,7 @@
     "FoliagePlacerMixin",
     "FungusBlockMixin",
     "GiantTrunkPlacerMixin",
+    "SnowyBlockMixin",
     "LeavesBlockMixin",
     "MushroomPlantBlockMixin",
     "PillarBlockMixin",

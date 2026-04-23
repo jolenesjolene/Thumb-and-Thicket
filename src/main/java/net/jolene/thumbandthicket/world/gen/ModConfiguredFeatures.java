@@ -11,18 +11,17 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
 import static net.jolene.thumbandthicket.world.gen.feature.ModFeatures.HUGE_PURPLE_MUSHROOM_FEATURE;
-import static net.minecraft.state.property.Properties.LAYERS;
 
 public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PURPLE_MUSHROOM_KEY = registerKey("huge_purple_mushroom");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_TAIGA_GRASS_KEY = registerKey("snowy_taiga_grass");
+//    public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_TAIGA_GRASS_KEY = registerKey("snowy_taiga_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_GRASS_KEY = registerKey("snowy_grass");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, PURPLE_MUSHROOM_KEY, HUGE_PURPLE_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                 BlockStateProvider.of(ModBlocks.PURPLE_MUSHROOM_BLOCK), BlockStateProvider.of(Blocks.MUSHROOM_STEM),1));
-//        register(context, SNOWY_TAIGA_GRASS_KEY, Feature.RANDOM_PATCH, VegetationConfiguredFeatures.createRandomPatchFeatureConfig(Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, )));
+//        register(context, SNOWY_TAIGA_GRASS_KEY, Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(Blockstate)));
         register(
                 context, SNOWY_GRASS_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(

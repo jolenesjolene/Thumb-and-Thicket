@@ -109,7 +109,10 @@ public class ShortSnowyPlantBlock extends ShortPlantBlock {
 
     @Override
     protected float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
-        return state.get(ModProperties.LAYERS) == 8 ? 0.2f : 1.0f;
+        if (state.get(ModProperties.LAYERS) > 0) {
+            return state.get(ModProperties.LAYERS) == 8 ? 0.2f : 1.0f;
+        }
+        return 0;
     }
 
 //    @Override
