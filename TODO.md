@@ -28,8 +28,9 @@
     - Flower
 - Clovers
   - ~~Block~~
-  - Worldgen
+  - ~~Worldgen~~
   - Textures
+  - Stem Model
 - Puffed Dandelions
   - ~~Block~~
   - Particles
@@ -45,7 +46,7 @@
 - Grass Variants
   - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
     - ~~Blocks~~
-    - Worldgen
+    - ~~Worldgen~~
     - Textures
   - Tinged Grass Variants
     - ~~Block~~

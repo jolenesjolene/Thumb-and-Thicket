@@ -1,4 +1,4 @@
-// 1.21.1	2026-04-23T23:28:29.3817674	Thumb & Thicket/
+// 1.21.1	2026-04-23T23:40:19.8377858	Thumb & Thicket/
 75ec5ac0dfcd25b59a0a7735fc751c994def6e72 data\thumbandthicket\worldgen\configured_feature\snowy_tall_grass.json
 d5f35642dc10966eeb74f0327958da2844f1a178 data\thumbandthicket\worldgen\configured_feature\snowy_large_fern.json
 2952f734fc5a089057bd53466470749079ee7cf9 data\thumbandthicket\worldgen\configured_feature\huge_purple_mushroom.json
@@ -9,5 +9,5 @@ faa97aeb3270ce54a1fd0618db691544cde990c9 data\thumbandthicket\worldgen\placed_fe
 114c0d2f743312b64bc4581f3b635132c67af41a data\thumbandthicket\worldgen\placed_feature\snowy_large_fern_placed.json
 114c0d2f743312b64bc4581f3b635132c67af41a data\thumbandthicket\worldgen\placed_feature\snowy_tall_grass_placed.json
 f8391a597ccade4728e1fd8faa6f85ea78b9a8a7 data\thumbandthicket\worldgen\configured_feature\snowy_taiga_grass.json
-e2cc2b8581ed79254a65a3e5ee860910cb1ed1de data\thumbandthicket\worldgen\configured_feature\clovers.json
-fe3502cb3f921ed9931459c2fcdbe2f71f11a5d8 data\thumbandthicket\worldgen\placed_feature\clover_placed.json
+e93310d8b8cab863e8f8b85fd620ee68d8330567 data\thumbandthicket\worldgen\placed_feature\clover_placed.json
+78f13cdcaf44a016dfce8346f840a45f940d89c0 data\thumbandthicket\worldgen\configured_feature\clovers.json
