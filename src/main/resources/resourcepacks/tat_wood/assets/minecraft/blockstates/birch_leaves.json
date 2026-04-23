@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "top=true": {
+      "model": "minecraft:block/birch_leaves_top"
+    },
+    "top=false": {
+      "model": "minecraft:block/birch_leaves"
+    }
+  }
+}
