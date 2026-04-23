@@ -15,9 +15,8 @@
   "sounds.thumbandthicket.snip": "Snips Log",
 
   "tooltip.thumbandthicket.shears": "§7A Gardener's best friend!",
-  "tooltip.thumbandthicket.shears1": "§7§oSnip plants to stop them ",
-  "tooltip.thumbandthicket.shears2": "§7§ofrom growing, or §7to remove ",
-  "tooltip.thumbandthicket.shears3": "§7§oimperfections from logs!",
+  "tooltip.thumbandthicket.shears1": "§7§o- Snip plants to prevent growth ",
+  "tooltip.thumbandthicket.shears2": "§7§o- Remove Imperfections from Trees",
 
-  "tooltip.thumbandthicket.shift": "§ePress §8Shift §efor more!"
+  "tooltip.thumbandthicket.shift": "§8Press §eShift §8for more!"
 }

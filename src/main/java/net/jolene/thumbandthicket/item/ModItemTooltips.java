@@ -11,12 +11,12 @@ public class ModItemTooltips {
         ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
             if (itemStack.isOf(Items.SHEARS)) {
                 if (Screen.hasShiftDown()) {
-                    list.add(Text.translatable("tooltip.thumbandthicket.shears1"));
-                    list.add(Text.translatable("tooltip.thumbandthicket.shears2"));
-                    list.add(Text.translatable("tooltip.thumbandthicket.shears3"));
+                    list.add(1, Text.translatable("tooltip.thumbandthicket.shears"));
+                    list.add(2, Text.translatable("tooltip.thumbandthicket.shears1"));
+                    list.add(3, Text.translatable("tooltip.thumbandthicket.shears2"));
                     } else {
-                    list.add(Text.translatable("tooltip.thumbandthicket.shears"));
-                    list.add(Text.translatable("tooltip.thumbandthicket.shift"));
+                    list.add(1, Text.translatable("tooltip.thumbandthicket.shears"));
+                    list.add(2, Text.translatable("tooltip.thumbandthicket.shift"));
                 }
             }
 
