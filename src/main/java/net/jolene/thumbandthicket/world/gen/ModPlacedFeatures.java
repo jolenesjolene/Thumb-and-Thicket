@@ -24,6 +24,8 @@ public class ModPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> CLOVERS = registerKey("clover_placed");
 
+    public static final RegistryKey<PlacedFeature> ROOTED_GRASS = registerKey("rooted_grass_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -33,7 +35,9 @@ public class ModPlacedFeatures {
         register(context, SNOWY_LARGE_FERN, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
         register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
 
-        register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
+        register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
+
+        register(context, ROOTED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

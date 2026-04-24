@@ -11,7 +11,7 @@
               "Name": "thumbandthicket:snowy_tall_grass",
               "Properties": {
                 "half": "lower",
-                "layers": "1"
+                "layers": "0"
               }
             }
           }
@@ -27,7 +27,7 @@
         }
       ]
     },
-    "tries": 96,
+    "tries": 32,
     "xz_spread": 7,
     "y_spread": 3
   }

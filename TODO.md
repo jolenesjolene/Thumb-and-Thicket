@@ -47,6 +47,7 @@
   - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
     - ~~Blocks~~
     - ~~Worldgen~~
+    - NEW Placementmodifier so snowy grass wont leak out of Snowy Biomes
     - Textures
   - Tinged Grass Variants
     - ~~Block~~

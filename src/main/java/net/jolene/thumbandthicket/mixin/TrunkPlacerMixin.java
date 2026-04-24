@@ -43,6 +43,7 @@ public class TrunkPlacerMixin {
 //            if (dimensionType == DimensionTypes.OVERWORLD) {
 //
 //            }
+
             worldAccess.setBlockState(pos, state, Block.NOTIFY_ALL);
         }
     }
