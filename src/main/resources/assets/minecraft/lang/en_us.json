@@ -1,4 +1,11 @@
 {
   "block.minecraft.oak_sapling": "Acorn",
-  "block.minecraft.birch_sapling": "Birch Seed"
+  "block.minecraft.spruce_sapling": "Spruce Cone",
+  "block.minecraft.birch_sapling": "Birch Samara",
+  "block.minecraft.jungle_sapling": "Cocoa Pod",
+  "block.minecraft.acacia_sapling": "Acacia Pod",
+  "block.minecraft.dark_oak_sapling": "Dusky Acorn",
+  "block.minecraft.mangrove_propagule": "Mangrove Propagule",
+  "block.minecraft.cherry_sapling": "Cherry Pit",
+  "block.minecraft.pale_oak_sapling": "Pale Acorn"
 }
