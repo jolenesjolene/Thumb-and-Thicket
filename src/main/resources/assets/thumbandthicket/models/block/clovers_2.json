@@ -1,7 +1,108 @@
 {
-  "parent": "minecraft:block/flowerbed_4",
-  "textures": {
-    "flowerbed": "thumbandthicket:block/clovers_2",
-    "stem": "minecraft:block/pink_petals_stem"
-  }
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "thumbandthicket:block/clovers_2",
+		"particle": "thumbandthicket:block/clovers_2"
+	},
+	"elements": [
+		{
+			"from": [9, 3, 1],
+			"to": [16, 3, 8],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [9, 3, 1]},
+			"faces": {
+				"north": {"uv": [0, 2, 7, 2], "texture": "#missing"},
+				"east": {"uv": [0, 2, 7, 2], "texture": "#missing"},
+				"south": {"uv": [0, 2, 7, 2], "texture": "#missing"},
+				"west": {"uv": [0, 2, 7, 2], "texture": "#missing"},
+				"up": {"uv": [0, 8, 7, 15], "texture": "#1", "tintindex": 0 },
+				"down": {"uv": [0, 15, 7, 8], "texture": "#1", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [0, 4, 6],
+			"to": [9, 4, 15],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [-7, 4, 6]},
+			"faces": {
+				"up": {"uv": [7, 1, 16, 10], "texture": "#1", "tintindex": 0 },
+				"down": {"uv": [16, 1, 7, 10], "texture": "#1", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [3.5, 0, 10.5],
+			"to": [5.5, 4, 10.5],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [4.5, 0, 10.5]},
+			"faces": {
+				"north": {"uv": [13, 4, 11, 8], "texture": "#1", "tintindex": 0 },
+				"south": {"uv": [11, 4, 13, 8], "texture": "#1", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [4.5, 0, 9.5],
+			"to": [4.5, 4, 11.5],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [4.5, 0, 10.5]},
+			"faces": {
+				"east": {"uv": [11, 4, 13, 8], "texture": "#1", "tintindex": 0 },
+				"west": {"uv": [13, 4, 11, 8], "texture": "#1", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [12, 0, 4.5],
+			"to": [13, 3, 4.5],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [12.5, 0, 4.5]},
+			"faces": {
+				"north": {"uv": [3, 9, 4, 12], "texture": "#1", "tintindex": 0 },
+				"east": {"uv": [2, 0, 2, 3], "texture": "#missing"},
+				"south": {"uv": [3, 9, 4, 12], "texture": "#1", "tintindex": 0 },
+				"west": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"up": {"uv": [0, 0, 1, 0], "texture": "#missing"},
+				"down": {"uv": [0, 2, 1, 2], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [12.5, 0, 4],
+			"to": [12.5, 3, 5],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [12.5, 0, 4.5]},
+			"faces": {
+				"north": {"uv": [2, 0, 2, 3], "texture": "#missing"},
+				"east": {"uv": [3, 9, 4, 12], "texture": "#1", "tintindex": 0 },
+				"south": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"west": {"uv": [3, 9, 4, 12], "texture": "#1", "tintindex": 0 },
+				"up": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"down": {"uv": [0, 2, 0, 3], "texture": "#missing"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "clovers",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [
+				0,
+				1,
+				{
+					"name": "stem_1",
+					"origin": [8, 8, 8],
+					"scope": 0,
+					"color": 0,
+					"children": [2, 3]
+				},
+				{
+					"name": "stem_2",
+					"origin": [8, 8, 8],
+					"scope": 0,
+					"color": 0,
+					"children": [4, 5]
+				}
+			]
+		}
+	]
 }
