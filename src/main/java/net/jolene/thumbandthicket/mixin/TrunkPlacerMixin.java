@@ -6,16 +6,24 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.Rooty;
+import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.chunk.ChunkManager;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
@@ -39,11 +47,11 @@ public class TrunkPlacerMixin {
         replacer.accept(pos, state);
 
         if (world instanceof WorldAccess worldAccess) {
-            DimensionType dimensionType = worldAccess.getDimension();
-//            if (dimensionType == DimensionTypes.OVERWORLD) {
-//
-//            }
+            var configuredFeatures = worldAccess.getRegistryManager().get(RegistryKeys.CONFIGURED_FEATURE);
+            ConfiguredFeature<?,?> configuredFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY);
+            ChunkGenerator chunkGenerator = worldAccess.getChunkManager();
 
+            configuredFeature.generate((StructureWorldAccess) worldAccess, chunkGenerator, random, pos);
             worldAccess.setBlockState(pos, state, Block.NOTIFY_ALL);
         }
     }
