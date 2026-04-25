@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/flowerbed_1",
+  "parent": "minecraft:block/flowerbed_4",
   "textures": {
-    "flowerbed": "thumbandthicket:block/clovers",
+    "flowerbed": "thumbandthicket:block/clovers_1",
     "stem": "minecraft:block/pink_petals_stem"
   }
 }
