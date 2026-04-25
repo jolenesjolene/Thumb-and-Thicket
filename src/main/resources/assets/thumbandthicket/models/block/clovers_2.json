@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"1": "thumbandthicket:block/clovers_2",
-		"particle": "thumbandthicket:block/clovers_2"
+		"particle": "thumbandthicket:block/clovers_4"
 	},
 	"elements": [
 		{
