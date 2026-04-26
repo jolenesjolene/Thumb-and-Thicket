@@ -12,6 +12,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -30,6 +31,8 @@ import net.minecraft.world.gen.trunk.TrunkPlacer;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.function.BiConsumer;
 
@@ -45,15 +48,6 @@ public class TrunkPlacerMixin {
         BlockState state = rootBlock.getDefaultState();
 
         replacer.accept(pos, state);
-
-        if (world instanceof WorldAccess worldAccess) {
-            var configuredFeatures = worldAccess.getRegistryManager().get(RegistryKeys.CONFIGURED_FEATURE);
-            ConfiguredFeature<?,?> configuredFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY);
-            ChunkGenerator chunkGenerator = worldAccess.getChunkManager();
-
-            configuredFeature.generate((StructureWorldAccess) worldAccess, chunkGenerator, random, pos);
-            worldAccess.setBlockState(pos, state, Block.NOTIFY_ALL);
-        }
     }
 
     @WrapOperation(method = "getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;Ljava/util/function/Function;)Z", at = @At(value = "INVOKE", target = "Ljava/util/function/BiConsumer;accept(Ljava/lang/Object;Ljava/lang/Object;)V"))

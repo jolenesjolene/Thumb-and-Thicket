@@ -1,5 +1,6 @@
 package net.jolene.thumbandthicket.world.gen;
 
+import net.jolene.thumbandthicket.block.ModBlockTags;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.BlockState;
@@ -54,7 +55,7 @@ public class ModConfiguredFeatures {
         }
         register(context, CLOVERS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(cloversBuilder)))));
 
-        register(context, ROOTED_GRASS_KEY, Feature.DISK, new DiskFeatureConfig(new PredicatedStateProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT), List.of(new PredicatedStateProvider.Rule(BlockPredicate.not(BlockPredicate.eitherOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER))), BlockStateProvider.of(ModBlocks.ROOTED_GRASS)))), BlockPredicate.matchingBlockTag(BlockTags.DIRT), UniformIntProvider.create(2, 4), 2));
+        register(context, ROOTED_GRASS_KEY, Feature.DISK, new DiskFeatureConfig(new PredicatedStateProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT), List.of(new PredicatedStateProvider.Rule(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR)), BlockStateProvider.of(ModBlocks.ROOTED_GRASS)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.not(BlockPredicate.IS_AIR), BlockPredicate.matchingBlockTag(BlockTags.DIRT)), BlockStateProvider.of(Blocks.ROOTED_DIRT)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.IS_AIR), BlockStateProvider.of(Blocks.HANGING_ROOTS)))), BlockPredicate.anyOf(BlockPredicate.matchingBlockTag(BlockTags.DIRT)), UniformIntProvider.create(2, 4), 2));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

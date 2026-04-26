@@ -21,5 +21,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.STACKABLE_MUSHROOMS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM);
         getOrCreateTagBuilder(ModBlockTags.SNIPPABLE).add(Blocks.VINE, Blocks.SUGAR_CANE);
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(ModBlocks.SNOWY_SHORT_GRASS);
+        getOrCreateTagBuilder(ModBlockTags.GRASS_BLOCKS).add(Blocks.GRASS_BLOCK);
     }
 }

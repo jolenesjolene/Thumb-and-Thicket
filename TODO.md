@@ -133,7 +133,7 @@
 - ~~Blockstate Logic~~
 - Worldgen
   - ~~Rootblocks~~
-  - Rooted Dirt and Grass
+  - ~~Rooted Dirt and Grass~~
   - Roots underneath
 - Sapling Retextures
 - Sap
@@ -157,10 +157,11 @@
   - How is it planted???
   - Textures
 - Bear
-  - Mob
+  - ~~Mob~~
   - Drops
+    - Fur
   - Behavior
-  - Textures
+  - ~~Textures~~
 - Beaver
   - Mob
   - Drops
