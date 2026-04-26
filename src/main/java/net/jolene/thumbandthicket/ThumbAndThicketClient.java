@@ -4,11 +4,18 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
+import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.entity.ModEntitySpawns;
+import net.jolene.thumbandthicket.entity.client.BrownBearModel;
+import net.jolene.thumbandthicket.entity.client.BrownBearRenderer;
 import net.jolene.thumbandthicket.item.ModItemTooltips;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModColors;
 import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
@@ -33,6 +40,12 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModItemTooltips.registerModItemTooltips();
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
+        ModEntitySpawns.addSpawns();
+
+        EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,
+                ModItems.BROWN_BEAR_SPAWN_EGG);
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
             if (world != null && pos != null) {

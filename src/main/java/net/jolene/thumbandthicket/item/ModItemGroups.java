@@ -50,6 +50,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.SNOWY_SHORT_FERN);
                             entries.add(ModBlocks.SNOWY_LARGE_FERN);
                             entries.add(ModBlocks.SNOWY_BUSH);
+                            entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
                         }).build());
 
 
