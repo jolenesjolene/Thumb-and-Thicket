@@ -1,0 +1,47 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"seed": "block/saplings/oak_seed",
+		"particle": "block/saplings/oak_seed"
+	},
+	"elements": [
+		{
+			"from": [4.5, 0, 4.5],
+			"to": [11.5, 3, 11.5],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [9.5, 0, 4.5]},
+			"faces": {
+				"north": {"uv": [4, 12, 11, 15], "texture": "#seed"},
+				"east": {"uv": [4, 12, 11, 15], "texture": "#seed"},
+				"south": {"uv": [4, 12, 11, 15], "texture": "#seed"},
+				"west": {"uv": [4, 12, 11, 15], "texture": "#seed"},
+				"up": {"uv": [4, 1, 11, 8], "texture": "#seed"},
+				"down": {"uv": [4, 1, 11, 8], "texture": "#seed"}
+			}
+		},
+		{
+			"from": [6.5, 3, 8],
+			"to": [8.5, 6, 8],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [10.5, 3, 3]},
+			"faces": {
+				"north": {"uv": [7, 9, 9, 12], "texture": "#seed"},
+				"east": {"uv": [2, 0, 2, 3], "texture": "#missing"},
+				"south": {"uv": [9, 9, 7, 12], "texture": "#seed"},
+				"west": {"uv": [5, 0, 5, 3], "texture": "#missing"},
+				"up": {"uv": [1, 5, 3, 5], "texture": "#missing"},
+				"down": {"uv": [1, 2, 3, 2], "texture": "#missing"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "oak_seed",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}
