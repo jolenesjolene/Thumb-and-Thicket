@@ -44,6 +44,7 @@ public class ModItemGroups {
                             entries.add(Items.WHEAT_SEEDS);
                             entries.add(Items.WHEAT);
                             entries.add(ModBlocks.ROOTED_GRASS);
+                            entries.add(Blocks.ROOTED_DIRT);
                             entries.add(ModBlocks.ROOT_BLOCK);
                             entries.add(ModBlocks.SNOWY_SHORT_GRASS);
                             entries.add(ModBlocks.SNOWY_TALL_GRASS);
