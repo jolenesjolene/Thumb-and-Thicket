@@ -89,6 +89,13 @@
   - Worldgen
   - Textures
 - Make all growing Plants snippable
+- Flowers overhaul
+  - drops Seeds
+    - Component for Flowertype
+    - Texture Overrides for specific Seeds
+    - Tag-controlled Eating
+  - drops itself with Shears
+- Torchflowers prevent Mobspawns in specific radius
 
 ### Foliage in/around Water
 - Lilypads
@@ -137,7 +144,9 @@
   - Roots underneath
 - Sapling Retextures
 - Sap
+  - uniform from any tree?
 - Azalea Woodset
+- Saplings can be eaten?
 
 ### Mobs
 - Hare
@@ -212,6 +221,7 @@
   - Blockstate Logic
   - Worldgen
   - Textures
+- Water Caustics and edge Foam
 - Biomes
   - Overworld Biomes
     - Transition Biomes
@@ -229,7 +239,6 @@
       - Cave
       - Worldgen
 
-- Water Caustics
 - Port Crop wilting system from Progression Respun
   - new Textures
   - Villager AI
