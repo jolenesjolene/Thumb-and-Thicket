@@ -18,8 +18,8 @@ import net.jolene.thumbandthicket.item.ModItemTooltips;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModColors;
-import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.Registries;
@@ -41,6 +41,9 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+            return 0xFFFFFF;
+        }, Blocks.LILY_PAD);
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);

@@ -30,6 +30,7 @@ public class ModItemGroups {
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
                             entries.add(ModBlocks.CLOVERS);
+                            entries.add(Blocks.LILY_PAD);
                             entries.add(ModBlocks.LAVENDER);
                             entries.add(ModBlocks.MILKWEED);
                             entries.add(ModBlocks.PURPLE_MUSHROOM);
