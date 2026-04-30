@@ -36,7 +36,6 @@ public abstract class TreeFeatureMixin {
 
         var configuredFeatures = world.getRegistryManager().get(RegistryKeys.CONFIGURED_FEATURE);
         ConfiguredFeature<?,?> configuredFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY);
-
         configuredFeature.generate(world, context.getGenerator(), context.getRandom(), pos.down(2));
     }
 }

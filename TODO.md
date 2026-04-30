@@ -4,11 +4,11 @@
 ### Foliage on Land
 - Retextures
   - ~~Sugar Cane~~
-  - Wheat
-  - Grass Blocks
+  - ~~Wheat~~
+  - ~~Grass Blocks~~
   - Saplings
   - Logs
-  - Leaves (maybe with blockstate variations)
+  - Leaves + lighter Leaves
 
 - Lupine
   - 4 Random Colours (Textures)

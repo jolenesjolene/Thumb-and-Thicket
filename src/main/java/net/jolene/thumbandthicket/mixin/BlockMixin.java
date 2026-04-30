@@ -1,6 +1,8 @@
 package net.jolene.thumbandthicket.mixin;
 
 import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.*;
@@ -37,6 +39,7 @@ public abstract class BlockMixin {
                 if (blockUp.equals(ModBlocks.ROOT_BLOCK)) cir.setReturnValue(defaultState.with(ROOTY, Rooty.BOTTOM));
             }
         }
+        if (block instanceof FarmlandBlock) cir.setReturnValue(state.with(FERTILIZED, false));
     }
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
@@ -45,5 +48,15 @@ public abstract class BlockMixin {
         if (block instanceof MushroomPlantBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
         if (block instanceof FungusBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
         if (block instanceof CactusFlowerBlock) builder.add(AGE_2);
+        if (block instanceof FarmlandBlock) builder.add(FERTILIZED);
+    }
+
+    @WrapMethod(method = "getDefaultState")
+    private BlockState progressionrespun$changeDefaultState(Operation<BlockState> original) {
+        Block block = (Block)(Object)this;
+        if (block instanceof FarmlandBlock) {
+            return original.call().with(FERTILIZED, false);
+        }
+        return original.call();
     }
 }

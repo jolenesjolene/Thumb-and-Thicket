@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "thumbandthicket:block/wilted_crop_big"
+      },
+      {
+        "model": "thumbandthicket:block/wilted_crop_mid"
+      },
+      {
+        "model": "thumbandthicket:block/wilted_crop_short"
+      }
+    ]
+  }
+}

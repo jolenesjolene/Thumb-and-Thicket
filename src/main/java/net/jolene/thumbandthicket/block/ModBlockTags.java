@@ -10,6 +10,7 @@ public class ModBlockTags {
     public static final TagKey<Block> STACKABLE_MUSHROOMS = block("stackable_mushrooms");
     public static final TagKey<Block> SNIPPABLE = block("snippable");
     public static final TagKey<Block> GRASS_BLOCKS = block("grass_blocks");
+    public static final TagKey<Block> TALL_CROPS = block("tall_crops");
 
     private static TagKey<Block> block(String name) {
         return TagKey.of(RegistryKeys.BLOCK, ThumbAndThicket.id(name));

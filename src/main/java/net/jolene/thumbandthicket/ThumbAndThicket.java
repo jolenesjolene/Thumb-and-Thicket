@@ -32,6 +32,8 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static net.jolene.thumbandthicket.util.ModProperties.ROOTY;
 import static net.jolene.thumbandthicket.util.ModProperties.SLICE;
 import static net.minecraft.block.PillarBlock.AXIS;
@@ -200,4 +202,7 @@ public class ThumbAndThicket implements ModInitializer {
         }
         return Blocks.AIR;
     }
+
+
+    public static final List<BlockPos> WITHERED_CROPS = BlockPos.stream(-1, 0, -1, 1, 1, 1).map(BlockPos::toImmutable).toList();
 }
