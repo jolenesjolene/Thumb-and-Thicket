@@ -2,7 +2,6 @@ package net.jolene.thumbandthicket.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import net.jolene.thumbandthicket.block.ModBlockTags;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.block.WiltedCropBlock;
 import net.minecraft.block.*;
@@ -10,7 +9,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.*;

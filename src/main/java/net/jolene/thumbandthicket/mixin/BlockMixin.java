@@ -45,10 +45,6 @@ public abstract class BlockMixin {
     @Inject(method = "appendProperties", at = @At("TAIL"))
     private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
         Block block = (Block) (Object) this;
-        if (block instanceof MushroomPlantBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
-        if (block instanceof FungusBlock) builder.add(BLOCK_FACE).add(FACING).add(AMOUNT);
-        if (block instanceof CactusFlowerBlock) builder.add(AGE_2);
-        if (block instanceof FarmlandBlock) builder.add(FERTILIZED);
     }
 
     @WrapMethod(method = "getDefaultState")

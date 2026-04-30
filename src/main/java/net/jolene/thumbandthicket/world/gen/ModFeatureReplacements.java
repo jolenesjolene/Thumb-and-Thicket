@@ -45,6 +45,86 @@ public class ModFeatureReplacements {
                         VegetationPlacedFeatures.PATCH_TALL_GRASS_2
                 )
         );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_normal_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NORMAL)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.RED_MUSHROOM_NORMAL
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_nether_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NETHER)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.RED_MUSHROOM_NETHER
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_taiga_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_TAIGA)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.RED_MUSHROOM_TAIGA
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_old_growth_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_OLD_GROWTH)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.RED_MUSHROOM_OLD_GROWTH
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_swamp_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_SWAMP)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.RED_MUSHROOM_SWAMP
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_normal_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NORMAL)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.BROWN_MUSHROOM_NORMAL
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_nether_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_taiga_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_TAIGA)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.BROWN_MUSHROOM_TAIGA
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_old_growth_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_OLD_GROWTH)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.BROWN_MUSHROOM_OLD_GROWTH
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_swamp_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP
+                )
+        );
     }
 
     public static void addFeatures() {
@@ -81,6 +161,86 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_TEMPERATE), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CLOVERS);
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_normal_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NORMAL)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.RED_MUSHROOM_NORMAL
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_nether_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NETHER)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.RED_MUSHROOM_NETHER
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_taiga_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_TAIGA)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.RED_MUSHROOM_TAIGA
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_old_growth_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_OLD_GROWTH)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.RED_MUSHROOM_OLD_GROWTH
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_swamp_red_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_SWAMP)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.RED_MUSHROOM_SWAMP
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_normal_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NORMAL)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.BROWN_MUSHROOM_NORMAL
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_nether_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.BROWN_MUSHROOM_NETHER
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_taiga_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_TAIGA)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.BROWN_MUSHROOM_TAIGA
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_old_growth_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_OLD_GROWTH)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.BROWN_MUSHROOM_OLD_GROWTH
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_swamp_brown_mushrooms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.BROWN_MUSHROOM_SWAMP
+                )
+        );
     }
 
 }

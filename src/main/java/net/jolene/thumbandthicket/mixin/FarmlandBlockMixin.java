@@ -16,6 +16,7 @@ public class FarmlandBlockMixin extends Block {
     @Inject(method = "appendProperties", at = @At("HEAD"))
     public void appendProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci) {
         super.appendProperties(builder);
+        builder.add(ModProperties.FERTILIZED);
     }
 
     public FarmlandBlockMixin(Settings settings) {
