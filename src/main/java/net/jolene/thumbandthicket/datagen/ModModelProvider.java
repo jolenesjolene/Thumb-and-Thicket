@@ -15,6 +15,7 @@ import java.util.Map;
 public class ModModelProvider extends FabricModelProvider {
     public static final Map<Model, List<Item>> ITEM_MODEL_LISTS = Map.ofEntries(
             Map.entry(Models.GENERATED, List.of(
+                    ModItems.ROTTEN_APPLE,
                     ModItems.PRICKLY_PEAR,
                     ModItems.GOLDEN_PRICKLY_PEAR,
                     ModBlocks.SNOWY_SHORT_GRASS.asItem(),

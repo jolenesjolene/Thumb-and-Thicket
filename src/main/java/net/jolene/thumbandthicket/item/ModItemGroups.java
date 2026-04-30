@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -26,6 +27,10 @@ public class ModItemGroups {
                             entries.add(Items.DARK_OAK_SAPLING);
                             entries.add(Items.MANGROVE_PROPAGULE);
                             entries.add(Items.CHERRY_SAPLING);
+                            Item PALE_OAK_SAPLING = Registries.ITEM.get(Identifier.of("minecraft", "pale_oak_sapling"));
+                            if (PALE_OAK_SAPLING != Items.AIR) {
+                                entries.add(PALE_OAK_SAPLING);}
+                            
                             entries.add(Items.SHEARS);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
@@ -38,6 +43,8 @@ public class ModItemGroups {
                             entries.add(ModBlocks.TINGED_SHORT_GRASS);
                             entries.add(ModBlocks.SHORT_LILAC);
                             entries.add(Blocks.LILAC);
+                            entries.add(Items.APPLE);
+                            entries.add(ModItems.ROTTEN_APPLE);
                             entries.add(ModItems.PRICKLY_PEAR);
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
                             entries.add(Items.RED_MUSHROOM);
