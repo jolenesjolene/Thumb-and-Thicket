@@ -149,6 +149,7 @@
 - Saplings can be eaten?
 
 ### Mobs
+- Birds?
 - Hare
   - Mob
   - Drops
