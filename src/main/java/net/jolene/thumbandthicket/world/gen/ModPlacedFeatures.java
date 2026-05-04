@@ -1,21 +1,18 @@
 package net.jolene.thumbandthicket.world.gen;
 
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.jolene.thumbandthicket.world.gen.placementmodifier.SnowPlacementModifier;
+import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
 import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
 
 public class ModPlacedFeatures {
+
 
     public static final RegistryKey<PlacedFeature> HUGE_PURPLE_MUSHROOM_PLACED = registerKey("huge_purple_mushroom_placed");
     public static final RegistryKey<PlacedFeature> SNOWY_GRASS = registerKey("snowy_grass_placed");
@@ -40,25 +37,29 @@ public class ModPlacedFeatures {
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
+        RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+        RegistryEntry.Reference<ConfiguredFeature<?, ?>> brownMushroom = registryEntryLookup.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_NORMAL_KEY);
+        RegistryEntry.Reference<ConfiguredFeature<?, ?>> redMushroom = registryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_NORMAL_KEY);
+
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
-        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
-        register(context, SNOWY_TALL_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
-        register(context, SNOWY_LARGE_FERN, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
-        register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
+        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
+        register(context, SNOWY_TALL_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
+        register(context, SNOWY_LARGE_FERN, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
+        register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
 
         register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
 
-        register(context, RED_MUSHROOM_NORMAL, configuredFeatures.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_NORMAL_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
-        register(context, RED_MUSHROOM_NETHER, configuredFeatures.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_NETHER_KEY), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
-        register(context, RED_MUSHROOM_TAIGA, configuredFeatures.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_TAIGA_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
-        register(context, RED_MUSHROOM_OLD_GROWTH, configuredFeatures.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_OLD_GROWTH_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(171));
-        register(context, RED_MUSHROOM_SWAMP, configuredFeatures.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_SWAMP_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(64));
+        register(context, RED_MUSHROOM_NORMAL, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
+        register(context, RED_MUSHROOM_NETHER, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
+        register(context, RED_MUSHROOM_TAIGA, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
+        register(context, RED_MUSHROOM_OLD_GROWTH, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(171));
+        register(context, RED_MUSHROOM_SWAMP, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(64));
 
-        register(context, BROWN_MUSHROOM_NORMAL, configuredFeatures.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_NORMAL_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
-        register(context, BROWN_MUSHROOM_NETHER, configuredFeatures.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_NETHER_KEY), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
-        register(context, BROWN_MUSHROOM_TAIGA, configuredFeatures.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_TAIGA_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4));
-        register(context, BROWN_MUSHROOM_OLD_GROWTH, configuredFeatures.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_OLD_GROWTH_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4), CountPlacementModifier.of(3));
-        register(context, BROWN_MUSHROOM_SWAMP, configuredFeatures.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_SWAMP_KEY), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
+        register(context, BROWN_MUSHROOM_NORMAL, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
+        register(context, BROWN_MUSHROOM_NETHER, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
+        register(context, BROWN_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4));
+        register(context, BROWN_MUSHROOM_OLD_GROWTH, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4), CountPlacementModifier.of(3));
+        register(context, BROWN_MUSHROOM_SWAMP, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
 
         register(context, ROOTED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
     }

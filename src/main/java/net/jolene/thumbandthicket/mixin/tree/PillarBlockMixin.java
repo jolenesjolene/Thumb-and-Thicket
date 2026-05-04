@@ -1,6 +1,8 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.tree;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
+import net.jolene.thumbandthicket.mixin.BlockAccessor;
+import net.jolene.thumbandthicket.mixin.SettingsAccessor;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
@@ -20,7 +22,6 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;

@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.tree;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

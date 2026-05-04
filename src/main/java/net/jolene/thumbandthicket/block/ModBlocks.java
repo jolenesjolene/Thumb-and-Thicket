@@ -19,6 +19,7 @@ public class ModBlocks {
 
     public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.ROOTED_DIRT).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "root_block", true);
     public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_grass", true);
+    public static final Block ROOTED_PODZOL = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
     public static final Block PUFFED_DANDELION = register(new PuffedDandelionBlock(AbstractBlock.Settings.copy(Blocks.DANDELION)), "puffed_dandelion", true);
     public static final Block CLOVERS = register(new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "clovers", true);
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);

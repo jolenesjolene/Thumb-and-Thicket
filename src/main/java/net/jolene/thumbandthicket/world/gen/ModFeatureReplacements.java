@@ -57,7 +57,7 @@ public class ModFeatureReplacements {
                 ModificationPhase.REMOVALS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().removeFeature(
-                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
                         VegetationPlacedFeatures.RED_MUSHROOM_NETHER
                 )
         );
@@ -97,7 +97,7 @@ public class ModFeatureReplacements {
                 ModificationPhase.REMOVALS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().removeFeature(
-                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
                         VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER
                 )
         );
@@ -173,7 +173,7 @@ public class ModFeatureReplacements {
                 ModificationPhase.REMOVALS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().addFeature(
-                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
                         ModPlacedFeatures.RED_MUSHROOM_NETHER
                 )
         );
@@ -213,7 +213,7 @@ public class ModFeatureReplacements {
                 ModificationPhase.REMOVALS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().addFeature(
-                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        GenerationStep.Feature.UNDERGROUND_DECORATION,
                         ModPlacedFeatures.BROWN_MUSHROOM_NETHER
                 )
         );

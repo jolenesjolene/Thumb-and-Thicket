@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.tree;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -20,8 +20,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.function.BiConsumer;
-
-import static net.jolene.thumbandthicket.ThumbAndThicket.thumbandthicket$determineRootSide;
 
 @Mixin(GiantTrunkPlacer.class)
 public class GiantTrunkPlacerMixin {

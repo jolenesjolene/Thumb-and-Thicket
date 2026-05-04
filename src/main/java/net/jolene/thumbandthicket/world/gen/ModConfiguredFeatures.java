@@ -7,6 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerbedBlock;
 import net.minecraft.block.enums.BlockFace;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -14,8 +15,10 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -38,15 +41,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOVERS_KEY = registerKey("clovers");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_NORMAL_KEY = registerKey("red_mushroom_normal");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_NETHER_KEY = registerKey("red_mushroom_nether");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_TAIGA_KEY = registerKey("red_mushroom_taiga");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_OLD_GROWTH_KEY = registerKey("red_mushroom_old_growth");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_SWAMP_KEY = registerKey("red_mushroom_swamp");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_NORMAL_KEY = registerKey("brown_mushroom_normal");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_NETHER_KEY = registerKey("brown_mushroom_nether");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_TAIGA_KEY = registerKey("brown_mushroom_taiga");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_OLD_GROWTH_KEY = registerKey("brown_mushroom_old_growth");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_SWAMP_KEY = registerKey("brown_mushroom_swamp");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTED_GRASS_KEY = registerKey("rooted_grass");
 
@@ -73,11 +68,7 @@ public class ModConfiguredFeatures {
                 redMushroomBuilder.add(Blocks.RED_MUSHROOM.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
             }
         }
-        register(context, RED_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
-        register(context, RED_MUSHROOM_NETHER_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
-        register(context, RED_MUSHROOM_TAIGA_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
-        register(context, RED_MUSHROOM_OLD_GROWTH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
-        register(context, RED_MUSHROOM_SWAMP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
+        register(context, RED_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
 
         DataPool.Builder<BlockState> brownMushroomBuilder = DataPool.builder();
         for (int i = 1; i <= 4; ++i) {
@@ -85,13 +76,9 @@ public class ModConfiguredFeatures {
                 brownMushroomBuilder.add(Blocks.BROWN_MUSHROOM.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
             }
         }
-        register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
-        register(context, BROWN_MUSHROOM_NETHER_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
-        register(context, BROWN_MUSHROOM_TAIGA_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
-        register(context, BROWN_MUSHROOM_OLD_GROWTH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
-        register(context, BROWN_MUSHROOM_SWAMP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
+        register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
 
-        register(context, ROOTED_GRASS_KEY, Feature.DISK, new DiskFeatureConfig(new PredicatedStateProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT), List.of(new PredicatedStateProvider.Rule(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR)), BlockStateProvider.of(ModBlocks.ROOTED_GRASS)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.not(BlockPredicate.IS_AIR), BlockPredicate.matchingBlockTag(BlockTags.DIRT)), BlockStateProvider.of(Blocks.ROOTED_DIRT)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.IS_AIR), BlockStateProvider.of(Blocks.HANGING_ROOTS)))), BlockPredicate.anyOf(BlockPredicate.matchingBlockTag(BlockTags.DIRT)), UniformIntProvider.create(2, 4), 2));
+        register(context, ROOTED_GRASS_KEY, Feature.DISK, new DiskFeatureConfig(new PredicatedStateProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT), List.of(new PredicatedStateProvider.Rule(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR, BlockPredicate.matchingBlocks(Blocks.PODZOL))), BlockStateProvider.of(ModBlocks.ROOTED_GRASS)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR)), BlockPredicate.matchingBlocks(Blocks.PODZOL)), BlockStateProvider.of(ModBlocks.ROOTED_PODZOL)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.not(BlockPredicate.IS_AIR), BlockPredicate.matchingBlockTag(BlockTags.DIRT)), BlockStateProvider.of(Blocks.ROOTED_DIRT)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.IS_AIR), BlockStateProvider.of(Blocks.HANGING_ROOTS)))), BlockPredicate.allOf(BlockPredicate.matchingBlockTag(BlockTags.DIRT)), UniformIntProvider.create(2, 4), 2));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
