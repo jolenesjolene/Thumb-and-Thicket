@@ -9,7 +9,8 @@
       "heightmap": "WORLD_SURFACE_WG"
     },
     {
-      "type": "thumbandthicket:snowy_below"
+      "type": "thumbandthicket:snowy_below",
+      "should_be_snowy": true
     }
   ]
 }

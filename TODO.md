@@ -29,8 +29,8 @@
 - Clovers
   - ~~Block~~
   - ~~Worldgen~~
-  - Textures
-  - Stem Model
+  - ~~Textures~~
+  - ~~Stem Model~~
 - Puffed Dandelions
   - ~~Block~~
   - Particles
@@ -47,7 +47,7 @@
   - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
     - ~~Blocks~~
     - ~~Worldgen~~
-    - NEW Placementmodifier so snowy grass wont leak out of Snowy Biomes
+    - ~~NEW Placementmodifier so snowy grass wont leak out of Snowy Biomes~~
     - Textures
   - Tinged Grass Variants
     - ~~Block~~
@@ -56,6 +56,9 @@
 - Mushrooms
   - ~~Placement Logic~~
   - Worldgen
+    - ~~Overworld~~
+    - Nether
+  - Tree Decorators
   - Loot Table
   - Textures
 - Lavender
@@ -73,9 +76,9 @@
   - Worldgen
     - Faery Circles
 - Purple Mushroom
-  - Block
+  - ~~Block~~
   - ~~Big Block~~
-  - Configured Feature
+  - ~~Configured Feature~~
   - Worldgen
   - Textures
 - Pale Gourd
@@ -89,6 +92,10 @@
   - Worldgen
   - Textures
 - Make all growing Plants snippable
+  - Vines
+  - Sugarcane
+  - Cacti
+  - Bamboo
 - Flowers overhaul
   - drops Seeds
     - Component for Flowertype
@@ -99,7 +106,7 @@
 
 ### Foliage in/around Water
 - Lilypads
-  - Stems
+  - ~~Stems~~
   - Big Lilypads (2x2)
   - Worldgen
   - Textures

@@ -20,7 +20,9 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> SNOWY_LARGE_FERN = registerKey("snowy_large_fern_placed");
     public static final RegistryKey<PlacedFeature> SNOWY_TALL_GRASS = registerKey("snowy_tall_grass_placed");
 
+    public static final RegistryKey<PlacedFeature> TINGED_GRASS = registerKey("tinged_grass_placed");
     public static final RegistryKey<PlacedFeature> CLOVERS = registerKey("clover_placed");
+
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_NORMAL = registerKey("red_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_NETHER = registerKey("red_mushroom_nether_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_TAIGA = registerKey("red_mushroom_taiga_placed");
@@ -31,6 +33,10 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_TAIGA = registerKey("brown_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_OLD_GROWTH = registerKey("brown_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_SWAMP = registerKey("brown_mushroom_swamp_placed");
+    public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_NORMAL = registerKey("purple_mushroom_normal_placed");
+    public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_TAIGA = registerKey("purple_mushroom_taiga_placed");
+    public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_OLD_GROWTH = registerKey("purple_mushroom_old_growth_placed");
+    public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_SWAMP = registerKey("purple_mushroom_swamp_placed");
 
     public static final RegistryKey<PlacedFeature> ROOTED_GRASS = registerKey("rooted_grass_placed");
 
@@ -40,14 +46,15 @@ public class ModPlacedFeatures {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         RegistryEntry.Reference<ConfiguredFeature<?, ?>> brownMushroom = registryEntryLookup.getOrThrow(ModConfiguredFeatures.BROWN_MUSHROOM_NORMAL_KEY);
         RegistryEntry.Reference<ConfiguredFeature<?, ?>> redMushroom = registryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_MUSHROOM_NORMAL_KEY);
+        RegistryEntry.Reference<ConfiguredFeature<?, ?>> purpleMushroom = registryEntryLookup.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_NORMAL_KEY);
 
-        register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
-        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
-        register(context, SNOWY_TALL_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
-        register(context, SNOWY_LARGE_FERN, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
-        register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of());
+        register(context, SNOWY_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(true));
+        register(context, SNOWY_TALL_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TALL_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(true));
+        register(context, SNOWY_LARGE_FERN, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_LARGE_FERN_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(true));
+        register(context, SNOWY_TAIGA_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.SNOWY_TAIGA_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(true));
 
-        register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
+        register(context, TINGED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.TINGED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(false));
+        register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(false));
 
         register(context, RED_MUSHROOM_NORMAL, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
         register(context, RED_MUSHROOM_NETHER, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
@@ -60,6 +67,13 @@ public class ModPlacedFeatures {
         register(context, BROWN_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4));
         register(context, BROWN_MUSHROOM_OLD_GROWTH, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4), CountPlacementModifier.of(3));
         register(context, BROWN_MUSHROOM_SWAMP, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
+
+        register(context, PURPLE_MUSHROOM_NORMAL, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
+        register(context, PURPLE_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
+        register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
+        register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
+        register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
+//        register(context, MUSHROOM_ISLAND_VEGETATION, Feature.RANDOM_BOOLEAN_SELECTOR, new RandomBooleanFeatureConfig(PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_RED_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, new PlacementModifier[0])));
 
         register(context, ROOTED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
     }

@@ -1,5 +1,5 @@
 {
-  "feature": "thumbandthicket:snowy_grass",
+  "feature": "thumbandthicket:tinged_grass",
   "placement": [
     {
       "type": "minecraft:in_square"
@@ -10,7 +10,7 @@
     },
     {
       "type": "thumbandthicket:snowy_below",
-      "should_be_snowy": true
+      "should_be_snowy": false
     }
   ]
 }

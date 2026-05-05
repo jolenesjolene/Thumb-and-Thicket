@@ -160,7 +160,6 @@ public class ModFeatureReplacements {
                         ModPlacedFeatures.SNOWY_TALL_GRASS
                 )
         );
-        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_TEMPERATE), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CLOVERS);
         BiomeModifications.create(Identifier.of(MOD_ID, "add_normal_red_mushrooms")).add(
                 ModificationPhase.REMOVALS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NORMAL)),
@@ -241,6 +240,11 @@ public class ModFeatureReplacements {
                         ModPlacedFeatures.BROWN_MUSHROOM_SWAMP
                 )
         );
+
+        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_TEMPERATE), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CLOVERS);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_DRY), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TINGED_GRASS);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PURPLE_MUSHROOM_TAIGA);
+
     }
 
 }
