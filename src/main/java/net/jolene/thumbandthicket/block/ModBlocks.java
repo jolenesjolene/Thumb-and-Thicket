@@ -18,8 +18,8 @@ import net.minecraft.util.Identifier;
 public class ModBlocks {
 
     public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.ROOTED_DIRT).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "root_block", true);
-    public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_grass", true);
-    public static final Block ROOTED_PODZOL = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
+    public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "rooted_grass", true);
+    public static final Block ROOTED_PODZOL = register(new RootedPodzolBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
     public static final Block PUFFED_DANDELION = register(new PuffedDandelionBlock(AbstractBlock.Settings.copy(Blocks.DANDELION)), "puffed_dandelion", true);
     public static final Block CLOVERS = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "clovers", true);
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);
@@ -32,7 +32,7 @@ public class ModBlocks {
     public static final Block SHORT_LILAC = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
     public static final Block PURPLE_MUSHROOM = register(new MushroomPlantBlock(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
     public static final Block PURPLE_MUSHROOM_BLOCK = register(new MushroomBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK)), "purple_mushroom_block", true);
-    public static final Block MILKWEED = register(new TallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
+    public static final Block MILKWEED = register(new MilkweedPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block WILTED_CROP = register(new WiltedCropBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "wilted_crop", false);
 
     private static Block register(Block block, String name, boolean hasItem) {

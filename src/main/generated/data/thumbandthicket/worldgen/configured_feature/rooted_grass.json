@@ -52,7 +52,10 @@
           "then": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "thumbandthicket:rooted_grass"
+              "Name": "thumbandthicket:rooted_grass",
+              "Properties": {
+                "snowy": "false"
+              }
             }
           }
         },
@@ -98,7 +101,10 @@
           "then": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "thumbandthicket:rooted_podzol"
+              "Name": "thumbandthicket:rooted_podzol",
+              "Properties": {
+                "snowy": "false"
+              }
             }
           }
         },

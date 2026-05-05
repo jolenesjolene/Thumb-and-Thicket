@@ -36,8 +36,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_LARGE_FERN_KEY = registerKey("snowy_large_fern");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> TINGED_GRASS_KEY = registerKey("tinged_grass");
-
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOVERS_KEY = registerKey("clovers");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MILKWEED_KEY = registerKey("milkweed");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_NORMAL_KEY = registerKey("red_mushroom_normal");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_NORMAL_KEY = registerKey("brown_mushroom_normal");
@@ -55,6 +55,7 @@ public class ModConfiguredFeatures {
         register(context, SNOWY_LARGE_FERN_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.SNOWY_LARGE_FERN)))));
 
         register(context, TINGED_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TINGED_SHORT_GRASS)))));
+        register(context, MILKWEED_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(16, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MILKWEED)))));
 
         DataPool.Builder<BlockState> cloversBuilder = DataPool.builder();
         for (int i = 1; i <= 4; ++i) {
