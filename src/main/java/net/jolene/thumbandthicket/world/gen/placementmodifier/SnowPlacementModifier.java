@@ -22,7 +22,8 @@ public class SnowPlacementModifier extends PlacementModifier {
         BlockState state = context.getWorld().getBlockState(pos);
         BlockState stateBelow = context.getWorld().getBlockState(pos.down());
 
-        if (stateBelow.isOf(Blocks.GRASS_BLOCK) && stateBelow.contains(Properties.SNOWY) && state.isOf(Blocks.SNOW)) {
+        if (stateBelow.isOf(Blocks.GRASS_BLOCK) && stateBelow.contains(Properties.SNOWY) && context.getWorld().getBiome(pos).value().canSetSnow(context.getWorld(), pos)) {
+            context.getWorld().setBlockState(pos.down(), stateBelow.with(Properties.SNOWY, true), 2);
             return Stream.of(pos);
         }
 

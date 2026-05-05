@@ -23,7 +23,6 @@
     "SettingsAccessor",
     "ShearsItemMixin",
     "snowy.SnowBlockMixin",
-    "snowy.SnowyBlockMixin",
     "SugarCaneBlockMixin",
     "tree.TreeFeatureMixin",
     "tree.TrunkPlacerMixin",

@@ -1,9 +1,10 @@
-// 1.21.1	2026-05-04T15:15:00.3664688	Thumb & Thicket/Tags for minecraft:block
+// 1.21.1	2026-05-05T09:05:57.1524586	Thumb & Thicket/Tags for minecraft:block
 9c99444249ea9362072a08ee44c2d01c8ab03176 data\thumbandthicket\tags\block\tall_crops.json
 92861bbfc33718f65a6c66f4468675fa09ac162f data\thumbandthicket\tags\block\grass_blocks.json
 36a491a695201f5b03b2c0cca537c626edbc6f3f data\thumbandthicket\tags\block\stackable_mushrooms.json
 70026d123965d257a9337811b2452f0e011a2174 data\thumbandthicket\tags\block\snippable.json
 6016bc3938ba5eaaf2c1a56d291e655bc3cfe4a5 data\minecraft\tags\block\mineable\shovel.json
 8bec3ac494aaaff3adaea1efa368e4f1f01c22c5 data\minecraft\tags\block\dirt.json
+1df4280d6c385e72f3bb089cb70283cfa67a4440 data\minecraft\tags\block\snow.json
 75cc8bff5a0001952a3c169f6d3e2e4d5084cd13 data\thumbandthicket\tags\block\rooty_blocks.json
 f2c8e78e6a824694cd9354f0d50293ccf56ead1c data\minecraft\tags\block\mushroom_grow_block.json

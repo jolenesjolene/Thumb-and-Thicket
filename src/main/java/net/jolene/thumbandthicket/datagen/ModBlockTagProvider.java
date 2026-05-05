@@ -25,5 +25,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.TALL_CROPS).add(Blocks.WHEAT);
         getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.ROOTED_GRASS, ModBlocks.ROOTED_PODZOL);
         getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(ModBlocks.ROOTED_PODZOL);
+        getOrCreateTagBuilder(BlockTags.SNOW).add(ModBlocks.SNOWY_BUSH, ModBlocks.SNOWY_SHORT_GRASS, ModBlocks.SNOWY_SHORT_FERN, ModBlocks.SNOWY_TALL_GRASS, ModBlocks.SNOWY_LARGE_FERN);
     }
 }

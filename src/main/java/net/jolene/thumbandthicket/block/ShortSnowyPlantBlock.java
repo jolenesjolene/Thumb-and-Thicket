@@ -112,7 +112,7 @@ public class ShortSnowyPlantBlock extends ShortPlantBlock {
         if (state.get(ModProperties.LAYERS) > 0) {
             return state.get(ModProperties.LAYERS) == 8 ? 0.2f : 1.0f;
         }
-        return 0;
+        return 1;
     }
 
     @Override
