@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
+import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
 import net.minecraft.component.type.FoodComponent;
@@ -23,10 +24,18 @@ public class ModItems {
     public static final FoodComponent PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(ModEffects.PRICKLY, 100, 0), 1.0F).build();
     public static final FoodComponent ROTTEN_APPLE_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 0), 0.6F).build();
+    public static final FoodComponent PEAR_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.3F).build();
+    public static final FoodComponent ORANGE_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(3).saturationModifier(0.3F).build();
+
+    public static final FoodComponent LUCKY_CLOVER_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 6400, 0), 1.0F).build();
 
     public static final Item ROTTEN_APPLE = register(new Item(new Item.Settings().maxCount(64).food(ROTTEN_APPLE_FOOD_COMPONENT)), "rotten_apple");
+    public static final Item PEAR = register(new Item(new Item.Settings().maxCount(64).food(PEAR_FOOD_COMPONENT)), "pear");
+    public static final Item ORANGE = register(new Item(new Item.Settings().maxCount(64).food(ORANGE_FOOD_COMPONENT)), "orange");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
+
+    public static final Item LUCKY_CLOVER = register(new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64).food(LUCKY_CLOVER_FOOD_COMPONENT)), "lucky_clover");
 
     public static final Item BROWN_BEAR_SPAWN_EGG = register(
             new SpawnEggItem(ModEntities.BROWN_BEAR, 0x000000, 0x000000, new Item.Settings()),
@@ -40,12 +49,18 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
                 .register(group -> {
                     group.addAfter(Items.APPLE, ModItems.ROTTEN_APPLE);
+                    group.addAfter(ModItems.ROTTEN_APPLE, ModItems.PEAR);
+                    group.addAfter(ModItems.PEAR, ModItems.ORANGE);
                     group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
                 .register(group -> {
                     group.addAfter(Items.POLAR_BEAR_SPAWN_EGG, ModItems.BROWN_BEAR_SPAWN_EGG);
+                });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
+                .register(group -> {
+                    group.addAfter(ModBlocks.CLOVERS, ModItems.LUCKY_CLOVER);
                 });
     }
 }

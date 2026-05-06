@@ -19,6 +19,9 @@ public class ModItemGroups {
                 FabricItemGroup.builder().icon(() -> new ItemStack(Items.OAK_SAPLING))
                         .displayName(Text.translatable("itemgroup.thumbandthicket.thumbandthicket"))
                         .entries((displayContext, entries) -> {
+
+                            // NINE PER SECTION
+
                             entries.add(Items.OAK_SAPLING);
                             entries.add(Items.SPRUCE_SAPLING);
                             entries.add(Items.BIRCH_SAPLING);
@@ -30,36 +33,60 @@ public class ModItemGroups {
                             Item PALE_OAK_SAPLING = Registries.ITEM.get(Identifier.of("minecraft", "pale_oak_sapling"));
                             if (PALE_OAK_SAPLING != Items.AIR) {
                                 entries.add(PALE_OAK_SAPLING);}
-                            
-                            entries.add(Items.SHEARS);
+
+                            entries.add(ModBlocks.CLOVERS);
+                            entries.add(ModItems.LUCKY_CLOVER);
                             entries.add(Items.DANDELION);
                             entries.add(ModBlocks.PUFFED_DANDELION);
-                            entries.add(ModBlocks.CLOVERS);
-                            entries.add(Blocks.LILY_PAD);
                             entries.add(ModBlocks.LAVENDER);
                             entries.add(ModBlocks.MILKWEED);
-                            entries.add(ModBlocks.PURPLE_MUSHROOM);
-                            entries.add(ModBlocks.PURPLE_MUSHROOM_BLOCK);
-                            entries.add(ModBlocks.TINGED_SHORT_GRASS);
-                            entries.add(ModBlocks.SHORT_LILAC);
-                            entries.add(Blocks.LILAC);
-                            entries.add(Items.APPLE);
-                            entries.add(ModItems.ROTTEN_APPLE);
-                            entries.add(ModItems.PRICKLY_PEAR);
-                            entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
-                            entries.add(Items.RED_MUSHROOM);
-                            entries.add(Items.BROWN_MUSHROOM);
-                            entries.add(Items.WHEAT_SEEDS);
-                            entries.add(Items.WHEAT);
+                            //entries.add(ModBlocks.DUCKWEED);
+                            //entries.add(ModBlocks.CATTAIL);
+                            //entries.add(ModBlocks.POISON_IVY);
+                            entries.add(Blocks.LILY_PAD);
+
                             entries.add(ModBlocks.ROOTED_GRASS);
+                            entries.add(ModBlocks.ROOTED_PODZOL);
                             entries.add(Blocks.ROOTED_DIRT);
                             entries.add(ModBlocks.ROOT_BLOCK);
+                            entries.add(Blocks.HANGING_ROOTS);
+                            //entries.add(ModBlocks.LONG_HANGING_ROOTS);
+                            //entries.add(ModItems.FERTILIZER);
+                            //entries.add(ModItems.SUNFLOWER_SEEDS);
+                            //entries.add(ModItems.FLOWER_SEEDS);
+
+                            entries.add(Items.APPLE);
+                            entries.add(ModItems.ROTTEN_APPLE);
+                            entries.add(ModItems.PEAR);
+                            //entries.add(ModItems.ROTTEN_PEAR);
+                            entries.add(ModItems.ORANGE);
+                           //entries.add(ModItems.ROTTEN_ORANGE);
+                            entries.add(ModItems.PRICKLY_PEAR);
+                            //entries.add(ModItems.SHRIVELED_PRICKLY_PEAR);
+                            entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
+
+
+                            entries.add(Items.RED_MUSHROOM);
+                            entries.add(Items.BROWN_MUSHROOM);
+                            entries.add(ModBlocks.PURPLE_MUSHROOM);
+                            entries.add(ModBlocks.PURPLE_MUSHROOM_BLOCK);
+
+
+                            entries.add(Items.WHEAT_SEEDS);
+                            entries.add(Items.WHEAT);
+
+
+                            entries.add(ModBlocks.TINGED_SHORT_GRASS);
                             entries.add(ModBlocks.SNOWY_SHORT_GRASS);
+                            //entries.add(ModBlocks.TINGED_TALL_GRASS);
                             entries.add(ModBlocks.SNOWY_TALL_GRASS);
                             entries.add(ModBlocks.SNOWY_SHORT_FERN);
                             entries.add(ModBlocks.SNOWY_LARGE_FERN);
                             entries.add(ModBlocks.SNOWY_BUSH);
+                            //entries.add(ModBlocks.SNOWY_SWEET_BERRY_BUSH);
+
                             entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
+                            entries.add(Items.SHEARS);
                         }).build());
 
 
