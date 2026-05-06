@@ -15,17 +15,19 @@
   - Block
   - Worldgen
 - Spore Blossom
-  - Age Blockstates
+  - ~~Age Blockstates~~
+  - ~~World Gen~~
   - Textures
 - Cactus Flower
   - ~~Prickly Pear grows on Cactus Flower~~
   - ~~Blockstates~~
   - Loot Table
-  - Golden Flower
-  - Worldgen with different Ages
+  - ~~Golden Flower~~
+  - ~~Worldgen with different Ages~~
   - Textures
     - ~~Pear~~
     - Flower
+    - Golden Pear in-World Variant
 - Clovers
   - ~~Block~~
   - ~~Worldgen~~

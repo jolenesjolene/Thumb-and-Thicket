@@ -4,6 +4,9 @@ import net.jolene.thumbandthicket.world.gen.placementmodifier.SnowPlacementModif
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
@@ -24,6 +27,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> CLOVERS = registerKey("clover_placed");
     public static final RegistryKey<PlacedFeature> MILKWEED = registerKey("milkweed_placed");
     public static final RegistryKey<PlacedFeature> CATTAIL = registerKey("cattail_placed");
+    public static final RegistryKey<PlacedFeature> AGED_SPORE_BLOSSOM = registerKey("spore_blossom");
 
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_NORMAL = registerKey("red_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_NETHER = registerKey("red_mushroom_nether_placed");
@@ -79,6 +83,8 @@ public class ModPlacedFeatures {
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
 //        register(context, MUSHROOM_ISLAND_VEGETATION, Feature.RANDOM_BOOLEAN_SELECTOR, new RandomBooleanFeatureConfig(PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_RED_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, new PlacementModifier[0])));
 
+
+        register(context, AGED_SPORE_BLOSSOM, configuredFeatures.getOrThrow(ModConfiguredFeatures.AGED_SPORE_BLOSSOM_KEY), CountPlacementModifier.of(25), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_120_RANGE, EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.solid(), BlockPredicate.IS_AIR, 12), RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)), BiomePlacementModifier.of());
         register(context, ROOTED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);
     }
 

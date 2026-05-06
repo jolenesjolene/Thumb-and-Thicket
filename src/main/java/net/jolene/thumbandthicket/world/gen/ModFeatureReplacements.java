@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.UndergroundPlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
@@ -125,6 +126,14 @@ public class ModFeatureReplacements {
                         VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP
                 )
         );
+        BiomeModifications.create(Identifier.of(MOD_ID, "remove_spore_blossoms")).add(
+                ModificationPhase.REMOVALS,
+                context -> (context.hasPlacedFeature(UndergroundPlacedFeatures.SPORE_BLOSSOM)),
+                context -> context.getGenerationSettings().removeFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        UndergroundPlacedFeatures.SPORE_BLOSSOM
+                )
+        );
     }
 
     public static void addFeatures() {
@@ -161,7 +170,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_normal_red_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NORMAL)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -169,7 +178,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_nether_red_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
@@ -177,7 +186,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_taiga_red_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_TAIGA)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -185,7 +194,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_old_growth_red_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_OLD_GROWTH)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -193,7 +202,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_swamp_red_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.RED_MUSHROOM_SWAMP)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -201,7 +210,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_normal_brown_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NORMAL)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -209,7 +218,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_nether_brown_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_NETHER)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.UNDERGROUND_DECORATION,
@@ -217,7 +226,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_taiga_brown_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_TAIGA)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -225,7 +234,7 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_old_growth_brown_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_OLD_GROWTH)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
@@ -233,11 +242,19 @@ public class ModFeatureReplacements {
                 )
         );
         BiomeModifications.create(Identifier.of(MOD_ID, "add_swamp_brown_mushrooms")).add(
-                ModificationPhase.REMOVALS,
+                ModificationPhase.ADDITIONS,
                 context -> (context.hasPlacedFeature(VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
                         ModPlacedFeatures.BROWN_MUSHROOM_SWAMP
+                )
+        );
+        BiomeModifications.create(Identifier.of(MOD_ID, "add_spore_blossoms")).add(
+                ModificationPhase.ADDITIONS,
+                context -> (context.hasPlacedFeature(UndergroundPlacedFeatures.SPORE_BLOSSOM)),
+                context -> context.getGenerationSettings().addFeature(
+                        GenerationStep.Feature.VEGETAL_DECORATION,
+                        ModPlacedFeatures.AGED_SPORE_BLOSSOM
                 )
         );
 

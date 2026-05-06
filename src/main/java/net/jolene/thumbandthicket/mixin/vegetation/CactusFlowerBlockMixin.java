@@ -1,8 +1,9 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.vegetation;
 
 import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import com.blackgear.vanillabackport.common.registries.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItems;
+import net.jolene.thumbandthicket.mixin.BlockAccessor;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
@@ -51,7 +52,6 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
     public int getAge(BlockState state) {
         return state.get(this.getAgeProperty());
     }
-
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {

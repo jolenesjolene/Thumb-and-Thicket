@@ -4,8 +4,8 @@
     "particle": "block/rooted_dirt",
     "bottom": "block/rooted_dirt",
     "top": "block/podzol_top",
-    "side": "thumbandthicket:block/rooted_podzol",
-    "side_overlay": "block/podzol_side_overlay"
+    "side": "thumbandthicket:block/rooted_podzol_side",
+    "side_overlay": "thumbandthicket:block/rooted_podzol_side_overlay"
   },
   "elements": [
     {

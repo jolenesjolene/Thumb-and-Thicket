@@ -5,17 +5,10 @@
   "mixins": [
     "BlockAccessor",
     "BlockMixin",
-    "CactusBlockMixin",
-    "CactusFlowerBlockMixin",
     "ExampleMixin",
-    "FungusBlockMixin",
     "ItemStackMixin",
-    "LilyPadBlockMixin",
-    "MushroomPlantBlockMixin",
     "SettingsAccessor",
     "ShearsItemMixin",
-    "SugarCaneBlockMixin",
-    "VineBlockMixin",
     "farming.CropBlockMixin",
     "farming.FarmlandBlockMixin",
     "snowy.SnowBlockMixin",
@@ -27,7 +20,16 @@
     "tree.PillarBlockMixin",
     "tree.SaplingBlockMixin",
     "tree.TreeFeatureMixin",
-    "tree.TrunkPlacerMixin"
+    "tree.TrunkPlacerMixin",
+    "vegetation.CactusBlockMixin",
+    "vegetation.CactusFlowerBlockMixin",
+    "vegetation.CactusFlowerFeatureMixin",
+    "vegetation.FungusBlockMixin",
+    "vegetation.LilyPadBlockMixin",
+    "vegetation.MushroomPlantBlockMixin",
+    "vegetation.SporeBlossomBlockMixin",
+    "vegetation.SugarCaneBlockMixin",
+    "vegetation.VineBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
