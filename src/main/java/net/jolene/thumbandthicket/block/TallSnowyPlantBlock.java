@@ -122,7 +122,7 @@ public class TallSnowyPlantBlock extends TallPlantBlock {
         if (state.get(ModProperties.LAYERS) > 0 && doubleBlockHalf == DoubleBlockHalf.LOWER) {
             return state.get(ModProperties.LAYERS) == 8 ? 0.2f : 1.0f;
         }
-        return 0;
+        return 1;
     }
 
     @Override

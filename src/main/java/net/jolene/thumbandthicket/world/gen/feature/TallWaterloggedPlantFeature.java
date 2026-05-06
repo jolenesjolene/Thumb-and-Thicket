@@ -3,15 +3,16 @@ package net.jolene.thumbandthicket.world.gen.feature;
 import com.mojang.serialization.Codec;
 import net.jolene.thumbandthicket.world.gen.feature.config.TallWaterloggedPlantFeatureConfig;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.TallPlantBlock;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 public class TallWaterloggedPlantFeature extends Feature<TallWaterloggedPlantFeatureConfig> {
     public TallWaterloggedPlantFeature(Codec<TallWaterloggedPlantFeatureConfig> configCodec) {
@@ -20,35 +21,43 @@ public class TallWaterloggedPlantFeature extends Feature<TallWaterloggedPlantFea
 
     @Override
     public boolean generate(FeatureContext<TallWaterloggedPlantFeatureConfig> context) {
-        TallWaterloggedPlantFeatureConfig tallWaterloggedPlantFeatureConfig = context.getConfig();
-        int tries = tallWaterloggedPlantFeatureConfig.tries();
-        int xzSpread = tallWaterloggedPlantFeatureConfig.xzSpread();
-        int ySpread = tallWaterloggedPlantFeatureConfig.ySpread();
+        TallWaterloggedPlantFeatureConfig config = context.getConfig();
         StructureWorldAccess world = context.getWorld();
         Random random = context.getRandom();
+        BlockPos origin = context.getOrigin();
+        BlockState state = config.stateProvider().get(random, origin);
 
-        BlockPos pos = context.getOrigin();
-        int posX = pos.getX();
-        int posY = pos.getY();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        int placed = 0;
+        int tries = config.tries();
 
-        world.getTopY(Heightmap.Type.OCEAN_FLOOR, posX, posY);
+        for (int i = 0; i < tries; i++) {
+            double angle = random.nextDouble() * Math.PI * 2;
+            double radius = random.nextDouble();
+            radius = radius * radius;
 
-        BlockState state = tallWaterloggedPlantFeatureConfig.stateProvider().get(context.getRandom(), pos);
-        int j = xzSpread + 1;
-        int k = ySpread + 1;
+            int spread = config.xzSpread();
+            int dx = (int) (Math.cos(angle) * radius * spread);
+            int dz = (int) (Math.sin(angle) * radius * spread);
 
-        int i = 0;
-        for (int l = 0; l < tallWaterloggedPlantFeatureConfig.tries(); ++l) {
-            mutable.set(pos, random.nextInt(j) - random.nextInt(j), random.nextInt(k) - random.nextInt(k), random.nextInt(j) - random.nextInt(j));
-            if (!state.canPlaceAt(world, pos)) continue;
-            if (state.getBlock() instanceof TallPlantBlock) {
-                if (!world.isAir(pos.up())) continue;
-                TallPlantBlock.placeAt(world, state, pos, 2);
-                ++i;
-            }
+            BlockPos pos = origin.add(dx, 0, dz);
+            pos = new BlockPos(pos.getX(), world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()), pos.getZ());
+
+            boolean shallowWater = world.getBlockState(pos).isOf(Blocks.WATER) && state.canPlaceAt(world, pos);
+
+            if (!shallowWater && !world.getBlockState(pos).isAir()) continue;
+
+            boolean waterNearby = false;
+            for (BlockPos currentPos : BlockPos.iterate(pos.add(2, 2, 2), pos.add(-2, -2, -2))) if (BlockPredicate.matchingFluids(Fluids.WATER).test(world, currentPos)) waterNearby = true;
+            if (!waterNearby) continue;
+
+            if (!world.isAir(pos.up())) continue;
+            if (!state.canPlaceAt(world, pos.mutableCopy())) continue;
+
+            TallPlantBlock.placeAt(world, state, pos.mutableCopy(), 2);
+
+            placed++;
         }
 
-        return i>0;
+        return placed > 0;
     }
 }

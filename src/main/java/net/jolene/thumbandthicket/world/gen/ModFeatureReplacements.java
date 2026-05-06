@@ -15,7 +15,7 @@ public class ModFeatureReplacements {
     public static void removeFeatures() {
         BiomeModifications.create(Identifier.of(MOD_ID, "remove_grass")).add(
                 ModificationPhase.REMOVALS,
-                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY_PLAINS) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
+                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
                 context -> context.getGenerationSettings().removeFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
                         VegetationPlacedFeatures.PATCH_GRASS_BADLANDS
@@ -130,7 +130,7 @@ public class ModFeatureReplacements {
     public static void addFeatures() {
         BiomeModifications.create(Identifier.of(MOD_ID, "add_snowy_grass")).add(
                 ModificationPhase.ADDITIONS,
-                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY_PLAINS) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
+                context -> ((context.hasTag(ConventionalBiomeTags.IS_SNOWY)) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
                         ModPlacedFeatures.SNOWY_GRASS
