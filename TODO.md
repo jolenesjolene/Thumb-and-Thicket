@@ -51,7 +51,7 @@
     - Textures
   - Tinged Grass Variants
     - ~~Block~~
-    - Worldgen
+    - ~~Worldgen~~
     - Textures
 - Mushrooms
   - ~~Placement Logic~~
@@ -90,6 +90,26 @@
   - Block
   - States
   - Worldgen
+  - Textures
+- Milkweed
+  - ~~Block~~
+  - ~~World Gen~~
+  - Textures
+- Cattails
+  - ~~Block~~
+  - ~~World Gen~~
+  - Textures
+- New Sniffer Plants
+  - Dew Drop
+    - 3 blocks tall, 2 wide
+    - accumulates Dew if Cauldron placed in the middle
+    - Dew drinkable
+    - Block(s)
+    - Textures
+  - Ancient Crops with ancient Foods
+- Mycelial Sprouts
+  - Block
+  - World Gen
   - Textures
 - Make all growing Plants snippable
   - Vines
@@ -207,6 +227,7 @@
   - interactions with other mobs
     - Ocelots lead Players to Temples
   - Mobs have Litters
+  - Polar Bears hunt for Fish
 - updated Mob Models
   - Cow
   - Sheep
@@ -216,6 +237,11 @@
   - Polar Bears
   - Creepers
   - etc.
+- Polar Bears
+  - only protect their Cubs
+  - no Drops
+  - make breedable
+  - shear for Fur
 
 ### World
 - Rooted Grass
@@ -248,7 +274,7 @@
       - Cave
       - Worldgen
 
-- Port Crop wilting system from Progression Respun
+- ~~Port Crop wilting system from Progression Respun~~
   - new Textures
   - Villager AI
-  - make less bad
+  - ~~make less bad~~
