@@ -1,30 +1,15 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "thumbandthicket:tall_waterlogged_plant_feature",
   "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "thumbandthicket:milkweed",
-              "Properties": {
-                "half": "lower"
-              }
-            }
-          }
+    "state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "thumbandthicket:milkweed",
+        "Properties": {
+          "half": "lower",
+          "waterlogged": "false"
         }
-      },
-      "placement": [
-        {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
-          }
-        }
-      ]
+      }
     },
     "tries": 16,
     "xz_spread": 7,

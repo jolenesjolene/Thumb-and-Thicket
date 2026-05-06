@@ -2,6 +2,8 @@ package net.jolene.thumbandthicket.world.gen;
 
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
+import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;
+import net.jolene.thumbandthicket.world.gen.feature.config.TallWaterloggedPlantFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerbedBlock;
@@ -55,7 +57,7 @@ public class ModConfiguredFeatures {
         register(context, SNOWY_LARGE_FERN_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.SNOWY_LARGE_FERN)))));
 
         register(context, TINGED_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TINGED_SHORT_GRASS)))));
-        register(context, MILKWEED_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(16, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MILKWEED)))));
+        register(context, MILKWEED_KEY, ModFeatures.TALL_WATERLOGGED_PLANT_FEATURE, new TallWaterloggedPlantFeatureConfig(16, 7, 3, BlockStateProvider.of(ModBlocks.MILKWEED)));
 
         DataPool.Builder<BlockState> cloversBuilder = DataPool.builder();
         for (int i = 1; i <= 4; ++i) {

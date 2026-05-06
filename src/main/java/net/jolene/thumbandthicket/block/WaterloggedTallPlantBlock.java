@@ -19,10 +19,10 @@ import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 
-public class MilkweedPlantBlock extends TallPlantBlock implements Waterloggable, Fertilizable {
-    public MilkweedPlantBlock(Settings settings) {
+public class WaterloggedTallPlantBlock extends TallPlantBlock implements Waterloggable, Fertilizable {
+    public WaterloggedTallPlantBlock(Settings settings) {
         super(settings);
-        super.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));
     }
 
     @Override

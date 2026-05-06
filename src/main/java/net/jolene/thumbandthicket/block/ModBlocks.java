@@ -32,7 +32,7 @@ public class ModBlocks {
     public static final Block SHORT_LILAC = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
     public static final Block PURPLE_MUSHROOM = register(new MushroomPlantBlock(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
     public static final Block PURPLE_MUSHROOM_BLOCK = register(new MushroomBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK)), "purple_mushroom_block", true);
-    public static final Block MILKWEED = register(new MilkweedPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
+    public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block WILTED_CROP = register(new WiltedCropBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "wilted_crop", false);
 
     private static Block register(Block block, String name, boolean hasItem) {

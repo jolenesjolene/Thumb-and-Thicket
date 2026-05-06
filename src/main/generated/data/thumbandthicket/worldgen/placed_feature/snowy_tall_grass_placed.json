@@ -11,6 +11,9 @@
     {
       "type": "thumbandthicket:snowy_below",
       "should_be_snowy": true
+    },
+    {
+      "type": "minecraft:biome"
     }
   ]
 }
