@@ -31,5 +31,11 @@
       "thumbandthicket:entity/brown_bear/bear_step_3",
       "thumbandthicket:entity/brown_bear/bear_step_4"
     ]
+  },
+  "entity.brown_bear.death": {
+    "subtitle": "sounds.thumbandthicket.bear.death",
+    "sounds": [
+      "thumbandthicket:entity/brown_bear/bear_death"
+    ]
   }
 }

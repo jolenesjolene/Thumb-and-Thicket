@@ -61,7 +61,7 @@ public class BrownBearEntity extends AnimalEntity {
     }
 
     protected SoundEvent getDeathSound() {
-        return ModSounds.BROWN_BEAR_HURT;
+        return ModSounds.BROWN_BEAR_DEATH;
     }
 
     protected void playStepSound(BlockPos pos, BlockState state) {

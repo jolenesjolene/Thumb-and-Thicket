@@ -11,6 +11,7 @@ public class ModSounds {
     public static final SoundEvent BROWN_BEAR_AMBIENT = registerSoundEvent("entity.brown_bear.ambient");
     public static final SoundEvent BROWN_BEAR_HURT = registerSoundEvent("entity.brown_bear.hurt");
     public static final SoundEvent BROWN_BEAR_STEP = registerSoundEvent("entity.brown_bear.step");
+    public static final SoundEvent BROWN_BEAR_DEATH= registerSoundEvent("entity.brown_bear.death");
 
 
 
