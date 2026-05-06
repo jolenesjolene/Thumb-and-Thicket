@@ -8,6 +8,10 @@ import net.minecraft.util.Identifier;
 
 public class ModSounds {
     public static final SoundEvent SNIP = registerSoundEvent("snip");
+    public static final SoundEvent BROWN_BEAR_AMBIENT = registerSoundEvent("entity.brown_bear.ambient");
+    public static final SoundEvent BROWN_BEAR_HURT = registerSoundEvent("entity.brown_bear.hurt");
+    public static final SoundEvent BROWN_BEAR_STEP = registerSoundEvent("entity.brown_bear.step");
+
 
 
     private static SoundEvent registerSoundEvent(String name) {

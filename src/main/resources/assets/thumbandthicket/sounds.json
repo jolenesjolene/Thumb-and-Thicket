@@ -7,5 +7,29 @@
       "thumbandthicket:snip_3",
       "thumbandthicket:snip_4"
     ]
+  },
+  "entity.brown_bear.ambient": {
+    "subtitle": "sounds.thumbandthicket.bear.ambient",
+    "sounds": [
+      "thumbandthicket:entity/brown_bear/bear_idle_1",
+      "thumbandthicket:entity/brown_bear/bear_idle_2",
+      "thumbandthicket:entity/brown_bear/bear_idle_3"
+    ]
+  },
+  "entity.brown_bear.hurt": {
+    "subtitle": "sounds.thumbandthicket.bear.hurt",
+    "sounds": [
+      "thumbandthicket:entity/brown_bear/bear_hurt_1",
+      "thumbandthicket:entity/brown_bear/bear_hurt_2"
+    ]
+  },
+  "entity.brown_bear.step": {
+    "subtitle": "sounds.thumbandthicket.bear.step",
+    "sounds": [
+      "thumbandthicket:entity/brown_bear/bear_step_1",
+      "thumbandthicket:entity/brown_bear/bear_step_2",
+      "thumbandthicket:entity/brown_bear/bear_step_3",
+      "thumbandthicket:entity/brown_bear/bear_step_4"
+    ]
   }
 }

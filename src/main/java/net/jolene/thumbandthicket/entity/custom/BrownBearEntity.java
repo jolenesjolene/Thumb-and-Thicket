@@ -1,11 +1,14 @@
 package net.jolene.thumbandthicket.entity.custom;
 
 import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.sound.ModSounds;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -14,6 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,6 +51,21 @@ public class BrownBearEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20);
+    }
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.BROWN_BEAR_AMBIENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.BROWN_BEAR_HURT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return ModSounds.BROWN_BEAR_HURT;
+    }
+
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        this.playSound(ModSounds.BROWN_BEAR_STEP, 0.1F, 1.25F);
     }
 
     private void setupAnimationStates() {
