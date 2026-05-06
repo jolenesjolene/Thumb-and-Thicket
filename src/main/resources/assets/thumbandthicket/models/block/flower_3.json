@@ -1,0 +1,38 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by gayasslily",
+	"ambientocclusion": false,
+	"textures": {
+		"flower": "#flower"
+	},
+	"elements": [
+		{
+			"from": [12, 0, -2.2],
+			"to": [12, 16, 12.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [12, 8, 5], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "flower"},
+				"south": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "flower"},
+				"up": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"down": {"uv": [0, 0, 0, 0], "texture": "flower"}
+			}
+		},
+		{
+			"from": [4.8, 0, 5],
+			"to": [19.2, 16, 5],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [12, 8, 5], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "flower"},
+				"east": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "flower"},
+				"west": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"up": {"uv": [0, 0, 0, 0], "texture": "flower"},
+				"down": {"uv": [0, 0, 0, 0], "texture": "flower"}
+			}
+		}
+	]
+}

@@ -57,9 +57,9 @@
     - Textures
 - Mushrooms
   - ~~Placement Logic~~
-  - Worldgen
+  - ~~Worldgen~~
     - ~~Overworld~~
-    - Nether
+    - ~~Nether~~
   - Tree Decorators
   - Loot Table
   - Textures
@@ -124,6 +124,7 @@
     - Texture Overrides for specific Seeds
     - Tag-controlled Eating
   - drops itself with Shears
+  - ~~multiple Flowers in one Block~~
 - Torchflowers prevent Mobspawns in specific radius
 
 ### Foliage in/around Water

@@ -24,6 +24,7 @@
     "vegetation.CactusBlockMixin",
     "vegetation.CactusFlowerBlockMixin",
     "vegetation.CactusFlowerFeatureMixin",
+    "vegetation.FlowerBlockMixin",
     "vegetation.FungusBlockMixin",
     "vegetation.LilyPadBlockMixin",
     "vegetation.MushroomPlantBlockMixin",

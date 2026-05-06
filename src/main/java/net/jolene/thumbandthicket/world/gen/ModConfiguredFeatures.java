@@ -4,9 +4,7 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;
 import net.jolene.thumbandthicket.world.gen.feature.config.TallWaterloggedPlantFeatureConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerbedBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.BlockFace;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.Registerable;
@@ -49,6 +47,10 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTED_GRASS_KEY = registerKey("rooted_grass");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> AGED_SPORE_BLOSSOM_KEY = registerKey("spore_blossom");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_TULIP_KEY = registerKey("red_tulip");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ORANGE_TULIP_KEY = registerKey("orange_tulip");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_TULIP_KEY = registerKey("white_tulip");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PINK_TULIP_KEY = registerKey("pink_tulip");
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
@@ -70,29 +72,15 @@ public class ModConfiguredFeatures {
         }
         register(context, CLOVERS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(cloversBuilder)))));
 
-        DataPool.Builder<BlockState> redMushroomBuilder = DataPool.builder();
-        for (int i = 1; i <= 4; ++i) {
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                redMushroomBuilder.add(Blocks.RED_MUSHROOM.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
-            }
-        }
-        register(context, RED_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(redMushroomBuilder)))));
 
-        DataPool.Builder<BlockState> brownMushroomBuilder = DataPool.builder();
-        for (int i = 1; i <= 4; ++i) {
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                brownMushroomBuilder.add(Blocks.BROWN_MUSHROOM.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
-            }
-        }
-        register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(brownMushroomBuilder)))));
+        register(context, RED_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(Blocks.RED_MUSHROOM))))));
+        register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(Blocks.BROWN_MUSHROOM))))));
+        register(context, PURPLE_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(ModBlocks.PURPLE_MUSHROOM))))));
 
-        DataPool.Builder<BlockState> purpleMushroomBuilder = DataPool.builder();
-        for (int i = 1; i <= 4; ++i) {
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                purpleMushroomBuilder.add(ModBlocks.PURPLE_MUSHROOM.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
-            }
-        }
-        register(context, PURPLE_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(purpleMushroomBuilder)))));
+        register(context, RED_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.RED_TULIP))))));
+        register(context, ORANGE_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.ORANGE_TULIP))))));
+        register(context, WHITE_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.WHITE_TULIP))))));
+        register(context, PINK_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.PINK_TULIP))))));
 
         DataPool.Builder<BlockState> sporeBlossomBuilder = DataPool.builder();
         for (int i = 0; i <= 2; ++i) {
@@ -109,5 +97,25 @@ public class ModConfiguredFeatures {
 
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+
+    private static DataPool.Builder<BlockState> mushroomBuilder(Block block) {
+        DataPool.Builder<BlockState> mushroomBuilder = DataPool.builder();
+        for (int i = 1; i <= 4; ++i) {
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                mushroomBuilder.add(block.getDefaultState().with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.FLOOR), 1);
+            }
+        }
+        return mushroomBuilder;
+    }
+
+    private static DataPool.Builder<BlockState> flowerBuilder(Block block) {
+        DataPool.Builder<BlockState> flowerBuilder = DataPool.builder();
+        for (int i = 1; i <= 2; ++i) {
+            for (Direction direction : Direction.Type.HORIZONTAL) {
+                flowerBuilder.add(block.getDefaultState().with(ModProperties.FLOWERS, i).with(Properties.FACING, direction), 1);
+            }
+        }
+        return flowerBuilder;
     }
 }

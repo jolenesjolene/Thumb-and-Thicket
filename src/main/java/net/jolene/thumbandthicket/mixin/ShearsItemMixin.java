@@ -3,9 +3,8 @@ package net.jolene.thumbandthicket.mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.jolene.thumbandthicket.sound.ModSounds;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.VineBlock;
+import net.jolene.thumbandthicket.util.ModProperties;
+import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -34,25 +33,49 @@ public class ShearsItemMixin {
         Hand hand = context.getHand();
         PlayerEntity player = context.getPlayer();
         ItemStack stack = context.getStack();
-        if (state.contains(SNIPPED) && (state.isIn(SNIPPABLE) || state.getBlock() instanceof SaplingBlock)) {
-            if (!state.get(SNIPPED)) {
-                world.setBlockState(pos, state.with(SNIPPED, true));
-                EquipmentSlot slot = null;
-                switch (hand) {
-                    case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
-                    case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
+        EquipmentSlot slot = null;
+        switch (hand) {
+            case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
+            case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
+        }
+        float f = MathHelper.nextBetween(world.random, 0.8f, 1.2f);
+        if (player != null){
+            if (state.contains(SNIPPED) && (state.isIn(SNIPPABLE) || state.getBlock() instanceof SaplingBlock)) {
+                if (!state.get(SNIPPED)) {
+                    world.setBlockState(pos, state.with(SNIPPED, true));
+                    world.playSound(
+                            null,
+                            pos,
+                            SoundEvents.ENTITY_BOGGED_SHEAR,
+                            SoundCategory.BLOCKS,
+                            1.0F,
+                            f
+                    );
+                    if (!player.isCreative()) stack.damage(1, player, slot);
+                    return ActionResult.SUCCESS;
                 }
-                float f = MathHelper.nextBetween(world.random, 0.8f, 1.2f);
-                world.playSound(
-                        null,
-                        pos,
-                        SoundEvents.ENTITY_BOGGED_SHEAR,
-                        SoundCategory.BLOCKS,
-                        1.0F,
-                        f
-                );
-                if (!player.isCreative()) stack.damage(1, player, slot);
-                return ActionResult.SUCCESS;
+            }
+            if (state.getBlock() instanceof FlowerBlock && player.isSneaking()) {
+                if (state.contains(ModProperties.FLOWERS)) {
+                    BlockState newState;
+                    if (state.get(ModProperties.FLOWERS) == 1) {
+                        newState = Blocks.AIR.getDefaultState();
+                    } else newState = state.with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS) - 1);
+                    world.setBlockState(pos, newState);
+                    if (!player.isCreative())
+                        FlowerBlock.dropStack(world, pos, new ItemStack(state.getBlock().asItem()));
+
+                    world.playSound(
+                            null,
+                            pos,
+                            SoundEvents.ENTITY_BOGGED_SHEAR,
+                            SoundCategory.BLOCKS,
+                            1.0F,
+                            f
+                    );
+                    if (!player.isCreative()) stack.damage(1, player, slot);
+                    return ActionResult.SUCCESS;
+                }
             }
         }
         return original.call(context);
