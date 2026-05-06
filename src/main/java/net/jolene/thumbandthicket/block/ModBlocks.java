@@ -32,7 +32,8 @@ public class ModBlocks {
     public static final Block SHORT_LILAC = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
     public static final Block PURPLE_MUSHROOM = register(new MushroomPlantBlock(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
     public static final Block PURPLE_MUSHROOM_BLOCK = register(new MushroomBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK)), "purple_mushroom_block", true);
-    public static final Block MILKWEED = register(new MilkweedPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
+    public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
+    public static final Block CATTAIL = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "cattail", true);
     public static final Block WILTED_CROP = register(new WiltedCropBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "wilted_crop", false);
 
     private static Block register(Block block, String name, boolean hasItem) {
@@ -49,7 +50,7 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addBefore(Items.HANGING_ROOTS, ROOT_BLOCK);
-            entries.addAfter(Items.ROOTED_DIRT, ROOTED_GRASS);
+            entries.addAfter(Items.ROOTED_DIRT, ROOTED_GRASS, ROOTED_PODZOL);
             entries.addAfter(Items.PINK_PETALS, CLOVERS);
             entries.addAfter(Items.SHORT_GRASS, SNOWY_SHORT_GRASS);
             entries.addAfter(Items.TALL_GRASS, SNOWY_TALL_GRASS);

@@ -15,7 +15,7 @@ public class ModFeatureReplacements {
     public static void removeFeatures() {
         BiomeModifications.create(Identifier.of(MOD_ID, "remove_grass")).add(
                 ModificationPhase.REMOVALS,
-                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY_PLAINS) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
+                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
                 context -> context.getGenerationSettings().removeFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
                         VegetationPlacedFeatures.PATCH_GRASS_BADLANDS
@@ -130,7 +130,7 @@ public class ModFeatureReplacements {
     public static void addFeatures() {
         BiomeModifications.create(Identifier.of(MOD_ID, "add_snowy_grass")).add(
                 ModificationPhase.ADDITIONS,
-                context -> (context.hasTag(ConventionalBiomeTags.IS_SNOWY_PLAINS) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
+                context -> ((context.hasTag(ConventionalBiomeTags.IS_SNOWY)) && context.hasPlacedFeature(VegetationPlacedFeatures.PATCH_GRASS_BADLANDS)),
                 context -> context.getGenerationSettings().addFeature(
                         GenerationStep.Feature.VEGETAL_DECORATION,
                         ModPlacedFeatures.SNOWY_GRASS
@@ -244,7 +244,7 @@ public class ModFeatureReplacements {
         BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_TEMPERATE), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CLOVERS);
         BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_DRY), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.TINGED_GRASS);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PURPLE_MUSHROOM_TAIGA);
-        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_RIVER), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MILKWEED);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_TEMPERATE), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MILKWEED);
 
     }
 

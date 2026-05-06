@@ -1,5 +1,5 @@
 {
-  "feature": "thumbandthicket:milkweed",
+  "feature": "thumbandthicket:cattail",
   "placement": [
     {
       "type": "minecraft:in_square"
@@ -21,7 +21,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 5
+      "chance": 7
     }
   ]
 }

@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.farming;
 
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.Block;
