@@ -17,7 +17,7 @@ public class ModEntitySpawns {
                 BiomeSelectors.tag(BiomeTags.IS_FOREST),
                 SpawnGroup.CREATURE,
                 ModEntities.BROWN_BEAR,
-                6,
+                20,
                 1,
                 1
         );
