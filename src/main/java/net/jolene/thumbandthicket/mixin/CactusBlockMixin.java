@@ -1,6 +1,5 @@
 package net.jolene.thumbandthicket.mixin;
 
-import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import com.blackgear.vanillabackport.common.registries.ModBlocks;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
