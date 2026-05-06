@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "all": "thumbandthicket:block/tinged_grass"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "ambientocclusion": false,
+  "ambientocclusion": true,
   "textures": {
     "tinted_cross": "thumbandthicket:block/snowy_large_fern_top_tint",
     "cross": "thumbandthicket:block/snowy_large_fern_top",

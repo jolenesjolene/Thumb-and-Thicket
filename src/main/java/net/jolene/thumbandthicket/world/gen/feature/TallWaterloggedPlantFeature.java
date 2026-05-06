@@ -29,6 +29,7 @@ public class TallWaterloggedPlantFeature extends Feature<TallWaterloggedPlantFea
 
         int placed = 0;
         int tries = config.tries();
+        int ySpread = config.ySpread();
 
         for (int i = 0; i < tries; i++) {
             double angle = random.nextDouble() * Math.PI * 2;
@@ -47,7 +48,7 @@ public class TallWaterloggedPlantFeature extends Feature<TallWaterloggedPlantFea
             if (!shallowWater && !world.getBlockState(pos).isAir()) continue;
 
             boolean waterNearby = false;
-            for (BlockPos currentPos : BlockPos.iterate(pos.add(2, 2, 2), pos.add(-2, -2, -2))) if (BlockPredicate.matchingFluids(Fluids.WATER).test(world, currentPos)) waterNearby = true;
+            for (BlockPos currentPos : BlockPos.iterate(pos.add(ySpread, ySpread, ySpread), pos.add(-ySpread, -ySpread, -ySpread))) if (BlockPredicate.matchingFluids(Fluids.WATER).test(world, currentPos)) waterNearby = true;
             if (!waterNearby) continue;
 
             if (!world.isAir(pos.up())) continue;

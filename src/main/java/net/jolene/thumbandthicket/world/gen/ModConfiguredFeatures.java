@@ -57,8 +57,8 @@ public class ModConfiguredFeatures {
         register(context, SNOWY_LARGE_FERN_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.SNOWY_LARGE_FERN.getDefaultState().with(ModProperties.LAYERS, 1))))));
 
         register(context, TINGED_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TINGED_SHORT_GRASS)))));
-        register(context, MILKWEED_KEY, ModFeatures.TALL_WATERLOGGED_PLANT_FEATURE, new TallWaterloggedPlantFeatureConfig(16, 7, 3, BlockStateProvider.of(ModBlocks.MILKWEED)));
-        register(context, CATTAIL_KEY, ModFeatures.TALL_WATERLOGGED_PLANT_FEATURE, new TallWaterloggedPlantFeatureConfig(20, 5, 3, BlockStateProvider.of(ModBlocks.CATTAIL)));
+        register(context, MILKWEED_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(20, 5, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MILKWEED)))));
+        register(context, CATTAIL_KEY, ModFeatures.TALL_WATERLOGGED_PLANT_FEATURE, new TallWaterloggedPlantFeatureConfig(16, 7, 2, BlockStateProvider.of(ModBlocks.CATTAIL)));
 
         DataPool.Builder<BlockState> cloversBuilder = DataPool.builder();
         for (int i = 1; i <= 4; ++i) {

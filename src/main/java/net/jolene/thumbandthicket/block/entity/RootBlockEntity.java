@@ -52,7 +52,7 @@ public class RootBlockEntity extends BlockEntity {
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (state.get(Properties.AXIS) == Direction.Axis.Y && SAPLING == Blocks.AIR) {
+        if (SAPLING == Blocks.AIR) {
             BlockState state1 = world.getBlockState(pos.up());
             if (state1.isIn(BlockTags.LOGS)) {
                 String sapling = Registries.BLOCK.getId(state1.getBlock()).getPath().replace("_log", "_sapling");

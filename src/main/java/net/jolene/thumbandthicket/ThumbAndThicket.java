@@ -86,18 +86,18 @@ public class ThumbAndThicket implements ModInitializer {
         if (axis.isVertical()) {
             BlockState below = world.getBlockState(pos.down());
             BlockState above = world.getBlockState(pos.up());
-            if (below.getBlock() == block && below.get(AXIS) == axis) return Direction.DOWN;
-            if (above.getBlock() == block && above.get(AXIS) == axis) return Direction.UP;
+            if (below.getBlock() == block) return Direction.DOWN;
+            if (above.getBlock() == block) return Direction.UP;
         } else if (axis == Direction.Axis.X) {
             BlockState west = world.getBlockState(pos.west());
             BlockState east = world.getBlockState(pos.east());
-            if (west.getBlock() == block && west.get(AXIS) == axis) return Direction.WEST;
-            if (east.getBlock() == block && east.get(AXIS) == axis) return Direction.EAST;
+            if (west.getBlock() == block) return Direction.WEST;
+            if (east.getBlock() == block) return Direction.EAST;
         } else {
             BlockState north = world.getBlockState(pos.north());
             BlockState south = world.getBlockState(pos.south());
-            if (north.getBlock() == block && north.get(AXIS) == axis) return Direction.NORTH;
-            if (south.getBlock() == block && south.get(AXIS) == axis) return Direction.SOUTH;
+            if (north.getBlock() == block) return Direction.NORTH;
+            if (south.getBlock() == block) return Direction.SOUTH;
         }
         return null;
     }
@@ -178,12 +178,6 @@ public class ThumbAndThicket implements ModInitializer {
         ResourceManagerHelper.registerBuiltinResourcePack(
                 Identifier.of(MOD_ID, "tat_wood"), modContainer,
                 Text.translatable("pack.thumbandthicket.name"),
-                ResourcePackActivationType.ALWAYS_ENABLED
-        );
-
-        ResourceManagerHelper.registerBuiltinResourcePack(
-                Identifier.of(MOD_ID, "tat_worldgen"), modContainer,
-                Text.translatable("pack.thumbandthicket.data_name"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
     }

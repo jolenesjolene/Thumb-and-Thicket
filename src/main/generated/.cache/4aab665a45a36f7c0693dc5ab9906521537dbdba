@@ -1,7 +1,15 @@
-// 1.21.1	2026-05-06T13:50:42.6891246	Thumb & Thicket/Model Definitions
-8901e0d1c2d30018bd9bf4b04f4fb642ac8454a5 assets\thumbandthicket\models\item\clovers.json
+// 1.21.1	2026-05-06T17:30:50.5033358	Thumb & Thicket/Model Definitions
+bd4655950fcf64eaa0884298786bbc9655d8c99d assets\thumbandthicket\models\item\orange.json
 117d5d2c0bd4ce1fb19d75fa35fb65d3f06e1d94 assets\thumbandthicket\models\item\puffed_dandelion.json
-21df67bc34c08e6e8415497a5b24535ef449df2e assets\thumbandthicket\models\item\golden_prickly_pear.json
 0b81240d86ad8bc71741154039d9ff883dc35516 assets\thumbandthicket\models\item\rotten_apple.json
-a2da452e4ec9a6f262a5e5667ffa4c73793413e8 assets\thumbandthicket\models\item\prickly_pear.json
+08fde7e55e2bdd8226fb150bb97d000e969d5fff assets\thumbandthicket\models\item\pear.json
 15f38fa5b9dc99d11228bdeb76e087b47aed75ee assets\thumbandthicket\models\item\snowy_short_grass.json
+8901e0d1c2d30018bd9bf4b04f4fb642ac8454a5 assets\thumbandthicket\models\item\clovers.json
+21df67bc34c08e6e8415497a5b24535ef449df2e assets\thumbandthicket\models\item\golden_prickly_pear.json
+c134fe7628b0dfb3e7ff261552aae46b90bbb40c assets\thumbandthicket\models\item\lucky_clover.json
+66970c8cb53c501f630376464b52cc7b15bf1ab3 assets\thumbandthicket\models\item\purple_mushroom.json
+a2da452e4ec9a6f262a5e5667ffa4c73793413e8 assets\thumbandthicket\models\item\prickly_pear.json
+140dde8ddf49d24423c1b3cdbcc954b712da3ab9 assets\thumbandthicket\models\item\tinged_short_grass.json
+067dde8157fbd5e192b1a3d5b5d1cc85df4b1aa8 assets\thumbandthicket\models\item\snowy_fern.json
+043565bf7b11544d98dafec1f86a95bd99bf07ca assets\thumbandthicket\models\item\lavender.json
+6579b42f1d23890402a5a23b74161f54c868091d assets\thumbandthicket\models\item\snowy_bush.json

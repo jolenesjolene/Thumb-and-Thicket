@@ -6,8 +6,11 @@
     "age=1": {
       "model": "minecraft:block/cactus_flower"
     },
-    "age=2": {
+    "age=2,golden=false": {
       "model": "minecraft:block/open_cactus_flower"
+    },
+    "age=2,golden=true": {
+      "model": "minecraft:block/open_cactus_flower_golden"
     }
   }
 }

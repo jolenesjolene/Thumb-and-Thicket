@@ -25,7 +25,6 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public RootBlock(Settings settings) {
         super(settings);
-        super.setDefaultState(this.getDefaultState().with(Properties.AXIS, Direction.Axis.Y));
     }
 
     @Override
@@ -65,21 +64,10 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(Properties.AXIS);
     }
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(Properties.AXIS, ctx.getSide().getAxis());
-    }
-
-    @Override
-    protected BlockState rotate(BlockState state, BlockRotation rotation) {
-        return PillarBlock.changeRotation(state, rotation);
     }
 }

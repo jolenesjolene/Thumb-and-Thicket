@@ -107,7 +107,7 @@ public class PillarBlockMixin extends Block {
 
                 if (rootBlockDirection != null) {
                     BlockState blockBelow = world.getBlockState(pos.offset(rootBlockDirection));
-                    if (blockBelow.get(AXIS) == axis) {
+                    if (blockBelow.contains(AXIS) && blockBelow.get(AXIS) == axis) {
                         newState = thumbandthicket$determineRootSide(newState, world, pos);
                         newState = thumbandthicket$calculateSlice(newState, world, pos);
                     }

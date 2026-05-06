@@ -13,4 +13,5 @@ public class ModProperties {
     public static final BooleanProperty LAVALOGGED = BooleanProperty.of("lavalogged");
     public static final BooleanProperty TOP = BooleanProperty.of("top");
     public static final BooleanProperty FERTILIZED = BooleanProperty.of("fertilized");
+    public static final BooleanProperty GOLDEN = BooleanProperty.of("golden");
 }

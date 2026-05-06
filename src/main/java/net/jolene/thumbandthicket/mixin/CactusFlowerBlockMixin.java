@@ -3,6 +3,7 @@ package net.jolene.thumbandthicket.mixin;
 import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import com.blackgear.vanillabackport.common.registries.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItems;
+import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -23,6 +24,9 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static net.minecraft.state.property.Properties.*;
 
@@ -62,7 +66,9 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         if (getAge(state) < MAX_AGE && world.getBlockState(pos.down()).getBlock() instanceof CactusBlock) {
-            world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1), Block.NOTIFY_LISTENERS);
+            if (random.nextInt() < 1 && getAge(state) == 1) {
+                world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1).with(ModProperties.GOLDEN, true), Block.NOTIFY_LISTENERS);
+            } else world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1), Block.NOTIFY_LISTENERS);
         }
     }
 
@@ -83,9 +89,13 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = state.get(AGE);
         if (i > 1) {
-            SweetBerryBushBlock.dropStack(world, pos, new ItemStack(ModItems.PRICKLY_PEAR, 1));
+            ItemStack stack = new ItemStack(ModItems.PRICKLY_PEAR, 1);
+            if (state.get(ModProperties.GOLDEN)) {
+                stack = new ItemStack(ModItems.GOLDEN_PRICKLY_PEAR, 1);
+            }
+            CactusFlowerBlock.dropStack(world, pos, stack);
             world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            BlockState blockState = state.with(AGE, 1);
+            BlockState blockState = state.with(AGE, 1).with(ModProperties.GOLDEN, false);
             world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
             return ActionResult.success(world.isClient);
@@ -107,5 +117,13 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(AGE_2);
+        builder.add(ModProperties.GOLDEN);
+    }
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void thumbandthicket$appendSnippedProperty(AbstractBlock.Settings settings, CallbackInfo ci) {
+        Block cactusFlowerBlock = CactusFlowerBlock.class.cast(this);
+        BlockState defaultBlockState = cactusFlowerBlock.getDefaultState();
+        ((BlockAccessor) cactusFlowerBlock).invokeSetDefaultState(defaultBlockState.with(ModProperties.GOLDEN, false));
     }
 }

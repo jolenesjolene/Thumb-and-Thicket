@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "half=upper": {
+      "model": "thumbandthicket:block/milkweed_top"
+    }
+  }
+}
