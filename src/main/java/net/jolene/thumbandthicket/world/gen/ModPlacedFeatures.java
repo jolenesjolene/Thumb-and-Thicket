@@ -5,7 +5,9 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.intprovider.ClampedIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
@@ -44,6 +46,16 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_OLD_GROWTH = registerKey("purple_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_SWAMP = registerKey("purple_mushroom_swamp_placed");
 
+    public static final RegistryKey<PlacedFeature> FLOWER_DEFAULT = registerKey("flower_default_placed");
+    public static final RegistryKey<PlacedFeature> FLOWER_WARM = registerKey("flower_warm_placed");
+    public static final RegistryKey<PlacedFeature> FLOWER_SWAMP = registerKey("flower_swamp_placed");
+    public static final RegistryKey<PlacedFeature> FLOWER_FLOWER_FOREST = registerKey("flower_flower_forest_placed");
+    public static final RegistryKey<PlacedFeature> FLOWER_FLOWER_FOREST_2 = registerKey("flower_flower_forest_placed_2");
+    public static final RegistryKey<PlacedFeature> FLOWER_FOREST_FLOWERS = registerKey("flower_forest_flower_placed");
+    public static final RegistryKey<PlacedFeature> FOREST_FLOWERS = registerKey("forest_flowers_placed");
+
+    public static final RegistryKey<PlacedFeature> DARK_FOREST_VEGETATION = registerKey("dark_fores_vegetation_placed");
+
     public static final RegistryKey<PlacedFeature> ROOTED_GRASS = registerKey("rooted_grass_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
@@ -80,9 +92,16 @@ public class ModPlacedFeatures {
         register(context, PURPLE_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
         register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
         register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
-        register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY));
-//        register(context, MUSHROOM_ISLAND_VEGETATION, Feature.RANDOM_BOOLEAN_SELECTOR, new RandomBooleanFeatureConfig(PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_RED_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM, new PlacementModifier[0]), PlacedFeatures.createEntry(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, new PlacementModifier[0])));
+        register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY));
 
+        register(context, FLOWER_WARM, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_DEFAULT_KEY), RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        register(context, FLOWER_DEFAULT, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_DEFAULT_KEY), RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());PlacedFeatures.register(context, FLOWER_FLOWER_FOREST_2, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_FLOWER_FOREST_2_KEY), CountPlacementModifier.of(3), RarityFilterPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        register(context, FLOWER_FLOWER_FOREST, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_FLOWER_FOREST_KEY), CountPlacementModifier.of(3), RarityFilterPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        register(context, FLOWER_SWAMP, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_SWAMP_KEY), RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        register(context, FLOWER_FOREST_FLOWERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.FOREST_FLOWERS_KEY), RarityFilterPlacementModifier.of(7), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, CountPlacementModifier.of(ClampedIntProvider.create(UniformIntProvider.create(-1, 3), 0, 3)), BiomePlacementModifier.of());
+        register(context, FOREST_FLOWERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.FOREST_FLOWERS_KEY), RarityFilterPlacementModifier.of(7), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, CountPlacementModifier.of(ClampedIntProvider.create(UniformIntProvider.create(-3, 1), 0, 1)), BiomePlacementModifier.of());
+
+        register(context, DARK_FOREST_VEGETATION, configuredFeatures.getOrThrow(ModConfiguredFeatures.DARK_FOREST_VEGETATION_KEY), CountPlacementModifier.of(16), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(0), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of());
 
         register(context, AGED_SPORE_BLOSSOM, configuredFeatures.getOrThrow(ModConfiguredFeatures.AGED_SPORE_BLOSSOM_KEY), CountPlacementModifier.of(25), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_120_RANGE, EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.solid(), BlockPredicate.IS_AIR, 12), RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)), BiomePlacementModifier.of());
         register(context, ROOTED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP);

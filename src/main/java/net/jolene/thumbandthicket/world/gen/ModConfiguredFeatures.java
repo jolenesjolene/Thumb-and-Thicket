@@ -10,17 +10,19 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.dynamic.Range;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.PredicatedStateProvider;
-import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.stateprovider.*;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ import static net.jolene.thumbandthicket.world.gen.feature.ModFeatures.HUGE_PURP
 
 public class ModConfiguredFeatures {
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PURPLE_MUSHROOM_KEY = registerKey("huge_purple_mushroom");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HUGE_PURPLE_MUSHROOM_KEY = registerKey("huge_purple_mushroom");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_TAIGA_GRASS_KEY = registerKey("snowy_taiga_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_GRASS_KEY = registerKey("snowy_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SNOWY_TALL_GRASS_KEY = registerKey("snowy_tall_grass");
@@ -47,14 +49,21 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTED_GRASS_KEY = registerKey("rooted_grass");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> AGED_SPORE_BLOSSOM_KEY = registerKey("spore_blossom");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_TULIP_KEY = registerKey("red_tulip");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORANGE_TULIP_KEY = registerKey("orange_tulip");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_TULIP_KEY = registerKey("white_tulip");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PINK_TULIP_KEY = registerKey("pink_tulip");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_DEFAULT_KEY = registerKey("flower_default");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SWAMP_KEY = registerKey("flower_swamp");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_FLOWER_FOREST_KEY = registerKey("flower_forest");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_FLOWER_FOREST_2_KEY = registerKey("flower_forest_2");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FOREST_FLOWERS_KEY = registerKey("forest_flowers");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DARK_FOREST_VEGETATION_KEY = registerKey("dark_forest_vegetation");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MUSHROOM_ISLAND_VEGETATION_KEY = registerKey("mushroom_island_vegetation");
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
-        register(context, PURPLE_MUSHROOM_KEY, HUGE_PURPLE_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(BlockStateProvider.of(ModBlocks.PURPLE_MUSHROOM_BLOCK), BlockStateProvider.of(Blocks.MUSHROOM_STEM),1));
+        var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+        var placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        register(context, HUGE_PURPLE_MUSHROOM_KEY, HUGE_PURPLE_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(BlockStateProvider.of(ModBlocks.PURPLE_MUSHROOM_BLOCK), BlockStateProvider.of(Blocks.MUSHROOM_STEM),1));
         register(context, SNOWY_TAIGA_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig( 32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(ModBlocks.SNOWY_SHORT_GRASS.getDefaultState().with(ModProperties.LAYERS, 1)).add(ModBlocks.SNOWY_SHORT_FERN.getDefaultState().with(ModProperties.LAYERS, 1)).build())))));
         register(context, SNOWY_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.SNOWY_SHORT_GRASS.getDefaultState().with(ModProperties.LAYERS, 1))))));
         register(context, SNOWY_TALL_GRASS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.SNOWY_TALL_GRASS.getDefaultState().with(ModProperties.LAYERS, 1))))));
@@ -77,10 +86,13 @@ public class ModConfiguredFeatures {
         register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(Blocks.BROWN_MUSHROOM))))));
         register(context, PURPLE_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(ModBlocks.PURPLE_MUSHROOM))))));
 
-        register(context, RED_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.RED_TULIP))))));
-        register(context, ORANGE_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.ORANGE_TULIP))))));
-        register(context, WHITE_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.WHITE_TULIP))))));
-        register(context, PINK_TULIP_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.PINK_TULIP))))));
+        register(context, FLOWER_DEFAULT_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.POPPY,2,Blocks.DANDELION,1))))));
+        register(context, FLOWER_SWAMP_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.BLUE_ORCHID,1,null,0))))));
+        register(context, FLOWER_FLOWER_FOREST_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2345L, new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0), 0.020833334f, List.of(Blocks.DANDELION.getDefaultState(), Blocks.POPPY.getDefaultState(), Blocks.ALLIUM.getDefaultState(), Blocks.AZURE_BLUET.getDefaultState(), Blocks.RED_TULIP.getDefaultState(), Blocks.ORANGE_TULIP.getDefaultState(), Blocks.WHITE_TULIP.getDefaultState(), Blocks.PINK_TULIP.getDefaultState(), Blocks.OXEYE_DAISY.getDefaultState(), Blocks.CORNFLOWER.getDefaultState(), Blocks.LILY_OF_THE_VALLEY.getDefaultState(), ModBlocks.SHORT_LILAC.getDefaultState()))))));
+        register(context, FLOWER_FLOWER_FOREST_2_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2345L, new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0), 0.020833334f, List.of(Blocks.DANDELION.getDefaultState(), Blocks.POPPY.getDefaultState(), Blocks.ALLIUM.getDefaultState(), Blocks.AZURE_BLUET.getDefaultState(), Blocks.RED_TULIP.getDefaultState(), Blocks.ORANGE_TULIP.getDefaultState(), Blocks.WHITE_TULIP.getDefaultState(), Blocks.PINK_TULIP.getDefaultState(), Blocks.OXEYE_DAISY.getDefaultState(), Blocks.CORNFLOWER.getDefaultState(), Blocks.LILY_OF_THE_VALLEY.getDefaultState(), ModBlocks.SHORT_LILAC.getDefaultState()))))));
+        register(context, FOREST_FLOWERS_KEY, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfig(RegistryEntryList.of(PlacedFeatures.createEntry(Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LILAC))), new PlacementModifier[0]), PlacedFeatures.createEntry(Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.ROSE_BUSH))), new PlacementModifier[0]), PlacedFeatures.createEntry(Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.PEONY))), new PlacementModifier[0]), PlacedFeatures.createEntry(Feature.NO_BONEMEAL_FLOWER, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.LILY_OF_THE_VALLEY, 1, null, 0)))), new PlacementModifier[0]))));
+
+        register(context, DARK_FOREST_VEGETATION_KEY, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(new RandomFeatureEntry(PlacedFeatures.createEntry(configuredFeatures.getOrThrow(TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM)), 0.025f), new RandomFeatureEntry(PlacedFeatures.createEntry(configuredFeatures.getOrThrow(TreeConfiguredFeatures.HUGE_RED_MUSHROOM)), 0.05f), new RandomFeatureEntry(PlacedFeatures.createEntry(configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY)), 0.015f), new RandomFeatureEntry(placedFeatures.getOrThrow(TreePlacedFeatures.DARK_OAK_CHECKED), 0.6666667f), new RandomFeatureEntry(placedFeatures.getOrThrow(TreePlacedFeatures.BIRCH_CHECKED), 0.2f), new RandomFeatureEntry(placedFeatures.getOrThrow(TreePlacedFeatures.FANCY_OAK_CHECKED), 0.1f)), placedFeatures.getOrThrow(TreePlacedFeatures.OAK_CHECKED)));
 
         DataPool.Builder<BlockState> sporeBlossomBuilder = DataPool.builder();
         for (int i = 0; i <= 2; ++i) {
@@ -109,13 +121,33 @@ public class ModConfiguredFeatures {
         return mushroomBuilder;
     }
 
-    private static DataPool.Builder<BlockState> flowerBuilder(Block block) {
+    private static DataPool.Builder<BlockState> flowerBuilder(Block block, int weight, Block block1, int weight1) {
         DataPool.Builder<BlockState> flowerBuilder = DataPool.builder();
-        for (int i = 1; i <= 2; ++i) {
+        for (int i = 1; i <= 3; ++i) {
             for (Direction direction : Direction.Type.HORIZONTAL) {
-                flowerBuilder.add(block.getDefaultState().with(ModProperties.FLOWERS, i).with(Properties.FACING, direction), 1);
+                flowerBuilder.add(block.getDefaultState().with(ModProperties.FLOWERS, i).with(Properties.FACING, direction), weight);
+            }
+            if (block1 != null) {
+                for (Direction direction : Direction.Type.HORIZONTAL) {
+                    flowerBuilder.add(block1.getDefaultState().with(ModProperties.FLOWERS, i).with(Properties.FACING, direction), weight1);
+                }
             }
         }
         return flowerBuilder;
+    }
+
+    private static List<BlockState> multiFlowerBuilder(List<Block> list) {
+        List<BlockState> stateList = new java.util.ArrayList<>(List.of());
+        for (Block block : list) {
+            if (block instanceof FlowerBlock) for (int i = 1; i <= 3; ++i) {
+                for (Direction direction : Direction.Type.HORIZONTAL) {
+                    stateList.add(block.getDefaultState().with(ModProperties.FLOWERS, i).with(Properties.FACING, direction));
+                }
+            }
+            else {
+                stateList.add(block.getDefaultState());
+            }
+        }
+        return stateList;
     }
 }

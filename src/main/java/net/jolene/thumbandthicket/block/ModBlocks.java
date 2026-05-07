@@ -6,6 +6,7 @@ import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -29,8 +30,8 @@ public class ModBlocks {
     public static final Block SNOWY_LARGE_FERN = register(new TallSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_large_fern", true);
     public static final Block TINGED_SHORT_GRASS = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.SHORT_GRASS).dynamicBounds()), "tinged_short_grass", true);
     public static final Block LAVENDER = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.POPPY)), "lavender", true);
-    public static final Block SHORT_LILAC = register(new ShortPlantBlock(AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
-    public static final Block PURPLE_MUSHROOM = register(new MushroomPlantBlock(ModConfiguredFeatures.PURPLE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
+    public static final Block SHORT_LILAC = register(new FlowerBlock(StatusEffects.POISON, 10,AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
+    public static final Block PURPLE_MUSHROOM = register(new MushroomPlantBlock(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM)), "purple_mushroom", true);
     public static final Block PURPLE_MUSHROOM_BLOCK = register(new MushroomBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK)), "purple_mushroom_block", true);
     public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block CATTAIL = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "cattail", true);

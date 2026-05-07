@@ -24,10 +24,13 @@
     "vegetation.CactusBlockMixin",
     "vegetation.CactusFlowerBlockMixin",
     "vegetation.CactusFlowerFeatureMixin",
+    "vegetation.DualNoiseBlockStateProviderMixin",
     "vegetation.FlowerBlockMixin",
     "vegetation.FungusBlockMixin",
     "vegetation.LilyPadBlockMixin",
     "vegetation.MushroomPlantBlockMixin",
+    "vegetation.NoiseBlockStateProviderMixin",
+    "vegetation.NoiseThresholdBlockStateProviderMixin",
     "vegetation.SporeBlossomBlockMixin",
     "vegetation.SugarCaneBlockMixin",
     "vegetation.VineBlockMixin"

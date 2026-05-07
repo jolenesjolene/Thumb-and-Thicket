@@ -1,0 +1,121 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.020833334,
+            "seed": 2345,
+            "states": [
+              {
+                "Name": "minecraft:dandelion",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:poppy",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:allium",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:azure_bluet",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:red_tulip",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:orange_tulip",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:white_tulip",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:pink_tulip",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:oxeye_daisy",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:cornflower",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "minecraft:lily_of_the_valley",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              },
+              {
+                "Name": "thumbandthicket:short_lilac",
+                "Properties": {
+                  "facing": "north",
+                  "flowers": "1"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 96,
+    "xz_spread": 6,
+    "y_spread": 2
+  }
+}

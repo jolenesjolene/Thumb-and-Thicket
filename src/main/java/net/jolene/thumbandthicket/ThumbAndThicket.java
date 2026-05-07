@@ -28,6 +28,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -50,7 +51,7 @@ public class ThumbAndThicket implements ModInitializer {
         ModItems.initialize();
         ModBlockEntities.register();
         ModFeatures.registerModFeatures();
-        ModFeatureReplacements.removeFeatures();
+        ModFeatureReplacements.replaceFeatures();
         ModFeatureReplacements.addFeatures();
         thumbandthicket$registerResourcePacks();
         ModPlacementModifierType.SNOWY_BELOW.codec();
@@ -198,6 +199,8 @@ public class ThumbAndThicket implements ModInitializer {
         }
         return Blocks.AIR;
     }
+
+    public static Random RANDOM = null;
 
 
     public static final List<BlockPos> WITHERED_CROPS = BlockPos.stream(-1, 0, -1, 1, 1, 1).map(BlockPos::toImmutable).toList();
