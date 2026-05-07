@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "thumbandthicket:block/puffed_dandelion"
+    "cross": "thumbandthicket:block/mycelial_sprouts"
   }
 }

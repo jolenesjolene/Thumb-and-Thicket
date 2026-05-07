@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "all": "thumbandthicket:block/lavender"
+    "cross": "thumbandthicket:block/lavender"
   }
 }

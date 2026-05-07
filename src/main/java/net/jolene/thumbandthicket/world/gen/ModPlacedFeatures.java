@@ -36,15 +36,18 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_TAIGA = registerKey("red_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_OLD_GROWTH = registerKey("red_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_SWAMP = registerKey("red_mushroom_swamp_placed");
+
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_NORMAL = registerKey("brown_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_NETHER = registerKey("brown_mushroom_nether_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_TAIGA = registerKey("brown_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_OLD_GROWTH = registerKey("brown_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_SWAMP = registerKey("brown_mushroom_swamp_placed");
+
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_NORMAL = registerKey("purple_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_TAIGA = registerKey("purple_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_OLD_GROWTH = registerKey("purple_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_SWAMP = registerKey("purple_mushroom_swamp_placed");
+    public static final RegistryKey<PlacedFeature> MYCELIAL_SPROUTS = registerKey("mycelial_sprouts_placed");
 
     public static final RegistryKey<PlacedFeature> FLOWER_DEFAULT = registerKey("flower_default_placed");
     public static final RegistryKey<PlacedFeature> FLOWER_WARM = registerKey("flower_warm_placed");
@@ -92,6 +95,8 @@ public class ModPlacedFeatures {
         register(context, PURPLE_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
         register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
         register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
+
+        register(context, MYCELIAL_SPROUTS, configuredFeatures.getOrThrow(ModConfiguredFeatures.MYCELIAL_SPROUTS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY));
 
         register(context, FLOWER_WARM, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWER_DEFAULT_KEY), RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

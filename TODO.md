@@ -110,13 +110,13 @@
     - Textures
   - Ancient Crops with ancient Foods
 - Mycelial Sprouts
-  - Block
-  - World Gen
+  - ~~Block~~
+  - ~~World Gen~~
   - Textures
 - Make all growing Plants snippable
-  - Vines
-  - Sugarcane
-  - Cacti
+  - ~~Vines~~
+  - ~~Sugarcane~~
+  - ~~Cacti~~
   - Bamboo
 - Flowers overhaul
   - drops Seeds
