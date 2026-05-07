@@ -26,6 +26,7 @@ public class ModItems {
     public static final FoodComponent ROTTEN_APPLE_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 0), 0.6F).build();
     public static final FoodComponent PEAR_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.3F).build();
     public static final FoodComponent ORANGE_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(3).saturationModifier(0.3F).build();
+    public static final FoodComponent DEW_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(5).saturationModifier(0.7F).build();
 
     public static final FoodComponent LUCKY_CLOVER_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 6400, 0), 1.0F).build();
 
@@ -34,6 +35,8 @@ public class ModItems {
     public static final Item ORANGE = register(new Item(new Item.Settings().maxCount(64).food(ORANGE_FOOD_COMPONENT)), "orange");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
+    public static final Item DEW_BOTTLE = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16).food(DEW_FOOD_COMPONENT).recipeRemainder(Items.GLASS_BOTTLE)), "dew_bottle");
+    public static final Item DEW_DROP_SEEDS = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "dew_drop_seeds");
 
     public static final Item LUCKY_CLOVER = register(new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64).food(LUCKY_CLOVER_FOOD_COMPONENT)), "lucky_clover");
 

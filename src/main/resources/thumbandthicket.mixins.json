@@ -5,6 +5,7 @@
   "mixins": [
     "BlockAccessor",
     "BlockMixin",
+    "CauldronBlockMixin",
     "ExampleMixin",
     "ItemStackMixin",
     "SettingsAccessor",

@@ -13,6 +13,7 @@ import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
 import net.jolene.thumbandthicket.item.ModItemGroups;
 import net.jolene.thumbandthicket.item.ModItems;
+import net.jolene.thumbandthicket.util.ModCauldronBehavior;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
@@ -54,6 +55,7 @@ public class ThumbAndThicket implements ModInitializer {
         ModFeatureReplacements.replaceFeatures();
         ModFeatureReplacements.addFeatures();
         thumbandthicket$registerResourcePacks();
+        ModCauldronBehavior.registerCauldronBehavior();
         ModPlacementModifierType.SNOWY_BELOW.codec();
         FabricDefaultAttributeRegistry.register(ModEntities.BROWN_BEAR, BrownBearEntity.createAttributes());
 		LOGGER.info("Muddy!");

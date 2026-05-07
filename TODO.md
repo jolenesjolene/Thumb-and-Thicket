@@ -126,6 +126,7 @@
   - drops itself with Shears
   - ~~multiple Flowers in one Block~~
 - Torchflowers prevent Mobspawns in specific radius
+- Pitcher Pod area effect: Flies
 
 ### Foliage in/around Water
 - Lilypads

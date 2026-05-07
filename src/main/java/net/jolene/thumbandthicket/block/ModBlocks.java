@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
+import net.jolene.thumbandthicket.util.ModCauldronBehavior;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
 import net.minecraft.block.*;
@@ -37,6 +38,9 @@ public class ModBlocks {
     public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block CATTAIL = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "cattail", true);
     public static final Block WILTED_CROP = register(new WiltedCropBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "wilted_crop", false);
+    public static final Block DEW_DROP = register(new DewDropPlantBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "dew_drop", true);
+    public static final Block DEW_CAULDRON = register(new DewCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), ModCauldronBehavior.DEW_CAULDRON_BEHAVIOR), "dew_cauldron", false);
+    public static final Block DEW_DROP_CROP_CAULDRON = register(new DewDropCropBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).ticksRandomly()), "dew_drop_crop_cauldron", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);
