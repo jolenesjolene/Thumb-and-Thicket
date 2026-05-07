@@ -15,6 +15,10 @@ public class BrownBearRenderer extends MobEntityRenderer<BrownBearEntity, BrownB
 
     @Override
     public Identifier getTexture(BrownBearEntity entity) {
+        if (entity.isAngry()) {
+            return Identifier.of(ThumbAndThicket.MOD_ID, "textures/entity/brown_bear_angry.png");
+        }
+
         return Identifier.of(ThumbAndThicket.MOD_ID, "textures/entity/brown_bear.png");
     }
 

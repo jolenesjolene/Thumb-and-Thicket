@@ -37,5 +37,12 @@
     "sounds": [
       "thumbandthicket:entity/brown_bear/bear_death"
     ]
+  },
+  "entity.brown_bear.attack": {
+    "subtitle": "sounds.thumbandthicket.bear.attack",
+    "sounds": [
+      "thumbandthicket:entity/brown_bear/bear_attack_1",
+      "thumbandthicket:entity/brown_bear/bear_attack_2"
+    ]
   }
 }
