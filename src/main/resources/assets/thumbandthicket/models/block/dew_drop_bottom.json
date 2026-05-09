@@ -4,8 +4,9 @@
 	"ambientocclusion": false,
 	"texture_size": [24, 24],
 	"textures": {
+        "cross": "thumbandthicket:block/dew_drop_bottom",
 		"particle": "#cross",
-		"stem": "#cross"
+		"stem": "thumbandthicket:block/dew_drop_bottom_stem"
 	},
 	"elements": [
 		{
@@ -31,6 +32,7 @@
 		{
 			"from": [8, 0, 0],
 			"to": [8, 24, 24],
+          "shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 0]},
 			"color": 0,
 			"faces": {

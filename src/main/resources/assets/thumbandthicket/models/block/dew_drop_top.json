@@ -1,16 +1,18 @@
 {
-	"format_version": "1.21.11",
+	"format_version": "1.21.1",
 	"credit": "Made by gayasslily",
 	"ambientocclusion": false,
 	"texture_size": [24, 24],
 	"textures": {
-		"particle": "#cross"
+        "cross": "thumbandthicket:block/dew_drop_flower",
+        "particle": "#cross",
+        "stem": "thumbandthicket:block/dew_drop_top_stem"
 	},
 	"elements": [
 		{
 			"from": [0.8, 0, 8],
 			"to": [15.2, 16, 8],
-			"shade": false,
+			"shade": true,
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#cross"},
@@ -20,7 +22,7 @@
 		{
 			"from": [8, 0, 0.8],
 			"to": [8, 16, 15.2],
-			"shade": false,
+			"shade": true,
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
 			"faces": {
 				"east": {"uv": [0, 0, 16, 16], "texture": "#cross"},
@@ -30,15 +32,16 @@
 		{
 			"from": [8, -8, 0],
 			"to": [8, 16, 24],
+            "shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, -8, 0]},
 			"color": 0,
 			"faces": {
-				"north": {"uv": [2, 0, 2, 16], "texture": "#missing"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#missing"},
-				"south": {"uv": [0, 0, 0, 16], "texture": "#missing"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#missing"},
-				"up": {"uv": [0, 0, 0, 16], "texture": "#missing"},
-				"down": {"uv": [0, 0, 0, 16], "texture": "#missing"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#stem"},
+				"south": {"uv": [0, 0, 0, 0], "texture": "#stem"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#stem"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#stem"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#stem"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#stem"}
 			}
 		}
 	]
