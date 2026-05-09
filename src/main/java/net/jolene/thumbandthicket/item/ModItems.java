@@ -36,7 +36,7 @@ public class ModItems {
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
     public static final Item DEW_BOTTLE = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16).food(DEW_FOOD_COMPONENT).recipeRemainder(Items.GLASS_BOTTLE)), "dew_bottle");
-    public static final Item DEW_DROP_SEEDS = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "dew_drop_seeds");
+    public static final Item DEW_DROP_SAPLING = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "dew_drop_sapling");
 
     public static final Item LUCKY_CLOVER = register(new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64).food(LUCKY_CLOVER_FOOD_COMPONENT)), "lucky_clover");
 

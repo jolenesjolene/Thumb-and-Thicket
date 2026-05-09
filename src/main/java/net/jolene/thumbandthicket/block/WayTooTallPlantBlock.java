@@ -66,8 +66,14 @@ public class WayTooTallPlantBlock extends PlantBlock {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         BlockPos blockPos = pos.up();
-        world.setBlockState(blockPos, WayTooTallPlantBlock.withWaterloggedState(world, blockPos, this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.MIDDLE)), Block.NOTIFY_ALL);
-        world.setBlockState(blockPos.up(), WayTooTallPlantBlock.withWaterloggedState(world, blockPos.up(), this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.TOP)), Block.NOTIFY_ALL);
+        if (state.contains(Properties.FACING)) {
+            Direction direction = state.get(Properties.FACING);
+            world.setBlockState(blockPos, WayTooTallPlantBlock.withWaterloggedState(world, blockPos, this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.MIDDLE).with(Properties.FACING, direction)), Block.NOTIFY_ALL);
+            world.setBlockState(blockPos.up(), WayTooTallPlantBlock.withWaterloggedState(world, blockPos.up(), this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.TOP).with(Properties.FACING, direction)), Block.NOTIFY_ALL);
+        } else {
+            world.setBlockState(blockPos, WayTooTallPlantBlock.withWaterloggedState(world, blockPos, this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.MIDDLE)), Block.NOTIFY_ALL);
+            world.setBlockState(blockPos.up(), WayTooTallPlantBlock.withWaterloggedState(world, blockPos.up(), this.getDefaultState().with(ModProperties.TALL_PLANT_PART_VERTICAL, TripleTallBlock.TOP)), Block.NOTIFY_ALL);
+        }
     }
 
     @Override

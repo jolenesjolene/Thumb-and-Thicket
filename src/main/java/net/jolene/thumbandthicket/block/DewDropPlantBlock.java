@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.item.Items;
@@ -21,12 +22,15 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
@@ -40,11 +44,16 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     protected DewDropPlantBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(LEVEL, MIN_LEVEL));
+        this.setDefaultState(this.stateManager.getDefaultState().with(LEVEL, MIN_LEVEL).with(Properties.FACING, Direction.NORTH));
     }
 
     private boolean isFull(BlockState state) {
         return state.get(LEVEL) == 3;
+    }
+
+    @Override
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        return Objects.requireNonNull(super.getPlacementState(ctx)).with(Properties.FACING, ctx.getHorizontalPlayerFacing());
     }
 
     @Override
@@ -67,7 +76,7 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(LEVEL);
+        builder.add(LEVEL).add(Properties.FACING);
     }
 
     @Override
@@ -80,7 +89,8 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     public static void decrementFluidLevel(BlockState state, World world, BlockPos pos) {
         int i = state.get(LEVEL) - 1;
-        BlockState blockState = i == 0 ? ModBlocks.DEW_DROP.getDefaultState().with(PART, TripleTallBlock.MIDDLE) : state.with(LEVEL, i);
+        Direction direction = state.get(Properties.FACING);
+        BlockState blockState = i == 0 ? ModBlocks.DEW_DROP.getDefaultState().with(PART, TripleTallBlock.MIDDLE).with(Properties.FACING, direction) : state.with(LEVEL, i);
         world.setBlockState(pos, blockState);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
     }
@@ -95,7 +105,7 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (state.get(PART) == TripleTallBlock.TOP) {
+        if (state.get(PART) == TripleTallBlock.TOP && world.getBlockState(pos.down()).isOf(this) && world.getBlockState(pos.down(2)).isOf(this)) {
             if (CURRENT_LEVEL > 0) {
                 world.setBlockState(pos.down(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
                 return;
@@ -111,7 +121,7 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
             world.setBlockState(pos, Blocks.CAULDRON.getDefaultState());
             return;
         }
-        if (state.get(PART) == TripleTallBlock.BOTTOM) {
+        if (state.get(PART) == TripleTallBlock.BOTTOM && world.getBlockState(pos.up()).isOf(this) && world.getBlockState(pos.up(2)).isOf(this)) {
             if (CURRENT_LEVEL > 0) {
                 world.setBlockState(pos.up(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
                 return;
@@ -138,9 +148,9 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     @Override
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (state.get(PART) == TripleTallBlock.TOP) CURRENT_LEVEL = world.getBlockState(pos.down()).get(LEVEL);
+        if (state.get(PART) == TripleTallBlock.TOP && world.getBlockState(pos.down()).isOf(this)) CURRENT_LEVEL = world.getBlockState(pos.down()).get(LEVEL);
         if (state.get(PART) == TripleTallBlock.MIDDLE) CURRENT_LEVEL = state.get(LEVEL);
-        if (state.get(PART) == TripleTallBlock.BOTTOM) CURRENT_LEVEL = world.getBlockState(pos.up()).get(LEVEL);
+        if (state.get(PART) == TripleTallBlock.BOTTOM && world.getBlockState(pos.up()).isOf(this)) CURRENT_LEVEL = world.getBlockState(pos.up()).get(LEVEL);
         return super.onBreak(world, pos, state, player);
     }
 }

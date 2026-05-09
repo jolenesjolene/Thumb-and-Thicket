@@ -20,6 +20,8 @@ public class ModModelProvider extends FabricModelProvider {
                     ModItems.ORANGE,
                     ModItems.LUCKY_CLOVER,
                     ModItems.PRICKLY_PEAR,
+                    ModItems.DEW_BOTTLE,
+                    ModItems.DEW_DROP_SAPLING,
                     ModItems.GOLDEN_PRICKLY_PEAR,
                     ModBlocks.SNOWY_SHORT_GRASS.asItem(),
                     ModBlocks.SNOWY_SHORT_FERN.asItem(),

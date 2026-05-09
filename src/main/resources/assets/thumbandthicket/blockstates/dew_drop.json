@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "tall_plant_part_vertical=bottom,facing=south": {
+      "model": "thumbandthicket:block/dew_drop_bottom"
+    },
+    "tall_plant_part_vertical=middle,facing=south": {
+      "model": "thumbandthicket:block/dew_drop_middle"
+    },
+    "tall_plant_part_vertical=top,facing=south": {
+      "model": "thumbandthicket:block/dew_drop_top"
+    },
+    "tall_plant_part_vertical=bottom,facing=east": {
+      "model": "thumbandthicket:block/dew_drop_bottom"
+    },
+    "tall_plant_part_vertical=middle,facing=east": {
+      "model": "thumbandthicket:block/dew_drop_middle"
+    },
+    "tall_plant_part_vertical=top,facing=east": {
+      "model": "thumbandthicket:block/dew_drop_top"
+    },
+    "tall_plant_part_vertical=bottom,facing=west": {
+      "model": "thumbandthicket:block/dew_drop_bottom"
+    },
+    "tall_plant_part_vertical=middle,facing=west": {
+      "model": "thumbandthicket:block/dew_drop_middle"
+    },
+    "tall_plant_part_vertical=top,facing=west": {
+      "model": "thumbandthicket:block/dew_drop_top"
+    },
+    "tall_plant_part_vertical=bottom,facing=north": {
+      "model": "thumbandthicket:block/dew_drop_bottom"
+    },
+    "tall_plant_part_vertical=middle,facing=north": {
+      "model": "thumbandthicket:block/dew_drop_middle"
+    },
+    "tall_plant_part_vertical=top,facing=north": {
+      "model": "thumbandthicket:block/dew_drop_top"
+    }
+  }
+}

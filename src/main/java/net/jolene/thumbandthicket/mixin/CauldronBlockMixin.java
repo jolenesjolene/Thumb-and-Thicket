@@ -4,7 +4,6 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CauldronBlock;
 import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -34,7 +33,7 @@ public class CauldronBlockMixin extends Block {
 
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (stack.isOf(ModItems.DEW_DROP_SEEDS) && state.get(LEVEL) > 1) {
+        if (stack.isOf(ModItems.DEW_DROP_SAPLING) && state.get(LEVEL) == 3) {
             world.setBlockState(pos, ModBlocks.DEW_DROP_CROP_CAULDRON.getDefaultState());
             stack.decrementUnlessCreative(1,player);
             player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
