@@ -103,10 +103,10 @@
   - Textures
 - New Sniffer Plants
   - Dew Drop
-    - 3 blocks tall, 2 wide
+    - 3 blocks tall
     - accumulates Dew if Cauldron placed in the middle
     - Dew drinkable
-    - Block(s)
+    - ~~Block(s)~~
     - Textures
   - Ancient Crops with ancient Foods
 - Mycelial Sprouts
@@ -232,6 +232,7 @@
     - Ocelots lead Players to Temples
   - Mobs have Litters
   - Polar Bears hunt for Fish
+  - Herds flee from attackers
 - updated Mob Models
   - Cow
   - Sheep
@@ -280,5 +281,5 @@
 
 - ~~Port Crop wilting system from Progression Respun~~
   - new Textures
-  - Villager AI
+  - ~~Villager AI~~
   - ~~make less bad~~

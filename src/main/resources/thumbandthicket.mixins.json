@@ -11,6 +11,7 @@
     "SettingsAccessor",
     "ShearsItemMixin",
     "farming.CropBlockMixin",
+    "farming.FarmerVillagerTaskMixin",
     "farming.FarmlandBlockMixin",
     "snowy.SnowBlockMixin",
     "snowy.SnowyBlockMixin",
