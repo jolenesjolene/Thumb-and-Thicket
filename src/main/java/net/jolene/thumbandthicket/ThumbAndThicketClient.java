@@ -55,6 +55,12 @@ public class ThumbAndThicketClient implements ClientModInitializer {
             }
             return 0xFFFFFF;
         }, ModBlocks.CLOVERS);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+            if (world != null && pos != null) {
+                return BiomeColors.getGrassColor(world, pos);
+            }
+            return 0xFFFFFF;
+        }, ModBlocks.TINGED_SHORT_GRASS);
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
             return 0xFFFFFF;
@@ -87,8 +93,11 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_PODZOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CLOVERS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CATTAIL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PUFFED_DANDELION, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LAVENDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SNOWY_SHORT_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TINGED_SHORT_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILTED_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYCELIAL_SPROUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DEW_DROP, RenderLayer.getCutout());

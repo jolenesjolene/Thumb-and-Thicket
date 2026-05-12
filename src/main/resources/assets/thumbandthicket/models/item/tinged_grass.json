@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
 	"textures": {
-	    "layer0": "minecraft:item/dusky_acorn"
+	    "layer0": "thumbandthicket:block/tinged_grass"
 	}
 }
