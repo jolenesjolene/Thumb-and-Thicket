@@ -105,28 +105,28 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        if (state.get(PART) == TripleTallBlock.TOP && world.getBlockState(pos.down()).isOf(this) && world.getBlockState(pos.down(2)).isOf(this)) {
+        if (state.get(PART) == TripleTallBlock.TOP && world.getBlockState(pos.down()).isOf(this)) {
             if (CURRENT_LEVEL > 0) {
                 world.setBlockState(pos.down(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
                 return;
             }
-            world.setBlockState(pos.down(), Blocks.CAULDRON.getDefaultState());
+            world.setBlockState(pos.down(), Blocks.CAULDRON.getDefaultState(), 3);
             return;
         }
         if (state.get(PART) == TripleTallBlock.MIDDLE) {
             if (CURRENT_LEVEL > 0) {
-                world.setBlockState(pos, ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
+                world.setBlockState(pos, ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL), 3);
                 return;
             }
-            world.setBlockState(pos, Blocks.CAULDRON.getDefaultState());
+            world.setBlockState(pos, Blocks.CAULDRON.getDefaultState(), 3);
             return;
         }
-        if (state.get(PART) == TripleTallBlock.BOTTOM && world.getBlockState(pos.up()).isOf(this) && world.getBlockState(pos.up(2)).isOf(this)) {
+        if (state.get(PART) == TripleTallBlock.BOTTOM && world.getBlockState(pos.up()).isOf(this)) {
             if (CURRENT_LEVEL > 0) {
-                world.setBlockState(pos.up(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
+                world.setBlockState(pos.up(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL), 3);
                 return;
             }
-            world.setBlockState(pos.up(), Blocks.CAULDRON.getDefaultState());
+            world.setBlockState(pos.up(), Blocks.CAULDRON.getDefaultState(), 3);
             return;
         }
         super.afterBreak(world, player, pos, state, blockEntity, tool);

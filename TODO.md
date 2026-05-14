@@ -67,7 +67,7 @@
   - ~~Block~~
   - Particles
   - Worldgen
-  - Textures
+  - ~~Textures~~
 - Small Lilac
   - ~~Block~~
   - Worldgen
@@ -241,6 +241,9 @@
   - Spiders
   - Polar Bears
   - Creepers
+    - Glare like
+  - Spiders
+  - Cave Spiders
   - etc.
 - Polar Bears
   - only protect their Cubs
@@ -267,6 +270,7 @@
     - Transition Biomes
     - Clearings in Forests
     - Mud in Rivers and Oceans instead of Dirt
+    - Sulfur Springs biome instead of features
   - Cave Biomes
     - Hot Caves/Sand Caves
       - Cave
@@ -278,6 +282,9 @@
       - New Tall Mushrooms
       - Cave
       - Worldgen
+    - Spider Caves
+      - hanging webs
+      - Spider Eggs
 
 - ~~Port Crop wilting system from Progression Respun~~
   - new Textures

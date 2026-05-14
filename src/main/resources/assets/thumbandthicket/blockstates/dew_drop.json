@@ -1,92 +1,92 @@
 {
   "variants": {
-    "tall_plant_part_vertical=bottom,facing=south": {
+    "triple_tall_part=bottom,facing=south": {
       "model": "thumbandthicket:block/dew_drop_bottom"
     },
-    "tall_plant_part_vertical=top,facing=south": {
+    "triple_tall_part=top,facing=south": {
       "model": "thumbandthicket:block/dew_drop_top"
     },
-    "tall_plant_part_vertical=bottom,facing=east": {
+    "triple_tall_part=bottom,facing=east": {
       "model": "thumbandthicket:block/dew_drop_bottom",
       "y":270
     },
-    "tall_plant_part_vertical=top,facing=east": {
+    "triple_tall_part=top,facing=east": {
       "model": "thumbandthicket:block/dew_drop_top",
       "y":270
     },
-    "tall_plant_part_vertical=bottom,facing=west": {
+    "triple_tall_part=bottom,facing=west": {
       "model": "thumbandthicket:block/dew_drop_bottom",
       "y":90
     },
-    "tall_plant_part_vertical=top,facing=west": {
+    "triple_tall_part=top,facing=west": {
       "model": "thumbandthicket:block/dew_drop_top",
       "y":90
     },
-    "tall_plant_part_vertical=bottom,facing=north": {
+    "triple_tall_part=bottom,facing=north": {
       "model": "thumbandthicket:block/dew_drop_bottom",
       "y":180
     },
-    "tall_plant_part_vertical=top,facing=north": {
+    "triple_tall_part=top,facing=north": {
       "model": "thumbandthicket:block/dew_drop_top",
       "y":180
     },
-    "tall_plant_part_vertical=middle,facing=south,level=0": {
+    "triple_tall_part=middle,facing=south,level=0": {
       "model": "thumbandthicket:block/dew_drop_middle"
     },
-    "tall_plant_part_vertical=middle,facing=east,level=0": {
+    "triple_tall_part=middle,facing=east,level=0": {
       "model": "thumbandthicket:block/dew_drop_middle",
       "y":270
     },
-    "tall_plant_part_vertical=middle,facing=west,level=0": {
+    "triple_tall_part=middle,facing=west,level=0": {
       "model": "thumbandthicket:block/dew_drop_middle",
       "y":90
     },
-    "tall_plant_part_vertical=middle,facing=north,level=0": {
+    "triple_tall_part=middle,facing=north,level=0": {
       "model": "thumbandthicket:block/dew_drop_middle",
       "y":180
     },
-    "tall_plant_part_vertical=middle,facing=south,level=1": {
+    "triple_tall_part=middle,facing=south,level=1": {
       "model": "thumbandthicket:block/dew_drop_middle_level1"
     },
-    "tall_plant_part_vertical=middle,facing=east,level=1": {
+    "triple_tall_part=middle,facing=east,level=1": {
       "model": "thumbandthicket:block/dew_drop_middle_level1",
       "y":270
     },
-    "tall_plant_part_vertical=middle,facing=west,level=1": {
+    "triple_tall_part=middle,facing=west,level=1": {
       "model": "thumbandthicket:block/dew_drop_middle_level1",
       "y":90
     },
-    "tall_plant_part_vertical=middle,facing=north,level=1": {
+    "triple_tall_part=middle,facing=north,level=1": {
       "model": "thumbandthicket:block/dew_drop_middle_level1",
       "y":180
     },
-    "tall_plant_part_vertical=middle,facing=south,level=2": {
+    "triple_tall_part=middle,facing=south,level=2": {
       "model": "thumbandthicket:block/dew_drop_middle_level2"
     },
-    "tall_plant_part_vertical=middle,facing=east,level=2": {
+    "triple_tall_part=middle,facing=east,level=2": {
       "model": "thumbandthicket:block/dew_drop_middle_level2",
       "y":270
     },
-    "tall_plant_part_vertical=middle,facing=west,level=2": {
+    "triple_tall_part=middle,facing=west,level=2": {
       "model": "thumbandthicket:block/dew_drop_middle_level2",
       "y":90
     },
-    "tall_plant_part_vertical=middle,facing=north,level=2": {
+    "triple_tall_part=middle,facing=north,level=2": {
       "model": "thumbandthicket:block/dew_drop_middle_level2",
       "y":180
     },
-    "tall_plant_part_vertical=middle,facing=south,level=3": {
+    "triple_tall_part=middle,facing=south,level=3": {
       "model": "thumbandthicket:block/dew_drop_middle_full"
     },
-    "tall_plant_part_vertical=middle,facing=east,level=3": {
+    "triple_tall_part=middle,facing=east,level=3": {
       "model": "thumbandthicket:block/dew_drop_middle_full",
       "y":270
     },
-    "tall_plant_part_vertical=middle,facing=west,level=3": {
+    "triple_tall_part=middle,facing=west,level=3": {
       "model": "thumbandthicket:block/dew_drop_middle_full",
       "y":90
     },
-    "tall_plant_part_vertical=middle,facing=north,level=3": {
+    "triple_tall_part=middle,facing=north,level=3": {
       "model": "thumbandthicket:block/dew_drop_middle_full",
       "y":180
     }

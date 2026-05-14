@@ -8,6 +8,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ClampedIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
@@ -36,17 +37,20 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_TAIGA = registerKey("red_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_OLD_GROWTH = registerKey("red_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_SWAMP = registerKey("red_mushroom_swamp_placed");
+    public static final RegistryKey<PlacedFeature> RED_MUSHROOM_TREE = registerKey("red_mushroom_tree_placed");
 
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_NORMAL = registerKey("brown_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_NETHER = registerKey("brown_mushroom_nether_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_TAIGA = registerKey("brown_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_OLD_GROWTH = registerKey("brown_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_SWAMP = registerKey("brown_mushroom_swamp_placed");
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_TREE = registerKey("brown_mushroom_tree_placed");
 
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_NORMAL = registerKey("purple_mushroom_normal_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_TAIGA = registerKey("purple_mushroom_taiga_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_OLD_GROWTH = registerKey("purple_mushroom_old_growth_placed");
     public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_SWAMP = registerKey("purple_mushroom_swamp_placed");
+    public static final RegistryKey<PlacedFeature> PURPLE_MUSHROOM_TREE = registerKey("purple_mushroom_tree_placed");
     public static final RegistryKey<PlacedFeature> MYCELIAL_SPROUTS = registerKey("mycelial_sprouts_placed");
 
     public static final RegistryKey<PlacedFeature> FLOWER_DEFAULT = registerKey("flower_default_placed");
@@ -84,17 +88,20 @@ public class ModPlacedFeatures {
         register(context, RED_MUSHROOM_TAIGA, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
         register(context, RED_MUSHROOM_OLD_GROWTH, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(171));
         register(context, RED_MUSHROOM_SWAMP, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(64));
+//        register(context, RED_MUSHROOM_TREE, redMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(64));
 
         register(context, BROWN_MUSHROOM_NORMAL, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(256));
         register(context, BROWN_MUSHROOM_NETHER, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, RarityFilterPlacementModifier.of(2));
         register(context, BROWN_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4));
         register(context, BROWN_MUSHROOM_OLD_GROWTH, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(4), CountPlacementModifier.of(3));
         register(context, BROWN_MUSHROOM_SWAMP, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
+//        register(context, BROWN_MUSHROOM_TREE, brownMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
 
         register(context, PURPLE_MUSHROOM_NORMAL, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
         register(context, PURPLE_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
         register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
         register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
+//        register(context, PURPLE_MUSHROOM_TREE, purpleMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
 
         register(context, MYCELIAL_SPROUTS, configuredFeatures.getOrThrow(ModConfiguredFeatures.MYCELIAL_SPROUTS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY));
