@@ -42,7 +42,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
-        WorldRenderEvents.AFTER_TRANSLUCENT.register(net.jolene.thumbandthicket.client.FoamRenderHandler::render);
+        WorldRenderEvents.AFTER_TRANSLUCENT.register(net.jolene.thumbandthicket.util.FoamRenderHandler::render);
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);

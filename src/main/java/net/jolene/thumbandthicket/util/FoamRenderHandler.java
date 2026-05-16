@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.client;
+package net.jolene.thumbandthicket.util;
 
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.jolene.thumbandthicket.util.FoamRenderer;
@@ -25,7 +25,6 @@ public class FoamRenderHandler {
         MatrixStack matrices = context.matrixStack();
         VertexConsumerProvider consumers = context.consumers();
 
-        // RenderLayer (simple, stable, translucent-friendly)
         RenderLayer FOAM_LAYER = RenderLayer.getTranslucent();
 
         VertexConsumer vc = consumers.getBuffer(FOAM_LAYER);
@@ -38,7 +37,6 @@ public class FoamRenderHandler {
 
             if (!fluid.isIn(FluidTags.WATER)) continue;
 
-            // only surface water
             if (!world.getFluidState(pos.up()).isEmpty()) continue;
 
             FoamRenderer set = FoamRenderer.getSpriteSet(world, pos);
@@ -58,7 +56,6 @@ public class FoamRenderHandler {
             float minV = sprite.getMinV();
             float maxV = sprite.getMaxV();
 
-            // quad (top face)
             vc.vertex(x, y, z)
                     .texture(minU, minV)
                     .color(255, 255, 255, 255)
