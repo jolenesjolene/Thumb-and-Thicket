@@ -1,23 +1,16 @@
 package net.jolene.thumbandthicket.block.entity;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import static net.jolene.thumbandthicket.ThumbAndThicket.thumbandthicket$getBlockByName;
 import static net.jolene.thumbandthicket.block.entity.ModBlockEntities.FLOWER_CROP_BLOCK;
-import static net.jolene.thumbandthicket.block.entity.ModBlockEntities.ROOT_BLOCK_ENTITY;
 
 public class FlowerCropBlockEntity extends BlockEntity {
 

@@ -27,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
 
-    public static final int MAX_AGE = 3;
     public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)};
 
@@ -83,7 +82,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
         this.applyGrowth(world, pos, state);
     }
 
-    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+    protected boolean canPlantOnTop(BlockState floor) {
         return floor.isOf(Blocks.FARMLAND);
     }
 
@@ -105,7 +104,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
 
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return canPlantOnTop(world.getBlockState(pos.down()), world, pos);
+        return canPlantOnTop(world.getBlockState(pos.down()));
     }
 
     public void applyGrowth(World world, BlockPos pos, BlockState state) {
@@ -130,7 +129,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
     }
 
     public BlockState withAge(int age) {
-        return (BlockState)this.getDefaultState().with(this.getAgeProperty(), age);
+        return this.getDefaultState().with(this.getAgeProperty(), age);
     }
 
     public final boolean isMature(BlockState state) {

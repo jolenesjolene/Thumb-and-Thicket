@@ -5,7 +5,6 @@ import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
-import net.minecraft.block.Blocks;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -60,12 +59,8 @@ public class ModItems {
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
-                .register(group -> {
-                    group.addAfter(Items.POLAR_BEAR_SPAWN_EGG, ModItems.BROWN_BEAR_SPAWN_EGG);
-                });
+                .register(group -> group.addAfter(Items.POLAR_BEAR_SPAWN_EGG, ModItems.BROWN_BEAR_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-                .register(group -> {
-                    group.addAfter(ModBlocks.CLOVERS, ModItems.LUCKY_CLOVER);
-                });
+                .register(group -> group.addAfter(ModBlocks.CLOVERS, ModItems.LUCKY_CLOVER));
     }
 }

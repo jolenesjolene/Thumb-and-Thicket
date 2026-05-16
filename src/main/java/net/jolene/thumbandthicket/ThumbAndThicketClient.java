@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.jolene.thumbandthicket.block.ModBlocks;
@@ -42,7 +41,6 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
-        WorldRenderEvents.AFTER_TRANSLUCENT.register(net.jolene.thumbandthicket.util.FoamRenderHandler::render);
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);

@@ -1,11 +1,8 @@
 package net.jolene.thumbandthicket.mixin;
 
-import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.jolene.thumbandthicket.block.ModBlocks;
-import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -25,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static net.jolene.thumbandthicket.util.ModProperties.*;
 import static net.minecraft.block.PillarBlock.AXIS;
-import static net.minecraft.state.property.Properties.*;
 
 @Mixin(Block.class)
 public abstract class BlockMixin {
@@ -71,7 +67,6 @@ public abstract class BlockMixin {
                 if (world instanceof ServerWorld) {
                     Block.getDroppedStacks(state, (ServerWorld)world, pos, blockEntity, entity, tool).forEach(stack -> Block.dropStack(world, pos, stack));
                     state.onStacksDropped((ServerWorld)world, pos, tool, false);
-//                    System.out.println("loop " + i);
                 }
             }
             return;
