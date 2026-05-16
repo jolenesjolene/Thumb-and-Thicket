@@ -2,11 +2,11 @@ package net.jolene.thumbandthicket;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.jolene.thumbandthicket.block.ModBlocks;
@@ -21,7 +21,6 @@ import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModColors;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.Registries;
@@ -43,6 +42,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
+        WorldRenderEvents.AFTER_TRANSLUCENT.register(net.jolene.thumbandthicket.client.FoamRenderHandler::render);
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
@@ -62,9 +62,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
             return 0xFFFFFF;
         }, ModBlocks.TINGED_SHORT_GRASS);
 
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
-            return 0xFFFFFF;
-        }, Blocks.LILY_PAD);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> 0xFFFFFF, Blocks.LILY_PAD);
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> client.execute(() -> {
             for (RegistryEntry<Block> entry : Registries.BLOCK.iterateEntries(BlockTags.LOGS)) {

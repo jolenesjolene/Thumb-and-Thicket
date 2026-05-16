@@ -120,10 +120,10 @@
   - Bamboo
 - Flowers overhaul
   - drops Seeds
-    - Component for Flowertype
+    - ~~Component for Flowertype~~
     - Texture Overrides for specific Seeds
     - Tag-controlled Eating
-  - drops itself with Shears
+  - ~~drops itself with Shears~~
   - ~~multiple Flowers in one Block~~
 - Torchflowers prevent Mobspawns in specific radius
 - Pitcher Pod area effect: Flies

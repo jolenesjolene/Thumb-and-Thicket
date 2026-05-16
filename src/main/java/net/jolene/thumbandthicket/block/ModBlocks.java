@@ -41,6 +41,7 @@ public class ModBlocks {
     public static final Block DEW_DROP = register(new DewDropPlantBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "dew_drop", true);
     public static final Block DEW_CAULDRON = register(new DewCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), ModCauldronBehavior.DEW_CAULDRON_BEHAVIOR), "dew_cauldron", false);
     public static final Block DEW_DROP_CROP_CAULDRON = register(new DewDropCropBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).ticksRandomly()), "dew_drop_crop_cauldron", true);
+    public static final Block FLOWER_CROP = register(new FlowerCropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS).ticksRandomly()), "flower_crop");
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);
@@ -50,6 +51,11 @@ public class ModBlocks {
         }
         return Registry.register(Registries.BLOCK, id, block);
 
+    }
+
+    public static Block register(Block block, String name) {
+        Identifier id = ThumbAndThicket.id(name);
+        return Registry.register(Registries.BLOCK, id, block);
     }
 
     public static void registerModBlocks() {

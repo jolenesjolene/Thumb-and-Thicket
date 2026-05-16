@@ -2,27 +2,30 @@ package net.jolene.thumbandthicket.mixin.vegetation;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import net.jolene.thumbandthicket.component.ModDataComponentTypes;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BlockFace;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.Inject;
 
-import java.util.function.BiFunction;
+import java.util.List;
 
 import static net.minecraft.state.property.Properties.FACING;
 
@@ -33,8 +36,6 @@ public class FlowerBlockMixin extends Block implements Fertilizable {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(ModProperties.FLOWERS,1));
     }
-
-    
 
     @WrapMethod(method = "getOutlineShape")
     private VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context, Operation<VoxelShape> original) {
@@ -91,5 +92,37 @@ public class FlowerBlockMixin extends Block implements Fertilizable {
     @Override
     protected float getMaxHorizontalModelOffset() {
         return 0.0f;
+    }
+
+    @Override
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+        Block block = state.getBlock();
+        if (!world.isClient){
+            if (tool.isOf(Items.SHEARS)) super.afterBreak(world, player, pos, state, blockEntity, tool);
+            else {
+                int minDrops = 1;
+                int maxDrops = 3;
+                switch (state.get(ModProperties.FLOWERS)) {
+                    case 2 -> {
+                        minDrops = 2;
+                        maxDrops = 6;
+                    }
+                    case 3 -> {
+                        minDrops = 3;
+                        maxDrops = 9;
+                    }
+                }
+                ItemStack stack = new ItemStack(ModItems.FLOWER_SEEDS, world.getRandom().nextBetween(minDrops, maxDrops));
+                stack.set(ModDataComponentTypes.FLOWER_TYPE, Registries.ITEM.getId(block.asItem()).getPath());
+                if (state.isOf(Blocks.TORCHFLOWER)) stack = new ItemStack(Items.TORCHFLOWER_SEEDS, world.getRandom().nextBetween(minDrops, maxDrops));
+                if (state.isOf(Blocks.PITCHER_PLANT)) stack = new ItemStack(Items.PITCHER_POD, world.getRandom().nextBetween(minDrops, maxDrops));
+                FlowerBlock.dropStack(world, pos, stack);
+            }
+        }
+    }
+
+    @Override
+    protected List<ItemStack> getDroppedStacks(BlockState state, LootContextParameterSet.Builder builder) {
+        return super.getDroppedStacks(state, builder);
     }
 }

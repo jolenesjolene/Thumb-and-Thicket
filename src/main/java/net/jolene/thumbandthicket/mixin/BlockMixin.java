@@ -3,11 +3,19 @@ package net.jolene.thumbandthicket.mixin;
 import com.blackgear.vanillabackport.common.level.blocks.CactusFlowerBlock;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.jolene.thumbandthicket.block.ModBlocks;
+import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -54,5 +62,20 @@ public abstract class BlockMixin {
             return original.call().with(FERTILIZED, false);
         }
         return original.call();
+    }
+
+    @WrapMethod(method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V")
+    private static void thumbandthicket$dropFlowers(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool, Operation<Void> original) {
+        if (state.contains(FLOWERS)) {
+            for (int i = 0; i < state.get(FLOWERS); i++) {
+                if (world instanceof ServerWorld) {
+                    Block.getDroppedStacks(state, (ServerWorld)world, pos, blockEntity, entity, tool).forEach(stack -> Block.dropStack(world, pos, stack));
+                    state.onStacksDropped((ServerWorld)world, pos, tool, false);
+//                    System.out.println("loop " + i);
+                }
+            }
+            return;
+        }
+        original.call(state, world, pos, blockEntity, entity, tool);
     }
 }
