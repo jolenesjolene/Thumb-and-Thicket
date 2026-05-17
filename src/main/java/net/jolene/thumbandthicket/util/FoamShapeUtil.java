@@ -18,12 +18,12 @@ import java.util.Objects;
 
 import static net.minecraft.util.math.Direction.Type.HORIZONTAL;
 
-public class FoamRenderer {
+public class FoamShapeUtil {
     @Unique
-    private static final List<FoamRenderer> SETS = new ArrayList<>();
+    private static final List<FoamShapeUtil> SETS = new ArrayList<>();
 
     @Unique
-    private static final FoamRenderer
+    private static final FoamShapeUtil
             NORTH = createSpriteSet("block/foam/foam_n"),
             EAST = createSpriteSet("block/foam/foam_e"),
             SOUTH = createSpriteSet("block/foam/foam_s"),
@@ -44,25 +44,25 @@ public class FoamRenderer {
     @Unique public final Sprite[] sprites = new Sprite[3];
     @Unique public final Identifier identifier;
 
-    public FoamRenderer(Identifier identifier) {
+    public FoamShapeUtil(Identifier identifier) {
         this.identifier = identifier;
         SETS.add(this);
     }
 
     @Unique
-    private static FoamRenderer createSpriteSet(String path) {
-        return new FoamRenderer(Identifier.of(ThumbAndThicket.MOD_ID, path));
+    private static FoamShapeUtil createSpriteSet(String path) {
+        return new FoamShapeUtil(Identifier.of(ThumbAndThicket.MOD_ID, path));
     }
 
     @Unique
     public static void populateSpriteSetArrays(SpriteAtlasTexture textureAtlas) {
-        for (FoamRenderer set : SETS) {
+        for (FoamShapeUtil set : SETS) {
             set.sprites[0] = textureAtlas.getSprite(set.identifier);
         }
     }
 
     @Unique
-    public static FoamRenderer getSpriteSet(BlockRenderView blockRenderView, BlockPos blockPos) {
+    public static FoamShapeUtil getSpriteSet(BlockRenderView blockRenderView, BlockPos blockPos) {
         if (blockPos == null || blockRenderView == null)
             return DISCONNECTED;
 
@@ -71,7 +71,7 @@ public class FoamRenderer {
 
     @Unique
     @Nullable
-    private static FoamRenderer getConnected(BlockRenderView blockRenderView, BlockPos blockPos) {
+    private static FoamShapeUtil getConnected(BlockRenderView blockRenderView, BlockPos blockPos) {
         if (areAllNeighborsNonFluid(blockRenderView, blockPos)) return ALL;
 
         boolean northNonFluid = !hasConnectibleNeighbor(blockRenderView, blockPos, Direction.NORTH);
@@ -79,7 +79,7 @@ public class FoamRenderer {
         boolean eastNonFluid = !hasConnectibleNeighbor(blockRenderView, blockPos, Direction.EAST);
         boolean westNonFluid = !hasConnectibleNeighbor(blockRenderView, blockPos, Direction.WEST);
 
-        FoamRenderer spriteSet = null;
+        FoamShapeUtil spriteSet = null;
 
         if (northNonFluid) {
             spriteSet = NORTH;
@@ -117,7 +117,7 @@ public class FoamRenderer {
     }
 
     @Unique
-    private static FoamRenderer getDisconnected(BlockRenderView blockRenderView, BlockPos blockPos) {
+    private static FoamShapeUtil getDisconnected(BlockRenderView blockRenderView, BlockPos blockPos) {
         return DISCONNECTED;
     }
 

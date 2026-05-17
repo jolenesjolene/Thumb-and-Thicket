@@ -119,7 +119,7 @@
   - ~~Cacti~~
   - Bamboo
 - Flowers overhaul
-  - drops Seeds
+  - ~~drops Seeds~~
     - ~~Component for Flowertype~~
     - Texture Overrides for specific Seeds
     - Tag-controlled Eating

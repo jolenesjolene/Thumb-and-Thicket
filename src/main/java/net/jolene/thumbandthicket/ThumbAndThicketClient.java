@@ -17,11 +17,15 @@ import net.jolene.thumbandthicket.entity.client.BrownBearRenderer;
 import net.jolene.thumbandthicket.item.ModItemTooltips;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.sound.ModSounds;
+import net.jolene.thumbandthicket.util.FoamShapeUtil;
 import net.jolene.thumbandthicket.util.ModColors;
+import net.jolene.thumbandthicket.util.WaterOverlayRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
@@ -41,6 +45,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
+        WaterOverlayRenderer.renderFoam();
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
@@ -63,6 +68,9 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> 0xFFFFFF, Blocks.LILY_PAD);
 
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> client.execute(() -> {
+            SpriteAtlasTexture atlas = MinecraftClient.getInstance().getBakedModelManager().getAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
+            FoamShapeUtil.populateSpriteSetArrays(atlas);
+
             for (RegistryEntry<Block> entry : Registries.BLOCK.iterateEntries(BlockTags.LOGS)) {
                 Block block = entry.value();
                 BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
@@ -78,6 +86,9 @@ public class ThumbAndThicketClient implements ClientModInitializer {
 
                     @Override
                     public void reload(ResourceManager manager) {
+                        SpriteAtlasTexture atlas = MinecraftClient.getInstance().getBakedModelManager().getAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
+                        FoamShapeUtil.populateSpriteSetArrays(atlas);
+
                         for (RegistryEntry<Block> entry : Registries.BLOCK.iterateEntries(BlockTags.LOGS)) {
                             Block block = entry.value();
                             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
@@ -97,6 +108,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILTED_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYCELIAL_SPROUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DEW_DROP, RenderLayer.getCutout());
+
 
     }
 }

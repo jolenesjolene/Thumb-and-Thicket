@@ -34,7 +34,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
 
     public FlowerCropBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(Properties.AGE_3, 0).with(ModProperties.FLOWERS, Random.create().nextBetween(1,3)));
+        this.setDefaultState(this.stateManager.getDefaultState().with(Properties.AGE_3, 0).with(ModProperties.FLOWERS, 1));
     }
 
     @Override
@@ -140,7 +140,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity && !world.isClient()) {
             String flower = flowerCropBlockEntity.thumbandthicket$getFlower();
-            ItemStack stack = new ItemStack(ModItems.FLOWER_SEEDS);
+            ItemStack stack = ModItems.FLOWER_SEEDS.getDefaultStack();
             stack.set(ModDataComponentTypes.FLOWER_TYPE, flower);
             return stack;
         }

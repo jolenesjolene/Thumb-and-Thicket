@@ -25,14 +25,4 @@ public class FlowerSeedsItem extends AliasedBlockItem {
         }
         return super.getName(stack);
     }
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        ActionResult actionResult = this.place(new ItemPlacementContext(context));
-        if (!actionResult.isAccepted() && context.getStack().contains(DataComponentTypes.FOOD)) {
-            ActionResult actionResult2 = super.use(context.getWorld(), context.getPlayer(), context.getHand()).getResult();
-            return actionResult2 == ActionResult.CONSUME ? ActionResult.CONSUME_PARTIAL : actionResult2;
-        }
-        return actionResult;
-    }
 }
