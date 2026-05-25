@@ -5,13 +5,11 @@ import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.fluid.ModFluids;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Rarity;
@@ -26,6 +24,7 @@ public class ModItems {
     public static final FoodComponent ROTTEN_APPLE_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 0), 0.6F).build();
     public static final FoodComponent PEAR_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.3F).build();
     public static final FoodComponent ORANGE_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(3).saturationModifier(0.3F).build();
+    public static final FoodComponent CHERRY_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.2F).build();
     public static final FoodComponent DEW_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(5).saturationModifier(0.7F).build();
     public static final FoodComponent SEED_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(1).snack().build();
 
@@ -34,11 +33,13 @@ public class ModItems {
     public static final Item ROTTEN_APPLE = register(new Item(new Item.Settings().maxCount(64).food(ROTTEN_APPLE_FOOD_COMPONENT)), "rotten_apple");
     public static final Item PEAR = register(new Item(new Item.Settings().maxCount(64).food(PEAR_FOOD_COMPONENT)), "pear");
     public static final Item ORANGE = register(new Item(new Item.Settings().maxCount(64).food(ORANGE_FOOD_COMPONENT)), "orange");
+    public static final Item CHERRY = register(new Item(new Item.Settings().maxCount(64).food(CHERRY_FOOD_COMPONENT).recipeRemainder(Items.CHERRY_SAPLING)), "cherry");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
     public static final Item DEW_BOTTLE = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16).food(DEW_FOOD_COMPONENT).recipeRemainder(Items.GLASS_BOTTLE)), "dew_bottle");
     public static final Item DEW_DROP_SAPLING = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "dew_drop_sapling");
     public static final Item FLOWER_SEEDS = register(new FlowerSeedsItem(ModBlocks.FLOWER_CROP, new Item.Settings().food(SEED_FOOD_COMPONENT)), "flower_seeds");
+    public static final Item BRINE_BUCKET = register(new BucketItem(ModFluids.BRINE_SOURCE, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)), "brine_bucket");
 
     public static final Item LUCKY_CLOVER = register(new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64).food(LUCKY_CLOVER_FOOD_COMPONENT)), "lucky_clover");
 
@@ -55,7 +56,7 @@ public class ModItems {
                 .register(group -> {
                     group.addAfter(Items.APPLE, ModItems.ROTTEN_APPLE);
                     group.addAfter(ModItems.ROTTEN_APPLE, ModItems.PEAR);
-                    group.addAfter(ModItems.PEAR, ModItems.ORANGE);
+                    group.addAfter(ModItems.PEAR, ModItems.ORANGE, ModItems.CHERRY);
                     group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });

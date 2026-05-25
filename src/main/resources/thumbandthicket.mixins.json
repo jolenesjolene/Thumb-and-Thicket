@@ -44,6 +44,6 @@
     "requireAnnotations": true
   },
   "client": [
-    "FluidRendererMixin"
+    "ClientWorldMixin"
   ]
 }

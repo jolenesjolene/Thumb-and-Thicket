@@ -53,7 +53,7 @@ public class ModItemGroups {
                             //entries.add(ModBlocks.LONG_HANGING_ROOTS);
                             //entries.add(ModItems.FERTILIZER);
                             //entries.add(ModItems.SUNFLOWER_SEEDS);
-                            //entries.add(ModItems.FLOWER_SEEDS);
+                            entries.add(ModItems.FLOWER_SEEDS);
 
                             entries.add(Items.APPLE);
                             entries.add(ModItems.ROTTEN_APPLE);
@@ -61,6 +61,8 @@ public class ModItemGroups {
                             //entries.add(ModItems.ROTTEN_PEAR);
                             entries.add(ModItems.ORANGE);
                            //entries.add(ModItems.ROTTEN_ORANGE);
+                            entries.add(ModItems.CHERRY);
+                           //entries.add(ModItems.ROTTEN_CHERRY);
                             entries.add(ModItems.PRICKLY_PEAR);
                             //entries.add(ModItems.SHRIVELED_PRICKLY_PEAR);
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
@@ -87,6 +89,9 @@ public class ModItemGroups {
 
                             entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
                             entries.add(Items.SHEARS);
+                            entries.add(ModItems.BRINE_BUCKET);
+                            entries.add(ModBlocks.HYDROTHERMAL_VENT_BLOCK);
+                            entries.add(ModBlocks.HYDROTHERMAL_VENT);
                         }).build());
 
 

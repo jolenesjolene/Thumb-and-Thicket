@@ -3,6 +3,9 @@ package net.jolene.thumbandthicket;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -14,17 +17,20 @@ import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.entity.ModEntitySpawns;
 import net.jolene.thumbandthicket.entity.client.BrownBearModel;
 import net.jolene.thumbandthicket.entity.client.BrownBearRenderer;
+import net.jolene.thumbandthicket.fluid.ModFluids;
 import net.jolene.thumbandthicket.item.ModItemTooltips;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.sound.ModSounds;
-import net.jolene.thumbandthicket.util.FoamShapeUtil;
+import net.jolene.thumbandthicket.util.foam.FoamShapeUtil;
 import net.jolene.thumbandthicket.util.ModColors;
-import net.jolene.thumbandthicket.util.WaterOverlayRenderer;
+import net.jolene.thumbandthicket.util.foam.FoamManager;
+import net.jolene.thumbandthicket.util.foam.FoamRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.FluidRenderer;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -45,7 +51,9 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
-        WaterOverlayRenderer.renderFoam();
+//        WaterOverlayRenderer.renderFoam();
+        FoamManager.renderFoam();
+        FoamRenderer.init();
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
@@ -109,6 +117,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYCELIAL_SPROUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DEW_DROP, RenderLayer.getCutout());
 
-
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BRINE_SOURCE, ModFluids.FLOWING_BRINE, new SimpleFluidRenderHandler(Identifier.of(MOD_ID, "block/brine_still"), Identifier.of(MOD_ID, "block/brine_flow"), Identifier.of(MOD_ID, "block/brine_overlay")));
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.BRINE_SOURCE, ModFluids.FLOWING_BRINE);
     }
 }

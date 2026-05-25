@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.util;
+package net.jolene.thumbandthicket.util.foam;
 
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.minecraft.client.texture.Sprite;
@@ -24,22 +24,37 @@ public class FoamShapeUtil {
 
     @Unique
     private static final FoamShapeUtil
-            NORTH = createSpriteSet("block/foam/foam_n"),
-            EAST = createSpriteSet("block/foam/foam_e"),
-            SOUTH = createSpriteSet("block/foam/foam_s"),
-            WEST = createSpriteSet("block/foam/foam_w"),
-            SOUTH_WEST = createSpriteSet("block/foam/foam_sw"),
-            SOUTH_EAST = createSpriteSet("block/foam/foam_se"),
-            NORTH_WEST = createSpriteSet("block/foam/foam_nw"),
-            NORTH_EAST = createSpriteSet("block/foam/foam_ne"),
-            NORTH_SOUTH = createSpriteSet("block/foam/foam_ns"),
-            EAST_WEST = createSpriteSet("block/foam/foam_ew"),
-            WEST_NORTH_EAST = createSpriteSet("block/foam/foam_wne"),
-            NORTH_EAST_SOUTH = createSpriteSet("block/foam/foam_nes"),
-            EAST_SOUTH_WEST = createSpriteSet("block/foam/foam_esw"),
-            SOUTH_WEST_NORTH = createSpriteSet("block/foam/foam_swn"),
-            ALL = createSpriteSet("block/foam/foam_all"),
-            DISCONNECTED = createSpriteSet("block/foam/foam_disconnected");
+            NORTH = createSpriteSet("block/foam/foam_n");
+    @Unique
+    private static final FoamShapeUtil EAST = createSpriteSet("block/foam/foam_e");
+    @Unique
+    private static final FoamShapeUtil SOUTH = createSpriteSet("block/foam/foam_s");
+    @Unique
+    private static final FoamShapeUtil WEST = createSpriteSet("block/foam/foam_w");
+    @Unique
+    private static final FoamShapeUtil SOUTH_WEST = createSpriteSet("block/foam/foam_sw");
+    @Unique
+    private static final FoamShapeUtil SOUTH_EAST = createSpriteSet("block/foam/foam_se");
+    @Unique
+    private static final FoamShapeUtil NORTH_WEST = createSpriteSet("block/foam/foam_nw");
+    @Unique
+    private static final FoamShapeUtil NORTH_EAST = createSpriteSet("block/foam/foam_ne");
+    @Unique
+    private static final FoamShapeUtil NORTH_SOUTH = createSpriteSet("block/foam/foam_ns");
+    @Unique
+    private static final FoamShapeUtil EAST_WEST = createSpriteSet("block/foam/foam_ew");
+    @Unique
+    private static final FoamShapeUtil WEST_NORTH_EAST = createSpriteSet("block/foam/foam_wne");
+    @Unique
+    private static final FoamShapeUtil NORTH_EAST_SOUTH = createSpriteSet("block/foam/foam_nes");
+    @Unique
+    private static final FoamShapeUtil EAST_SOUTH_WEST = createSpriteSet("block/foam/foam_esw");
+    @Unique
+    private static final FoamShapeUtil SOUTH_WEST_NORTH = createSpriteSet("block/foam/foam_swn");
+    @Unique
+    private static final FoamShapeUtil ALL = createSpriteSet("block/foam/foam_all");
+    @Unique
+    public static final FoamShapeUtil DISCONNECTED = createSpriteSet("block/foam/foam_disconnected");
 
     @Unique public final Sprite[] sprites = new Sprite[3];
     @Unique public final Identifier identifier;

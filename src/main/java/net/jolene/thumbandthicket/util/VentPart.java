@@ -2,14 +2,14 @@ package net.jolene.thumbandthicket.util;
 
 import net.minecraft.util.StringIdentifiable;
 
-public enum TallPlantPartHorizontal implements StringIdentifiable {
-    LEFT("left"),
-    RIGHT("right");
+public enum VentPart implements StringIdentifiable {
+    BASE("base"),
+    TOP("top");
 
 
     private final String name;
 
-    TallPlantPartHorizontal(
+    VentPart(
             final String name
     ) {
         this.name = name;

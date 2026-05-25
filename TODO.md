@@ -159,6 +159,8 @@
   - Fish consume
   - Textures
 - More Deep Sea Stuff
+  - Tubeworms
+  - Hydrothermal Vents
 
 
 - Make stuff compostable!!
@@ -223,6 +225,8 @@
   - Pearls 
   - Behavior
   - ~~Textures~~
+- Sharks
+  - Biome variants
 - More Animal Behaviors
   - seeking Shelter
   - Dogs howl at Moon
@@ -265,6 +269,8 @@
   - Worldgen
   - Textures
 - Water Caustics and edge Foam
+  - ~~Rendering~~
+  - Textures
 - Biomes
   - Overworld Biomes
     - Transition Biomes
@@ -285,6 +291,13 @@
     - Spider Caves
       - hanging webs
       - Spider Eggs
+  - Deep Sea (idea from YouTube Video)
+    - Open Sea Biome
+    - Very Deep (almost reaching Bedrock)
+    - Brine Pools
+    - Stone Spikes
+    - Shipwrecks on Stone Spikes
+    - Ruined Temples?
 
 - ~~Port Crop wilting system from Progression Respun~~
   - new Textures
