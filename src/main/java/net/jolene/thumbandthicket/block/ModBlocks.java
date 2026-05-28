@@ -3,6 +3,7 @@ package net.jolene.thumbandthicket.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.fluid.ModFluids;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.util.ModCauldronBehavior;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
@@ -24,6 +25,8 @@ public class ModBlocks {
     public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "rooted_grass", true);
     public static final Block ROOTED_PODZOL = register(new RootedPodzolBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
     public static final Block PUFFED_DANDELION = register(new PuffedDandelionBlock(AbstractBlock.Settings.copy(Blocks.DANDELION)), "puffed_dandelion", true);
+    public static final Block ROSE = register(new FlowerBlock(StatusEffects.SATURATION, 10,AbstractBlock.Settings.copy(Blocks.POPPY)), "rose", true);
+    public static final Block BLUE_ROSE = register(new FlowerBlock(StatusEffects.POISON, 10,AbstractBlock.Settings.copy(Blocks.POPPY)), "blue_rose", true);
     public static final Block CLOVERS = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "clovers", true);
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);
     public static final Block SNOWY_SHORT_GRASS = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_short_grass", true);
@@ -74,6 +77,8 @@ public class ModBlocks {
             entries.addAfter(Items.FERN, SNOWY_SHORT_FERN);
             entries.addAfter(Items.LARGE_FERN, SNOWY_LARGE_FERN);
             entries.addAfter(Items.DANDELION, PUFFED_DANDELION);
+            entries.addAfter(Items.POPPY, ROSE);
+            entries.addAfter(ModBlocks.ROSE, BLUE_ROSE);
             entries.addAfter(Items.NETHER_SPROUTS, MYCELIAL_SPROUTS);
             entries.addAfter(com.blackgear.vanillabackport.common.registries.ModBlocks.BUSH.get(), SNOWY_BUSH);
         });
