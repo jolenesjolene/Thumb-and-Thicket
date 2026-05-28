@@ -41,6 +41,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> CLOVERS_KEY = registerKey("clovers");
     public static final RegistryKey<ConfiguredFeature<?, ?>> MILKWEED_KEY = registerKey("milkweed");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CATTAIL_KEY = registerKey("cattail");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BEACH_GRASS_KEY = registerKey("beach_grass");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_NORMAL_KEY = registerKey("red_mushroom_normal");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_NORMAL_KEY = registerKey("brown_mushroom_normal");

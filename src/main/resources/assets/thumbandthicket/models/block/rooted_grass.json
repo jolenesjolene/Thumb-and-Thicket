@@ -3,9 +3,8 @@
   "textures": {
     "particle": "block/rooted_dirt",
     "bottom": "block/rooted_dirt",
-    "top": "thumbandthicket:block/rooted_grass_top",
     "side": "thumbandthicket:block/rooted_grass",
-    "top_overlay": "thumbandthicket:block/rooted_grass_top_overlay",
+    "top_overlay": "block/grass_block_top",
     "side_overlay": "block/grass_block_side_overlay"
   },
   "elements": [

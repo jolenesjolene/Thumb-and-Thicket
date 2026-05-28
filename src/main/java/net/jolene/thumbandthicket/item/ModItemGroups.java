@@ -42,6 +42,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.MILKWEED);
                             //entries.add(ModBlocks.DUCKWEED);
                             entries.add(ModBlocks.CATTAIL);
+                            entries.add(ModBlocks.BEACH_GRASS);
                             //entries.add(ModBlocks.POISON_IVY);
                             entries.add(Blocks.LILY_PAD);
 

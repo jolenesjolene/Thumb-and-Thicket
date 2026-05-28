@@ -31,7 +31,6 @@ public class ModModelProvider extends FabricModelProvider {
                     ModBlocks.SNOWY_BUSH.asItem(),
                     ModBlocks.CLOVERS.asItem(),
                     ModBlocks.PUFFED_DANDELION.asItem(),
-                    ModBlocks.LAVENDER.asItem(),
                     ModBlocks.PURPLE_MUSHROOM.asItem(),
                     ModBlocks.TINGED_SHORT_GRASS.asItem(),
                     ModBlocks.MYCELIAL_SPROUTS.asItem()

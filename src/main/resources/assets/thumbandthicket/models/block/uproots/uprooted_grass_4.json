@@ -1,0 +1,52 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"5": "thumbandthicket:block/uproots/uproots_4",
+		"particle": "block/rooted_dirt",
+		"bottom": "block/rooted_dirt",
+		"side": "thumbandthicket:block/rooted_grass",
+		"top": "thumbandthicket:block/rooted_grass_top",
+		"top_overlay": "thumbandthicket:block/rooted_grass_top_overlay",
+		"side_overlay": "block/grass_block_side_overlay"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#side_overlay", "cullface": "north", "tintindex": 0},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side_overlay", "cullface": "east", "tintindex": 0},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side_overlay", "cullface": "south", "tintindex": 0},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side_overlay", "cullface": "west", "tintindex": 0},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top_overlay", "cullface": "up", "tintindex": 0}
+			}
+		},
+		{
+			"from": [8, 16, 0],
+			"to": [8, 32, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 16, 0]},
+			"faces": {
+				"north": {"uv": [1, 0, 1, 16], "texture": "#missing"},
+				"east": {"uv": [16, 0, 0, 16], "texture": "#5"},
+				"south": {"uv": [1, 0, 1, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [1, 0, 1, 16], "texture": "#missing"},
+				"down": {"uv": [1, 0, 1, 16], "texture": "#missing"}
+			}
+		}
+	]
+}
