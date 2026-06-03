@@ -29,6 +29,7 @@
     "vegetation.DualNoiseBlockStateProviderMixin",
     "vegetation.FlowerBlockMixin",
     "vegetation.FungusBlockMixin",
+    "vegetation.LeafLitterBlockMixin",
     "vegetation.LilyPadBlockMixin",
     "vegetation.MushroomPlantBlockMixin",
     "vegetation.NoiseBlockStateProviderMixin",
