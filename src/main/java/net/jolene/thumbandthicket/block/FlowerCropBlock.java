@@ -10,6 +10,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -35,6 +36,11 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
     public FlowerCropBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(Properties.AGE_3, 0).with(ModProperties.FLOWERS, 1));
+    }
+
+    @Override
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(ModProperties.FLOWERS, Random.create().nextBetween(1,3));
     }
 
     @Override
@@ -98,7 +104,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
         if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
             world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
         } else if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) == 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
-            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) world.setBlockState(pos, ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower()).getDefaultState().with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS)), Block.NOTIFY_LISTENERS);
+            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) world.setBlockState(pos, ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower()).getDefaultState().with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS)).with(Properties.FACING, Direction.random(random)), Block.NOTIFY_LISTENERS);
         }
     }
 

@@ -97,8 +97,32 @@ public class ClamSlabBlockEntityRenderer<T extends BlockEntity & LidOpenable> im
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        modelPartData.addChild("bottom", ModelPartBuilder.create().uv(0, 20).cuboid(0.0F, 0.0F, 0.0F, 16.0F, 4.0F, 16.0F), ModelTransform.NONE);
-        modelPartData.addChild("lid", ModelPartBuilder.create().uv(0, 0).cuboid(0.0F, 0.0F, 0.0F, 16.0F, 4.0F, 16.0F), ModelTransform.pivot(0.0F, 4.0F, 0.0F));
+        ModelPartData base = modelPartData.addChild("bottom", ModelPartBuilder.create().uv(0, 20).cuboid(0.0F, 0.0F, 0.0F, 16.0F, 4.0F, 16.0F), ModelTransform.NONE);
+        base.addChild(
+                "teeth",
+                ModelPartBuilder.create()
+                        .uv(0, 10).cuboid(16.0F, 4.0F, 4.0F, 0.0F, 1.0F, 5.0F)
+                        .uv(0, 10).cuboid(16.0F, 4.0F, 11.0F, 0.0F, 1.0F, 5.0F)
+                        .uv(0, 10).cuboid(0.0F, 4.0F, 4.0F, 0.0F, 1.0F, 5.0F)
+                        .uv(0, 10).cuboid(0.0F, 4.0F, 11.0F, 0.0F, 1.0F, 5.0F)
+                        .uv(0, 15).cuboid(2.0F, 4.0F, 16.0F, 5.0F, 1.0F, 0.0F)
+                        .uv(0, 15).cuboid(9.0F, 4.0F, 16.0F, 5.0F, 1.0F, 0.0F),
+                ModelTransform.NONE
+        );
+        ModelPartData lid = modelPartData.addChild("lid", ModelPartBuilder.create().uv(0, 0).cuboid(0.0F, 0.0F, 0.0F, 16.0F, 4.0F, 16.0F), ModelTransform.pivot(0.0F, 4.0F, 0.0F));
+        lid.addChild("top_teeth",
+                ModelPartBuilder.create()
+                        .uv(0, 15).cuboid(0.0F, 3.0F, 24.0F, 3.0F, 1.0F, 0.0F)
+                        .uv(0, 15).cuboid(13.0F, 3.0F, 24, 3.0F, 1.0F, 0.0F)
+                        .uv(0, 15).cuboid(6.0F, 3.0F, 24.0F, 4.0F, 1.0F, 0.0F)
+                        .uv(0, 14).cuboid(0.0F, 3.0F, 23.0F, 0.0F, 1.0F, 1.0F)
+                        .uv(0, 11).cuboid(0.0F, 3.0F, 9.0F, 0.0F, 1.0F, 4.0F)
+                        .uv(0, 11).cuboid(0.0F, 3.0F, 16.0F, 0.0F, 1.0F, 4.0F)
+                        .uv(0, 11).cuboid(16.0F, 3.0F, 9.0F, 0.0F, 1.0F, 4.0F)
+                        .uv(0, 11).cuboid(16.0F, 3.0F, 16.0F, 0.0F, 1.0F, 4.0F)
+                        .uv(0, 14).cuboid(16.0F, 3.0F, 23.0F, 0.0F, 1.0F, 1.0F),
+                ModelTransform.pivot(0.0F, -4.0F, -8.0F)
+        );
         return TexturedModelData.of(modelData, 64, 64);
     }
 }

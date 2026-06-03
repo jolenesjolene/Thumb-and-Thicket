@@ -3,6 +3,7 @@ package net.jolene.thumbandthicket.block;
 import com.mojang.serialization.MapCodec;
 import net.jolene.thumbandthicket.block.entity.ClamSlabBlockEntity;
 import net.jolene.thumbandthicket.block.entity.ModBlockEntities;
+import net.jolene.thumbandthicket.util.ModLootTableUtil;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -13,6 +14,10 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -22,10 +27,13 @@ import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 import static net.minecraft.state.property.Properties.*;
 
@@ -50,7 +58,7 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
 
     @Override
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockEntity(pos) instanceof ClamSlabBlockEntity clamSlabBlockEntity && !clamSlabBlockEntity.isEmpty()) {
+        if (world.getBlockEntity(pos) instanceof ClamSlabBlockEntity clamSlabBlockEntity && !clamSlabBlockEntity.isEmpty() && !player.isCreative()) {
             ItemStack itemStack = new ItemStack(this);
             itemStack.applyComponentsFrom(clamSlabBlockEntity.createComponentMap());
 
@@ -68,6 +76,7 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
             if (!state.get(OPEN)) {
                 world.addSyncedBlockEvent(pos, state.getBlock(), 1, 1);
                 world.setBlockState(pos, state.with(OPEN, true));
+                if (world.getFluidState(pos).getFluid().matchesType(Fluids.WATER)) world.scheduleBlockTick(pos, this, 60);
                 return ItemActionResult.success(true);
             } else {
                 if (clamSlabBlockEntity.isEmpty() && !stack.isEmpty()) {
@@ -77,24 +86,29 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
                     clamSlabBlockEntity.markDirty();
                     world.updateListeners(pos, state, state, 0);
                     return ItemActionResult.success(true);
-                } else if(stack.isEmpty()) {
-                    if (player.isSneaking()) {
-                        ItemStack stackOnPedestal = clamSlabBlockEntity.getStack(0);
-                        player.setStackInHand(Hand.MAIN_HAND, stackOnPedestal);
-                        world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);
-                        clamSlabBlockEntity.clear();
+                }
+                if (player.isSneaking()) {
+                    ItemStack clamSlabBlockEntityStack = clamSlabBlockEntity.getStack(0);
+                    player.getInventory().offerOrDrop(clamSlabBlockEntityStack);
+                    world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);
+                    clamSlabBlockEntity.clear();
 
-                        clamSlabBlockEntity.markDirty();
-                        world.updateListeners(pos, state, state, 0);
-                    } else {
-                        world.addSyncedBlockEvent(pos, state.getBlock(), 1, 0);
-                        world.setBlockState(pos, state.with(OPEN, false));
-                    }
+                    clamSlabBlockEntity.markDirty();
+                    world.updateListeners(pos, state, state, 0);
                     return ItemActionResult.success(true);
                 }
+                world.addSyncedBlockEvent(pos, state.getBlock(), 1, 0);
+                world.setBlockState(pos, state.with(OPEN, false));
+                return ItemActionResult.success(true);
             }
         }
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+    }
+
+    @Override
+    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        world.addSyncedBlockEvent(pos, state.getBlock(), 1, 0);
+        world.setBlockState(pos, state.with(OPEN, false));
     }
 
     @Override
@@ -136,5 +150,26 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
     @Override
     protected boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
         return true;
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (world.getBlockEntity(pos) instanceof ClamSlabBlockEntity clamSlabBlockEntity && clamSlabBlockEntity.isEmpty() && !state.get(OPEN)) {
+            if (random.nextBetween(0,10) == 0 && world.getFluidState(pos).getFluid().matchesType(Fluids.WATER)) {
+                LootTable lootTable = world.getServer().getReloadableRegistries().getLootTable(ModLootTableUtil.CLAM_LOOT);
+                LootContextParameterSet lootContextParameterSet = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, pos.toCenterPos()).add(LootContextParameters.BLOCK_ENTITY, clamSlabBlockEntity).build(ModLootTableUtil.CLAM);
+                List<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
+
+                clamSlabBlockEntity.setStack(0, list.getFirst());
+                clamSlabBlockEntity.markDirty();
+                world.updateListeners(pos, state, state, 0);
+            }
+        }
+        super.randomTick(state, world, pos, random);
+    }
+
+    @Override
+    protected boolean hasRandomTicks(BlockState state) {
+        return !state.get(OPEN);
     }
 }

@@ -54,7 +54,7 @@
   - Tinged Grass Variants
     - ~~Block~~
     - ~~Worldgen~~
-    - Textures
+    - ~~Textures~~
 - Mushrooms
   - ~~Placement Logic~~
   - ~~Worldgen~~
@@ -73,9 +73,9 @@
   - Worldgen
   - Textures
 - Flowers 
-  - stack up to 3
-  - Logic
-  - Worldgen
+  - ~~stack up to 3~~
+  - ~~Logic~~
+  - ~~Worldgen~~
     - Faery Circles
 - Purple Mushroom
   - ~~Block~~
@@ -105,7 +105,7 @@
   - Dew Drop
     - 3 blocks tall
     - accumulates Dew if Cauldron placed in the middle
-    - Dew drinkable
+    - Dew drinkable with special effect
     - ~~Block(s)~~
     - Textures
   - Ancient Crops with ancient Foods
@@ -123,6 +123,7 @@
     - ~~Component for Flowertype~~
     - Texture Overrides for specific Seeds
     - Tag-controlled Eating
+    - Dynamic Flower Models
   - ~~drops itself with Shears~~
   - ~~multiple Flowers in one Block~~
 - Torchflowers prevent Mobspawns in specific radius
@@ -221,10 +222,12 @@
   - Textures
 - More Fish
 - Big Clam
-  - Mob
-  - Pearls 
-  - Behavior
+  - ~~Block~~
+  - ~~Pearls~~ 
+  - ~~Behavior~~
   - ~~Textures~~
+  - Visuals
+    - Randomly opening, bubbles
 - Sharks
   - Biome variants
 - More Animal Behaviors
