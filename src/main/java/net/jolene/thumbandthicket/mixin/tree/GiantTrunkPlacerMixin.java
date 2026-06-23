@@ -21,6 +21,8 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.function.BiConsumer;
 
+import static net.jolene.thumbandthicket.util.ModProperties.*;
+
 @Mixin(GiantTrunkPlacer.class)
 public class GiantTrunkPlacerMixin {
 
@@ -46,6 +48,12 @@ public class GiantTrunkPlacerMixin {
             else if (dx == 0 && dz == 1) newState = newState.with(ModProperties.SLICE, Slice.TWO);
             else if (dx == 0 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.THREE);
             else if (dx == 1 && dz == 0) newState = newState.with(ModProperties.SLICE, Slice.FOUR);
+
+            int randomInt = random.nextBetween(1,5);
+            if (newState.get(ROOTY) != Rooty.NONE){
+                newState = newState.with(BRANCH, randomInt == 1);
+                if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
+            }
 
             replacer.accept(newPos, newState);
         }

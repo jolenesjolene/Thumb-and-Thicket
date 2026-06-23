@@ -4,6 +4,7 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.mixin.BlockAccessor;
 import net.jolene.thumbandthicket.mixin.SettingsAccessor;
 import net.jolene.thumbandthicket.sound.ModSounds;
+import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
@@ -23,12 +24,14 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.Property;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -55,8 +58,8 @@ public class PillarBlockMixin extends Block {
     private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
         Settings settings = (PillarBlock.class.cast(this)).getSettings();
         SettingsAccessor accessor = (SettingsAccessor) settings;
-        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY).add(SNIPPED);
-        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.CHERRY_WOOD) builder.add(SLICE).add(ROOTY).add(SNIPPED);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY).add(BRANCH).add(HOLLOW);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.CHERRY_WOOD) builder.add(SLICE).add(ROOTY).add(BRANCH).add(HOLLOW);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))
@@ -64,7 +67,7 @@ public class PillarBlockMixin extends Block {
         Block pillarBlock = PillarBlock.class.cast(this);
         BlockState defaultBlockState = pillarBlock.getDefaultState();
         if (defaultBlockState.contains(ROOTY) && defaultBlockState.contains(SLICE)) {
-            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, Rooty.NONE).with(SLICE, Slice.ZERO).with(ROOTY, Rooty.NONE).with(SNIPPED, false));
+            ((BlockAccessor)pillarBlock).invokeSetDefaultState(defaultBlockState.with(ROOTY, Rooty.NONE).with(SLICE, Slice.ZERO).with(ROOTY, Rooty.NONE).with(BRANCH, false).with(HOLLOW, false));
         }
     }
 
@@ -76,8 +79,12 @@ public class PillarBlockMixin extends Block {
             BlockPos pos = ctx.getBlockPos();
 
             state = thumbandthicket$determineRootSide(state, world, pos);
+            int random = Random.create().nextBetween(1,5);
             if (state.get(ROOTY) != Rooty.NONE) {
                 state = thumbandthicket$calculateSlice(state, world, pos);
+            } else {
+                state = state.with(BRANCH, random == 1);
+                if (!state.get(BRANCH)) state = state.with(HOLLOW, random == 5);
             }
             state = thumbandthicket$inheritSlice(state, world, pos);
 
@@ -123,22 +130,30 @@ public class PillarBlockMixin extends Block {
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE && !state.get(SNIPPED)) {
+        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE) {
             return VoxelShapes.cuboid(-0.000025, -0.000025, -0.000025, 1.000025, 1.000025, 1.000025);
         }
         return VoxelShapes.fullCube();
     }
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.isIn(BlockTags.LOGS) && state.contains(SNIPPED) && !world.isClient) {
-            if (state.get(SNIPPED) == false && stack.isOf(Items.SHEARS)) {
+        boolean rooty = state.get(ROOTY) != Rooty.NONE;
+        boolean branch = state.get(BRANCH);
+        boolean hollow = state.get(HOLLOW);
+        BlockState property = state;
+        if (state.isIn(BlockTags.LOGS) && (rooty || branch || hollow) && !world.isClient) {
+            if (stack.isOf(Items.SHEARS)) {
                 EquipmentSlot slot = null;
                 switch (hand) {
                     case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
                     case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
                 }
+                if (rooty) property = state.with(ROOTY, Rooty.NONE);
+                if (branch) property = state.with(BRANCH, false);
+                if (hollow) property = state.with(HOLLOW, false);
+
                 if (!player.isCreative()) stack.damage(1, player, slot);
-                BlockState newState = state.with(SNIPPED, true);
+                BlockState newState = property;
                 world.setBlockState(pos, newState);
                 if (world instanceof ServerWorld serverWorld) {
                     serverWorld.spawnParticles(
@@ -151,6 +166,9 @@ public class PillarBlockMixin extends Block {
                             0.5
                     );
                 }
+                if (rooty || branch) {
+                    PillarBlock.dropStack(world, pos, new ItemStack(Items.STICK));
+                }
                 float f = MathHelper.nextBetween(world.random, 0.8f, 1.2f);
                 world.playSound(
                         null,
@@ -161,7 +179,7 @@ public class PillarBlockMixin extends Block {
                         f
                 );
                 world.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH, pos, GameEvent.Emitter.of(player));
-                return ItemActionResult.success(!state.get(SNIPPED));
+                return ItemActionResult.success(true);
             }
         }
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);

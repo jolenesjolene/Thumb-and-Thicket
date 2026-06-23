@@ -48,9 +48,13 @@ public class TrunkPlacerMixin {
                 WorldAccess worldAccess = (WorldAccess) world;
 
                 newState = thumbandthicket$determineRootSide(newState, worldAccess, pos);
+                int random = Random.create().nextBetween(1,5);
 
                 if (newState.get(ROOTY) != Rooty.NONE) {
                     newState = thumbandthicket$calculateSlice(newState, worldAccess, pos);
+                } else {
+                    newState = newState.with(BRANCH, random == 1);
+                    if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, random == 5);
                 }
 
                 newState = thumbandthicket$inheritSlice(newState, worldAccess, pos);
