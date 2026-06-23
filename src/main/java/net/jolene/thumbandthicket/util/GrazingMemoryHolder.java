@@ -12,4 +12,6 @@ public interface GrazingMemoryHolder {
     boolean thumbandthicket$hasGrazedPosition(BlockPos pos);
 
     void thumbandthicket$clearGrazedPositions();
+
+    boolean thumbandthicket$hasGrazed();
 }

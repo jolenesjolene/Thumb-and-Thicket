@@ -11,9 +11,8 @@
     "SettingsAccessor",
     "ShearsItemMixin",
     "entity.AnimalEntityMixin",
-    "entity.CowEntityMixin",
+    "entity.CowAndPigEntityMixin",
     "entity.EatGrassGoalMixin",
-    "entity.PigEntityMixin",
     "farming.CropBlockMixin",
     "farming.FarmerVillagerTaskMixin",
     "farming.FarmlandBlockMixin",
@@ -48,8 +47,6 @@
     "requireAnnotations": true
   },
   "client": [
-    "ClientWorldMixin",
-    "entity.model.CowEntityModelMixin",
-    "entity.model.PigEntityModelMixin"
+    "ClientWorldMixin"
   ]
 }
