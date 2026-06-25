@@ -27,7 +27,7 @@ import static net.jolene.thumbandthicket.util.ModProperties.*;
 public class GiantTrunkPlacerMixin {
 
     @WrapOperation(method = "setLog", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos$Mutable;set(Lnet/minecraft/util/math/Vec3i;III)Lnet/minecraft/util/math/BlockPos$Mutable;"))
-    private Mutable modifyPlacedLog(Mutable instance, Vec3i pos, int x, int y, int z, Operation<Mutable> original, @Local(argsOnly = true) TestableWorld world, @Local(name = "tmpPos") Mutable tmpPos, @Local(name = "dx") int dx, @Local(name = "dz") int dz, @Local(argsOnly = true) BiConsumer<BlockPos, BlockState> replacer, @Local(argsOnly = true) TreeFeatureConfig config, @Local(argsOnly = true) Random random) {
+    private Mutable modifyPlacedLog(Mutable instance, Vec3i pos, int x, int y, int z, Operation<Mutable> original, @Local(argsOnly = true) TestableWorld world, @Local Mutable tmpPos, @Local(ordinal = 0) int dx, @Local(ordinal = 2) int dz, @Local(argsOnly = true) BiConsumer<BlockPos, BlockState> replacer, @Local(argsOnly = true) TreeFeatureConfig config, @Local(argsOnly = true) Random random) {
         Mutable newPos = original.call(instance, pos, x, y, z);
 
         BlockState state = config.trunkProvider.get(random, tmpPos);

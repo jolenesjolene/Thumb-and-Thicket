@@ -64,6 +64,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> DARK_FOREST_VEGETATION = registerKey("dark_fores_vegetation_placed");
 
     public static final RegistryKey<PlacedFeature> ROOTED_GRASS = registerKey("rooted_grass_placed");
+    public static final RegistryKey<PlacedFeature> HANGING_ROOTS = registerKey("hanging_roots_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);

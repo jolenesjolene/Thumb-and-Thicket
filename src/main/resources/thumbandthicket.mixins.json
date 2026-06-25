@@ -47,6 +47,7 @@
     "requireAnnotations": true
   },
   "client": [
-    "ClientWorldMixin"
+    "ClientWorldMixin",
+    "entity.model.CowEntityModelMixin"
   ]
 }
