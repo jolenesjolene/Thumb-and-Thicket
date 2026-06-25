@@ -13,6 +13,7 @@
     "entity.AnimalEntityMixin",
     "entity.CowAndPigEntityMixin",
     "entity.EatGrassGoalMixin",
+    "entity.EntityTypeMixin",
     "farming.CropBlockMixin",
     "farming.FarmerVillagerTaskMixin",
     "farming.FarmlandBlockMixin",
