@@ -28,8 +28,8 @@ public class CowEntityModelMixin<T extends CowEntity> extends QuadrupedEntityMod
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = ModelUtil.createCowModel();
         ModelPartData root = modelData.getRoot();
-        root.addChild("right_horn", ModelPartBuilder.create().uv(36, 66).cuboid(4.0F, -6.0F, -5.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.NONE);
-        root.addChild("left_horn", ModelPartBuilder.create().uv(40, 66).cuboid("left_horn",-5.0F, -6.0F, -5.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.NONE);
+        root.getChild("head").addChild("right_horn", ModelPartBuilder.create().uv(36, 66).cuboid(4.0F, -6.0F, -5.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.NONE);
+        root.getChild("head").addChild("left_horn", ModelPartBuilder.create().uv(40, 66).cuboid("left_horn",-5.0F, -6.0F, -5.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.NONE);
 
         return TexturedModelData.of(modelData, 96, 96);
     }
