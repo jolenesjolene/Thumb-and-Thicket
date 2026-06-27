@@ -1,9 +1,11 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
+import net.jolene.thumbandthicket.util.GrazingAnimator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.CowEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,15 +14,17 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(CowEntity.class)
-public class CowAndPigEntityMixin extends MobEntity {
+@Mixin(PigEntity.class)
+public class PigEntityMixin extends MobEntity implements GrazingAnimator {
 
     @Unique
     private EatGrassGoal eatGrassGoal;
+    @Unique
     private int eatGrassTimer;
+    @Unique
     private static final int MAX_GRASS_TIMER = 40;
 
-    protected CowAndPigEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
+    protected PigEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -44,8 +48,17 @@ public class CowAndPigEntityMixin extends MobEntity {
         super.tickMovement();
     }
 
-    @Unique
-    public float getNeckAngle(float delta) {
+    public void handleStatus(byte status) {
+        if (status == 10) {
+            this.eatGrassTimer = 40;
+        } else {
+            super.handleStatus(status);
+        }
+
+    }
+
+    @Override
+    public float thumbandthicket$getNeckAngle(float delta) {
         if (this.eatGrassTimer <= 0) {
             return 0.0F;
         } else if (this.eatGrassTimer >= 4 && this.eatGrassTimer <= 36) {
@@ -55,8 +68,8 @@ public class CowAndPigEntityMixin extends MobEntity {
         }
     }
 
-    @Unique
-    public float getHeadAngle(float delta) {
+    @Override
+    public float thumbandthicket$getHeadAngle(float delta) {
         if (this.eatGrassTimer > 4 && this.eatGrassTimer <= 36) {
             float f = ((float)(this.eatGrassTimer - 4) - delta) / 32.0F;
             return ((float)Math.PI / 5F) + 0.21991149F * MathHelper.sin(f * 28.7F);
