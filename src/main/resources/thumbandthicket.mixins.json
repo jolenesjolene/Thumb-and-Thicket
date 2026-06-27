@@ -52,6 +52,10 @@
     "ClientWorldMixin",
     "entity.model.CowEntityModelMixin",
     "entity.model.PigEntityModelMixin",
-    "entity.model.SilverfishEntityModelMixin"
+    "entity.model.SilverfishEntityModelMixin",
+    "entity.model.variant.cow.ColdCowModelMixin",
+    "entity.model.variant.cow.CowVariantModelMixin",
+    "entity.model.variant.cow.WarmCowModelMixin",
+    "entity.model.variant.pig.ColdPigModelMixin"
   ]
 }

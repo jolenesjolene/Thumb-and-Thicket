@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.mixin.entity.model;
 
 import net.jolene.thumbandthicket.util.GrazingAnimator;
+import net.jolene.thumbandthicket.util.ModelUtil;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.PigEntityModel;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
@@ -25,21 +26,7 @@ public class PigEntityModelMixin<T extends PigEntity> extends QuadrupedEntityMod
      */
     @Overwrite
     public static TexturedModelData getTexturedModelData(Dilation dilation) {
-        ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
-        modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 50).cuboid(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 6.0F, new Dilation(0.0F))
-                        .uv(28, 50).cuboid("head_outer",-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 6.0F, new Dilation(0.5F))
-                        .uv(52, 38).cuboid("snout",-2.0F, 0.0F, -5.0F, 4.0F, 3.0F, 1.0F, new Dilation(0.0F)),
-                        ModelTransform.pivot(0.0F, 15.0F, -10.0F));
-
-        modelPartData.getChild("head").addChild("left_ear", ModelPartBuilder.create().uv(52, 42).cuboid("left_ear",0.0F, 0.0F, 0.0F, 0.0F, 4.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(-4.0F, -2.0F, -3.5F));
-        modelPartData.getChild("head").addChild("right_ear", ModelPartBuilder.create().uv(56, 49).cuboid("right_ear",0.0F, 0.0F, 0.0F, 0.0F, 4.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(4.0F, -2.0F, -3.5F));
-
-        modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-5.0F, 0.0F, -8.0F, 10.0F, 9.0F, 16.0F, new Dilation(0.0F)).uv(0, 25).cuboid("body_outer",-5.0F, -1.0F, -8.0F, 10.0F, 9.0F, 16.0F, new Dilation(0.5F)), ModelTransform.pivot(0.0F, 10.0F, 0.0F));
-        modelPartData.addChild("left_hind_leg",ModelPartBuilder.create().uv(52, 10).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)),ModelTransform.pivot(3F,18F,7F));
-        modelPartData.addChild("right_front_leg",ModelPartBuilder.create().uv(52, 29).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 5.0F, 4.0F, new Dilation(0.0F)),ModelTransform.pivot(-3F,19F,-6F));
-        modelPartData.addChild("left_front_leg",ModelPartBuilder.create().uv(52, 20).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 5.0F, 4.0F, new Dilation(0.0F)),ModelTransform.pivot(3F,19F,-6F));
-        modelPartData.addChild("right_hind_leg", ModelPartBuilder.create().uv(52, 0).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-3F,18F, 7F));
+        ModelData modelData = ModelUtil.createPigModel();
 
         return TexturedModelData.of(modelData, 128, 128);
     }
