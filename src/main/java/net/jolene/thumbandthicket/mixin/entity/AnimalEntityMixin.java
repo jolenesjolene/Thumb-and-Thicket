@@ -101,6 +101,10 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
         ((GrazingMemoryHolder)entity).thumbandthicket$addGrazedPosition(entity.getBlockPos().down());
         hasGrazed = true;
         this.emitGameEvent(GameEvent.EAT);
+
+        if (entity.getHealth() < entity.getMaxHealth()) {
+            entity.heal(2.0F);
+        }
     }
 
     @Inject(method = "canBreedWith", at = @At(value = "RETURN"), cancellable = true)
