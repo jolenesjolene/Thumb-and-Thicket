@@ -102,14 +102,4 @@ public class ModelUtil {
 
         return modelData;
     }
-
-    public static Identifier getSheepTexture(SheepEntity sheepEntity) {
-        CoatTwoUtil secondLayerSheep = (CoatTwoUtil) sheepEntity;
-        Identifier texture = Identifier.ofVanilla("textures/entity/sheep/sheep_coat_one.png");
-
-        if (secondLayerSheep.thumbandthicket$hasCoatTwo()) {
-            texture = Identifier.ofVanilla("textures/entity/sheep/sheep_coat_two.png");
-        }
-        return texture;
-    }
 }
