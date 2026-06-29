@@ -1,6 +1,8 @@
 package net.jolene.thumbandthicket.util;
 
 import net.minecraft.client.model.*;
+import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.util.Identifier;
 
 public class ModelUtil {
 
@@ -88,16 +90,26 @@ public class ModelUtil {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
 
-        modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-6.0F, -10.0F, -10.0F, 12.0F, 18.0F, 10.0F, new Dilation(0.5F))
-                .uv(0, 28).cuboid("wool_cold",-5.0F, -10.0F, -10.0F, 10.0F, 17.0F, 10.0F, new Dilation(1.75F)), ModelTransform.of(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
+        modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 33).cuboid(-6.0F, -10.0F, -10.0F, 12.0F, 18.0F, 10.0F, new Dilation(0.5F))
+                .uv(0, 0).cuboid(-7.0F, -11.0F, -11.0F, 14.0F, 20.0F, 13.0F, new Dilation(0.5F)), ModelTransform.of(0.0F, 5.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
 
-        modelPartData.addChild("head", ModelPartBuilder.create().uv(40, 28).cuboid(-3.0F, -4.0F, -5.0F, 6.0F, 8.0F, 6.0F, new Dilation(0.5F)), ModelTransform.pivot(0.0F, 8.0F, -9.0F));
+        modelPartData.addChild("head", ModelPartBuilder.create().uv(44, 33).cuboid(-3.0F, -4.0F, -5.0F, 6.0F, 8.0F, 6.0F, new Dilation(0.5F)), ModelTransform.pivot(0.0F, 8.0F, -9.0F));
 
-        modelPartData.addChild("right_hind_leg", ModelPartBuilder.create().uv(40, 42).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-3.0F, 15.0F, 7.0F));
-        modelPartData.addChild("left_hind_leg", ModelPartBuilder.create().uv(44, 0).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(3.0F, 15.0F, 7.0F));
-        modelPartData.addChild("right_front_leg", ModelPartBuilder.create().uv(44, 7).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-3.0F, 15.0F, -5.0F));
-        modelPartData.addChild("left_front_leg", ModelPartBuilder.create().uv(44, 14).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(3.0F, 15.0F, -5.0F));
+        modelPartData.addChild("right_hind_leg", ModelPartBuilder.create().uv(44, 47).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-3.0F, 15.0F, 7.0F));
+        modelPartData.addChild("left_hind_leg", ModelPartBuilder.create().uv(54, 0).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(3.0F, 15.0F, 7.0F));
+        modelPartData.addChild("right_front_leg", ModelPartBuilder.create().uv(54, 7).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-3.0F, 15.0F, -5.0F));
+        modelPartData.addChild("left_front_leg", ModelPartBuilder.create().uv(54, 14).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(3.0F, 15.0F, -5.0F));
 
         return modelData;
+    }
+
+    public static Identifier getSheepTexture(SheepEntity sheepEntity) {
+        CoatTwoUtil secondLayerSheep = (CoatTwoUtil) sheepEntity;
+        Identifier texture = Identifier.ofVanilla("textures/entity/sheep/sheep_coat_one.png");
+
+        if (secondLayerSheep.thumbandthicket$hasCoatTwo()) {
+            texture = Identifier.ofVanilla("textures/entity/sheep/sheep_coat_two.png");
+        }
+        return texture;
     }
 }
