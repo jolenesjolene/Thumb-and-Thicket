@@ -53,6 +53,7 @@
     "ClientWorldMixin",
     "entity.model.ChickenEntityModelMixin",
     "entity.model.CowEntityModelMixin",
+    "entity.model.MooshroomMushroomFeatureRendererMixin",
     "entity.model.PigEntityModelMixin",
     "entity.model.SheepEntityModelMixin",
     "entity.model.SheepEntityRendererMixin",
