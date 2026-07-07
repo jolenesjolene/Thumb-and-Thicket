@@ -24,12 +24,12 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class LoraxEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
 
     // Angry State
     private static final TrackedData<Boolean> ANGRY =
@@ -43,8 +43,8 @@ public class LoraxEntity extends AnimalEntity {
     protected void initGoals() {
         // Behaviour
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, true));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
 
         this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.SWEET_BERRIES), false));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -59,7 +59,7 @@ public class LoraxEntity extends AnimalEntity {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10) // stronger now
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.5);
     }
@@ -118,12 +118,22 @@ public class LoraxEntity extends AnimalEntity {
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = 60;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationTimeout;
+        this.idleAnimationState.startIfNotRunning(this.age);
+    }
+
+    @Override
+    public void tickMovement() {
+        if (!this.isOnGround() && this.getVelocity().y < 0) {
+            Vec3d velocity = this.getVelocity();
+
+            this.setVelocity(
+                    velocity.x,
+                    velocity.y * 0.6D,
+                    velocity.z
+            );
         }
+
+        super.tickMovement();
     }
 
     @Override

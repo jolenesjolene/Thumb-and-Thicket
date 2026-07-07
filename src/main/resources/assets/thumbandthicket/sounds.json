@@ -48,16 +48,7 @@
 "entity.lorax.ambient": {
 "subtitle": "sounds.thumbandthicket.lorax.ambient",
 "sounds": [
-"thumbandthicket:entity/lorax/lorax_idle_1",
-"thumbandthicket:entity/lorax/lorax_idle_2",
-"thumbandthicket:entity/lorax/lorax_idle_3",
-  "thumbandthicket:entity/lorax/lorax_idle_4",
-  "thumbandthicket:entity/lorax/lorax_idle_5",
-  "thumbandthicket:entity/lorax/lorax_idle_6",
-  "thumbandthicket:entity/lorax/lorax_idle_7",
-  "thumbandthicket:entity/lorax/lorax_idle_8",
-  "thumbandthicket:entity/lorax/lorax_idle_9",
-  "thumbandthicket:entity/lorax/lorax_idle_10"
+"thumbandthicket:entity/lorax/lorax_ambient"
 ]
 },
 "entity.lorax.hurt": {
