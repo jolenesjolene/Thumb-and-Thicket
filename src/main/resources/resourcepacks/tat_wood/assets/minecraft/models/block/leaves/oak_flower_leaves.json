@@ -1,0 +1,36 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with love by Jol <3",
+	"parent": "minecraft:block/leaves",
+	"textures": {
+		"1": "block/leaves/flowers/oak_flowers",
+		"all": "block/leaves/oak_leaves",
+		"particle": "block/leaves/flowers/oak_flowers"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
+				"east": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
+				"south": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
+				"west": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
+				"up": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
+				"down": {"uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [-0.25, -0.25, -0.25],
+			"to": [16.25, 16.25, 16.25],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	]
+}

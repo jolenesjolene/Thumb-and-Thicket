@@ -63,6 +63,7 @@ public class ModItemGroups {
                             entries.add(ModItems.PEAR);
                             //entries.add(ModItems.ROTTEN_PEAR);
                             entries.add(ModItems.ORANGE);
+                            entries.add(ModItems.CAVE_PARSNIP);
                            //entries.add(ModItems.ROTTEN_ORANGE);
                             entries.add(ModItems.CHERRY);
                            //entries.add(ModItems.ROTTEN_CHERRY);

@@ -4,7 +4,8 @@
     "particle": "block/rooted_dirt",
     "bottom": "block/rooted_dirt",
     "side": "thumbandthicket:block/rooted_grass",
-    "top_overlay": "block/grass_block_top",
+    "top": "thumbandthicket:block/rooted_grass_top",
+    "top_overlay": "thumbandthicket:block/rooted_grass_top_overlay",
     "side_overlay": "block/grass_block_side_overlay"
   },
   "elements": [

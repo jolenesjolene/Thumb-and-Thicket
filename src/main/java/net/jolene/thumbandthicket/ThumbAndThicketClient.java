@@ -18,9 +18,12 @@ import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.entity.ModEntitySpawns;
 import net.jolene.thumbandthicket.entity.client.BrownBearModel;
 import net.jolene.thumbandthicket.entity.client.BrownBearRenderer;
+import net.jolene.thumbandthicket.entity.client.LoraxModel;
+import net.jolene.thumbandthicket.entity.client.LoraxRenderer;
 import net.jolene.thumbandthicket.fluid.ModFluids;
 import net.jolene.thumbandthicket.item.ModItemTooltips;
 import net.jolene.thumbandthicket.item.ModItems;
+import net.jolene.thumbandthicket.particle.ModParticles;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.jolene.thumbandthicket.util.ModEntityModelLayers;
 import net.jolene.thumbandthicket.util.foam.FoamShapeUtil;
@@ -50,6 +53,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         ModColors.registerBlockColors();
         ModColors.registerItemColors();
         ModItemTooltips.registerModItemTooltips();
+        ModParticles.registerModParticles();
         ModEffects.registerEffects();
         ModSounds.registerModSounds();
         ModEntitySpawns.addSpawns();
@@ -59,6 +63,8 @@ public class ThumbAndThicketClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(LoraxModel.LORAX,LoraxModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LORAX, LoraxRenderer::new);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,
                 ModItems.BROWN_BEAR_SPAWN_EGG);
 

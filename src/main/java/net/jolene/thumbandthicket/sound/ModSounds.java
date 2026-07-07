@@ -14,6 +14,12 @@ public class ModSounds {
     public static final SoundEvent BROWN_BEAR_DEATH= registerSoundEvent("entity.brown_bear.death");
     public static final SoundEvent BROWN_BEAR_ATTACK= registerSoundEvent("entity.brown_bear.attack");
 
+    public static final SoundEvent LORAX_AMBIENT = registerSoundEvent("entity.lorax.ambient");
+    public static final SoundEvent LORAX_HURT = registerSoundEvent("entity.lorax.hurt");
+    public static final SoundEvent LORAX_FLY = registerSoundEvent("entity.lorax.fly");
+    public static final SoundEvent LORAX_DEATH= registerSoundEvent("entity.lorax.death");
+    public static final SoundEvent LORAX_ATTACK= registerSoundEvent("entity.lorax.attack");
+
 
 
     private static SoundEvent registerSoundEvent(String name) {
