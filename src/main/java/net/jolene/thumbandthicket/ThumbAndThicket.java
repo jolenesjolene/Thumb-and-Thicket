@@ -1,7 +1,6 @@
 package net.jolene.thumbandthicket;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
@@ -11,6 +10,7 @@ import net.jolene.thumbandthicket.block.entity.ModBlockEntities;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.component.ModDataComponentTypes;
 import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.entity.custom.BeaverEntity;
 import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
 import net.jolene.thumbandthicket.entity.custom.LoraxEntity;
 import net.jolene.thumbandthicket.item.ModItemGroups;
@@ -62,6 +62,7 @@ public class ThumbAndThicket implements ModInitializer {
         ModLootTableModifications.modifyLootTables();
         ModDataComponentTypes.registerDataComponentTypes();
         ModPlacementModifierType.SNOWY_BELOW.codec();
+        FabricDefaultAttributeRegistry.register(ModEntities.BEAVER, BeaverEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.BROWN_BEAR, BrownBearEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.LORAX, LoraxEntity.createAttributes());
         LOGGER.info("Muddy!");

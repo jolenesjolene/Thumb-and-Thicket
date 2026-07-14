@@ -8,6 +8,34 @@
       "thumbandthicket:snip_4"
     ]
   },
+  "entity.beaver.ambient": {
+    "subtitle": "sounds.thumbandthicket.beaver.ambient",
+    "sounds": [
+      "thumbandthicket:entity/beaver/beaver_idle_1",
+      "thumbandthicket:entity/beaver/beaver_idle_2",
+      "thumbandthicket:entity/beaver/beaver_idle_3"
+    ]
+  },
+  "entity.beaver.hurt": {
+    "subtitle": "sounds.thumbandthicket.beaver.hurt",
+    "sounds": [
+      "thumbandthicket:entity/beaver/beaver_hurt"
+    ]
+  },
+  "entity.beaver.step": {
+    "subtitle": "sounds.thumbandthicket.beaver.step",
+    "sounds": [
+      "thumbandthicket:entity/beaver/beaver_step_1",
+      "thumbandthicket:entity/beaver/beaver_step_2",
+      "thumbandthicket:entity/beaver/beaver_step_3"
+    ]
+  },
+  "entity.beaver.death": {
+    "subtitle": "sounds.thumbandthicket.beaver.death",
+    "sounds": [
+      "thumbandthicket:entity/beaver/beaver_death"
+    ]
+  },
   "entity.brown_bear.ambient": {
     "subtitle": "sounds.thumbandthicket.bear.ambient",
     "sounds": [
@@ -19,8 +47,7 @@
   "entity.brown_bear.hurt": {
     "subtitle": "sounds.thumbandthicket.bear.hurt",
     "sounds": [
-      "thumbandthicket:entity/brown_bear/bear_hurt_1",
-      "thumbandthicket:entity/brown_bear/bear_hurt_2"
+      "thumbandthicket:entity/brown_bear/bear_hurt"
     ]
   },
   "entity.brown_bear.step": {
@@ -28,8 +55,7 @@
     "sounds": [
       "thumbandthicket:entity/brown_bear/bear_step_1",
       "thumbandthicket:entity/brown_bear/bear_step_2",
-      "thumbandthicket:entity/brown_bear/bear_step_3",
-      "thumbandthicket:entity/brown_bear/bear_step_4"
+      "thumbandthicket:entity/brown_bear/bear_step_3"
     ]
   },
   "entity.brown_bear.death": {

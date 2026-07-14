@@ -8,6 +8,12 @@ import net.minecraft.util.Identifier;
 
 public class ModSounds {
     public static final SoundEvent SNIP = registerSoundEvent("snip");
+
+    public static final SoundEvent BEAVER_AMBIENT = registerSoundEvent("entity.beaver.ambient");
+    public static final SoundEvent BEAVER_HURT = registerSoundEvent("entity.beaver.hurt");
+    public static final SoundEvent BEAVER_STEP = registerSoundEvent("entity.beaver.step");
+    public static final SoundEvent BEAVER_DEATH= registerSoundEvent("entity.beaver.death");
+
     public static final SoundEvent BROWN_BEAR_AMBIENT = registerSoundEvent("entity.brown_bear.ambient");
     public static final SoundEvent BROWN_BEAR_HURT = registerSoundEvent("entity.brown_bear.hurt");
     public static final SoundEvent BROWN_BEAR_STEP = registerSoundEvent("entity.brown_bear.step");
