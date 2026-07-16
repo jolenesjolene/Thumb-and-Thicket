@@ -61,7 +61,6 @@ public abstract class SheepEntityMixin extends MobEntity implements CoatTwoUtil 
     public void onEatingGrass(CallbackInfo ci) {
         SheepEntity sheepEntity = (SheepEntity)(Object)(this);
         if (!sheepEntity.isSheared() && canHaveSecondCoat(sheepEntity)){
-            ThumbAndThicket.LOGGER.info("yes");
             setSecondCoat(true);
         }
     }

@@ -137,12 +137,12 @@ public class PillarBlockMixin extends Block {
     }
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        boolean rooty = state.get(ROOTY) != Rooty.NONE;
-        boolean branch = state.get(BRANCH);
-        boolean hollow = state.get(HOLLOW);
         BlockState property = state;
-        if (state.isIn(BlockTags.LOGS) && (rooty || branch || hollow) && !world.isClient) {
-            if (stack.isOf(Items.SHEARS)) {
+        if (state.isIn(BlockTags.LOGS) && stack.isOf(Items.SHEARS) && !world.isClient) {
+            boolean rooty = state.get(ROOTY) != Rooty.NONE;
+            boolean branch = state.get(BRANCH);
+            boolean hollow = state.get(HOLLOW);
+            if (rooty || branch || hollow) {
                 EquipmentSlot slot = null;
                 switch (hand) {
                     case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
