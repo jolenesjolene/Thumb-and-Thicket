@@ -1,7 +1,6 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
-import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.util.CoatTwoUtil;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
