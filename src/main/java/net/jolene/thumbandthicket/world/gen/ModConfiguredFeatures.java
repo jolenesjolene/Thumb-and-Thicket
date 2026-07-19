@@ -52,6 +52,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> MYCELIAL_SPROUTS_KEY = registerKey("mycelial_sprouts");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTED_GRASS_KEY = registerKey("rooted_grass");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTS_KEY = registerKey("hanging_roots");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> AGED_SPORE_BLOSSOM_KEY = registerKey("spore_blossom");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_DEFAULT_KEY = registerKey("flower_default");
@@ -110,6 +111,7 @@ public class ModConfiguredFeatures {
         register(context, AGED_SPORE_BLOSSOM_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(sporeBlossomBuilder)));
 
         register(context, ROOTED_GRASS_KEY, Feature.DISK, new DiskFeatureConfig(new PredicatedStateProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT), List.of(new PredicatedStateProvider.Rule(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR, BlockPredicate.matchingBlocks(Blocks.PODZOL))), BlockStateProvider.of(ModBlocks.ROOTED_GRASS)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.matchingFluids(Direction.UP.getVector(), Fluids.WATER), BlockPredicate.IS_AIR)), BlockPredicate.matchingBlocks(Blocks.PODZOL)), BlockStateProvider.of(ModBlocks.ROOTED_PODZOL)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.not(BlockPredicate.IS_AIR), BlockPredicate.matchingBlockTag(BlockTags.DIRT)), BlockStateProvider.of(Blocks.ROOTED_DIRT)), new PredicatedStateProvider.Rule(BlockPredicate.allOf(BlockPredicate.solid(Direction.UP.getVector()), BlockPredicate.IS_AIR), BlockStateProvider.of(Blocks.HANGING_ROOTS)))), BlockPredicate.allOf(BlockPredicate.matchingBlockTag(BlockTags.DIRT)), UniformIntProvider.create(2, 4), 2));
+        register(context, ROOTS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.HANGING_ROOTS)))));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

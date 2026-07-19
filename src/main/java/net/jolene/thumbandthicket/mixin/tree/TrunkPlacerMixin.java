@@ -18,6 +18,7 @@ import net.minecraft.world.gen.trunk.TrunkPlacer;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.function.BiConsumer;
 
@@ -36,7 +37,7 @@ public class TrunkPlacerMixin {
     }
 
     @WrapOperation(method = "getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;Ljava/util/function/Function;)Z", at = @At(value = "INVOKE", target = "Ljava/util/function/BiConsumer;accept(Ljava/lang/Object;Ljava/lang/Object;)V"))
-    private void modifyPlacedState(BiConsumer instance, Object posObj, Object stateObj, Operation<Void> original, @Local(name = "world") TestableWorld world) {
+    private void modifyPlacedState(BiConsumer instance, Object posObj, Object stateObj, Operation<Void> original, @Local(ordinal = 0, argsOnly = true) TestableWorld world) {
         BlockPos pos = (BlockPos) posObj;
         BlockState state = (BlockState) stateObj;
 
@@ -48,9 +49,13 @@ public class TrunkPlacerMixin {
                 WorldAccess worldAccess = (WorldAccess) world;
 
                 newState = thumbandthicket$determineRootSide(newState, worldAccess, pos);
+                int random = Random.create().nextBetween(1,5);
 
                 if (newState.get(ROOTY) != Rooty.NONE) {
                     newState = thumbandthicket$calculateSlice(newState, worldAccess, pos);
+                } else {
+                    newState = newState.with(BRANCH, random == 1);
+                    if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, random == 5);
                 }
 
                 newState = thumbandthicket$inheritSlice(newState, worldAccess, pos);

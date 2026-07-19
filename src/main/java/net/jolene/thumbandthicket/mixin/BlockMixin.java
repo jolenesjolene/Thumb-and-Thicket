@@ -32,7 +32,7 @@ public abstract class BlockMixin {
     public abstract BlockState getDefaultState();
 
     @Inject(method = "getPlacementState", at = @At("HEAD"), cancellable = true)
-    private void modifyPlacementState(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
+    private void thumbandthicket$modifyPlacementState(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
         Block block = (Block)(Object)this;
         BlockState state = block.getDefaultState();
         if (state.contains(ROOTY) && state.contains(ROOTY)) {
@@ -47,12 +47,12 @@ public abstract class BlockMixin {
     }
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
-    private void appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
+    private void thumbandthicket$appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
         Block block = (Block) (Object) this;
     }
 
     @WrapMethod(method = "getDefaultState")
-    private BlockState progressionrespun$changeDefaultState(Operation<BlockState> original) {
+    private BlockState thumbandthicket$changeDefaultState(Operation<BlockState> original) {
         Block block = (Block)(Object)this;
         if (block instanceof FarmlandBlock) {
             return original.call().with(FERTILIZED, false);

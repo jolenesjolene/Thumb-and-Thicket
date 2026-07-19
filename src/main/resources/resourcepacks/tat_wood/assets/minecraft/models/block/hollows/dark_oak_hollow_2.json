@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/hollow",
+  "textures": {
+    "hollow": "block/hollows/dark_oak_hollow_2"
+  }
+}

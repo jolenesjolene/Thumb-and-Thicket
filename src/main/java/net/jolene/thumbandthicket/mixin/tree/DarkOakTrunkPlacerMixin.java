@@ -3,6 +3,7 @@ package net.jolene.thumbandthicket.mixin.tree;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.jolene.thumbandthicket.util.ModProperties;
+import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.function.BiConsumer;
 
 import static net.jolene.thumbandthicket.ThumbAndThicket.thumbandthicket$determineRootSide;
+import static net.jolene.thumbandthicket.util.ModProperties.*;
 
 @Mixin(DarkOakTrunkPlacer.class)
 public class DarkOakTrunkPlacerMixin {
@@ -25,6 +27,11 @@ public class DarkOakTrunkPlacerMixin {
     private boolean gay(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.THREE);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
+        int randomInt = random.nextBetween(1,5);
+        if (newState.get(ROOTY) != Rooty.NONE){
+            newState = newState.with(BRANCH, randomInt == 1);
+            if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
+        }
         replacer.accept(pos, newState);
 
         return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
@@ -33,6 +40,11 @@ public class DarkOakTrunkPlacerMixin {
     private boolean gay1(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.FOUR);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
+        int randomInt = random.nextBetween(1,5);
+        if (newState.get(ROOTY) != Rooty.NONE){
+            newState = newState.with(BRANCH, randomInt == 1);
+            if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
+        }
         replacer.accept(pos, newState);
 
         return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
@@ -41,6 +53,11 @@ public class DarkOakTrunkPlacerMixin {
     private boolean gay2(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.TWO);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
+        int randomInt = random.nextBetween(1,5);
+        if (newState.get(ROOTY) != Rooty.NONE){
+            newState = newState.with(BRANCH, randomInt == 1);
+            if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
+        }
         replacer.accept(pos, newState);
 
         return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
@@ -49,6 +66,11 @@ public class DarkOakTrunkPlacerMixin {
     private boolean gay3(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.ONE);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
+        int randomInt = random.nextBetween(1,5);
+        if (newState.get(ROOTY) != Rooty.NONE){
+            newState = newState.with(BRANCH, randomInt == 1);
+            if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
+        }
         replacer.accept(pos, newState);
 
         return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);

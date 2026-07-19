@@ -44,5 +44,35 @@
       "thumbandthicket:entity/brown_bear/bear_attack_1",
       "thumbandthicket:entity/brown_bear/bear_attack_2"
     ]
-  }
+  },
+"entity.lorax.ambient": {
+"subtitle": "sounds.thumbandthicket.lorax.ambient",
+"sounds": [
+"thumbandthicket:entity/lorax/lorax_ambient"
+]
+},
+"entity.lorax.hurt": {
+"subtitle": "sounds.thumbandthicket.lorax.hurt",
+"sounds": [
+"thumbandthicket:entity/lorax/lorax_hurt"
+]
+},
+"entity.lorax.fly": {
+"subtitle": "sounds.thumbandthicket.lorax.fly",
+"sounds": [
+"thumbandthicket:entity/lorax/lorax_fly"
+]
+},
+"entity.lorax.death": {
+"subtitle": "sounds.thumbandthicket.lorax.death",
+"sounds": [
+"thumbandthicket:entity/lorax/lorax_death"
+]
+},
+"entity.lorax.attack": {
+"subtitle": "sounds.thumbandthicket.lorax.attack",
+"sounds": [
+"thumbandthicket:entity/lorax/lorax_attack"
+]
+}
 }

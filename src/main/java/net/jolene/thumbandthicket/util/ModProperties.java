@@ -18,5 +18,7 @@ public class ModProperties {
     public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
     public static final BooleanProperty FERTILIZED = BooleanProperty.of("fertilized");
     public static final BooleanProperty GOLDEN = BooleanProperty.of("golden");
+    public static final BooleanProperty HOLLOW = BooleanProperty.of("hollow");
+    public static final BooleanProperty BRANCH = BooleanProperty.of("branch");
     public static final IntProperty LEVEL_3 = IntProperty.of("level", 0, 3);
 }

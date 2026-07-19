@@ -61,6 +61,8 @@ public class ModBlocks {
     public static final Block HYDROTHERMAL_VENT = register(new HydrothermalVentBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent", true);
 
     public static final Block CLAM_SLAB_BLOCK = register(new ClamSlabBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN)), "clam_slab", true);
+    public static final Block PERMAFROST = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "permafrost", true);
+    public static final Block MUDDY_GRASS = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "muddy_grass", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

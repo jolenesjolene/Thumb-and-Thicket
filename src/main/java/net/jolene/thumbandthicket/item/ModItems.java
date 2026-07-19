@@ -24,6 +24,7 @@ public class ModItems {
     public static final FoodComponent ROTTEN_APPLE_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 0), 0.6F).build();
     public static final FoodComponent PEAR_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.3F).build();
     public static final FoodComponent ORANGE_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(3).saturationModifier(0.3F).build();
+    public static final FoodComponent PARSNIP_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent CHERRY_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(4).saturationModifier(0.2F).build();
     public static final FoodComponent DEW_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(5).saturationModifier(0.7F).build();
     public static final FoodComponent SEED_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(1).snack().build();
@@ -33,6 +34,7 @@ public class ModItems {
     public static final Item ROTTEN_APPLE = register(new Item(new Item.Settings().maxCount(64).food(ROTTEN_APPLE_FOOD_COMPONENT)), "rotten_apple");
     public static final Item PEAR = register(new Item(new Item.Settings().maxCount(64).food(PEAR_FOOD_COMPONENT)), "pear");
     public static final Item ORANGE = register(new Item(new Item.Settings().maxCount(64).food(ORANGE_FOOD_COMPONENT)), "orange");
+    public static final Item CAVE_PARSNIP = register(new Item(new Item.Settings().maxCount(64).food(PARSNIP_FOOD_COMPONENT)), "cave_parsnip");
     public static final Item CHERRY = register(new Item(new Item.Settings().maxCount(64).food(CHERRY_FOOD_COMPONENT).recipeRemainder(Items.CHERRY_SAPLING)), "cherry");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
@@ -51,13 +53,12 @@ public class ModItems {
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);
     }
-
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
                 .register(group -> {
                     group.addAfter(Items.APPLE, ModItems.ROTTEN_APPLE);
                     group.addAfter(ModItems.ROTTEN_APPLE, ModItems.PEAR);
-                    group.addAfter(ModItems.PEAR, ModItems.ORANGE, ModItems.CHERRY);
+                    group.addAfter(ModItems.PEAR, ModItems.ORANGE, ModItems.CAVE_PARSNIP, ModItems.CHERRY);
                     group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });

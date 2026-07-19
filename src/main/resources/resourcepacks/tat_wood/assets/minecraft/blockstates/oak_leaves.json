@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "minecraft:block/oak_leaves", "x": 0,   "y": 0,   "weight": 4},
+      { "model": "minecraft:block/leaves/oak_flower_leaves", "x": 0,   "y": 0,  "weight": 2}
+    ]
+  }
+}

@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -29,15 +28,17 @@ public class SnowPlacementModifier extends PlacementModifier {
         BlockState state = context.getWorld().getBlockState(pos);
         BlockState stateBelow = context.getWorld().getBlockState(pos.down());
 
-        if (stateBelow.isOf(Blocks.GRASS_BLOCK) && stateBelow.contains(Properties.SNOWY)) {
-            if (shouldBeSnowy && context.getWorld().getBiome(pos).value().canSetSnow(context.getWorld(), pos)) {
+
+        if (shouldBeSnowy && context.getWorld().getBiome(pos).value().canSetSnow(context.getWorld(), pos)) {
+            if (stateBelow.contains(Properties.SNOWY)) {
                 context.getWorld().setBlockState(pos.down(), stateBelow.with(Properties.SNOWY, true), 2);
-                return Stream.of(pos);
             }
-            if (!shouldBeSnowy && !context.getWorld().getBiome(pos).value().canSetSnow(context.getWorld(), pos)) {
-                return Stream.of(pos);
-            }
+            return Stream.of(pos);
         }
+        if (!shouldBeSnowy && !context.getWorld().getBiome(pos).value().canSetSnow(context.getWorld(), pos)) {
+            return Stream.of(pos);
+        }
+
 
         return Stream.empty();
     }

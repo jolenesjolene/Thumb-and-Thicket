@@ -6,10 +6,17 @@
     "BlockAccessor",
     "BlockMixin",
     "CauldronBlockMixin",
+    "ChunkGeneratorMixin",
     "ExampleMixin",
     "ItemStackMixin",
     "SettingsAccessor",
     "ShearsItemMixin",
+    "entity.AnimalEntityMixin",
+    "entity.CowEntityMixin",
+    "entity.EatGrassGoalMixin",
+    "entity.EntityTypeMixin",
+    "entity.PigEntityMixin",
+    "entity.SheepEntityMixin",
     "farming.CropBlockMixin",
     "farming.FarmerVillagerTaskMixin",
     "farming.FarmlandBlockMixin",
@@ -45,6 +52,20 @@
     "requireAnnotations": true
   },
   "client": [
-    "ClientWorldMixin"
+    "ClientWorldMixin",
+    "entity.model.ChickenEntityModelMixin",
+    "entity.model.CowEntityModelMixin",
+    "entity.model.MooshroomMushroomFeatureRendererMixin",
+    "entity.model.PigEntityModelMixin",
+    "entity.model.SheepEntityModelMixin",
+    "entity.model.SheepEntityRendererMixin",
+    "entity.model.SheepWoolEntityModelMixin",
+    "entity.model.SheepWoolFeatureRendererMixin",
+    "entity.model.SilverfishEntityModelMixin",
+    "entity.model.variant.chicken.ColdChickenModelMixin",
+    "entity.model.variant.cow.ColdCowModelMixin",
+    "entity.model.variant.cow.CowVariantModelMixin",
+    "entity.model.variant.cow.WarmCowModelMixin",
+    "entity.model.variant.pig.ColdPigModelMixin"
   ]
 }

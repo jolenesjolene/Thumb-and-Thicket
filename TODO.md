@@ -228,8 +228,10 @@
   - ~~Textures~~
   - Visuals
     - Randomly opening, bubbles
-- Sharks
+- Sharks?
   - Biome variants
+
+
 - More Animal Behaviors
   - seeking Shelter
   - Dogs howl at Moon
@@ -240,18 +242,51 @@
   - Mobs have Litters
   - Polar Bears hunt for Fish
   - Herds flee from attackers
+
 - updated Mob Models
   - Cow
+    - Animations
+    - ~~Model~~
+    - Textures
   - Sheep
+    - Animations
+    - ~~Model~~
+    - Textures
   - Pigs
+    - Animations
+    - ~~Model~~
+    - Textures
+  - Chicken
+    - Animations
+    - ~~Model~~
+    - Textures
   - Silverfish
+    - Animations
+    - Model
+    - Textures
   - Spiders
+    - Animations
+    - Model
+    - Textures
   - Polar Bears
+    - Animations
+    - Model
+    - Textures
   - Creepers
+    - Animations
+    - Model
+    - Textures
     - Glare like
   - Spiders
+    - Animations
+    - Model
+    - Textures
   - Cave Spiders
+    - Animations
+    - Model
+    - Textures
   - etc.
+
 - Polar Bears
   - only protect their Cubs
   - no Drops
