@@ -7,7 +7,7 @@
   - ~~Wheat~~
   - ~~Grass Blocks~~
   - Saplings
-  - Logs
+  - ~~Logs~~
   - Leaves + lighter Leaves
 
 - Lupine
@@ -37,7 +37,7 @@
   - ~~Block~~
   - Particles
   - Worldgen
-  - Textures
+  - ~~Textures~~
 - Roots
   - Blockstates
   - Longer Roots/Stackable Roots
@@ -188,7 +188,7 @@
   - Mob
   - Drops
   - Behavior
-  - Textures
+  - ~~Textures~~
 - Deer
   - Mob
   - Drops
@@ -207,10 +207,10 @@
   - Behavior
   - ~~Textures~~
 - Beaver
-  - Mob
+  - ~~Mob~~
   - Drops
   - Behavior
-  - Textures
+  - ~~Textures~~
 - Mandrake???
   - Mob
   - Drops
