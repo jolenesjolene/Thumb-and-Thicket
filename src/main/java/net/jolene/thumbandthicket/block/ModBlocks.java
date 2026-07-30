@@ -55,7 +55,7 @@ public class ModBlocks {
     public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.ROOTED_DIRT).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "root_block", true);
     public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "rooted_grass", true);
     public static final Block ROOTED_PODZOL = register(new RootedPodzolBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
-    public static final Block PERMAFROST = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.GRASS)), "permafrost", true);
+    //public static final Block PERMAFROST = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.GRASS)), "permafrost", true);
     public static final Block BRINE_BLOCK = register(new FluidBlock(ModFluids.BRINE_SOURCE, AbstractBlock.Settings.create().mapColor(MapColor.TEAL).noCollision().nonOpaque().replaceable()), "brine_block", true);
     public static final Block HYDROTHERMAL_VENT_BLOCK = register(new HydrothermalVentBlockBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent_block", true);
     public static final Block HYDROTHERMAL_VENT = register(new HydrothermalVentBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent", true);
