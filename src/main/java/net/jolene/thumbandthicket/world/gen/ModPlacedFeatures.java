@@ -8,7 +8,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ClampedIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
@@ -81,7 +80,7 @@ public class ModPlacedFeatures {
 
         register(context, TINGED_GRASS, configuredFeatures.getOrThrow(ModConfiguredFeatures.TINGED_GRASS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(false), BiomePlacementModifier.of());
         register(context, MILKWEED, configuredFeatures.getOrThrow(ModConfiguredFeatures.MILKWEED_KEY), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of(), RarityFilterPlacementModifier.of(5));
-        register(context, CATTAIL, configuredFeatures.getOrThrow(ModConfiguredFeatures.CATTAIL_KEY), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of(), RarityFilterPlacementModifier.of(7));
+        register(context, CATTAIL, configuredFeatures.getOrThrow(ModConfiguredFeatures.CATTAIL_KEY), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of(), RarityFilterPlacementModifier.of(2));
         register(context, CLOVERS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CLOVERS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, SnowPlacementModifier.of(false), BiomePlacementModifier.of());
 
         register(context, RED_MUSHROOM_NORMAL, redMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));

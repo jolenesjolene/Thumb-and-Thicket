@@ -1,7 +1,6 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
-import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.util.CoatTwoUtil;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
@@ -61,7 +60,6 @@ public abstract class SheepEntityMixin extends MobEntity implements CoatTwoUtil 
     public void onEatingGrass(CallbackInfo ci) {
         SheepEntity sheepEntity = (SheepEntity)(Object)(this);
         if (!sheepEntity.isSheared() && canHaveSecondCoat(sheepEntity)){
-            ThumbAndThicket.LOGGER.info("yes");
             setSecondCoat(true);
         }
     }

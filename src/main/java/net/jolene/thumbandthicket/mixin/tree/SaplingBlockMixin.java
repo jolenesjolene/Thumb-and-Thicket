@@ -69,4 +69,9 @@ public class SaplingBlockMixin extends Block {
         builder.add(AGE);
         builder.add(STAGE);
     }
+
+    @Override
+    protected float getMaxHorizontalModelOffset() {
+        return 2f;
+    }
 }

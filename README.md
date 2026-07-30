@@ -1,47 +1,17 @@
-# Thumb and Thicket
-### **We Add**
+## **[Thumb & Thicket!](https://github.com/jolenesjolene/Thumb-and-Thicket)**
+**Pick flowers from thickets, gather fruit from now-flourishing trees, kick up fallen leaves beneath your feet, and take in small ambient additions that make every block in your world feel a little more alive.** ✨
+
+
+A natural expansion of Minecraft's nature, **Thumb & Thicket** revitalizes the game's flora, animals, and forests while adhering to the vanilla game. Discover beautifully redesigned animals and blocks, harvest new fruits and plants, and enjoy thoughtful mechanics that enrich exploration without changing what makes Minecraft feel like Minecraft.
 ***
-* Puffed Dandelions + area particles
-* Roots on cave ceilings
-* Snowy Grass, broken gives snowball (not right-click because could accidentally do and ruin aesthetic me thinks, change if you disagree though).
-* Leaf Piles have particles
-* Big Lily Pads, and Variated Lily Pads, new textures and stems
-* Clovers, 4 Leaf Clovers, place-able like leaf litter, drops 4 leafed one by chance
-* Mud in bodies of water instead of dirt
+_Here you can find some general information about the mod: there is also a wiki that actively updates as the mod evolves, possibly answering any questions you may have!_
 
-#### Trees
-* Trees Replant
-* Imperfections like hollows and scratch marks on trees.
-* Branches (Custom Model) on trees
-* Roots (Custom Model) on Logs
-* Root blocks, spread Rooted Dirt and Rooted Grass Blocks, generated under any tree
-* 2x2 Logs
-* Rooted Dirt, Grass and Roots under trees
-* Mushrooms on Trees
+### **Translations**
+We're looking to translate the mod into as many different languages as possible! As it's still under development, things may change, meaning translations may not always be able to keep up. Regardless, any effort is appreciated! _Below is a list of the currently completed translations._
+* en_US
 
-### **Maybe We Add**
-***
-* Pebbles, Seashells
-* Bark from stripping logs (needs uses before pushed to 'We Add')
-* Lemon, pears, other fruit??
-* Lavender
-* Single Tall Lilac, for consistency
-* Milkweed
-* Cave Parsnips
-* Another sniffer plant??
-* Barnacles (Could be purely aesthetic spawning on certain submerged blocks)
-* Duckweed
-* Cinnamon
-* Gooseberries
-* Garlic
-* BIG MUSHROOMS (maybe could have a 3d model?
-* Bushy leaves but somehow implemented into vanilla
-* Goldenrod
-* New textures for sticks, and some of the floor plants, to fit the mod, still looking vanilla.
-* Some sort of new grass, that mixes in and has a slight yellow tinge on the top, think it could look nice
-* Hares
-* Airbubble plant + waterlogged stuff
-* Caves that conform to their overworld biomes' temperature
+_For submitting translations, private message either of us on discord (@gayasslily or @imfullof)._
 
-
-Join the [Discord](https://discord.gg/uMgXFXVtT) to see WIP Showcases!
+### **Versions**
+Below is a list of supported versions, mind that the latest is the only actively maintained one.
+* 1.21.1

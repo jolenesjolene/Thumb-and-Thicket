@@ -4,7 +4,6 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.mixin.BlockAccessor;
 import net.jolene.thumbandthicket.mixin.SettingsAccessor;
 import net.jolene.thumbandthicket.sound.ModSounds;
-import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.util.Rooty;
 import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
@@ -24,7 +23,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -137,12 +135,12 @@ public class PillarBlockMixin extends Block {
     }
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        boolean rooty = state.get(ROOTY) != Rooty.NONE;
-        boolean branch = state.get(BRANCH);
-        boolean hollow = state.get(HOLLOW);
         BlockState property = state;
-        if (state.isIn(BlockTags.LOGS) && (rooty || branch || hollow) && !world.isClient) {
-            if (stack.isOf(Items.SHEARS)) {
+        if (state.isIn(BlockTags.LOGS) && stack.isOf(Items.SHEARS) && !world.isClient) {
+            boolean rooty = state.get(ROOTY) != Rooty.NONE;
+            boolean branch = state.get(BRANCH);
+            boolean hollow = state.get(HOLLOW);
+            if (rooty || branch || hollow) {
                 EquipmentSlot slot = null;
                 switch (hand) {
                     case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
