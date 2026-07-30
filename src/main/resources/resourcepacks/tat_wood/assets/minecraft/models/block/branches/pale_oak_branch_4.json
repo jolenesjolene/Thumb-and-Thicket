@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/branch",
+  "textures": {
+    "branch": "block/branches/pale_oak_branch_4"
+  }
+}
