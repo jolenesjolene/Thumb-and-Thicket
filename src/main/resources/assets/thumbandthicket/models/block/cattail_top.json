@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/tinted_cross",
+  "parent": "minecraft:block/crop",
   "textures": {
-    "cross": "thumbandthicket:block/cattail_top"
+    "crop": "thumbandthicket:block/cattail_top"
   }
 }
