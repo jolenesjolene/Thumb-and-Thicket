@@ -15,6 +15,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -38,7 +39,7 @@ public abstract class LeafLitterBlockMixin extends PlantBlock implements Waterlo
 
     protected LeafLitterBlockMixin(Settings settings) {
         super(settings);
-        this.stateManager.getDefaultState().with(WATERLOGGED, false);
+        setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
     }
 
     @Shadow
@@ -64,7 +65,7 @@ public abstract class LeafLitterBlockMixin extends PlantBlock implements Waterlo
     @Overwrite
     public BlockState getPlacementState(ItemPlacementContext context) {
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
-        return state.isOf(this) ? state.with(AMOUNT, Math.min(4, state.get(AMOUNT) + 1)) : this.getDefaultState().with(FACING, context.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, state.getFluidState().getFluid() == Fluids.WATER);
+        return state.isOf(this) ? state.with(AMOUNT, Math.min(4, state.get(AMOUNT) + 1)) : this.getDefaultState().with(FACING, context.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, context.getWorld().getFluidState(context.getBlockPos()).getFluid() == Fluids.WATER);
     }
 
     @Override
