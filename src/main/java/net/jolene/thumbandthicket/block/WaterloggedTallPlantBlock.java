@@ -82,4 +82,5 @@ public class WaterloggedTallPlantBlock extends TallPlantBlock implements Waterlo
     protected FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
+
 }

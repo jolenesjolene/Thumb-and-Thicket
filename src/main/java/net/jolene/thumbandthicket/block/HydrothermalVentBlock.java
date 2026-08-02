@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
@@ -25,6 +26,7 @@ public class HydrothermalVentBlock extends PillarBlock {
         super.appendProperties(builder);
         builder.add(ModProperties.VENT_PART);
         builder.add(ModProperties.ACTIVE);
+        builder.add(Properties.FACING);
     }
 
     @Override
@@ -51,7 +53,7 @@ public class HydrothermalVentBlock extends PillarBlock {
         if (SIDE.getAxis() == Direction.Axis.Z) state1 = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(SIDE.getOpposite()));
         boolean active = false;
         if (state1.contains(ModProperties.ACTIVE)) active = state1.get(ModProperties.ACTIVE);
-        return state.with(AXIS, ctx.getSide().getAxis()).with(ModProperties.ACTIVE, active);
+        return state.with(AXIS, ctx.getSide().getAxis()).with(ModProperties.ACTIVE, active).with(Properties.FACING, ctx.getSide().getOpposite());
     }
 
     @Override

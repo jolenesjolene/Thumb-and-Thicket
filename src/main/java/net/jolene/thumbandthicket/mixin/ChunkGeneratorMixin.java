@@ -25,13 +25,13 @@ import java.util.Set;
 public abstract class ChunkGeneratorMixin {
 
     @Inject(method = "generateFeatures", at = @At("TAIL"))
-    private void replaceDirtWithMud(StructureWorldAccess world, Chunk chunk, StructureAccessor structureAccessor, CallbackInfo ci) {
+    private void thumbandthicket$replaceDirtWithMud(StructureWorldAccess world, Chunk chunk, StructureAccessor structureAccessor, CallbackInfo ci) {
         if (!(chunk instanceof ProtoChunk protoChunk)) return;
-        convertWetDirt(world, protoChunk);
+        thumbandthicket$convertWetDirt(world, protoChunk);
     }
 
     @Unique
-    private void convertWetDirt(StructureWorldAccess world, ProtoChunk protoChunk) {
+    private void thumbandthicket$convertWetDirt(StructureWorldAccess world, ProtoChunk protoChunk) {
         Set<BlockPos> candidates = new HashSet<>();
 
         for (int x = 0; x < 16; x++) {
@@ -39,9 +39,9 @@ public abstract class ChunkGeneratorMixin {
                 for (int y = protoChunk.getBottomY(); y < protoChunk.getTopY(); y++) {
                     BlockPos pos = new BlockPos(protoChunk.getPos().getStartX() + x, y, protoChunk.getPos().getStartZ() + z);
 
-                    if (protoChunk.getBlockState(pos).isIn(BlockTags.DIRT) && touchesWater(world, pos)) {
+                    if (protoChunk.getBlockState(pos).isIn(BlockTags.DIRT) && thumbandthicket$touchesWater(world, pos)) {
                         candidates.add(pos);
-                        spreadMud(world, protoChunk, pos, candidates);
+                        thumbandthicket$spreadMud(world, protoChunk, pos, candidates);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public abstract class ChunkGeneratorMixin {
     }
 
     @Unique
-    private void spreadMud(StructureWorldAccess world, ProtoChunk chunk, BlockPos origin, Set<BlockPos> candidates) {
+    private void thumbandthicket$spreadMud(StructureWorldAccess world, ProtoChunk chunk, BlockPos origin, Set<BlockPos> candidates) {
         Queue<BlockPos> blockPosQueue = new ArrayDeque<>();
         Queue<Integer> distancesQueue = new ArrayDeque<>();
 
@@ -94,7 +94,7 @@ public abstract class ChunkGeneratorMixin {
     }
 
     @Unique
-    private boolean touchesWater(StructureWorldAccess world, BlockPos pos) {
+    private boolean thumbandthicket$touchesWater(StructureWorldAccess world, BlockPos pos) {
         for (Direction dir : Direction.values()) {
             if (world.getFluidState(pos.offset(dir)).isIn(FluidTags.WATER)) {
                 return true;

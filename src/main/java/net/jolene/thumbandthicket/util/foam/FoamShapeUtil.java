@@ -78,8 +78,7 @@ public class FoamShapeUtil {
 
     @Unique
     public static FoamShapeUtil getSpriteSet(BlockRenderView blockRenderView, BlockPos blockPos) {
-        if (blockPos == null || blockRenderView == null)
-            return DISCONNECTED;
+        if (blockPos == null || blockRenderView == null) return DISCONNECTED;
 
         return Objects.requireNonNullElse(getConnected(blockRenderView, blockPos), getDisconnected(blockRenderView, blockPos));
     }
@@ -126,7 +125,6 @@ public class FoamShapeUtil {
             if (westNonFluid) return SOUTH_WEST;
         }
         else if (westNonFluid) spriteSet = WEST;
-
 
         return spriteSet;
     }

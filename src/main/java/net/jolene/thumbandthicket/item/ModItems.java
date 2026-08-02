@@ -6,6 +6,7 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.fluid.ModFluids;
+import net.minecraft.block.Block;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -45,6 +46,8 @@ public class ModItems {
 
     public static final Item LUCKY_CLOVER = register(new Item(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64).food(LUCKY_CLOVER_FOOD_COMPONENT)), "lucky_clover");
     public static final Item PEARL = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "pearl");
+    public static final Item DUCKWEED = register(new PlaceableOnWaterItem(ModBlocks.DUCKWEED, new Item.Settings()), "duckweed");
+    public static final Item LEAF_LITTER = registerVanilla(new PlaceableOnWaterLitter(com.blackgear.vanillabackport.common.registries.ModBlocks.LEAF_LITTER.get(), new Item.Settings()), "minecraft:leaf_litter");
 
     public static final Item BROWN_BEAR_SPAWN_EGG = register(
             new SpawnEggItem(ModEntities.BROWN_BEAR, 0x000000, 0x000000, new Item.Settings()),
@@ -53,6 +56,11 @@ public class ModItems {
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);
     }
+
+    public static Item registerVanilla(Item item, String id) {
+        return Registry.register(Registries.ITEM, id, item);
+    }
+
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
                 .register(group -> {
