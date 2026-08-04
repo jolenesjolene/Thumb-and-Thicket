@@ -133,6 +133,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MYCELIAL_SPROUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DEW_DROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CLAM_SLAB_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HYDROTHERMAL_VENT, RenderLayer.getCutout());
 
         BlockEntityRendererFactories.register(ModBlockEntities.CLAM_SLAB_BLOCK, ClamSlabBlockEntityRenderer::new);
 

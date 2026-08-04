@@ -1,0 +1,20 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made by Jolene <3",
+	"ambientocclusion": false,
+	"textures": {
+		"1": "block/duckweed",
+		"particle": "block/duckweed"
+	},
+	"elements": [
+		{
+			"from": [0, 15, 0],
+			"to": [16, 15, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.1, 0.75, 0.1]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#1"}
+			}
+		}
+	]
+}

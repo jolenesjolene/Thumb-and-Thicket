@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 
 public class FoamMeshBuilder {
 
@@ -23,7 +24,10 @@ public class FoamMeshBuilder {
 
                     if (state.getFluidState().getFluid() != Fluids.WATER) continue;
                     if (!state.getFluidState().isStill()) continue;
-                    if (!world.getBlockState(mutable.up()).isAir()) continue;
+                    if (!world.getBlockState(mutable.up()).getFluidState().isEmpty()) continue;
+//                    if (!world.getBlockState(mutable.up()).isAir()) {
+//                        if (!world.getBlockState(mutable.up()).isFullCube(world, mutable.up())) continue;
+//                    }
 
                     FoamShapeUtil set = FoamShapeUtil.getSpriteSet(world, mutable);
 

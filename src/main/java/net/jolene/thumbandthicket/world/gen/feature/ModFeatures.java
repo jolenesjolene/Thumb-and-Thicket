@@ -15,6 +15,7 @@ public class ModFeatures {
 
     public static final Identifier TALL_WATERLOGGED_PLANT_ID = Identifier.of(MOD_ID, "tall_waterlogged_plant_feature");
     public static final TallWaterloggedPlantFeature TALL_WATERLOGGED_PLANT_FEATURE = new TallWaterloggedPlantFeature(TallWaterloggedPlantFeatureConfig.CODEC);
+
     public static void registerModFeatures() {
         Registry.register(Registries.FEATURE, HUGE_PURPLE_MUSHROOM_ID, HUGE_PURPLE_MUSHROOM_FEATURE);
         Registry.register(Registries.FEATURE, TALL_WATERLOGGED_PLANT_ID, TALL_WATERLOGGED_PLANT_FEATURE);

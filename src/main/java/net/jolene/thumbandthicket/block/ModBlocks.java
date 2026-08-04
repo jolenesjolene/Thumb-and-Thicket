@@ -31,7 +31,7 @@ public class ModBlocks {
     public static final Block CLOVERS = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "clovers", true);
 
     public static final Block ALGAE = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "algae", true);
-    public static final Block DUCKWEED = register(new LilyPadBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "duckweed", true);
+    public static final Block DUCKWEED = register(new DuckweedBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD).mapColor(MapColor.DARK_GREEN).noCollision()), "duckweed", false);
 
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);
     public static final Block SNOWY_SHORT_GRASS = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_short_grass", true);
@@ -55,14 +55,14 @@ public class ModBlocks {
     public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.ROOTED_DIRT).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "root_block", true);
     public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly()), "rooted_grass", true);
     public static final Block ROOTED_PODZOL = register(new RootedPodzolBlock(AbstractBlock.Settings.copy(Blocks.PODZOL).sounds(BlockSoundGroup.HANGING_ROOTS)), "rooted_podzol", true);
-    //public static final Block PERMAFROST = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.GRASS)), "permafrost", true);
+    public static final Block PERMAFROST = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "permafrost", true);
+    public static final Block MUDDY_GRASS = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "muddy_grass", true);
+
     public static final Block BRINE_BLOCK = register(new FluidBlock(ModFluids.BRINE_SOURCE, AbstractBlock.Settings.create().mapColor(MapColor.TEAL).noCollision().nonOpaque().replaceable()), "brine_block", true);
     public static final Block HYDROTHERMAL_VENT_BLOCK = register(new HydrothermalVentBlockBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent_block", true);
     public static final Block HYDROTHERMAL_VENT = register(new HydrothermalVentBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent", true);
 
     public static final Block CLAM_SLAB_BLOCK = register(new ClamSlabBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN)), "clam_slab", true);
-    public static final Block PERMAFROST = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "permafrost", true);
-    public static final Block MUDDY_GRASS = register(new Block(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).mapColor(MapColor.BROWN)), "muddy_grass", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

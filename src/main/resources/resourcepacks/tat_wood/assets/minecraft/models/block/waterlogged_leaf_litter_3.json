@@ -1,0 +1,19 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"texture": "minecraft:block/leaf_litter",
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"from": [8, 15, 8],
+			"to": [16, 15, 16],
+			"faces": {
+				"up": {"uv": [8, 8, 16, 16], "texture": "#texture", "tintindex": 0},
+				"down": {"uv": [8, 16, 16, 8], "texture": "#texture", "tintindex": 0}
+			}
+		}
+	]
+}

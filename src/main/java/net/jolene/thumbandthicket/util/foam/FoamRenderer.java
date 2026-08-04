@@ -78,6 +78,7 @@ public class FoamRenderer {
     public static int getLightLevel(World world, BlockPos pos) {
         int blockLight = world.getLightLevel(LightType.BLOCK, pos);
         int skyLight = world.getLightLevel(LightType.SKY, pos);
+//        LightmapTextureManager.getBlockLightCoordinates(blockLight);
         return LightmapTextureManager.pack(blockLight, skyLight);
     }
 }

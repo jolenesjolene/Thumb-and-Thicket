@@ -1,5 +1,6 @@
 package net.jolene.thumbandthicket.world.gen;
 
+import com.blackgear.vanillabackport.common.level.blocks.LeafLitterBlock;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;
@@ -15,7 +16,6 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
-import net.minecraft.util.dynamic.Range;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
@@ -86,7 +86,6 @@ public class ModConfiguredFeatures {
             }
         }
         register(context, CLOVERS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(8, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(cloversBuilder)))));
-
 
         register(context, RED_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(Blocks.RED_MUSHROOM))))));
         register(context, BROWN_MUSHROOM_NORMAL_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(mushroomBuilder(Blocks.BROWN_MUSHROOM))))));
