@@ -4,7 +4,6 @@ import net.jolene.thumbandthicket.world.gen.feature.config.TallWaterloggedPlantF
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 
 import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
