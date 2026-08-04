@@ -12,7 +12,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     public ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
     }
-
+//
     @Override
     public void generate() {
         addDrop(ModBlocks.ROOT_BLOCK, drops(ModBlocks.ROOT_BLOCK));
