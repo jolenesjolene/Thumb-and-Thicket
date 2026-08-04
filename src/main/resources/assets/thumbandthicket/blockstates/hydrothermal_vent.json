@@ -1,0 +1,76 @@
+{
+  "variants": {
+    "facing=north,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=east,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=south,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=west,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=down,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=up,vent_part=base,active=false": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=north,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=east,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=south,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=west,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=down,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=up,vent_part=top,active=false": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=north,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=east,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=south,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=west,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=down,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=up,vent_part=base,active=true": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=north,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=east,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=south,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=west,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/hydrothermal_vent_corner"
+    },
+    "facing=down,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    },
+    "facing=up,vent_part=top,active=true": {
+      "model": "thumbandthicket:block/milkweed_bottom"
+    }
+  }
+}

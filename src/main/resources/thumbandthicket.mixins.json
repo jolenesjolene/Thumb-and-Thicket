@@ -41,6 +41,7 @@
     "vegetation.FlowerBlockMixin",
     "vegetation.FungusBlockMixin",
     "vegetation.LeafLitterBlockMixin",
+    "vegetation.LeafLitterFeatureMixin",
     "vegetation.LilyPadBlockMixin",
     "vegetation.MushroomPlantBlockMixin",
     "vegetation.NoiseBlockStateProviderMixin",
