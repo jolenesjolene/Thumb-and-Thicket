@@ -50,6 +50,10 @@ public class ModItems {
             new SpawnEggItem(ModEntities.BROWN_BEAR, 0x000000, 0x000000, new Item.Settings()),
             "brown_bear_spawn_egg");
 
+    public static final Item BEAVER_SPAWN_EGG = register(
+            new SpawnEggItem(ModEntities.BEAVER, 0x000000, 0x000000, new Item.Settings()),
+            "beaver_spawn_egg");
+
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);
     }
@@ -64,6 +68,8 @@ public class ModItems {
                 });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
                 .register(group -> group.addAfter(Items.POLAR_BEAR_SPAWN_EGG, ModItems.BROWN_BEAR_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
+                .register(group -> group.addAfter(Items.DOLPHIN_SPAWN_EGG, ModItems.BEAVER_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
                 .register(group -> group.addAfter(ModBlocks.CLOVERS, ModItems.LUCKY_CLOVER));
     }

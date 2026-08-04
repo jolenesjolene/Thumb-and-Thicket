@@ -91,6 +91,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.SNOWY_BUSH);
                             //entries.add(ModBlocks.SNOWY_SWEET_BERRY_BUSH);
 
+                            entries.add(ModItems.BEAVER_SPAWN_EGG);
                             entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
                             entries.add(Items.SHEARS);
                             entries.add(ModItems.BRINE_BUCKET);
