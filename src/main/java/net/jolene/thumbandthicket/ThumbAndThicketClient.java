@@ -117,6 +117,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
                 }
         );
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DUCKWEED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROOTED_PODZOL, RenderLayer.getCutout());

@@ -3,8 +3,8 @@
 	"credit": "Made by Jolene <3",
 	"ambientocclusion": false,
 	"textures": {
-		"1": "block/duckweed",
-		"particle": "block/duckweed"
+		"1": "thumbandthicket:block/duckweed",
+		"particle": "thumbandthicket:block/duckweed"
 	},
 	"elements": [
 		{
