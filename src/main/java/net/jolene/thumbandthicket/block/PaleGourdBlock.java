@@ -3,7 +3,6 @@ package net.jolene.thumbandthicket.block;
 import com.mojang.serialization.MapCodec;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

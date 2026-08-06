@@ -3,7 +3,6 @@ package net.jolene.thumbandthicket.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.fluid.ModFluids;
-import net.jolene.thumbandthicket.item.ModItems;
 import net.jolene.thumbandthicket.util.ModKeys;
 import net.jolene.thumbandthicket.util.ModCauldronBehavior;
 import net.jolene.thumbandthicket.util.ModProperties;

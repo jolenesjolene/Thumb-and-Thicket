@@ -6,8 +6,6 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.fluid.ModFluids;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;

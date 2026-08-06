@@ -52,14 +52,6 @@ public class ModModelProvider extends FabricModelProvider {
             Map.entry(Models.GENERATED, List.of(
             ))
     );
-    public static final Map<Model, List<Block>> BLOCK_MODEL_LISTS = Map.ofEntries(
-            Map.entry(Models.CUBE_ALL, List.of(
-            )),
-            Map.entry(Models.CROSS, List.of(
-                    ModBlocks.PUFFED_DANDELION,
-                    ModBlocks.SNOWY_SHORT_GRASS
-            ))
-    );
 
     public ModModelProvider(FabricDataOutput output) {
         super(output);

@@ -4,7 +4,6 @@ import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
 public class ModBlockTags {
     public static final TagKey<Block> ROOTY_BLOCKS = block("rooty_blocks");

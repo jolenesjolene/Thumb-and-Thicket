@@ -34,10 +34,6 @@ import java.util.Objects;
 @Mixin(Item.class)
 public class ItemMixin {
 
-    @Shadow
-    @Final
-    private static Logger LOGGER;
-
     @Unique
     private static <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState oldState, Property<T> property) {
         return newState.with(property, oldState.get(property));
