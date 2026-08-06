@@ -8,6 +8,7 @@
     "CauldronBlockMixin",
     "ChunkGeneratorMixin",
     "ExampleMixin",
+    "ItemMixin",
     "ItemStackMixin",
     "PlaceableOnWaterItemMixin",
     "SettingsAccessor",

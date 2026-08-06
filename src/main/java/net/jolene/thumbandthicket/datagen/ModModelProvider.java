@@ -37,7 +37,13 @@ public class ModModelProvider extends FabricModelProvider {
                     ModBlocks.BLUE_ROSE.asItem(),
                     ModBlocks.PURPLE_MUSHROOM.asItem(),
                     ModBlocks.TINGED_SHORT_GRASS.asItem(),
-                    ModBlocks.MYCELIAL_SPROUTS.asItem()
+                    ModBlocks.MYCELIAL_SPROUTS.asItem(),
+                    ModItems.BARK,
+                    ModItems.CHISEL,
+                    ModItems.MOSS_CLUMP,
+                    ModItems.WAXED_BRUSH,
+                    ModItems.DUCKWEED,
+                    ModItems.PALE_GOURD_SEEDS
             )),
             Map.entry(Models.HANDHELD, List.of(
             ))

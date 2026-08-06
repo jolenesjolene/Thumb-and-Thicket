@@ -7,6 +7,7 @@ import net.jolene.thumbandthicket.effect.ModEffects;
 import net.jolene.thumbandthicket.entity.ModEntities;
 import net.jolene.thumbandthicket.fluid.ModFluids;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -39,6 +40,7 @@ public class ModItems {
     public static final Item CHERRY = register(new Item(new Item.Settings().maxCount(64).food(CHERRY_FOOD_COMPONENT).recipeRemainder(Items.CHERRY_SAPLING)), "cherry");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
+    public static final Item PALE_GOURD_SEEDS = register(new AliasedBlockItem(ModBlocks.PALE_GOURD_STEM, new Item.Settings()), "pale_gourd_seeds");
     public static final Item DEW_BOTTLE = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16).food(DEW_FOOD_COMPONENT).recipeRemainder(Items.GLASS_BOTTLE)), "dew_bottle");
     public static final Item DEW_DROP_SAPLING = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16)), "dew_drop_sapling");
     public static final Item FLOWER_SEEDS = register(new FlowerSeedsItem(ModBlocks.FLOWER_CROP, new Item.Settings().food(SEED_FOOD_COMPONENT)), "flower_seeds");
@@ -52,10 +54,15 @@ public class ModItems {
     public static final Item BROWN_BEAR_SPAWN_EGG = register(
             new SpawnEggItem(ModEntities.BROWN_BEAR, 0x000000, 0x000000, new Item.Settings()),
             "brown_bear_spawn_egg");
-
     public static final Item BEAVER_SPAWN_EGG = register(
             new SpawnEggItem(ModEntities.BEAVER, 0x000000, 0x000000, new Item.Settings()),
             "beaver_spawn_egg");
+
+
+    public static final Item CHISEL = register(new ChiselItem(new Item.Settings().maxDamage(128)), "chisel");
+    public static final Item MOSS_CLUMP = register(new Item(new Item.Settings()), "moss_clump");
+    public static final Item BARK = register(new BarkItem(new Item.Settings()), "bark");
+    public static final Item WAXED_BRUSH = register(new WaxedBrushItem(new Item.Settings().maxDamage(48).recipeRemainder(Items.BRUSH)), "waxed_brush");
 
     private static Item register(Item item, String name) {
         return Registry.register(Registries.ITEM, ThumbAndThicket.id(name), item);

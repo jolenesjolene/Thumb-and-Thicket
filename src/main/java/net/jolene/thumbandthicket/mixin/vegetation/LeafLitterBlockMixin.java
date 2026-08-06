@@ -3,10 +3,12 @@ package net.jolene.thumbandthicket.mixin.vegetation;
 import com.blackgear.vanillabackport.common.level.blocks.LeafLitterBlock;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.Util;
@@ -91,5 +93,10 @@ public abstract class LeafLitterBlockMixin extends PlantBlock implements Waterlo
 
             return shape.asCuboid();
         });
+    }
+
+    @Override
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+        return ModItems.LEAF_LITTER.getDefaultStack();
     }
 }
