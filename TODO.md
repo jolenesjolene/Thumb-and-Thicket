@@ -85,7 +85,7 @@
   - Textures
 - Pale Gourd
   - Block
-  - Gourd 0' Lanterns
+  - ~~Gourd 0' Lanterns~~
   - Worldgen
   - Textures
 - Poison Ivy
@@ -134,13 +134,13 @@
   - ~~Stems~~
   - Big Lilypads (2x2)
   - Worldgen
-  - Textures
+  - ~~Textures~~
 - Milkweed
-  - Block
+  - ~~Block~~
   - Worldgen
   - Textures
 - Duckweed
-  - Block
+  - ~~Block~~
   - Worldgen
   - Textures
 - Barnacles
@@ -155,7 +155,7 @@
   - Worldgen
   - Textures
 - Algae
-  - Block
+  - ~~Block~~
   - Worldgen
   - Fish consume
   - Textures

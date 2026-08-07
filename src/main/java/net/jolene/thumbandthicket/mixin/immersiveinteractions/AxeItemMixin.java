@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.immersiveinteractions;
 
 import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.block.Block;

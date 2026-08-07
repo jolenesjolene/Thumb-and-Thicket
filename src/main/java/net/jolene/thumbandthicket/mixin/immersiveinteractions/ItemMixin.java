@@ -1,4 +1,4 @@
-package net.jolene.thumbandthicket.mixin;
+package net.jolene.thumbandthicket.mixin.immersiveinteractions;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -34,6 +34,10 @@ import java.util.Objects;
 @Mixin(Item.class)
 public class ItemMixin {
 
+    @Shadow
+    @Final
+    private static Logger LOGGER;
+
     @Unique
     private static <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState oldState, Property<T> property) {
         return newState.with(property, oldState.get(property));
@@ -46,6 +50,7 @@ public class ItemMixin {
         BlockPos pos = context.getBlockPos();
         BlockState state = world.getBlockState(pos);
         String blockIdString = Registries.BLOCK.getId(state.getBlock()).toString();
+        String[] baseBlock = blockIdString.split(":");
         Item barkFD = Registries.ITEM.get(Identifier.of("farmersdelight", "tree_bark"));
 
         if (!world.isClient) {
@@ -53,16 +58,16 @@ public class ItemMixin {
 
             SoundEvent soundEvent = null;
             String prependString = "";
+            String appendString = "";
             String targetString = "";
             String replaceString = "";
-            String newBlockString = "";
-            String[] baseBlock = blockIdString.split(":");
+            String newBlockString = baseBlock[1];
 
             if (itemStack.getItem() instanceof PickaxeItem && state.isIn(ModBlockTags.CRACKABLE_BLOCKS)) {
                 prependString = "cracked_";
                 soundEvent = SoundEvents.BLOCK_DEEPSLATE_BRICKS_HIT;
             }
-            if (state.isIn(ModBlockTags.CRACKED_BLOCKS) && itemStack.isIn(ModItemTagProvider.CAN_REPAIR_BRICK) && !baseBlock[1].contains("infested")) {
+            if (state.isIn(ModBlockTags.CRACKED_BLOCKS) && itemStack.isIn(ModItemTagProvider.CAN_REPAIR_BRICK) && !newBlockString.contains("infested")) {
                 targetString = "cracked_";
                 soundEvent = SoundEvents.BLOCK_MUD_STEP;
             }
@@ -75,23 +80,45 @@ public class ItemMixin {
                 soundEvent = SoundEvents.BLOCK_GROWING_PLANT_CROP;
             }
             if (state.isIn(BlockTags.LOGS) && (itemStack.isIn(ModItemTagProvider.CAN_APPLY_BARK) || itemStack.isOf(barkFD))) {
-                if (baseBlock[1].contains("stripped_")) {
+                if (newBlockString.contains("stripped_")) {
                     targetString = "stripped_";
                 }
-                if (baseBlock[1].contains("_log") && !baseBlock[1].contains("stripped_")) {
+                if (newBlockString.contains("_log") && !newBlockString.contains("stripped_")) {
                     targetString = "_log";
                     replaceString = "_wood";
                 }
                 soundEvent = SoundEvents.BLOCK_WOOD_HIT;
             }
             if (itemStack.getItem() instanceof ChiselItem) {
-                if (state.isIn(ModBlockTags.CHISELABLE_BLOCKS)) prependString = "chiseled_";
-                if (state.isIn(ModBlockTags.CHISELED_BLOCKS)) targetString = "chiseled_";
                 soundEvent = SoundEvents.BLOCK_GRINDSTONE_USE;
+                if (state.isIn(ModBlockTags.CHISELABLE_BLOCKS)) {
+                    prependString = "chiseled_";
+                    if (state.getBlock() instanceof Oxidizable oxidizable) {
+                        if (oxidizable.getDegradationLevel().ordinal() > 0){
+                            String[] copperBlock = newBlockString.split("_");
+                            prependString = "";
+                            newBlockString = copperBlock[0] + "_chiseled_" + copperBlock[1];
+                        }
+                        if (newBlockString.contains("block")) newBlockString = "copper";
+                    }
+                    if (newBlockString.contains("waxed")) {
+                        String[] waxedCopperBlock = newBlockString.split("_");
+                        prependString = "";
+                        newBlockString = waxedCopperBlock[0] + "_" + waxedCopperBlock[1] + "_chiseled_" + waxedCopperBlock[2];
+                        if (newBlockString.contains("block")) newBlockString = waxedCopperBlock[0] + "_chiseled_" + waxedCopperBlock[1];
+                    }
+                }
+                if (state.isIn(ModBlockTags.CHISELED_BLOCKS)) {
+                    targetString = "chiseled_";
+                    if (newBlockString.equals("waxed_chiseled_copper")) appendString = "_block";
+                    if (state.getBlock() instanceof Oxidizable oxidizable && newBlockString.equals("chiseled_copper")) appendString = "_block";
+                }
             }
 
-            if(!targetString.isEmpty()) newBlockString = baseBlock[1].replace(targetString, replaceString);
-            if(!prependString.isEmpty()) newBlockString = prependString + baseBlock[1];
+            if(!targetString.isEmpty()) newBlockString = newBlockString.replace(targetString, replaceString);
+            if(!prependString.isEmpty()) newBlockString = prependString + newBlockString;
+            if(!appendString.isEmpty()) newBlockString = newBlockString + appendString;
+
             Block newBlock = ThumbAndThicket.thumbandthicket$getBlockByName(newBlockString);
             if (!(newBlock instanceof AirBlock)) {
                 BlockState newState = newBlock.getDefaultState();

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:gift",
+    "pools": [
+        {
+            "bonus_rolls": 0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "thumbandthicket:moss_clump"
+                }
+            ],
+            "rolls": 1
+        }
+    ],
+    "random_sequence": "thumbandthicket:gameplay/remove_moss"
+}

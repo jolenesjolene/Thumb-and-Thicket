@@ -3,9 +3,7 @@ package net.jolene.thumbandthicket.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.fluid.ModFluids;
-import net.jolene.thumbandthicket.util.ModKeys;
-import net.jolene.thumbandthicket.util.ModCauldronBehavior;
-import net.jolene.thumbandthicket.util.ModProperties;
+import net.jolene.thumbandthicket.util.*;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -17,6 +15,7 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -27,12 +26,27 @@ public class ModBlocks {
     public static final Block SHORT_LILAC = register(new FlowerBlock(StatusEffects.POISON, 10,AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
     public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block CATTAIL = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "cattail", true);
-
     public static final Block POISON_IVY = register(new PoisonIvyBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()), "poison_ivy", true);
     public static final Block CLOVERS = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS).replaceable()), "clovers", true);
-
     public static final Block ALGAE = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "algae", true);
     public static final Block DUCKWEED = register(new DuckweedBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD).mapColor(MapColor.DARK_GREEN).noCollision()), "duckweed", false);
+
+    public static final Block FRUIT_LEAVES = register(new LeavesBlock(AbstractBlock.Settings.create()), "fruit_leaves", true);
+    public static final Block FRUIT_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)), "fruit_log", true);
+    public static final Block FRUIT_WOOD = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)), "fruit_wood", true);
+    public static final Block STRIPPED_FRUIT_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)), "stripped_fruit_log", true);
+    public static final Block STRIPPED_FRUIT_WOOD = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)), "stripped_fruit_wood", true);
+    public static final Block FRUIT_PLANKS = register(new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)), "fruit_planks", true);
+    public static final Block FRUIT_STAIRS = register(new StairsBlock(FRUIT_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)), "fruit_stairs", true);
+    public static final Block FRUIT_SLAB = register(new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)), "fruit_slab", true);
+    public static final Block FRUIT_FENCE = register(new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)), "fruit_fence", true);
+    public static final Block FRUIT_FENCE_GATE = register(new FenceGateBlock(ModWoodType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)), "fruit_fence_gate", true);
+    public static final Block FRUIT_DOOR = register(new DoorBlock(ModBlockSetType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), "fruit_door", true);
+    public static final Block FRUIT_TRAPDOOR = register(new TrapdoorBlock(ModBlockSetType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)), "fruit_trapdoor", true);
+    public static final Block FRUIT_PRESSURE_PLATE = register(new PressurePlateBlock(ModBlockSetType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)), "fruit_pressure_plate", true);
+    public static final Block FRUIT_BUTTON = register(new ButtonBlock(ModBlockSetType.FRUIT,40, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)), "fruit_button", true);
+    public static final Block FRUIT_SIGN = register(new SignBlock(ModWoodType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)), "fruit_sign", true);
+    public static final Block FRUIT_HANGING_SIGN = register(new HangingSignBlock(ModWoodType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)), "fruit_hanging_sign", true);
 
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);
     public static final Block SNOWY_SHORT_GRASS = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_short_grass", true);
@@ -53,9 +67,9 @@ public class ModBlocks {
     public static final Block DEW_CAULDRON = register(new DewCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), ModCauldronBehavior.DEW_CAULDRON_BEHAVIOR), "dew_cauldron", false);
     public static final Block DEW_DROP_CROP_CAULDRON = register(new DewDropCropBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).ticksRandomly()), "dew_drop_crop_cauldron", false);
 
-    public static final Block PALE_GOURD = register(new PaleGourdBlock(AbstractBlock.Settings.copy(Blocks.PUMPKIN)), "pale_gourd", true);
-    public static final Block JACK_O_GOURD = register(new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "jack_o_gourd", true);
-    public static final Block CARVED_PALE_GOURD = register(new WearableCarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "carved_pale_gourd", true);
+    public static final Block PALE_GOURD = register(new PaleGourdBlock(AbstractBlock.Settings.copy(Blocks.PUMPKIN).mapColor(DyeColor.WHITE)), "pale_gourd", true);
+    public static final Block JACK_O_GOURD = register(new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN).mapColor(DyeColor.WHITE)), "jack_o_gourd", true);
+    public static final Block CARVED_PALE_GOURD = register(new WearableCarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.JACK_O_LANTERN).mapColor(DyeColor.WHITE)), "carved_pale_gourd", true);
     public static final Block ATTACHED_PALE_GOURD_STEM = register(new AttachedStemBlock(ModKeys.PALE_GOURD, ModKeys.PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "attached_pale_gourd_stem", false);
     public static final Block PALE_GOURD_STEM = register(new StemBlock(ModKeys.PALE_GOURD, ModKeys.ATTACHED_PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "pale_gourd_stem", false);
 

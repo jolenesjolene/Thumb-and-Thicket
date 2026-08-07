@@ -17,8 +17,12 @@ public class ModLootTableUtil {
     private static final BiMap<Identifier, LootContextType> MAP = HashBiMap.create();
 
     public static final RegistryKey<LootTable> CLAM_LOOT = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, "gameplay/clam_loot"));
+    public static final RegistryKey<LootTable> REMOVE_MOSS_LOOT = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, "gameplay/remove_moss"));
+    public static final RegistryKey<LootTable> PATINA_LOOT = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, "gameplay/patina"));
 
     public static final LootContextType CLAM = register(Identifier.of(MOD_ID, "gameplay/clam_loot"), builder -> builder.require(LootContextParameters.ORIGIN).require(LootContextParameters.BLOCK_ENTITY));
+    public static final LootContextType REMOVE_MOSS = register(Identifier.of(MOD_ID, "gameplay/remove_moss"), builder -> builder.require(LootContextParameters.ORIGIN).require(LootContextParameters.BLOCK_STATE));
+    public static final LootContextType PATINA = register(Identifier.of(MOD_ID, "gameplay/patina"), builder -> builder.require(LootContextParameters.ORIGIN).require(LootContextParameters.BLOCK_STATE));
 
     private static LootContextType register(Identifier identifier, Consumer<LootContextType.Builder> type) {
         LootContextType.Builder builder = new LootContextType.Builder();
