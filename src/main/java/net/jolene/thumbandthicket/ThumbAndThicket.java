@@ -181,7 +181,7 @@ public class ThumbAndThicket implements ModInitializer {
                 .orElseThrow(() -> new IllegalStateException("Missing mod modContainer"));
 
         ResourceManagerHelper.registerBuiltinResourcePack(
-                Identifier.of(MOD_ID, "tat_wood"), modContainer,
+                Identifier.of(MOD_ID, "tat_overrides"), modContainer,
                 Text.translatable("pack.thumbandthicket.name"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
