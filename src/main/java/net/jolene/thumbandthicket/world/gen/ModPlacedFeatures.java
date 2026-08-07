@@ -1,6 +1,5 @@
 package net.jolene.thumbandthicket.world.gen;
 
-import com.blackgear.vanillabackport.common.worldgen.features.SpringToLifeFeatures;
 import net.jolene.thumbandthicket.world.gen.placementmodifier.SnowPlacementModifier;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;

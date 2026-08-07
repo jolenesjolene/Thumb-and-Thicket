@@ -31,7 +31,7 @@ public class ModBlocks {
     public static final Block ALGAE = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "algae", true);
     public static final Block DUCKWEED = register(new DuckweedBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD).mapColor(MapColor.DARK_GREEN).noCollision()), "duckweed", false);
 
-    public static final Block FRUIT_LEAVES = register(new LeavesBlock(AbstractBlock.Settings.create()), "fruit_leaves", true);
+    public static final Block FRUIT_LEAVES = register(new FruitLeavesBlock(AbstractBlock.Settings.create()), "fruit_leaves", true);
     public static final Block FRUIT_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)), "fruit_log", true);
     public static final Block FRUIT_WOOD = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)), "fruit_wood", true);
     public static final Block STRIPPED_FRUIT_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)), "stripped_fruit_log", true);

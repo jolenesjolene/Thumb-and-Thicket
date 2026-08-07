@@ -155,7 +155,7 @@
   - Worldgen
   - Textures
 - Algae
-  - ~~Block~~
+  - Block
   - Worldgen
   - Fish consume
   - Textures
