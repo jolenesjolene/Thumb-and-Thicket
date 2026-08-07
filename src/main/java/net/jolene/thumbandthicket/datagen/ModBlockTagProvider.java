@@ -55,7 +55,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.WAXED_COPPER_BLOCK)
                 .add(Blocks.WAXED_EXPOSED_COPPER)
                 .add(Blocks.WAXED_WEATHERED_COPPER)
-                .add(Blocks.WAXED_OXIDIZED_COPPER);
+                .add(Blocks.WAXED_OXIDIZED_COPPER)
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.CINNABAR.get())
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.SULFUR.get())
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.RESIN_BRICKS.get());
 
         getOrCreateTagBuilder(CHISELED_BLOCKS)
                 .add(Blocks.CHISELED_STONE_BRICKS)
@@ -74,7 +77,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.WAXED_CHISELED_COPPER)
                 .add(Blocks.WAXED_EXPOSED_CHISELED_COPPER)
                 .add(Blocks.WAXED_WEATHERED_CHISELED_COPPER)
-                .add(Blocks.WAXED_OXIDIZED_CHISELED_COPPER);
+                .add(Blocks.WAXED_OXIDIZED_CHISELED_COPPER)
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.CHISELED_CINNABAR.get())
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.CHISELED_SULFUR.get())
+                .add(com.blackgear.vanillabackport.common.registries.ModBlocks.CHISELED_RESIN_BRICKS.get());
 
         getOrCreateTagBuilder(MOSSABLE_BLOCKS)
                 .add(Blocks.COBBLESTONE)

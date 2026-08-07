@@ -346,4 +346,5 @@
   - ~~Cracking~~
   - ~~Oxidizing~~
   - ~~Waxing~~
-  - Block drop changes?
+  - ~~Block drop changes?~~
+  - ~~Tooltips~~

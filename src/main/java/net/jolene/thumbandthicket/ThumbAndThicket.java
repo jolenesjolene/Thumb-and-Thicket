@@ -15,10 +15,7 @@ import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
 import net.jolene.thumbandthicket.entity.custom.LoraxEntity;
 import net.jolene.thumbandthicket.item.ModItemGroups;
 import net.jolene.thumbandthicket.item.ModItems;
-import net.jolene.thumbandthicket.util.ModCauldronBehavior;
-import net.jolene.thumbandthicket.util.ModLootTableModifications;
-import net.jolene.thumbandthicket.util.Rooty;
-import net.jolene.thumbandthicket.util.Slice;
+import net.jolene.thumbandthicket.util.*;
 import net.jolene.thumbandthicket.world.gen.ModFeatureReplacements;
 import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;
 import net.jolene.thumbandthicket.world.gen.placementmodifier.ModPlacementModifierType;
@@ -65,6 +62,7 @@ public class ThumbAndThicket implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.BEAVER, BeaverEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.BROWN_BEAR, BrownBearEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.LORAX, LoraxEntity.createAttributes());
+        RecipeUtil.registerRecipeDisabler();
         LOGGER.info("Muddy!");
 	}
 
