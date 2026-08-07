@@ -38,6 +38,12 @@
   "item.thumbandthicket.brown_bear_spawn_egg": "Brown Bear Spawn Egg",
   "entity.thumbandthicket.brown_bear": "Brown Bear",
 
+  "item.thumbandthicket.copper_patina": "Copper Patina",
+  "item.thumbandthicket.chisel": "Chisel",
+  "item.thumbandthicket.moss_clump": "Moss Clump",
+  "item.thumbandthicket.bark": "Bark",
+  "item.thumbandthicket.waxed_brush": "Waxed Brush",
+
   "effect.thumbandthicket.prickly": "Prickly",
 
   "pack.thumbandthicket.name": "TaT §7§oWood Vanilla Overrides ❤",
@@ -45,9 +51,26 @@
 
   "sounds.thumbandthicket.snip": "Snips Log",
 
-  "tooltip.thumbandthicket.shears": "§7A Gardener's best friend!",
-  "tooltip.thumbandthicket.shears1": "§7§o- Snip plants to prevent growth ",
-  "tooltip.thumbandthicket.shears2": "§7§o- Remove Imperfections from Trees",
 
-  "tooltip.thumbandthicket.shift": "§8Press §eShift §8for more!"
+  "tag.item.thumbandthicket.can_apply_moss": "§7§o- Can apply Moss to Blocks",
+  "tag.item.thumbandthicket.can_apply_bark": "§7§o- Can apply Bark to Blocks",
+  "tag.item.thumbandthicket.can_repair_brick": "§7§o- Can repair cracked Blocks",
+
+  "tag.block.thumbandthicket.mossable_blocks": "§7§o- Can be made Mossy with a Moss Clump",
+  "tag.block.thumbandthicket.crackable_blocks": "§7§o- Can be cracked with a Pickaxe",
+  "tag.block.thumbandthicket.chiselable_blocks": "§7§o- Can be chiseled with a Chisel",
+  "tag.block.thumbandthicket.waxable_blocks": "§7§o- Can be Waxed",
+  "tag.block.thumbandthicket.oxidizable_blocks": "§7§o- Will oxidize over time",
+
+  "tag.item.thumbandthicket.can_wax_blocks": "§7§o- Can wax Copper Blocks and certain Workstations",
+  "tag.item.thumbandthicket.can_wax_copper": "§7§o- Can wax Copper Blocks",
+  "tooltip.thumbandthicket.copper_patina": "§7§o- Can age Copper Blocks",
+  "tooltip.thumbandthicket.chisel": "§7§o- Can chisel certain Blocks",
+  "tooltip.thumbandthicket.can_be_interacted_with": "Interactable with",
+  "tooltip.thumbandthicket.shears": "§7A Gardener's best friend!",
+  "tooltip.thumbandthicket.shears1": "§7§o- Snip plants to prevent growth",
+  "tooltip.thumbandthicket.shears2": "§7§o- Remove Imperfections from Trees",
+  "tooltip.thumbandthicket.shears3": "§7§o- Can remove Moss from Blocks",
+
+  "tooltip.thumbandthicket.shift": "§8Hold §eShift §8for Info!"
 }

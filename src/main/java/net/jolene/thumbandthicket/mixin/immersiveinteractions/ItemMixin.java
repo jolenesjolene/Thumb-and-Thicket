@@ -37,7 +37,7 @@ public class ItemMixin {
     }
 
     @WrapMethod(method = "useOnBlock")
-    private ActionResult immersive_interactions$useOnBlock(ItemUsageContext context, Operation<ActionResult> original) {
+    private ActionResult thumbandthicket$useOnBlock(ItemUsageContext context, Operation<ActionResult> original) {
         ItemStack itemStack = context.getStack();
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
