@@ -22,7 +22,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModBlockTags.ROOTY_BLOCKS).add(Blocks.ROOTED_DIRT, ModBlocks.ROOT_BLOCK, ModBlocks.ROOTED_GRASS);
         getOrCreateTagBuilder(ModBlockTags.STACKABLE_MUSHROOMS).add(Blocks.RED_MUSHROOM, Blocks.BROWN_MUSHROOM, ModBlocks.PURPLE_MUSHROOM);
         getOrCreateTagBuilder(ModBlockTags.SNIPPABLE).add(Blocks.VINE, Blocks.SUGAR_CANE, Blocks.CACTUS);
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(ModBlocks.SNOWY_SHORT_GRASS);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.SNOWY_SHORT_GRASS)
+                .add(ModBlocks.ROOTED_GRASS)
+                .add(ModBlocks.ROOTED_PODZOL)
+                .add(ModBlocks.PERMAFROST);
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocks.ROOT_BLOCK);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.HYDROTHERMAL_VENT)
+                .add(ModBlocks.HYDROTHERMAL_VENT_BLOCK)
+                .add(ModBlocks.CLAM_SLAB_BLOCK);
         getOrCreateTagBuilder(ModBlockTags.GRASS_BLOCKS).add(Blocks.GRASS_BLOCK);
         getOrCreateTagBuilder(ModBlockTags.TALL_CROPS).add(Blocks.WHEAT);
         getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.ROOTED_GRASS, ModBlocks.ROOTED_PODZOL, ModBlocks.PERMAFROST);

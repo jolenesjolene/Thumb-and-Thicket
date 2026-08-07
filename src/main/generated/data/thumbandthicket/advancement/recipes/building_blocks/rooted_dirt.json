@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bark": {
+    "has_hanging_roots": {
       "conditions": {
         "items": [
           {
-            "items": "thumbandthicket:bark"
+            "items": "minecraft:hanging_roots"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thumbandthicket:stick"
+        "recipe": "thumbandthicket:rooted_dirt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bark"
+      "has_hanging_roots"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thumbandthicket:stick"
+      "thumbandthicket:rooted_dirt"
     ]
   }
 }

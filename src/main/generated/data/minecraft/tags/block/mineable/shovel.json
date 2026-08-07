@@ -1,5 +1,8 @@
 {
   "values": [
-    "thumbandthicket:snowy_short_grass"
+    "thumbandthicket:snowy_short_grass",
+    "thumbandthicket:rooted_grass",
+    "thumbandthicket:rooted_podzol",
+    "thumbandthicket:permafrost"
   ]
 }

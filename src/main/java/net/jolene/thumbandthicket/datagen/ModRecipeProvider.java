@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -32,10 +33,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(Items.MOSS_CARPET), FabricRecipeProvider.conditionsFromItem(Items.MOSS_CARPET))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.MOSS_CLUMP, 4)
-                .input(Items.MOSS_BLOCK)
-                .criterion(FabricRecipeProvider.hasItem(Items.MOSS_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.MOSS_BLOCK))
-                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOWL)
                 .pattern("b b")
                 .pattern(" b ")
@@ -53,6 +50,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("multi_bench")
                 .criterion(FabricRecipeProvider.hasItem(ModItems.CHISEL), FabricRecipeProvider.conditionsFromItem(ModItems.CHISEL))
                 .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.MOSS_CLUMP, 4)
+                .input(Items.MOSS_BLOCK)
+                .criterion(FabricRecipeProvider.hasItem(Items.MOSS_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.MOSS_BLOCK))
+                .offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.WAXED_BRUSH)
                 .input(Items.BRUSH)
                 .input(Items.HONEYCOMB)
@@ -62,7 +64,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.STICK, 2)
                 .input(ModItems.BARK)
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BARK), FabricRecipeProvider.conditionsFromItem(ModItems.BARK))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.ROOTED_DIRT, 2)
+                .input(Items.DIRT)
+                .input(Items.HANGING_ROOTS)
+                .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_GRASS, 2)
+                .input(Items.GRASS_BLOCK)
+                .input(Items.HANGING_ROOTS)
+                .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_PODZOL, 2)
+                .input(Items.PODZOL)
+                .input(Items.HANGING_ROOTS)
+                .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JACK_O_GOURD, 2)
+                .input(ModBlocks.JACK_O_GOURD)
+                .input(Items.TORCH)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.CARVED_PALE_GOURD), FabricRecipeProvider.conditionsFromItem(ModBlocks.CARVED_PALE_GOURD))
                 .offerTo(exporter);
     }
 }
