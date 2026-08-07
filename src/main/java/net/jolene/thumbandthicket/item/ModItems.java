@@ -56,10 +56,12 @@ public class ModItems {
             new SpawnEggItem(ModEntities.BEAVER, 0x000000, 0x000000, new Item.Settings()),
             "beaver_spawn_egg");
 
+    public static final Item FUR = register(new Item(new Item.Settings()), "fur");
 
     public static final Item CHISEL = register(new ChiselItem(new Item.Settings().maxDamage(128)), "chisel");
     public static final Item MOSS_CLUMP = register(new Item(new Item.Settings()), "moss_clump");
     public static final Item BARK = register(new BarkItem(new Item.Settings()), "bark");
+    public static final Item PATINA = register(new PatinaItem(new Item.Settings()), "copper_patina");
     public static final Item WAXED_BRUSH = register(new WaxedBrushItem(new Item.Settings().maxDamage(48).recipeRemainder(Items.BRUSH)), "waxed_brush");
 
     private static Item register(Item item, String name) {
@@ -71,19 +73,33 @@ public class ModItems {
     }
 
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK)
-                .register(group -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(group -> {
                     group.addAfter(Items.APPLE, ModItems.ROTTEN_APPLE);
                     group.addAfter(ModItems.ROTTEN_APPLE, ModItems.PEAR);
                     group.addAfter(ModItems.PEAR, ModItems.ORANGE, ModItems.CAVE_PARSNIP, ModItems.CHERRY);
                     group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
                 });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
-                .register(group -> group.addAfter(Items.POLAR_BEAR_SPAWN_EGG, ModItems.BROWN_BEAR_SPAWN_EGG));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS)
-                .register(group -> group.addAfter(Items.DOLPHIN_SPAWN_EGG, ModItems.BEAVER_SPAWN_EGG));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL)
-                .register(group -> group.addAfter(ModBlocks.CLOVERS, ModItems.LUCKY_CLOVER));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(group -> group.addAfter(
+                Items.POLAR_BEAR_SPAWN_EGG,
+                ModItems.BROWN_BEAR_SPAWN_EGG
+        ));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(group -> group.addAfter(
+                Items.DOLPHIN_SPAWN_EGG,
+                ModItems.BEAVER_SPAWN_EGG
+        ));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(group -> group.addAfter(
+                ModBlocks.CLOVERS,
+                ModItems.LUCKY_CLOVER
+        ));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(PATINA));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.add(CHISEL);
+            entries.add(WAXED_BRUSH);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.add(MOSS_CLUMP);
+            entries.add(BARK);
+        });
     }
 }

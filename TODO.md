@@ -313,7 +313,7 @@
   - Overworld Biomes
     - Transition Biomes
     - Clearings in Forests
-    - Mud in Rivers and Oceans instead of Dirt
+    - ~~Mud in Rivers and Oceans instead of Dirt~~
     - Sulfur Springs biome instead of features
   - Cave Biomes
     - Hot Caves/Sand Caves
@@ -341,3 +341,9 @@
   - new Textures
   - ~~Villager AI~~
   - ~~make less bad~~
+- Port Immersive Interactions to TaT
+  - ~~Mossing~~
+  - ~~Cracking~~
+  - ~~Oxidizing~~
+  - ~~Waxing~~
+  - Block drop changes?

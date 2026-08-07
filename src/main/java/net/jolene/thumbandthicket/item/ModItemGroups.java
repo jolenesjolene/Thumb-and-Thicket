@@ -30,10 +30,9 @@ public class ModItemGroups {
                             entries.add(Items.DARK_OAK_SAPLING);
                             entries.add(Items.MANGROVE_PROPAGULE);
                             entries.add(Items.CHERRY_SAPLING);
-                            Item PALE_OAK_SAPLING = Registries.ITEM.get(Identifier.of("minecraft", "pale_oak_sapling"));
-                            if (PALE_OAK_SAPLING != Items.AIR) {
-                                entries.add(PALE_OAK_SAPLING);}
+                            entries.add(com.blackgear.vanillabackport.common.registries.ModBlocks.PALE_OAK_SAPLING.get());
 
+                            entries.add(ModItems.LEAF_LITTER);
                             entries.add(ModBlocks.CLOVERS);
                             entries.add(ModItems.LUCKY_CLOVER);
                             entries.add(Items.DANDELION);
@@ -42,11 +41,12 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BLUE_ROSE);
                             entries.add(ModBlocks.LAVENDER);
                             entries.add(ModBlocks.MILKWEED);
-                            //entries.add(ModBlocks.DUCKWEED);
                             entries.add(ModBlocks.CATTAIL);
                             entries.add(ModBlocks.BEACH_GRASS);
-                            //entries.add(ModBlocks.POISON_IVY);
+                            entries.add(ModBlocks.POISON_IVY);
                             entries.add(Blocks.LILY_PAD);
+                            entries.add(ModBlocks.DUCKWEED);
+                            entries.add(ModBlocks.ALGAE);
 
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(ModBlocks.ROOTED_PODZOL);
@@ -71,16 +71,17 @@ public class ModItemGroups {
                             //entries.add(ModItems.SHRIVELED_PRICKLY_PEAR);
                             entries.add(ModItems.GOLDEN_PRICKLY_PEAR);
 
-
                             entries.add(Items.RED_MUSHROOM);
                             entries.add(Items.BROWN_MUSHROOM);
                             entries.add(ModBlocks.PURPLE_MUSHROOM);
                             entries.add(ModBlocks.PURPLE_MUSHROOM_BLOCK);
 
-
                             entries.add(Items.WHEAT_SEEDS);
                             entries.add(Items.WHEAT);
-
+                            entries.add(ModItems.PALE_GOURD_SEEDS);
+                            entries.add(ModBlocks.PALE_GOURD);
+                            entries.add(ModBlocks.CARVED_PALE_GOURD);
+                            entries.add(ModBlocks.JACK_O_GOURD);
 
                             entries.add(ModBlocks.TINGED_SHORT_GRASS);
                             entries.add(ModBlocks.SNOWY_SHORT_GRASS);
@@ -93,10 +94,18 @@ public class ModItemGroups {
 
                             entries.add(ModItems.BEAVER_SPAWN_EGG);
                             entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
+                            entries.add(ModItems.FUR);
                             entries.add(Items.SHEARS);
+                            entries.add(ModItems.WAXED_BRUSH);
+                            entries.add(ModItems.CHISEL);
+                            entries.add(ModItems.PATINA);
+                            entries.add(ModItems.BARK);
+                            entries.add(ModItems.DEW_BOTTLE);
                             entries.add(ModItems.BRINE_BUCKET);
+
                             entries.add(ModBlocks.HYDROTHERMAL_VENT_BLOCK);
                             entries.add(ModBlocks.HYDROTHERMAL_VENT);
+                            entries.add(ModBlocks.CLAM_SLAB_BLOCK);
                         }).build());
 
 

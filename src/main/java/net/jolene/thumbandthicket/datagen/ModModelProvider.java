@@ -42,6 +42,7 @@ public class ModModelProvider extends FabricModelProvider {
                     ModItems.CHISEL,
                     ModItems.MOSS_CLUMP,
                     ModItems.WAXED_BRUSH,
+                    ModItems.PATINA,
                     ModItems.DUCKWEED,
                     ModItems.PALE_GOURD_SEEDS
             )),

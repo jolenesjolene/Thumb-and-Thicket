@@ -51,7 +51,7 @@ public class ModBlocks {
 
     public static final Block DEW_DROP = register(new DewDropPlantBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).hardness(0.0f).noCollision()), "dew_drop", true);
     public static final Block DEW_CAULDRON = register(new DewCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), ModCauldronBehavior.DEW_CAULDRON_BEHAVIOR), "dew_cauldron", false);
-    public static final Block DEW_DROP_CROP_CAULDRON = register(new DewDropCropBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).ticksRandomly()), "dew_drop_crop_cauldron", true);
+    public static final Block DEW_DROP_CROP_CAULDRON = register(new DewDropCropBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).ticksRandomly()), "dew_drop_crop_cauldron", false);
 
     public static final Block PALE_GOURD = register(new PaleGourdBlock(AbstractBlock.Settings.copy(Blocks.PUMPKIN)), "pale_gourd", true);
     public static final Block JACK_O_GOURD = register(new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "jack_o_gourd", true);

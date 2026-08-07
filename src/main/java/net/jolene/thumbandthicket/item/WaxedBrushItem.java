@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.SignChangingItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -16,7 +17,7 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.Objects;
 
-public class WaxedBrushItem extends HoneycombItem  {
+public class WaxedBrushItem extends HoneycombItem implements SignChangingItem {
     public WaxedBrushItem(Settings settings) {
         super(settings);
     }
