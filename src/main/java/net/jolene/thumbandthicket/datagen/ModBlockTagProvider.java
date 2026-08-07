@@ -38,8 +38,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.ROOTED_GRASS, ModBlocks.ROOTED_PODZOL, ModBlocks.PERMAFROST);
         getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(ModBlocks.ROOTED_PODZOL);
         getOrCreateTagBuilder(CHISELABLE_BLOCKS)
+                .add(Blocks.BOOKSHELF)
                 .add(Blocks.STONE_BRICKS)
-                .add(Blocks.INFESTED_STONE_BRICKS)
                 .add(Blocks.COBBLED_DEEPSLATE)
                 .add(Blocks.TUFF)
                 .add(Blocks.TUFF_BRICKS)
@@ -59,7 +59,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(CHISELED_BLOCKS)
                 .add(Blocks.CHISELED_STONE_BRICKS)
-                .add(Blocks.INFESTED_CHISELED_STONE_BRICKS)
                 .add(Blocks.CHISELED_DEEPSLATE)
                 .add(Blocks.CHISELED_TUFF)
                 .add(Blocks.CHISELED_TUFF_BRICKS)

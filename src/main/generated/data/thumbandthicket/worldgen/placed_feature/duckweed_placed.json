@@ -22,6 +22,10 @@
     {
       "type": "minecraft:rarity_filter",
       "chance": 2
+    },
+    {
+      "type": "thumbandthicket:snowy_below",
+      "should_be_snowy": false
     }
   ]
 }

@@ -23,10 +23,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import org.slf4j.Logger;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Objects;
@@ -57,13 +54,13 @@ public class ItemMixin {
             String appendString = "";
             String targetString = "";
             String replaceString = "";
-            String newBlockString = baseBlock[1];
+            String blockString = baseBlock[1];
 
             if (itemStack.getItem() instanceof PickaxeItem && state.isIn(ModBlockTags.CRACKABLE_BLOCKS)) {
                 prependString = "cracked_";
                 soundEvent = SoundEvents.BLOCK_DEEPSLATE_BRICKS_HIT;
             }
-            if (state.isIn(ModBlockTags.CRACKED_BLOCKS) && itemStack.isIn(ModItemTagProvider.CAN_REPAIR_BRICK) && !newBlockString.contains("infested")) {
+            if (state.isIn(ModBlockTags.CRACKED_BLOCKS) && itemStack.isIn(ModItemTagProvider.CAN_REPAIR_BRICK) && !blockString.contains("infested")) {
                 targetString = "cracked_";
                 soundEvent = SoundEvents.BLOCK_MUD_STEP;
             }
@@ -76,10 +73,10 @@ public class ItemMixin {
                 soundEvent = SoundEvents.BLOCK_GROWING_PLANT_CROP;
             }
             if (state.isIn(BlockTags.LOGS) && (itemStack.isIn(ModItemTagProvider.CAN_APPLY_BARK) || itemStack.isOf(barkFD))) {
-                if (newBlockString.contains("stripped_")) {
+                if (blockString.contains("stripped_")) {
                     targetString = "stripped_";
                 }
-                if (newBlockString.contains("_log") && !newBlockString.contains("stripped_")) {
+                if (blockString.contains("_log") && !blockString.contains("stripped_")) {
                     targetString = "_log";
                     replaceString = "_wood";
                 }
@@ -91,34 +88,36 @@ public class ItemMixin {
                     prependString = "chiseled_";
                     if (state.getBlock() instanceof Oxidizable oxidizable) {
                         if (oxidizable.getDegradationLevel().ordinal() > 0){
-                            String[] copperBlock = newBlockString.split("_");
+                            String[] copperBlock = blockString.split("_");
                             prependString = "";
-                            newBlockString = copperBlock[0] + "_chiseled_" + copperBlock[1];
+                            blockString = copperBlock[0] + "_chiseled_" + copperBlock[1];
                         }
-                        if (newBlockString.contains("block")) newBlockString = "copper";
+                        if (blockString.contains("block")) blockString = "copper";
                     }
-                    if (newBlockString.contains("waxed")) {
-                        String[] waxedCopperBlock = newBlockString.split("_");
+                    if (blockString.contains("waxed")) {
+                        String[] waxedCopperBlock = blockString.split("_");
                         prependString = "";
-                        newBlockString = waxedCopperBlock[0] + "_" + waxedCopperBlock[1] + "_chiseled_" + waxedCopperBlock[2];
-                        if (newBlockString.contains("block")) newBlockString = waxedCopperBlock[0] + "_chiseled_" + waxedCopperBlock[1];
+                        blockString = waxedCopperBlock[0] + "_" + waxedCopperBlock[1] + "_chiseled_" + waxedCopperBlock[2];
+                        if (blockString.contains("block")) blockString = waxedCopperBlock[0] + "_chiseled_" + waxedCopperBlock[1];
                     }
                 }
                 if (state.isIn(ModBlockTags.CHISELED_BLOCKS)) {
                     targetString = "chiseled_";
-                    if (newBlockString.equals("waxed_chiseled_copper")) appendString = "_block";
-                    if (state.getBlock() instanceof Oxidizable && newBlockString.equals("chiseled_copper")) appendString = "_block";
+                    if (blockString.equals("waxed_chiseled_copper")) appendString = "_block";
+                    if (state.getBlock() instanceof Oxidizable && blockString.equals("chiseled_copper")) appendString = "_block";
                 }
             }
 
-            if(!targetString.isEmpty()) newBlockString = newBlockString.replace(targetString, replaceString);
-            if(!prependString.isEmpty()) newBlockString = prependString + newBlockString;
-            if(!appendString.isEmpty()) newBlockString = newBlockString + appendString;
+            if(!targetString.isEmpty()) blockString = blockString.replace(targetString, replaceString);
+            if(!prependString.isEmpty()) blockString = prependString + blockString;
+            if(!appendString.isEmpty()) blockString = blockString + appendString;
 
-            Block newBlock = ThumbAndThicket.thumbandthicket$getBlockByName(newBlockString);
+            Block newBlock = ThumbAndThicket.thumbandthicket$getBlockByName(blockString);
             if (!(newBlock instanceof AirBlock)) {
                 BlockState newState = newBlock.getDefaultState();
                 for (Property<?> property : state.getProperties()) if (newState.contains(property)) newState = copyProperty(newState, state, property);
+
+                if (newBlock instanceof ChiseledBookshelfBlock) newState = newState.with(HorizontalFacingBlock.FACING, context.getHorizontalPlayerFacing().getOpposite());
 
                 world.setBlockState(pos, newState);
                 world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS);
@@ -126,7 +125,7 @@ public class ItemMixin {
                 else itemStack.decrementUnlessCreative(1, player);
             }
             world.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH, pos, GameEvent.Emitter.of(player));
-            return ActionResult.success(!(newBlock instanceof AirBlock));
+            return ActionResult.success(!(newBlock instanceof AirBlock) && !Objects.equals(blockString, baseBlock[1]));
         }
         return original.call(context);
     }
