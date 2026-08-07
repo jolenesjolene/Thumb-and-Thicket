@@ -11,7 +11,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public record ModBlockSetType(String name, boolean canOpenByHand, boolean canOpenByWindCharge, boolean canButtonBeActivatedByArrows, ModBlockSetType.ActivationRule pressurePlateSensitivity, BlockSoundGroup soundType, SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn) {
-    private static final Map<String, BlockSetType> VALUES = new Object2ObjectArrayMap<String, BlockSetType>();
+    private static final Map<String, BlockSetType> VALUES = new Object2ObjectArrayMap<>();
     public static final Codec<BlockSetType> CODEC = Codec.stringResolver(BlockSetType::name, VALUES::get);
     public static final BlockSetType FRUIT = register(new BlockSetType("fruit"));
 
@@ -28,9 +28,9 @@ public record ModBlockSetType(String name, boolean canOpenByHand, boolean canOpe
         return VALUES.values().stream();
     }
 
-    public static enum ActivationRule {
+    public enum ActivationRule {
         EVERYTHING,
-        MOBS;
+        MOBS
 
     }
 }

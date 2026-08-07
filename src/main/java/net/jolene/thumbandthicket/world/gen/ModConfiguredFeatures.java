@@ -1,6 +1,5 @@
 package net.jolene.thumbandthicket.world.gen;
 
-import com.blackgear.vanillabackport.common.level.blocks.LeafLitterBlock;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.feature.ModFeatures;

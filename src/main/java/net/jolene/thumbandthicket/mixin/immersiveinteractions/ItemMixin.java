@@ -34,10 +34,6 @@ import java.util.Objects;
 @Mixin(Item.class)
 public class ItemMixin {
 
-    @Shadow
-    @Final
-    private static Logger LOGGER;
-
     @Unique
     private static <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState oldState, Property<T> property) {
         return newState.with(property, oldState.get(property));
@@ -111,7 +107,7 @@ public class ItemMixin {
                 if (state.isIn(ModBlockTags.CHISELED_BLOCKS)) {
                     targetString = "chiseled_";
                     if (newBlockString.equals("waxed_chiseled_copper")) appendString = "_block";
-                    if (state.getBlock() instanceof Oxidizable oxidizable && newBlockString.equals("chiseled_copper")) appendString = "_block";
+                    if (state.getBlock() instanceof Oxidizable && newBlockString.equals("chiseled_copper")) appendString = "_block";
                 }
             }
 
