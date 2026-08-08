@@ -31,7 +31,7 @@ public class ModItemGroups {
                             entries.add(Items.MANGROVE_PROPAGULE);
                             entries.add(Items.CHERRY_SAPLING);
                             entries.add(com.blackgear.vanillabackport.common.registries.ModBlocks.PALE_OAK_SAPLING.get());
-
+                            entries.add(ModItems.BARK);
                             entries.add(ModItems.LEAF_LITTER);
                             entries.add(ModBlocks.CLOVERS);
                             entries.add(ModItems.LUCKY_CLOVER);
@@ -99,7 +99,7 @@ public class ModItemGroups {
                             entries.add(ModItems.WAXED_BRUSH);
                             entries.add(ModItems.CHISEL);
                             entries.add(ModItems.PATINA);
-                            entries.add(ModItems.BARK);
+
                             entries.add(ModItems.DEW_BOTTLE);
                             entries.add(ModItems.BRINE_BUCKET);
 
