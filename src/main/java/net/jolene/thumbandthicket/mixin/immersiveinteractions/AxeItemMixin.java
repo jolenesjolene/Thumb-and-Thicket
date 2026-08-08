@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static dev.worldgen.lithostitched.impl.LithostitchedPlatform.isModLoaded;
+import static net.jolene.thumbandthicket.ThumbAndThicket.isModLoaded;
 
 @Mixin(AxeItem.class)
 public class AxeItemMixin {

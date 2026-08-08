@@ -1,7 +1,130 @@
 {
-  "variants": {
-    "": {
-      "model": "thumbandthicket:block/blue_rose"
+  "multipart": [
+    {
+      "apply": {
+        "model": "thumbandthicket:block/blue_rose"
+      },
+      "when": {
+        "facing": "north|east|west|south",
+        "flowers": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_1"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_2"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_3"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/blue_rose_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "3"
+      }
     }
-  }
+  ]
 }

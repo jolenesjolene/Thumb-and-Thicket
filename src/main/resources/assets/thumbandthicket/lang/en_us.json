@@ -14,6 +14,11 @@
   "item.thumbandthicket.lucky_clover": "Lucky Clover",
   "item.thumbandthicket.seeds": "Seeds",
   "item.thumbandthicket.flower_seeds": "Flower Seeds",
+  "item.thumbandthicket.pale_gourd_seeds": "Pale Gourd Seeds",
+  "block.thumbandthicket.pale_gourd": "Pale Gourd",
+  "block.thumbandthicket.carved_pale_gourd": "Carved Pale Gourd",
+  "block.thumbandthicket.jack_o_gourd": "Jack o'Gourd",
+  "block.thumbandthicket.flower_seeds": "Flower Seeds",
   "block.thumbandthicket.purple_mushroom": "Purple Mushroom",
   "block.thumbandthicket.lavender": "Lavender",
   "block.thumbandthicket.milkweed": "Milkweed",
@@ -25,7 +30,12 @@
   "block.thumbandthicket.snowy_large_fern": "Snowy Large Fern",
   "block.thumbandthicket.snowy_bush": "Snowy Bush",
 
+  "block.thumbandthicket.hydrothermal_vent": "Hydrothermal Vent",
+  "block.thumbandthicket.hydrothermal_vent_block": "Hydrothermal Vent Block",
+  "block.thumbandthicket.clam_slab": "Clam",
+
   "block.thumbandthicket.beach_grass": "Beach Grass",
+  "block.thumbandthicket.poison_ivy": "Poison Ivy",
 
   "block.thumbandthicket.purple_mushroom_block": "Purple Mushroom Block",
   "block.thumbandthicket.root_block": "Root Block",
@@ -43,6 +53,9 @@
   "item.thumbandthicket.moss_clump": "Moss Clump",
   "item.thumbandthicket.bark": "Bark",
   "item.thumbandthicket.waxed_brush": "Waxed Brush",
+  "item.thumbandthicket.fur": "Fur",
+  "item.thumbandthicket.brine_bucket": "Bucket of Brine",
+  "item.thumbandthicket.dew_bottle": "Bottle o' Dew",
 
   "effect.thumbandthicket.prickly": "Prickly",
 

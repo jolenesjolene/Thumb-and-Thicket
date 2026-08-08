@@ -34,7 +34,7 @@ public class ModItems {
     public static final Item ROTTEN_APPLE = register(new Item(new Item.Settings().maxCount(64).food(ROTTEN_APPLE_FOOD_COMPONENT)), "rotten_apple");
     public static final Item PEAR = register(new Item(new Item.Settings().maxCount(64).food(PEAR_FOOD_COMPONENT)), "pear");
     public static final Item ORANGE = register(new Item(new Item.Settings().maxCount(64).food(ORANGE_FOOD_COMPONENT)), "orange");
-    public static final Item CAVE_PARSNIP = register(new Item(new Item.Settings().maxCount(64).food(PARSNIP_FOOD_COMPONENT)), "cave_parsnip");
+    public static final Item CAVE_PARSNIP = register(new AliasedBlockItem(ModBlocks.CAVE_PARSNIP_CROP, new Item.Settings().maxCount(64).food(PARSNIP_FOOD_COMPONENT)), "cave_parsnip");
     public static final Item CHERRY = register(new Item(new Item.Settings().maxCount(64).food(CHERRY_FOOD_COMPONENT).recipeRemainder(Items.CHERRY_SAPLING)), "cherry");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");

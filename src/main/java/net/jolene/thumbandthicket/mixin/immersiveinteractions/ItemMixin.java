@@ -120,7 +120,7 @@ public class ItemMixin {
                 if (newBlock instanceof ChiseledBookshelfBlock) newState = newState.with(HorizontalFacingBlock.FACING, context.getHorizontalPlayerFacing().getOpposite());
 
                 world.setBlockState(pos, newState);
-                world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS);
+                if (soundEvent != null) world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS);
                 if (itemStack.contains(DataComponentTypes.MAX_DAMAGE)) itemStack.damage(1, (ServerWorld) world, (ServerPlayerEntity) context.getPlayer(), item -> Objects.requireNonNull(context.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
                 else itemStack.decrementUnlessCreative(1, player);
             }

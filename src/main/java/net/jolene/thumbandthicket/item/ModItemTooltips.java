@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static dev.worldgen.lithostitched.impl.LithostitchedPlatform.isModLoaded;
+import static net.jolene.thumbandthicket.ThumbAndThicket.isModLoaded;
 
 public class ModItemTooltips {
     public static void register() {

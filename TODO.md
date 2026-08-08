@@ -299,8 +299,8 @@
   - ~~Worldgen~~
   - ~~Textures~~
 - Permafrost
-  - Block
-  - Worldgen
+  - ~~Block~~
+  - ~~Worldgen~~
   - Textures
 - Wet Sand
   - Blockstate Logic
@@ -308,7 +308,8 @@
   - Textures
 - Water Caustics and edge Foam
   - ~~Rendering~~
-  - Textures
+  - ~~Textures~~
+- Big Water Compat Texture
 - Biomes
   - Overworld Biomes
     - Transition Biomes
@@ -348,3 +349,5 @@
   - ~~Waxing~~
   - ~~Block drop changes?~~
   - ~~Tooltips~~
+  - Boats and minecarts?
+  - config

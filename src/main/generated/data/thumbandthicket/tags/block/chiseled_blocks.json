@@ -16,6 +16,9 @@
     "minecraft:waxed_chiseled_copper",
     "minecraft:waxed_exposed_chiseled_copper",
     "minecraft:waxed_weathered_chiseled_copper",
-    "minecraft:waxed_oxidized_chiseled_copper"
+    "minecraft:waxed_oxidized_chiseled_copper",
+    "minecraft:chiseled_cinnabar",
+    "minecraft:chiseled_sulfur",
+    "minecraft:chiseled_resin_bricks"
   ]
 }

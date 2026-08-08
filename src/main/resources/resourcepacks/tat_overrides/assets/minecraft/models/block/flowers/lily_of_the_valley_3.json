@@ -1,0 +1,6 @@
+{
+  "parent": "thumbandthicket:block/flower_3",
+  "textures": {
+    "flower": "block/lily_of_the_valley"
+  }
+}

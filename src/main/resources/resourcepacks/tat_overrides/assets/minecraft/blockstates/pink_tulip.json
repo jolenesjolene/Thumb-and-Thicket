@@ -1,0 +1,130 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/pink_tulip"
+      },
+      "when": {
+        "facing": "north|east|west|south",
+        "flowers": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_1"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_2"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_3"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/flowers/pink_tulip_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "3"
+      }
+    }
+  ]
+}

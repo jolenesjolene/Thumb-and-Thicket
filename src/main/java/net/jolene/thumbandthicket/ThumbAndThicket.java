@@ -71,6 +71,10 @@ public class ThumbAndThicket implements ModInitializer {
 		return Identifier.of(MOD_ID, name);
 	}
 
+    public static boolean isModLoaded(String modId) {
+        return FabricLoader.getInstance().isModLoaded(modId);
+    }
+
     public static @NotNull Direction thumbandthicket$getInvertedDirection(Direction rootBlockDirection) {
         Direction rootBlockDirectionInverted = rootBlockDirection;
 
@@ -190,6 +194,12 @@ public class ThumbAndThicket implements ModInitializer {
                 Text.translatable("pack.thumbandthicket.name_worldgen"),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
+        FabricLoader.getInstance().getModContainer("bigwater").ifPresent(bigWaterContainer -> ResourceManagerHelper.registerBuiltinResourcePack(
+                Identifier.of(MOD_ID, "tat_bigwater"),
+                bigWaterContainer,
+                Text.translatable("pack.thumbandthicket.name_bigwater"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        ));
     }
 
     public static Item thumbandthicket$getItemByName(String name) {

@@ -3,7 +3,7 @@ package net.jolene.thumbandthicket.item;
 import net.minecraft.item.Item;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 
-import static dev.worldgen.lithostitched.impl.LithostitchedPlatform.isModLoaded;
+import static net.jolene.thumbandthicket.ThumbAndThicket.isModLoaded;
 
 public class BarkItem extends Item {
     public BarkItem(Settings settings) {

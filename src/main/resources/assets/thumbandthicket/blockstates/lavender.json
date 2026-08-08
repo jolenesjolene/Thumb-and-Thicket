@@ -1,7 +1,130 @@
 {
-  "variants": {
-    "": {
-      "model": "thumbandthicket:block/lavender"
+  "multipart": [
+    {
+      "apply": {
+        "model": "thumbandthicket:block/lavender"
+      },
+      "when": {
+        "facing": "north|east|west|south",
+        "flowers": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_1"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_2"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_3"
+      },
+      "when": {
+        "facing": "north",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flowers": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "thumbandthicket:block/flowers/lavender_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flowers": "3"
+      }
     }
-  }
+  ]
 }
