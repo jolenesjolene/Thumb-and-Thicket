@@ -8,6 +8,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ClampedIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
@@ -67,6 +68,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> ROOTED_GRASS = registerKey("rooted_grass_placed");
     public static final RegistryKey<PlacedFeature> HANGING_ROOTS = registerKey("hanging_roots_placed");
 
+    public static final RegistryKey<PlacedFeature> CAVE_PARSNIPS = registerKey("cave_parsnips_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -106,6 +109,8 @@ public class ModPlacedFeatures {
         register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
         register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
 //        register(context, PURPLE_MUSHROOM_TREE, purpleMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
+
+        register(context, CAVE_PARSNIPS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CAVE_PARSNIPS_KEY), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(50)), BiomePlacementModifier.of(), CountPlacementModifier.of(5));
 
         register(context, MYCELIAL_SPROUTS, configuredFeatures.getOrThrow(ModConfiguredFeatures.MYCELIAL_SPROUTS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY));

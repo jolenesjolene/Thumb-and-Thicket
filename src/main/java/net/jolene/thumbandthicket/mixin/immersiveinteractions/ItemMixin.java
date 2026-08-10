@@ -28,6 +28,8 @@ import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Objects;
 
+import static net.jolene.thumbandthicket.ThumbAndThicket.isModLoaded;
+
 @Mixin(Item.class)
 public class ItemMixin {
 
@@ -82,7 +84,7 @@ public class ItemMixin {
                 }
                 soundEvent = SoundEvents.BLOCK_WOOD_HIT;
             }
-            if (itemStack.getItem() instanceof ChiselItem) {
+            if (itemStack.getItem() instanceof ChiselItem && isModLoaded("progression_respun")) {
                 soundEvent = SoundEvents.BLOCK_GRINDSTONE_USE;
                 if (state.isIn(ModBlockTags.CHISELABLE_BLOCKS)) {
                     prependString = "chiseled_";

@@ -57,6 +57,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTED_GRASS_KEY = registerKey("rooted_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROOTS_KEY = registerKey("hanging_roots");
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CAVE_PARSNIPS_KEY = registerKey("cave_parsnips");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> AGED_SPORE_BLOSSOM_KEY = registerKey("spore_blossom");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_DEFAULT_KEY = registerKey("flower_default");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWER_SWAMP_KEY = registerKey("flower_swamp");
@@ -97,6 +99,8 @@ public class ModConfiguredFeatures {
 //        register(context, BROWN_MUSHROOM_TREE_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 12, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(treeMushroomBuilder(Blocks.BROWN_MUSHROOM))))));
 //        register(context, PURPLE_MUSHROOM_TREE_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 7, 8, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(treeMushroomBuilder(ModBlocks.PURPLE_MUSHROOM))))));
         register(context, MYCELIAL_SPROUTS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.MYCELIAL_SPROUTS)))));
+
+        register(context, CAVE_PARSNIPS_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(72, 15, 10, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.CAVE_PARSNIP_CROP.getDefaultState().with(Properties.AGE_7, 7))))));
 
         register(context, FLOWER_DEFAULT_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.POPPY,2,Blocks.DANDELION,1))))));
         register(context, FLOWER_SWAMP_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(64, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(flowerBuilder(Blocks.BLUE_ORCHID,1,null,0))))));

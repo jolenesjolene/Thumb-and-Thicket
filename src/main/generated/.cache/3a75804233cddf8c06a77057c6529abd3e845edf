@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-08T13:34:41.952109	Thumb & Thicket/Recipes
+// 1.21.1	2026-08-10T12:42:38.167354	Thumb & Thicket/Recipes
 345b46a891f8e2b846235896aefe247b96b9357e data/thumbandthicket/recipe/moss_clump.json
 8703b72f1557aa52f3f381978f5ff85e0367fbe3 data/thumbandthicket/advancement/recipes/misc/moss_block.json
 0b60ed48b2a9a0f30f9542505432d39ef5d61740 data/thumbandthicket/advancement/recipes/tools/waxed_brush.json
@@ -10,8 +10,8 @@ ea577a6f71a1231e617ff0c053fdc60fccbb6fae data/thumbandthicket/advancement/recipe
 226d35859e86e034dab62fff041c0390d5de653b data/thumbandthicket/advancement/recipes/building_blocks/rooted_dirt.json
 dfd9b1d97c4003fca4c5c7f2fd60030f2c13f6ef data/thumbandthicket/recipe/moss_block.json
 dede8eb8d28a120adcdad60c2dec15038637a0af data/thumbandthicket/recipe/stick.json
-297efbd1dd5754b03e698a1ac8bdbcc2330c746b data/thumbandthicket/recipe/bowl.json
 0022730e01bf75f753f0acf241b2b98016e5c1aa data/thumbandthicket/advancement/recipes/misc/moss_carpet.json
+297efbd1dd5754b03e698a1ac8bdbcc2330c746b data/thumbandthicket/recipe/bowl.json
 e427f9e625c450de07762d4ff709c27d810af7c3 data/thumbandthicket/advancement/recipes/building_blocks/moss_clump.json
 d090be8a83f306f5d85b72223f37af6f10c6de60 data/thumbandthicket/recipe/rooted_grass.json
 a85be06e3828ee089d06c71f409ee478565458fa data/thumbandthicket/recipe/moss_carpet.json

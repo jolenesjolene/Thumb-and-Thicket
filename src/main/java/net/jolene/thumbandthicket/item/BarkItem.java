@@ -9,7 +9,7 @@ public class BarkItem extends Item {
     public BarkItem(Settings settings) {
         super(settings);
     }
-//
+
     @Override
     public boolean isEnabled(FeatureSet enabledFeatures) {
         return !isModLoaded("farmersdelight");

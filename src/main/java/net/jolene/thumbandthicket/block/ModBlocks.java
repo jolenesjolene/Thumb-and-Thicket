@@ -62,7 +62,7 @@ public class ModBlocks {
 
     public static final Block WILTED_CROP = register(new WiltedCropBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).noCollision().replaceable()), "wilted_crop", false);
     public static final Block FLOWER_CROP = register(new FlowerCropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS).ticksRandomly()), "flower_crop");
-    public static final Block CAVE_PARSNIP_CROP = register(new CaveCropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS).ticksRandomly()), "cave_parsnip_crop");
+    public static final Block CAVE_PARSNIP_CROP = register(new CaveCropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS).ticksRandomly()), "cave_parsnips");
 
     public static final Block DEW_DROP = register(new DewDropPlantBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.CROP).noCollision()), "dew_drop", true);
     public static final Block DEW_CAULDRON = register(new DewCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), ModCauldronBehavior.DEW_CAULDRON_BEHAVIOR), "dew_cauldron", false);

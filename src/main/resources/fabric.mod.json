@@ -37,6 +37,6 @@
 	},
 	"suggests": {
 		"progression_respun": "*",
-        "immersive_interactions": "*"
+		"adventurersdiary": "*"
 	}
 }

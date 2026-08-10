@@ -28,6 +28,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
+import static net.jolene.thumbandthicket.ThumbAndThicket.isModLoaded;
+
 @Mixin(AbstractBlock.class)
 public class AbstractBlockMixin {
 
@@ -74,7 +76,7 @@ public class AbstractBlockMixin {
 
         if (state.isIn(ModBlockTags.CRACKED_BLOCKS) && !blockString[1].contains("infested")) targetString = "cracked_";
         if (state.isIn(ModBlockTags.MOSSY_BLOCKS)) targetString = "mossy_";
-        if (state.isIn(ModBlockTags.CHISELED_BLOCKS)) targetString = "chiseled_";
+        if (state.isIn(ModBlockTags.CHISELED_BLOCKS) && isModLoaded("progression_respun")) targetString = "chiseled_";
         if (blockString[1].contains("waxed")) block = HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get().get(block);
 
         if (block instanceof Oxidizable) return original.call(Oxidizable.getUnaffectedOxidationBlock(block));
