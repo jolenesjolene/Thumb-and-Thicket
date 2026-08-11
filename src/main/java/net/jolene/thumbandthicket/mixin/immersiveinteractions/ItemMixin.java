@@ -6,6 +6,7 @@ import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.block.ModBlockTags;
 import net.jolene.thumbandthicket.datagen.ModItemTagProvider;
 import net.jolene.thumbandthicket.item.ChiselItem;
+import net.jolene.thumbandthicket.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
@@ -57,6 +58,7 @@ public class ItemMixin {
             String targetString = "";
             String replaceString = "";
             String blockString = baseBlock[1];
+            ItemStack stack = ItemStack.EMPTY;
 
             if (itemStack.getItem() instanceof PickaxeItem && state.isIn(ModBlockTags.CRACKABLE_BLOCKS)) {
                 prependString = "cracked_";
@@ -73,6 +75,7 @@ public class ItemMixin {
             if (itemStack.getItem() instanceof ShearsItem && state.isIn(ModBlockTags.MOSSY_BLOCKS)) {
                 targetString = "mossy_";
                 soundEvent = SoundEvents.BLOCK_GROWING_PLANT_CROP;
+                stack = ModItems.MOSS_CLUMP.getDefaultStack();
             }
             if (state.isIn(BlockTags.LOGS) && (itemStack.isIn(ModItemTagProvider.CAN_APPLY_BARK) || itemStack.isOf(barkFD))) {
                 if (blockString.contains("stripped_")) {
@@ -84,7 +87,7 @@ public class ItemMixin {
                 }
                 soundEvent = SoundEvents.BLOCK_WOOD_HIT;
             }
-            if (itemStack.getItem() instanceof ChiselItem && isModLoaded("progression_respun")) {
+            if (itemStack.getItem() instanceof ChiselItem) {
                 soundEvent = SoundEvents.BLOCK_GRINDSTONE_USE;
                 if (state.isIn(ModBlockTags.CHISELABLE_BLOCKS)) {
                     prependString = "chiseled_";
@@ -124,6 +127,7 @@ public class ItemMixin {
                 world.setBlockState(pos, newState);
                 if (soundEvent != null) world.playSound(null, pos, soundEvent, SoundCategory.BLOCKS);
                 if (itemStack.contains(DataComponentTypes.MAX_DAMAGE)) itemStack.damage(1, (ServerWorld) world, (ServerPlayerEntity) context.getPlayer(), item -> Objects.requireNonNull(context.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+                if (!stack.isEmpty()) Block.dropStack(world, pos, stack);
                 else itemStack.decrementUnlessCreative(1, player);
             }
             world.emitGameEvent(GameEvent.ITEM_INTERACT_FINISH, pos, GameEvent.Emitter.of(player));

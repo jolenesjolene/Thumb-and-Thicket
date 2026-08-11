@@ -11,7 +11,7 @@
   - Leaves + lighter Leaves
 
 - Lupine
-  - 4 Random Colours (Textures)
+  - 4 Random Colors (Textures)
   - Block
   - Worldgen
 - Spore Blossom
@@ -61,7 +61,7 @@
     - ~~Overworld~~
     - ~~Nether~~
   - Tree Decorators
-  - Loot Table
+  - ~~Loot Table~~
   - Textures
 - Lavender
   - ~~Block~~

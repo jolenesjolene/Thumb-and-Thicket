@@ -14,7 +14,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "1"
@@ -34,7 +34,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "2"
@@ -54,7 +54,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "3"
@@ -74,7 +74,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "4"
@@ -94,7 +94,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "5"
@@ -114,7 +114,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "6"
@@ -134,7 +134,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "7"
@@ -154,7 +154,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "8"
@@ -205,7 +205,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "1"
@@ -225,7 +225,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "2"
@@ -245,7 +245,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "3"
@@ -265,7 +265,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "4"
@@ -285,7 +285,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "5"
@@ -305,7 +305,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "6"
@@ -325,7 +325,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "7"
@@ -345,7 +345,7 @@
                   "type": "minecraft:item",
                   "conditions": [
                     {
-                      "block": "thumbandthicket:snowy_short_grass",
+                      "block": "thumbandthicket:snowy_bush",
                       "condition": "minecraft:block_state_property",
                       "properties": {
                         "layers": "8"
@@ -377,7 +377,7 @@
                       }
                     }
                   ],
-                  "name": "thumbandthicket:snowy_short_grass"
+                  "name": "thumbandthicket:snowy_bush"
                 },
                 {
                   "type": "minecraft:item",
@@ -410,5 +410,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "thumbandthicket:blocks/snowy_short_grass"
+  "random_sequence": "thumbandthicket:blocks/snowy_bush"
 }
