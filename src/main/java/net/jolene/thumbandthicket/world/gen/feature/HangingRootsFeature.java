@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.world.gen.feature;
 
 import com.mojang.serialization.Codec;
+import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.feature.config.HangingRootsFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +26,8 @@ public class HangingRootsFeature extends Feature<HangingRootsFeatureConfig> {
         Random random = context.getRandom();
         BlockPos origin = context.getOrigin();
         BlockState state = config.stateProvider().get(random, origin);
+        boolean longer = false;
+        boolean evenLonger = false;
 
         int placed = 0;
         int tries = config.tries();
@@ -45,10 +48,26 @@ public class HangingRootsFeature extends Feature<HangingRootsFeatureConfig> {
             if (world.getBlockState(pos.up()).isAir()) continue;
             if (!world.getBlockState(pos.down()).isAir()) continue;
 
+            if (random.nextBetween(0,10) == 0) {
+                longer = true;
+                state = state.with(ModProperties.TOP, false);
+                if (random.nextBetween(0,10) == 0) {
+                    evenLonger = true;
+                    state = state.with(ModProperties.TOP, false);
+                }
+            }
+
             caveSurface.ifPresent(surface -> pos.add(0, surface.getCeilingHeight().getAsInt(), 0));
 
             if (!state.canPlaceAt(world, pos.mutableCopy())) continue;
             world.setBlockState(pos.mutableCopy(), state,2);
+            if (longer) {
+                if (evenLonger) {
+                    world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.TOP, false), 2);
+                    world.setBlockState(pos.mutableCopy().down(2), state.with(ModProperties.TOP, true), 2);
+                }
+                else world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.TOP, true), 2);
+            }
             placed++;
         }
 

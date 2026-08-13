@@ -4,6 +4,7 @@ import com.blackgear.vanillabackport.common.level.blocks.LeafLitterBlock;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.jolene.thumbandthicket.item.ModItems;
+import net.jolene.thumbandthicket.mixin.BlockAccessor;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -98,5 +99,12 @@ public abstract class LeafLitterBlockMixin extends PlantBlock implements Waterlo
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModItems.LEAF_LITTER.getDefaultStack();
+    }
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void thumbandthicket$appendSnippedProperty(AbstractBlock.Settings settings, CallbackInfo ci) {
+        Block leafLitterBlock = LeafLitterBlock.class.cast(this);
+        BlockState defaultBlockState = leafLitterBlock.getDefaultState();
+        ((BlockAccessor) leafLitterBlock).invokeSetDefaultState(defaultBlockState.with(WATERLOGGED, false));
     }
 }
