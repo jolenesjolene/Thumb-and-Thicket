@@ -9,6 +9,7 @@ public class ModProperties {
     public static final EnumProperty<Slice> SLICE = EnumProperty.of("slice", Slice.class);
     public static final EnumProperty<TripleTallBlock> TALL_PLANT_PART_VERTICAL = EnumProperty.of("triple_tall_part", TripleTallBlock.class);
     public static final EnumProperty<VentPart> VENT_PART = EnumProperty.of("vent_part", VentPart.class);
+    public static final EnumProperty<HangingPart> HANGING_PART = EnumProperty.of("hanging_part", HangingPart.class);
     public static final IntProperty AMOUNT = IntProperty.of("amount", 1, 4);
     public static final IntProperty LAYERS = IntProperty.of("layers", 0, 8);
     public static final IntProperty FLOWERS = IntProperty.of("flowers", 1, 3);

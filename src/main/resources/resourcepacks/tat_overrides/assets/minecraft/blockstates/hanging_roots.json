@@ -1,10 +1,13 @@
 {
   "variants": {
-    "top=true": {
+    "hanging_part=top": {
       "model": "minecraft:block/hanging_roots"
     },
-    "top=false": {
-      "model": "minecraft:block/hanging_roots_bottom"
+    "hanging_part=middle": {
+      "model": "minecraft:block/hanging_roots_middle"
+    },
+    "hanging_part=base": {
+      "model": "minecraft:block/hanging_roots_base"
     }
   }
 }

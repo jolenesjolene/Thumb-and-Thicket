@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.world.gen.feature;
 
 import com.mojang.serialization.Codec;
+import net.jolene.thumbandthicket.util.HangingPart;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.jolene.thumbandthicket.world.gen.feature.config.HangingRootsFeatureConfig;
 import net.minecraft.block.BlockState;
@@ -50,10 +51,9 @@ public class HangingRootsFeature extends Feature<HangingRootsFeatureConfig> {
 
             if (random.nextBetween(0,10) == 0) {
                 longer = true;
-                state = state.with(ModProperties.TOP, false);
+                state = state.with(ModProperties.HANGING_PART, HangingPart.BASE);
                 if (random.nextBetween(0,10) == 0) {
                     evenLonger = true;
-                    state = state.with(ModProperties.TOP, false);
                 }
             }
 
@@ -63,10 +63,10 @@ public class HangingRootsFeature extends Feature<HangingRootsFeatureConfig> {
             world.setBlockState(pos.mutableCopy(), state,2);
             if (longer) {
                 if (evenLonger) {
-                    world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.TOP, false), 2);
-                    world.setBlockState(pos.mutableCopy().down(2), state.with(ModProperties.TOP, true), 2);
+                    world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.HANGING_PART, HangingPart.MIDDLE), 2);
+                    world.setBlockState(pos.mutableCopy().down(2), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
                 }
-                else world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.TOP, true), 2);
+                else world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
             }
             placed++;
         }
