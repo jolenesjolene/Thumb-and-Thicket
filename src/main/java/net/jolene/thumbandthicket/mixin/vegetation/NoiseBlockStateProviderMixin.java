@@ -2,10 +2,13 @@ package net.jolene.thumbandthicket.mixin.vegetation;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
@@ -31,7 +34,7 @@ public class NoiseBlockStateProviderMixin {
     protected BlockState thumbandthicket$randomizeFlowerBlockstates(List<BlockState> states, double value, Operation<BlockState> original) {
         double d = MathHelper.clamp((1.0 + value) / 2.0, 0.0, 0.9999);
         BlockState state = states.get((int)(d * (double)states.size()));
-        if (state.getBlock() instanceof FlowerBlock && RANDOM != null) return state.with(ModProperties.FLOWERS, RANDOM.nextBetween(1,3));
+        if (state.getBlock() instanceof FlowerBlock && RANDOM != null) return state.with(ModProperties.FLOWERS, RANDOM.nextBetween(1,3)).with(Properties.FACING, ThumbAndThicket.getRandomHorizontalDirection(RANDOM));
         return original.call(states, value);
     }
 }

@@ -1,7 +1,7 @@
-// 1.21.1	2026-08-10T12:42:38.166052	Thumb & Thicket/Tags for minecraft:block
+// 1.21.1	2026-08-11T19:26:59.188588	Thumb & Thicket/Tags for minecraft:block
 42e69f48aa0663d4961bad8a25a4418df1741dc6 data/thumbandthicket/tags/block/cracked_blocks.json
-20a079a05271a019877569935d9a8f0a7e0ffb8f data/thumbandthicket/tags/block/snippable.json
 57f63eb56238e0ea044d6aa324a406ab73c90dcb data/minecraft/tags/block/mineable/pickaxe.json
+20a079a05271a019877569935d9a8f0a7e0ffb8f data/thumbandthicket/tags/block/snippable.json
 9c99444249ea9362072a08ee44c2d01c8ab03176 data/thumbandthicket/tags/block/tall_crops.json
 bc81d1d343dddb9c4dfdcef18fead5061e0a92c3 data/thumbandthicket/tags/block/crackable_blocks.json
 b084906d971d38651e77cafe6444d605d7d6f37b data/thumbandthicket/tags/block/stackable_mushrooms.json

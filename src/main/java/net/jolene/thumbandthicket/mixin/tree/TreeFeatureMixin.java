@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
-import net.jolene.thumbandthicket.world.gen.ModPlacedFeatures;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.registry.RegistryKeys;
@@ -13,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.util.FeatureContext;
@@ -37,7 +35,9 @@ public abstract class TreeFeatureMixin {
     private void thumbandthicket$generateRootedDirt(FeatureContext<TreeFeatureConfig> context, CallbackInfoReturnable<Boolean> cir, @Local StructureWorldAccess world, @Local BlockPos pos) {
 
         var configuredFeatures = world.getRegistryManager().get(RegistryKeys.CONFIGURED_FEATURE);
-        ConfiguredFeature<?,?> configuredFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY);
-        configuredFeature.generate(world, context.getGenerator(), context.getRandom(), pos.down(2));
+        ConfiguredFeature<?,?> rootedGrassFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTED_GRASS_KEY);
+        rootedGrassFeature.generate(world, context.getGenerator(), context.getRandom(), pos.down(2));
+        ConfiguredFeature<?,?> hangingRootsFeature = configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTS_KEY);
+        hangingRootsFeature.generate(world, context.getGenerator(), context.getRandom(), pos.down(3));
     }
 }

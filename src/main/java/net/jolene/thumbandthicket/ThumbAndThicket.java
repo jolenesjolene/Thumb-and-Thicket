@@ -27,6 +27,7 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -87,6 +88,11 @@ public class ThumbAndThicket implements ModInitializer {
             case SOUTH -> rootBlockDirectionInverted = Direction.NORTH;
         }
         return rootBlockDirectionInverted;
+    }
+
+    public static Direction getRandomHorizontalDirection(Random random) {
+        List<Direction> directions = List.of(Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST);
+        return Util.getRandom(directions, random);
     }
 
     public static Direction thumbandthicket$determineRootBlockDirection(BlockState state, BlockPos pos, WorldAccess world, Block block) {

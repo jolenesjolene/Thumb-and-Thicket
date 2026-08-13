@@ -111,6 +111,7 @@ public class ModPlacedFeatures {
 //        register(context, PURPLE_MUSHROOM_TREE, purpleMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
 
         register(context, CAVE_PARSNIPS, configuredFeatures.getOrThrow(ModConfiguredFeatures.CAVE_PARSNIPS_KEY), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(50)), BiomePlacementModifier.of(), CountPlacementModifier.of(5));
+        register(context, HANGING_ROOTS, configuredFeatures.getOrThrow(ModConfiguredFeatures.ROOTS_KEY), SquarePlacementModifier.of(), BiomePlacementModifier.of(), CountPlacementModifier.of(5));
 
         register(context, MYCELIAL_SPROUTS, configuredFeatures.getOrThrow(ModConfiguredFeatures.MYCELIAL_SPROUTS_KEY), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
         register(context, HUGE_PURPLE_MUSHROOM_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.HUGE_PURPLE_MUSHROOM_KEY));
