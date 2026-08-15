@@ -90,9 +90,10 @@ public class ThumbAndThicket implements ModInitializer {
         return rootBlockDirectionInverted;
     }
 
+    private static final Direction[] HORIZONTAL_DIRECTIONS = {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
+
     public static Direction getRandomHorizontalDirection(Random random) {
-        List<Direction> directions = List.of(Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST);
-        return Util.getRandom(directions, random);
+        return HORIZONTAL_DIRECTIONS[random.nextInt(4)];
     }
 
     public static Direction thumbandthicket$determineRootBlockDirection(BlockState state, BlockPos pos, WorldAccess world, Block block) {
@@ -209,9 +210,17 @@ public class ThumbAndThicket implements ModInitializer {
     }
 
     public static Item thumbandthicket$getItemByName(String name) {
+        Identifier id = Identifier.tryParse(name.contains(":") ? name : "minecraft:" + name);
+        if (id != null && Registries.ITEM.containsId(id)) {
+            return Registries.ITEM.get(id);
+        }
+        Identifier tatId = ThumbAndThicket.id(name);
+        if (Registries.ITEM.containsId(tatId)) {
+            return Registries.ITEM.get(tatId);
+        }
         for (Item item : Registries.ITEM) {
-            Identifier id = Registries.ITEM.getId(item);
-            if (id.getPath().equals(name)) {
+            Identifier itemId = Registries.ITEM.getId(item);
+            if (itemId.getPath().equals(name)) {
                 return item;
             }
         }
@@ -219,9 +228,17 @@ public class ThumbAndThicket implements ModInitializer {
     }
 
     public static Block thumbandthicket$getBlockByName(String name) {
+        Identifier id = Identifier.tryParse(name.contains(":") ? name : "minecraft:" + name);
+        if (id != null && Registries.BLOCK.containsId(id)) {
+            return Registries.BLOCK.get(id);
+        }
+        Identifier tatId = ThumbAndThicket.id(name);
+        if (Registries.BLOCK.containsId(tatId)) {
+            return Registries.BLOCK.get(tatId);
+        }
         for (Block block : Registries.BLOCK) {
-            Identifier id = Registries.BLOCK.getId(block);
-            if (id.getPath().equals(name)) {
+            Identifier blockId = Registries.BLOCK.getId(block);
+            if (blockId.getPath().equals(name)) {
                 return block;
             }
         }
