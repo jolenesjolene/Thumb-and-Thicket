@@ -29,7 +29,7 @@ public class RootBlockEntity extends BlockEntity {
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
-        nbt.putString("StoredSapling", SAPLING.toString());
+        nbt.putString("StoredSapling", Registries.BLOCK.getId(SAPLING).getPath());
     }
 
     @Override
