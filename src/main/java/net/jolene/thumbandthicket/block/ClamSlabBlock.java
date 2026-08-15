@@ -160,9 +160,11 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
                 LootContextParameterSet lootContextParameterSet = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, pos.toCenterPos()).add(LootContextParameters.BLOCK_ENTITY, clamSlabBlockEntity).build(ModLootTableUtil.CLAM);
                 List<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
 
-                clamSlabBlockEntity.setStack(0, list.getFirst());
-                clamSlabBlockEntity.markDirty();
-                world.updateListeners(pos, state, state, 0);
+                if (!list.isEmpty()) {
+                    clamSlabBlockEntity.setStack(0, list.getFirst());
+                    clamSlabBlockEntity.markDirty();
+                    world.updateListeners(pos, state, state, 0);
+                }
             }
         }
         super.randomTick(state, world, pos, random);
