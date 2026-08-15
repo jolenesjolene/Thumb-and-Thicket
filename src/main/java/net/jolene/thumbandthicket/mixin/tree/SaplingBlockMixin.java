@@ -39,19 +39,21 @@ public class SaplingBlockMixin extends Block {
 
     @WrapMethod(method = "getOutlineShape")
     private VoxelShape thumbandthicket$outlineWithAge(BlockState state, BlockView world, BlockPos pos, ShapeContext context, Operation<VoxelShape> original) {
-        int age = state.get(AGE);
-        switch (age) {
-            case 0 -> {
-                return SHAPE_SMALL;
-            }
-            case 1, 2 -> {
-                return SHAPE;
-            }
-            case 3 -> {
-                return SHAPE_TALL;
+        if (state.contains(AGE)) {
+            int age = state.get(AGE);
+            switch (age) {
+                case 0 -> {
+                    return SHAPE_SMALL;
+                }
+                case 1, 2 -> {
+                    return SHAPE;
+                }
+                case 3 -> {
+                    return SHAPE_TALL;
+                }
             }
         }
-        return null;
+        return original.call(state, world, pos, context);
     }
 
     @WrapMethod(method = "generate")
