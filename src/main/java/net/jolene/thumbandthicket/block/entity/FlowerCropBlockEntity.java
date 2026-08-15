@@ -23,7 +23,7 @@ public class FlowerCropBlockEntity extends BlockEntity {
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
-        nbt.putString("StoredFlower", FLOWER.toString());
+        nbt.putString("StoredFlower", FLOWER != null ? FLOWER : "");
     }
 
     @Override
@@ -48,6 +48,6 @@ public class FlowerCropBlockEntity extends BlockEntity {
     }
 
     public void thumbandthicket$setFlower(String string) {
-        FLOWER = string;
+        FLOWER = string != null ? string : "";
     }
 }
