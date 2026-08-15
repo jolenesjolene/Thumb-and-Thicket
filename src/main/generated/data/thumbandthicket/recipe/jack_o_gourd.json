@@ -3,14 +3,14 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "thumbandthicket:jack_o_gourd"
+      "item": "thumbandthicket:carved_pale_gourd"
     },
     {
       "item": "minecraft:torch"
     }
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "thumbandthicket:jack_o_gourd"
   }
 }
