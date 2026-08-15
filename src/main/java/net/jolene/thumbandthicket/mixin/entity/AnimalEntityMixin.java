@@ -84,13 +84,14 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
     private void readGrazingData(NbtCompound nbt, CallbackInfo ci) {
         thumbandthicket$grazedPositions.clear();
 
-        if (!nbt.contains("GrazedPositions")) return;
-        NbtList list = nbt.getList("GrazedPositions", NbtElement.COMPOUND_TYPE);
+        if (nbt.contains("GrazedPositions")) {
+            NbtList list = nbt.getList("GrazedPositions", NbtElement.COMPOUND_TYPE);
 
-        for (int i = 0; i < list.size(); i++) {
-            NbtCompound posNbt = list.getCompound(i);
-            thumbandthicket$grazedPositions.add(new BlockPos(posNbt.getInt("x"), posNbt.getInt("y"), posNbt.getInt("z"))
-            );
+            for (int i = 0; i < list.size(); i++) {
+                NbtCompound posNbt = list.getCompound(i);
+                thumbandthicket$grazedPositions.add(new BlockPos(posNbt.getInt("x"), posNbt.getInt("y"), posNbt.getInt("z"))
+                );
+            }
         }
         hasGrazed = nbt.getBoolean("canBreed");
     }
@@ -125,6 +126,7 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
 
     @Inject(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/AnimalEntity;isBreedingItem(Lnet/minecraft/item/ItemStack;)Z", shift = At.Shift.AFTER), cancellable = true)
     private void thumbandthicket$canBeBread(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        if (!hasGrazed) cir.setReturnValue(ActionResult.FAIL);
+        AnimalEntity entity = (AnimalEntity) (Object) this;
+        if (!entity.isBaby() && !hasGrazed) cir.setReturnValue(ActionResult.FAIL);
     }
 }
