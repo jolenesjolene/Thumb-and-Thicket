@@ -81,8 +81,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.HANGING_ROOTS)
                 .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JACK_O_GOURD, 2)
-                .input(ModBlocks.JACK_O_GOURD)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JACK_O_GOURD)
+                .input(ModBlocks.CARVED_PALE_GOURD)
                 .input(Items.TORCH)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.CARVED_PALE_GOURD), FabricRecipeProvider.conditionsFromItem(ModBlocks.CARVED_PALE_GOURD))
                 .offerTo(exporter);
