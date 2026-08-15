@@ -137,18 +137,18 @@ public class PillarBlockMixin extends Block {
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockState property = state;
         if (state.isIn(BlockTags.LOGS) && stack.isOf(Items.SHEARS) && !world.isClient) {
-            boolean rooty = state.get(ROOTY) != Rooty.NONE;
-            boolean branch = state.get(BRANCH);
-            boolean hollow = state.get(HOLLOW);
+            boolean rooty = state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE;
+            boolean branch = state.contains(BRANCH) && state.get(BRANCH);
+            boolean hollow = state.contains(HOLLOW) && state.get(HOLLOW);
             if (rooty || branch || hollow) {
                 EquipmentSlot slot = null;
                 switch (hand) {
                     case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
                     case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
                 }
-                if (rooty) property = state.with(ROOTY, Rooty.NONE);
-                if (branch) property = state.with(BRANCH, false);
-                if (hollow) property = state.with(HOLLOW, false);
+                if (rooty) property = property.with(ROOTY, Rooty.NONE);
+                if (branch) property = property.with(BRANCH, false);
+                if (hollow) property = property.with(HOLLOW, false);
 
                 if (!player.isCreative()) stack.damage(1, player, slot);
                 BlockState newState = property;
