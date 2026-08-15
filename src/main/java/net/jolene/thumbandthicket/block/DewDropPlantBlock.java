@@ -61,7 +61,6 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
         if (state.get(PART) == TripleTallBlock.MIDDLE && stack.isOf(Items.GLASS_BOTTLE)) {
             if (state.get(LEVEL) > MIN_LEVEL) {
                 decrementFluidLevel(state, world, pos);
-                stack.decrementUnlessCreative(1,player);
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(ModItems.DEW_BOTTLE)));
                 player.incrementStat(Stats.USE_CAULDRON);
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
@@ -105,25 +104,27 @@ public class DewDropPlantBlock extends WayTooTallPlantBlock {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+        int level = CURRENT_LEVEL;
+        CURRENT_LEVEL = 0;
         if (state.get(PART) == TripleTallBlock.TOP && world.getBlockState(pos.down()).isOf(this)) {
-            if (CURRENT_LEVEL > 0) {
-                world.setBlockState(pos.down(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL));
+            if (level > 0) {
+                world.setBlockState(pos.down(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, level));
                 return;
             }
             world.setBlockState(pos.down(), Blocks.CAULDRON.getDefaultState(), 3);
             return;
         }
         if (state.get(PART) == TripleTallBlock.MIDDLE) {
-            if (CURRENT_LEVEL > 0) {
-                world.setBlockState(pos, ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL), 3);
+            if (level > 0) {
+                world.setBlockState(pos, ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, level), 3);
                 return;
             }
             world.setBlockState(pos, Blocks.CAULDRON.getDefaultState(), 3);
             return;
         }
         if (state.get(PART) == TripleTallBlock.BOTTOM && world.getBlockState(pos.up()).isOf(this)) {
-            if (CURRENT_LEVEL > 0) {
-                world.setBlockState(pos.up(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, CURRENT_LEVEL), 3);
+            if (level > 0) {
+                world.setBlockState(pos.up(), ModBlocks.DEW_CAULDRON.getDefaultState().with(Properties.LEVEL_3, level), 3);
                 return;
             }
             world.setBlockState(pos.up(), Blocks.CAULDRON.getDefaultState(), 3);
