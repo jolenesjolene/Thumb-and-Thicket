@@ -144,7 +144,7 @@ public class LoraxEntity extends AnimalEntity {
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.BROWN_BEAR.create(world);
+        return ModEntities.LORAX.create(world);
     }
 
     @Override
