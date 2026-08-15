@@ -104,7 +104,15 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
         if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
             world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
         } else if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) == 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
-            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) world.setBlockState(pos, ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower()).getDefaultState().with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS)).with(Properties.FACING, Direction.random(random)), Block.NOTIFY_LISTENERS);
+            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) {
+                Block flowerBlock = ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower());
+                if (flowerBlock != Blocks.AIR) {
+                    BlockState flowerState = flowerBlock.getDefaultState();
+                    if (flowerState.contains(ModProperties.FLOWERS)) flowerState = flowerState.with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS));
+                    if (flowerState.contains(Properties.FACING)) flowerState = flowerState.with(Properties.FACING, Direction.random(random));
+                    world.setBlockState(pos, flowerState, Block.NOTIFY_LISTENERS);
+                }
+            }
         }
     }
 
@@ -144,7 +152,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity && !world.isClient()) {
+        if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) {
             String flower = flowerCropBlockEntity.thumbandthicket$getFlower();
             ItemStack stack = ModItems.FLOWER_SEEDS.getDefaultStack();
             stack.set(ModDataComponentTypes.FLOWER_TYPE, flower);
