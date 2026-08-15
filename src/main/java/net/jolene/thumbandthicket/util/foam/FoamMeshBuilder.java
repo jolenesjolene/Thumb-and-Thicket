@@ -33,7 +33,7 @@ public class FoamMeshBuilder {
 
                     if (set == FoamShapeUtil.DISCONNECTED) continue;
 
-                    chunk.quads.add(new FoamQuad(set.sprites[0], mutable.getX(), mutable.getY() + 0.901f, mutable.getZ(), mutable));
+                    chunk.quads.add(new FoamQuad(set.sprites[0], mutable.getX(), mutable.getY() + 0.901f, mutable.getZ(), mutable.toImmutable()));
                 }
             }
         }
