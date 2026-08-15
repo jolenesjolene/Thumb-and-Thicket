@@ -66,7 +66,7 @@ public abstract class CactusFlowerBlockMixin extends Block implements Fertilizab
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         if (getAge(state) < MAX_AGE && world.getBlockState(pos.down()).getBlock() instanceof CactusBlock) {
-            if (random.nextInt() < 1 && getAge(state) == 1) {
+            if (random.nextInt(5) == 0 && getAge(state) == 1) {
                 world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1).with(ModProperties.GOLDEN, true), Block.NOTIFY_LISTENERS);
             } else world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1), Block.NOTIFY_LISTENERS);
         }
