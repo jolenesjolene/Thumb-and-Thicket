@@ -32,9 +32,11 @@ public class DarkOakTrunkPlacerMixin {
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
-        replacer.accept(pos, newState);
-
-        return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
+        if (TreeFeature.canReplace(testableWorld, pos)) {
+            replacer.accept(pos, newState);
+            return true;
+        }
+        return false;
     }
     @WrapOperation(method = "generate", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/trunk/DarkOakTrunkPlacer;getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;)Z", ordinal = 1))
     private boolean gay1(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
@@ -45,9 +47,11 @@ public class DarkOakTrunkPlacerMixin {
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
-        replacer.accept(pos, newState);
-
-        return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
+        if (TreeFeature.canReplace(testableWorld, pos)) {
+            replacer.accept(pos, newState);
+            return true;
+        }
+        return false;
     }
     @WrapOperation(method = "generate", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/trunk/DarkOakTrunkPlacer;getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;)Z", ordinal = 2))
     private boolean gay2(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
@@ -58,9 +62,11 @@ public class DarkOakTrunkPlacerMixin {
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
-        replacer.accept(pos, newState);
-
-        return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
+        if (TreeFeature.canReplace(testableWorld, pos)) {
+            replacer.accept(pos, newState);
+            return true;
+        }
+        return false;
     }
     @WrapOperation(method = "generate", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/trunk/DarkOakTrunkPlacer;getAndSetState(Lnet/minecraft/world/TestableWorld;Ljava/util/function/BiConsumer;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;)Z", ordinal = 3))
     private boolean gay3(DarkOakTrunkPlacer instance, TestableWorld testableWorld, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos pos, TreeFeatureConfig treeFeatureConfig, Operation<Boolean> original) {
@@ -71,8 +77,10 @@ public class DarkOakTrunkPlacerMixin {
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
-        replacer.accept(pos, newState);
-
-        return original.call(instance, testableWorld, replacer, random, pos, treeFeatureConfig);
+        if (TreeFeature.canReplace(testableWorld, pos)) {
+            replacer.accept(pos, newState);
+            return true;
+        }
+        return false;
     }
 }
