@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.Shadow;
 public class SheepWoolEntityModelMixin<T extends SheepEntity> extends QuadrupedEntityModel<T> {
 
     @Shadow
-    private float headAngle;
+    private float headPitchModifier;
 
     protected SheepWoolEntityModelMixin(ModelPart root, boolean headScaled, float childHeadYOffset, float childHeadZOffset, float invertedChildHeadScale, float invertedChildBodyScale, int childBodyYOffset) {
         super(root, headScaled, childHeadYOffset, childHeadZOffset, invertedChildHeadScale, invertedChildBodyScale, childBodyYOffset);
@@ -43,6 +43,6 @@ public class SheepWoolEntityModelMixin<T extends SheepEntity> extends QuadrupedE
     public void animateModel(T sheepEntity, float f, float g, float h) {
         super.animateModel(sheepEntity, f, g, h);
         this.head.pivotY = 8.0F + sheepEntity.getNeckAngle(h) * 9.0F;
-        this.headAngle = sheepEntity.getHeadAngle(h);
+        this.headPitchModifier = sheepEntity.getHeadAngle(h);
     }
 }
