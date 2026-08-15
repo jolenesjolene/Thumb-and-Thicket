@@ -105,7 +105,7 @@ public class ModPlacedFeatures {
 //        register(context, BROWN_MUSHROOM_TREE, brownMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(1), CountPlacementModifier.of(2));
 
         register(context, PURPLE_MUSHROOM_NORMAL, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(512));
-        register(context, PURPLE_MUSHROOM_TAIGA, brownMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
+        register(context, PURPLE_MUSHROOM_TAIGA, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(8));
         register(context, PURPLE_MUSHROOM_OLD_GROWTH, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(44), CountPlacementModifier.of(3));
         register(context, PURPLE_MUSHROOM_SWAMP, purpleMushroom, SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
 //        register(context, PURPLE_MUSHROOM_TREE, purpleMushroom, SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.aboveBottom(30), YOffset.aboveBottom(80)), RarityFilterPlacementModifier.of(161), CountPlacementModifier.of(2));
