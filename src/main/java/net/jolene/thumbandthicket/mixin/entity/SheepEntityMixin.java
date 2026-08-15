@@ -56,7 +56,7 @@ public abstract class SheepEntityMixin extends MobEntity implements CoatTwoUtil 
         return this.dataTracker.get(SECOND_COAT);
     }
 
-    @Inject(method = "onEatingGrass", at = @At("HEAD"))
+    @Inject(method = "onEatingGrass", at = @At("TAIL"))
     public void onEatingGrass(CallbackInfo ci) {
         SheepEntity sheepEntity = (SheepEntity)(Object)(this);
         if (!sheepEntity.isSheared() && canHaveSecondCoat(sheepEntity)){
