@@ -75,7 +75,8 @@ public class ModItemGroups {
                             entries.add(Items.BROWN_MUSHROOM);
                             entries.add(ModBlocks.PURPLE_MUSHROOM);
                             entries.add(ModBlocks.PURPLE_MUSHROOM_BLOCK);
-
+                            entries.add(Blocks.PUMPKIN);
+                            entries.add(Blocks.MELON);
                             entries.add(Items.WHEAT_SEEDS);
                             entries.add(Items.WHEAT);
                             entries.add(ModItems.PALE_GOURD_SEEDS);
