@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "thumbandthicket:block/gourds/melon_side",
+    "top": "thumbandthicket:block/gourds/melon_top",
+    "bottom": "thumbandthicket:block/gourds/melon_bottom"
+  }
+}
