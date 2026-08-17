@@ -5,6 +5,7 @@
   "mixins": [
     "BlockAccessor",
     "BlockMixin",
+    "BlocksMixin",
     "CauldronBlockMixin",
     "ChunkGeneratorMixin",
     "ExampleMixin",
@@ -40,6 +41,7 @@
     "vegetation.CactusBlockMixin",
     "vegetation.CactusFlowerBlockMixin",
     "vegetation.CactusFlowerFeatureMixin",
+    "vegetation.CocoaBlockMixin",
     "vegetation.DualNoiseBlockStateProviderMixin",
     "vegetation.FlowerBlockMixin",
     "vegetation.FungusBlockMixin",
@@ -50,7 +52,9 @@
     "vegetation.MushroomPlantBlockMixin",
     "vegetation.NoiseBlockStateProviderMixin",
     "vegetation.NoiseThresholdBlockStateProviderMixin",
+    "vegetation.PumpkinBlockMixin",
     "vegetation.SporeBlossomBlockMixin",
+    "vegetation.StemBlockMixin",
     "vegetation.SugarCaneBlockMixin",
     "vegetation.VineBlockMixin"
   ],

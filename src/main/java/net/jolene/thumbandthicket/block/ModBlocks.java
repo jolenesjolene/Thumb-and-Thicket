@@ -71,8 +71,8 @@ public class ModBlocks {
     public static final Block PALE_GOURD = register(new PaleGourdBlock(AbstractBlock.Settings.copy(Blocks.PUMPKIN).mapColor(DyeColor.WHITE)), "pale_gourd", true);
     public static final Block JACK_O_GOURD = register(new CarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN).mapColor(DyeColor.WHITE)), "jack_o_gourd", true);
     public static final Block CARVED_PALE_GOURD = register(new WearableCarvedPumpkinBlock(AbstractBlock.Settings.copy(Blocks.JACK_O_LANTERN).mapColor(DyeColor.WHITE)), "carved_pale_gourd", true);
-    public static final Block ATTACHED_PALE_GOURD_STEM = register(new AttachedStemBlock(ModKeys.PALE_GOURD, ModKeys.PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "attached_pale_gourd_stem", false);
-    public static final Block PALE_GOURD_STEM = register(new StemBlock(ModKeys.PALE_GOURD, ModKeys.ATTACHED_PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.CARVED_PUMPKIN)), "pale_gourd_stem", false);
+    public static final Block ATTACHED_PALE_GOURD_STEM = register(new AttachedStemBlock(ModKeys.PALE_GOURD, ModKeys.PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.ATTACHED_PUMPKIN_STEM)), "attached_pale_gourd_stem", false);
+    public static final Block PALE_GOURD_STEM = register(new StemBlock(ModKeys.PALE_GOURD, ModKeys.ATTACHED_PALE_GOURD_STEM, ModKeys.PALE_GOURD_SEEDS,AbstractBlock.Settings.copy(Blocks.PUMPKIN_STEM)), "pale_gourd_stem", false);
 
     public static final Block ROOT_BLOCK = register(new RootBlock(AbstractBlock.Settings.copy(Blocks.ROOTED_DIRT).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly().requiresTool()), "root_block", true);
     public static final Block ROOTED_GRASS = register(new RootedGrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.HANGING_ROOTS).ticksRandomly().requiresTool()), "rooted_grass", true);

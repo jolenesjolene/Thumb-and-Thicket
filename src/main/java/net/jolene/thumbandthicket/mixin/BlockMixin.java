@@ -48,15 +48,14 @@ public abstract class BlockMixin {
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
     private void thumbandthicket$appendLogProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo ci){
+
         Block block = (Block) (Object) this;
     }
 
     @WrapMethod(method = "getDefaultState")
     private BlockState thumbandthicket$changeDefaultState(Operation<BlockState> original) {
         Block block = (Block)(Object)this;
-        if (block instanceof FarmlandBlock) {
-            return original.call().with(FERTILIZED, false);
-        }
+        if (block instanceof FarmlandBlock) return original.call().with(FERTILIZED, false);
         return original.call();
     }
 

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "thumbandthicket:block/pale_gourd",
+      "x": 270,
+      "y": 90
+    }
+  }
+}
