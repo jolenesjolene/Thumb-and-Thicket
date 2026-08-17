@@ -1,14 +1,21 @@
 package net.jolene.thumbandthicket.block;
 
 import com.mojang.serialization.MapCodec;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -62,7 +69,11 @@ public class MelonBlock extends FacingBlock {
         return tryEat(world, pos, state, player);
     }
 
-    protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player) {
+    protected static ActionResult tryEat(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (player.getStackInHand(Hand.MAIN_HAND).isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of("farmersdelight", "knives")))) {
+            dropStack(world, pos, new ItemStack(Items.MELON_SLICE));
+            return ActionResult.SUCCESS;
+        }
         if (!player.canConsume(false)) {
             return ActionResult.PASS;
         }
