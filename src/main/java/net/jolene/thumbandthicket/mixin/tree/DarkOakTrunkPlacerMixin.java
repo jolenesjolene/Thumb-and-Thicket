@@ -28,7 +28,7 @@ public class DarkOakTrunkPlacerMixin {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.THREE);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
         int randomInt = random.nextBetween(1,5);
-        if (newState.get(ROOTY) != Rooty.NONE){
+        if (newState.get(ROOTY) == Rooty.NONE){
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
@@ -41,7 +41,7 @@ public class DarkOakTrunkPlacerMixin {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.FOUR);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
         int randomInt = random.nextBetween(1,5);
-        if (newState.get(ROOTY) != Rooty.NONE){
+        if (newState.get(ROOTY) == Rooty.NONE){
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
@@ -54,7 +54,7 @@ public class DarkOakTrunkPlacerMixin {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.TWO);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
         int randomInt = random.nextBetween(1,5);
-        if (newState.get(ROOTY) != Rooty.NONE){
+        if (newState.get(ROOTY) == Rooty.NONE){
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }
@@ -67,7 +67,7 @@ public class DarkOakTrunkPlacerMixin {
         BlockState newState = treeFeatureConfig.trunkProvider.get(random, pos).with(ModProperties.SLICE, Slice.ONE);
         newState = thumbandthicket$determineRootSide(newState, (WorldAccess) testableWorld, pos);
         int randomInt = random.nextBetween(1,5);
-        if (newState.get(ROOTY) != Rooty.NONE){
+        if (newState.get(ROOTY) == Rooty.NONE){
             newState = newState.with(BRANCH, randomInt == 1);
             if (!newState.get(BRANCH)) newState = newState.with(HOLLOW, randomInt == 5);
         }

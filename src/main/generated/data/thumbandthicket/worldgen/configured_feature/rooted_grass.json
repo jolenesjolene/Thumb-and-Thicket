@@ -163,6 +163,7 @@
             "state": {
               "Name": "minecraft:hanging_roots",
               "Properties": {
+                "hanging_part": "top",
                 "waterlogged": "false"
               }
             }

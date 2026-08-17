@@ -40,11 +40,11 @@
   - Worldgen
   - ~~Textures~~
 - Roots
-  - Blockstates
-  - Longer Roots/Stackable Roots
+  - ~~Blockstates~~
+  - ~~Longer Roots/Stackable Roots~~
   - Worldgen
     - on Cave Ceilings
-    - under Trees in Air Pockets
+    - ~~under Trees in Air Pockets~~
   - Textures
 - Grass Variants
   - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
