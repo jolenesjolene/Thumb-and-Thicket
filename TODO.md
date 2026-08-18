@@ -9,6 +9,7 @@
   - Saplings
   - ~~Logs~~
   - Leaves + lighter Leaves
+  - Melons :skull emoji:
 
 - Lupine
   - 4 Random Colors (Textures)
@@ -39,11 +40,11 @@
   - Worldgen
   - ~~Textures~~
 - Roots
-  - Blockstates
-  - Longer Roots/Stackable Roots
+  - ~~Blockstates~~
+  - ~~Longer Roots/Stackable Roots~~
   - Worldgen
     - on Cave Ceilings
-    - under Trees in Air Pockets
+    - ~~under Trees in Air Pockets~~
   - Textures
 - Grass Variants
   - Snowy short and tall Grass + Snowy short and tall Ferns + Snowy Bush
@@ -100,7 +101,7 @@
 - Cattails
   - ~~Block~~
   - ~~World Gen~~
-  - Textures
+  - ~~Textures~~
 - New Sniffer Plants
   - Dew Drop
     - 3 blocks tall
@@ -175,7 +176,7 @@
 - Worldgen
   - ~~Rootblocks~~
   - ~~Rooted Dirt and Grass~~
-  - Roots underneath
+  - ~~Roots underneath~~
 - Sapling Retextures
 - Sap
   - uniform from any tree?

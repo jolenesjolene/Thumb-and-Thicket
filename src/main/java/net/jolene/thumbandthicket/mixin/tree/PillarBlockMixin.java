@@ -23,6 +23,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -34,8 +35,11 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -47,6 +51,10 @@ import static net.minecraft.block.PillarBlock.AXIS;
 
 @Mixin(value = PillarBlock.class, priority = 990)
 public class PillarBlockMixin extends Block {
+
+    @Shadow
+    @Final
+    public static EnumProperty<Direction.Axis> AXIS;
 
     public PillarBlockMixin(Settings settings) {
         super(settings);
@@ -78,9 +86,8 @@ public class PillarBlockMixin extends Block {
 
             state = thumbandthicket$determineRootSide(state, world, pos);
             int random = Random.create().nextBetween(1,5);
-            if (state.get(ROOTY) != Rooty.NONE) {
-                state = thumbandthicket$calculateSlice(state, world, pos);
-            } else {
+            if (state.get(ROOTY) != Rooty.NONE) state = thumbandthicket$calculateSlice(state, world, pos);
+            else {
                 state = state.with(BRANCH, random == 1);
                 if (!state.get(BRANCH)) state = state.with(HOLLOW, random == 5);
             }
@@ -91,48 +98,38 @@ public class PillarBlockMixin extends Block {
     }
 
     @Override
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        if (!world.isClient) {
-            BlockState newState = state;
-            Direction.Axis axis = newState.get(AXIS);
-            Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, ModBlocks.ROOT_BLOCK);
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        BlockState newState = state;
+        Direction.Axis axis = newState.get(AXIS);
+        Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, ModBlocks.ROOT_BLOCK);
 
-            if (newState.contains(SLICE)) {
-                Direction logBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, state.getBlock());
-                if (logBlockDirection != null){
-                    Direction invertedlogBlockDirection = thumbandthicket$getInvertedDirection(logBlockDirection);
-                    BlockState logBelow = world.getBlockState(pos.offset(logBlockDirection));
-                    BlockState logBelow1 = world.getBlockState(pos.offset(invertedlogBlockDirection));
-                    if (logBelow.contains(SLICE) && logBelow.get(SLICE) != Slice.ZERO) {
-                        newState = newState.with(SLICE, logBelow.get(SLICE));
-                    } else if (logBelow1.contains(SLICE) && logBelow1.get(SLICE) != Slice.ZERO){
-                        newState = newState.with(SLICE, logBelow1.get(SLICE));
-                    }
-                }
+        if (newState.contains(SLICE)) {
+            Direction logBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, state.getBlock());
+            newState = thumbandthicket$calculateSlice(newState, world, pos);
 
-                if (rootBlockDirection != null) {
-                    BlockState blockBelow = world.getBlockState(pos.offset(rootBlockDirection));
-                    if (blockBelow.contains(AXIS) && blockBelow.get(AXIS) == axis) {
-                        newState = thumbandthicket$determineRootSide(newState, world, pos);
-                        newState = thumbandthicket$calculateSlice(newState, world, pos);
-                    }
-                }
-
-                if (!state.equals(newState)) {
-                    world.setBlockState(pos, newState, Block.NOTIFY_ALL);
-                }
+            if (logBlockDirection != null){
+                Direction invertedLogBlockDirection = logBlockDirection.getOpposite();
+                BlockState logBelow = world.getBlockState(pos.offset(logBlockDirection));
+                BlockState logBelow1 = world.getBlockState(pos.offset(invertedLogBlockDirection));
+                if (logBelow.contains(SLICE) && logBelow.get(SLICE) != Slice.ZERO && logBelow.get(AXIS) == axis) newState = newState.with(SLICE, logBelow.get(SLICE));
+                else if (logBelow1.contains(SLICE) && logBelow1.get(SLICE) != Slice.ZERO && logBelow1.get(AXIS) == axis) newState = newState.with(SLICE, logBelow1.get(SLICE));
             }
-        }
 
-        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
-    }
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE) {
-            return VoxelShapes.cuboid(-0.000025, -0.000025, -0.000025, 1.000025, 1.000025, 1.000025);
+            if (rootBlockDirection != null) {
+                BlockState blockBelow = world.getBlockState(pos.offset(rootBlockDirection));
+                if (blockBelow.contains(AXIS) && blockBelow.get(AXIS) == axis) newState = thumbandthicket$determineRootSide(newState, world, pos);
+            }
+            return newState;
         }
-        return VoxelShapes.fullCube();
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
+
+//    @Override
+//    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+//        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE) return VoxelShapes.cuboid(-0.000025, -0.000025, -0.000025, 1.000025, 1.000025, 1.000025);
+//        return VoxelShapes.fullCube();
+//    }
+
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockState property = state;
@@ -164,9 +161,7 @@ public class PillarBlockMixin extends Block {
                             0.5
                     );
                 }
-                if (rooty || branch) {
-                    PillarBlock.dropStack(world, pos, new ItemStack(Items.STICK));
-                }
+                if (rooty || branch) PillarBlock.dropStack(world, pos, new ItemStack(Items.STICK));
                 float f = MathHelper.nextBetween(world.random, 0.8f, 1.2f);
                 world.playSound(
                         null,

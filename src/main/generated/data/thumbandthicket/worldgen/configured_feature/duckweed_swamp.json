@@ -1,0 +1,17 @@
+{
+  "type": "thumbandthicket:waterlogged_plant_feature",
+  "config": {
+    "state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "thumbandthicket:duckweed",
+        "Properties": {
+          "waterlogged": "true"
+        }
+      }
+    },
+    "tries": 72,
+    "xz_spread": 15,
+    "y_spread": 0
+  }
+}

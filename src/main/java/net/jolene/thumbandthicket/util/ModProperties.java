@@ -22,4 +22,5 @@ public class ModProperties {
     public static final BooleanProperty HOLLOW = BooleanProperty.of("hollow");
     public static final BooleanProperty BRANCH = BooleanProperty.of("branch");
     public static final IntProperty LEVEL_3 = IntProperty.of("level", 0, 3);
+    public static final IntProperty BITES = IntProperty.of("bites", 0, 3);
 }

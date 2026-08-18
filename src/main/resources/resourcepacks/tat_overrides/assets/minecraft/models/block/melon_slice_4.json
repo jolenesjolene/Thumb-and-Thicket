@@ -1,0 +1,9 @@
+{
+  "parent": "thumbandthicket:block/gourd_slice_4",
+  "textures": {
+    "top": "thumbandthicket:block/gourds/melon_top",
+    "bottom": "thumbandthicket:block/gourds/melon_bottom",
+    "side": "thumbandthicket:block/gourds/melon_side",
+    "inside": "thumbandthicket:block/gourds/melon_inside"
+  }
+}

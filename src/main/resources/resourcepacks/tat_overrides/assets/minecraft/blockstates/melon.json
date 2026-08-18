@@ -1,0 +1,212 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_1",
+        "x": 90
+      },
+      "when": {
+        "facing": "north",
+        "bites": "0|1|2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_1",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "bites": "0|1|2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_1",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "bites": "0|1|2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_1",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "bites": "0|1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_1"
+      },
+      "when": {
+        "facing": "up|down",
+        "bites": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_2",
+        "x": 90
+      },
+      "when": {
+        "facing": "north",
+        "bites": "0|1|2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_2",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "bites": "0|1|2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_2",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "bites": "0|1|2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_2",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "bites": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_2"
+      },
+      "when": {
+        "facing": "up|down",
+        "bites": "0|1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_3",
+        "x": 90
+      },
+      "when": {
+        "facing": "north",
+        "bites": "0|1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_3",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "bites": "0|1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_3",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "bites": "0|1"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_3",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "bites": "0|1|2|3"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_3"
+      },
+      "when": {
+        "facing": "up|down",
+        "bites": "0|1|2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_4",
+        "x": 90
+      },
+      "when": {
+        "facing": "north",
+        "bites": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_4",
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "bites": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_4",
+        "x": 90,
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "bites": "0"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_4",
+        "x": 270,
+        "y": 90
+      },
+      "when": {
+        "facing": "west",
+        "bites": "0|1|2"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/melon_slice_4"
+      },
+      "when": {
+        "facing": "up|down",
+        "bites": "0|1|2|3"
+      }
+    }
+  ]
+}

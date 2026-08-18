@@ -118,7 +118,7 @@ public class ItemMixin {
             if(!appendString.isEmpty()) blockString = blockString + appendString;
 
             Block newBlock = ThumbAndThicket.thumbandthicket$getBlockByName(blockString);
-            if (!(newBlock instanceof AirBlock)) {
+            if (!(newBlock instanceof AirBlock) && newBlock != state.getBlock()) {
                 BlockState newState = newBlock.getDefaultState();
                 for (Property<?> property : state.getProperties()) if (newState.contains(property)) newState = copyProperty(newState, state, property);
 

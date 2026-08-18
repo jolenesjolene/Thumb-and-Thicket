@@ -119,7 +119,7 @@ public class ModFeatureReplacements {
         BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_MUSHROOM), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MYCELIAL_SPROUTS);
 //        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_RIVER), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LILY_PAD);
         BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_RIVER), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DUCKWEED);
-//        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_SWAMP), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DUCKWEED);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_SWAMP), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.DUCKWEED_SWAMP);
 //        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_OVERWORLD), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BROWN_MUSHROOM_TREE);
 //        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_OVERWORLD), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.RED_MUSHROOM_TREE);
 //        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.IS_OVERWORLD), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PURPLE_MUSHROOM_TREE);

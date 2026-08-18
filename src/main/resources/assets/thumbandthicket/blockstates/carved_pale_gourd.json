@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thumbandthicket:block/carved_pale_gourd",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thumbandthicket:block/carved_pale_gourd"
+    },
+    "facing=south": {
+      "model": "thumbandthicket:block/carved_pale_gourd",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thumbandthicket:block/carved_pale_gourd",
+      "y": 270
+    }
+  }
+}
