@@ -1,10 +1,8 @@
 package net.jolene.thumbandthicket.block;
 
 import com.mojang.serialization.MapCodec;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -24,7 +22,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Unique;
 
@@ -87,6 +84,7 @@ public class MelonBlock extends FacingBlock {
             world.removeBlock(pos, false);
             world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
         }
+        world.addBlockBreakParticles(pos, state);
         return ActionResult.SUCCESS;
     }
 
