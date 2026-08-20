@@ -12,14 +12,16 @@ import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.jolene.thumbandthicket.ThumbAndThicket.MOD_ID;
+
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
-    public static final TagKey<Item> CAN_FERTILIZE_FARMLAND = TagKey.of(RegistryKeys.ITEM, Identifier.of("thumbandthicket" + "can_fertilize_farmland"));
+    public static final TagKey<Item> CAN_FERTILIZE_FARMLAND = TagKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, "can_fertilize_farmland"));
 
-    public static final TagKey<Item> CAN_REPAIR_BRICK = TagKey.of(RegistryKeys.ITEM, Identifier.of("immersive_interactions", "can_repair_brick"));
-    public static final TagKey<Item> CAN_APPLY_MOSS = TagKey.of(RegistryKeys.ITEM, Identifier.of("immersive_interactions", "can_apply_moss"));
-    public static final TagKey<Item> CAN_APPLY_BARK = TagKey.of(RegistryKeys.ITEM, Identifier.of("immersive_interactions", "can_apply_bark"));
-    public static final TagKey<Item> CAN_WAX_COPPER = TagKey.of(RegistryKeys.ITEM, Identifier.of("immersive_interactions", "can_wax_copper"));
+    public static final TagKey<Item> CAN_REPAIR_BRICK = TagKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, "can_repair_brick"));
+    public static final TagKey<Item> CAN_APPLY_MOSS = TagKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, "can_apply_moss"));
+    public static final TagKey<Item> CAN_APPLY_BARK = TagKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, "can_apply_bark"));
+    public static final TagKey<Item> CAN_WAX_COPPER = TagKey.of(RegistryKeys.ITEM, Identifier.of(MOD_ID, "can_wax_copper"));
 
 
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {

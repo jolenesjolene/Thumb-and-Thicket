@@ -118,5 +118,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.CRACKED_NETHER_BRICKS)
                 .add(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
 
+        getOrCreateTagBuilder(NEST_BLOCKS)
+                .add(Blocks.HAY_BLOCK);
     }
 }

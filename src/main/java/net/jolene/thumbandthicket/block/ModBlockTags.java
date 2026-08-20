@@ -19,6 +19,8 @@ public class ModBlockTags {
     public static final TagKey<Block> CRACKABLE_BLOCKS = block("crackable_blocks");
     public static final TagKey<Block> CRACKED_BLOCKS = block("cracked_blocks");
 
+    public static final TagKey<Block> NEST_BLOCKS = block("nest_blocks");
+
     private static TagKey<Block> block(String name) {
         return TagKey.of(RegistryKeys.BLOCK, ThumbAndThicket.id(name));
     }

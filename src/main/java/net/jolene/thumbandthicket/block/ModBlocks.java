@@ -7,6 +7,7 @@ import net.jolene.thumbandthicket.util.*;
 import net.jolene.thumbandthicket.world.gen.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -85,6 +86,8 @@ public class ModBlocks {
     public static final Block HYDROTHERMAL_VENT = register(new HydrothermalVentBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent", true);
 
     public static final Block CLAM_SLAB_BLOCK = register(new ClamSlabBlock(AbstractBlock.Settings.create().strength(3.0f, 6.0F).mapColor(MapColor.BROWN).requiresTool()), "clam_slab", true);
+
+    public static final Block CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

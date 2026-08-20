@@ -17,6 +17,7 @@
     "compat.ModBlocksMixin",
     "compat.ModBundledTabsMixin",
     "entity.AnimalEntityMixin",
+    "entity.ChickenEntityMixin",
     "entity.CowEntityMixin",
     "entity.EatGrassGoalMixin",
     "entity.EntityTypeMixin",
