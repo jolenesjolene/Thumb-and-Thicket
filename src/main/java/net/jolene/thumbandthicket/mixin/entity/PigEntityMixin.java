@@ -4,7 +4,6 @@ import net.jolene.thumbandthicket.util.GrazingAnimator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -21,8 +20,6 @@ public class PigEntityMixin extends MobEntity implements GrazingAnimator {
     private EatGrassGoal eatGrassGoal;
     @Unique
     private int eatGrassTimer;
-    @Unique
-    private static final int MAX_GRASS_TIMER = 40;
 
     protected PigEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);

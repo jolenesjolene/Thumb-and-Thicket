@@ -1,7 +1,5 @@
 package net.jolene.thumbandthicket.mixin.entity.model;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.jolene.thumbandthicket.util.CoatTwoUtil;
 import net.minecraft.client.render.entity.EntityRendererFactory;

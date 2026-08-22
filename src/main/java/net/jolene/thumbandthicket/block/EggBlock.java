@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.TurtleEggBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;

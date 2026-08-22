@@ -1,12 +1,9 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
-import net.jolene.thumbandthicket.block.ModBlocks;
-import net.jolene.thumbandthicket.entity.custom.goals.FindNestGoal;
 import net.jolene.thumbandthicket.util.GrazingAnimator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;

@@ -1,7 +1,5 @@
 package net.jolene.thumbandthicket.mixin.entity.model;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.jolene.thumbandthicket.util.ModelUtil;
 import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.ModelPart;

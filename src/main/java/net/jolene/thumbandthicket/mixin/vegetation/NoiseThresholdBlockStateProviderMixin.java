@@ -1,6 +1,5 @@
 package net.jolene.thumbandthicket.mixin.vegetation;
 
-import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
@@ -13,8 +12,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static net.jolene.thumbandthicket.ThumbAndThicket.RANDOM;
 
 @Mixin(NoiseThresholdBlockStateProvider.class)
 public class NoiseThresholdBlockStateProviderMixin {

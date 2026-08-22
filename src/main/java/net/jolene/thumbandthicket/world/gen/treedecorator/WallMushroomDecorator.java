@@ -9,9 +9,12 @@ import net.minecraft.block.enums.BlockFace;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+
+import java.util.List;
 
 public class WallMushroomDecorator extends TreeDecorator {
 
@@ -32,14 +35,17 @@ public class WallMushroomDecorator extends TreeDecorator {
 
     @Override
     public void generate(Generator generator) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int i = 1; i <= 4; ++i) {
-            if (generator.getRandom().nextFloat() > probability) continue;
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                BlockState state = stateProvider.get(generator.getRandom(), mutable).with(ModProperties.AMOUNT, i).with(Properties.FACING, direction).with(Properties.BLOCK_FACE, BlockFace.WALL);
-                if (!generator.isAir(mutable.offset(direction, 1))) continue;
-                generator.replace(mutable, state);
+        Random random = generator.getRandom();
+        generator.getLogPositions().forEach(pos -> {
+            if (random.nextFloat() <= probability) {
+                Direction direction = Direction.Type.HORIZONTAL.random(random);
+                BlockPos targetPos = pos.offset(direction);
+                if (generator.isAir(targetPos)) {
+                    int amount = random.nextBetween(1, 4);
+                    BlockState state = stateProvider.get(random, targetPos).with(ModProperties.AMOUNT, amount).with(Properties.FACING, direction.getOpposite()).with(Properties.BLOCK_FACE, BlockFace.WALL);
+                    generator.replace(targetPos, state);
+                }
             }
-        }
+        });
     }
 }

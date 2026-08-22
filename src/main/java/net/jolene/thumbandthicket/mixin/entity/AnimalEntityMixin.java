@@ -1,9 +1,13 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.jolene.thumbandthicket.util.GrazingMemoryHolder;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -23,6 +27,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static net.jolene.thumbandthicket.datagen.ModEntityTypeTagsProvider.LARGE_LITTER;
+import static net.jolene.thumbandthicket.datagen.ModEntityTypeTagsProvider.MEDIUM_LITTER;
 
 @Mixin(AnimalEntity.class)
 public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemoryHolder {
@@ -127,5 +134,22 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
     private void thumbandthicket$canBeBread(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         AnimalEntity animalEntity = (AnimalEntity) (Object) this;
         if (!hasGrazed && !animalEntity.isBaby()) cir.setReturnValue(ActionResult.FAIL);
+    }
+
+    @WrapOperation(method = "breed(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/AnimalEntity;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;spawnEntityAndPassengers(Lnet/minecraft/entity/Entity;)V"))
+    private void thumbandthicket$spawnLitters(ServerWorld instance, Entity entity, Operation<Void> original, ServerWorld world, AnimalEntity other) {
+        int i = 1;
+        if (entity.getType().isIn(LARGE_LITTER)) i = random.nextBetween(2,5);
+        if (entity.getType().isIn(MEDIUM_LITTER)) i = random.nextBetween(1,3);
+        original.call(instance, entity);
+        for (int i1 = 1; i1 < i; i1++) {
+            PassiveEntity passiveEntity = ((AnimalEntity)(Object)this).createChild(world, other);
+            if (passiveEntity == null) {
+                return;
+            }
+            passiveEntity.setBaby(true);
+            passiveEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), 0.0f, 0.0f);
+            world.spawnEntityAndPassengers(passiveEntity);
+        }
     }
 }

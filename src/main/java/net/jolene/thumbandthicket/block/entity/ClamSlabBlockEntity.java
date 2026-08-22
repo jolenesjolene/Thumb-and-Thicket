@@ -2,10 +2,8 @@ package net.jolene.thumbandthicket.block.entity;
 
 import net.jolene.thumbandthicket.block.entity.renderer.ClamLidAnimator;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LidOpenable;
-import net.minecraft.block.enums.ChestType;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -17,7 +15,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -57,11 +54,11 @@ public class ClamSlabBlockEntity extends BlockEntity implements ImplementedInven
         return createNbt(registryLookup);
     }
 
-    public static void clientTick(World world, BlockPos pos, BlockState state, ClamSlabBlockEntity blockEntity) {
+    public static void clientTick(ClamSlabBlockEntity blockEntity) {
         blockEntity.clamLidAnimator.step();
     }
 
-    static void playSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent) {
+    static void playSound(World world, BlockPos pos, SoundEvent soundEvent) {
         double d = pos.getX() + 0.5;
         double e = pos.getY() + 0.5;
         double f = pos.getZ() + 0.5;

@@ -234,7 +234,7 @@
 
 
 - More Animal Behaviors
-  - seeking Shelter
+  - ~~seeking Shelter~~
   - Dogs howl at Moon
   - healing through food
   - Squids blind you

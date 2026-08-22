@@ -9,7 +9,6 @@ import net.jolene.thumbandthicket.util.Slice;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,9 +30,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
@@ -47,7 +43,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static net.jolene.thumbandthicket.util.ModProperties.*;
 import static net.jolene.thumbandthicket.ThumbAndThicket.*;
-import static net.minecraft.block.PillarBlock.AXIS;
 
 @Mixin(value = PillarBlock.class, priority = 990)
 public class PillarBlockMixin extends Block {

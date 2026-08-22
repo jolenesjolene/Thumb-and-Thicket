@@ -113,7 +113,7 @@ public class ClamSlabBlock extends BlockWithEntity implements Waterloggable {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? validateTicker(type, ModBlockEntities.CLAM_SLAB_BLOCK, ClamSlabBlockEntity::clientTick) : null;
+        return world.isClient ? validateTicker(type, ModBlockEntities.CLAM_SLAB_BLOCK, (world1, pos, state1, blockEntity) -> ClamSlabBlockEntity.clientTick(blockEntity)) : null;
     }
 
     @Override

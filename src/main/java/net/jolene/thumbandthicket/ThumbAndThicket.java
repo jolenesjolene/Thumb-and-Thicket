@@ -31,7 +31,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.WorldAccess;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -207,4 +206,6 @@ public class ThumbAndThicket implements ModInitializer {
     public static Random RANDOM = null;
 
     public static final List<BlockPos> WILTED_CROPS = BlockPos.stream(-1, 0, -1, 1, 1, 1).map(BlockPos::toImmutable).toList();
+
+
 }

@@ -2,7 +2,6 @@ package net.jolene.thumbandthicket.mixin.vegetation;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.util.ModProperties;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
@@ -13,7 +12,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
