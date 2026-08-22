@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -67,6 +68,9 @@ public class FindNestGoal extends Goal {
         World world = animalEntity.getWorld();
         BlockPos pos = animalEntity.getBlockPos();
         BlockState state = world.getBlockState(pos);
+
+        if (animalEntity instanceof ChickenEntity chickenEntity) {
+        }
 
         if (state.isReplaceable() && !state.isOf(eggBlock)) {
             world.setBlockState(pos, eggBlock.getDefaultState());

@@ -66,22 +66,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.BARK)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.BARK), FabricRecipeProvider.conditionsFromItem(ModItems.BARK))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.ROOTED_DIRT, 2)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.ROOTED_DIRT)
                 .input(Items.DIRT)
                 .input(Items.HANGING_ROOTS)
                 .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_GRASS, 2)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_GRASS)
                 .input(Items.GRASS_BLOCK)
                 .input(Items.HANGING_ROOTS)
                 .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_PODZOL, 2)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROOTED_PODZOL)
                 .input(Items.PODZOL)
                 .input(Items.HANGING_ROOTS)
                 .criterion(FabricRecipeProvider.hasItem(Items.HANGING_ROOTS), FabricRecipeProvider.conditionsFromItem(Items.HANGING_ROOTS))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JACK_O_GOURD, 2)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JACK_O_GOURD)
                 .input(ModBlocks.JACK_O_GOURD)
                 .input(Items.TORCH)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.CARVED_PALE_GOURD), FabricRecipeProvider.conditionsFromItem(ModBlocks.CARVED_PALE_GOURD))

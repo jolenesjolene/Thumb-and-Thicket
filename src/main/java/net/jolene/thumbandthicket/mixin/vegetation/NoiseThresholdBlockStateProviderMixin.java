@@ -22,6 +22,6 @@ public class NoiseThresholdBlockStateProviderMixin {
     @Inject(method = "get", at = @At("RETURN"), cancellable = true)
     private void thumbandthicket$randomizeFlowerBlockstates(Random random, BlockPos pos, CallbackInfoReturnable<BlockState> cir) {
         BlockState state = cir.getReturnValue();
-        if (state.getBlock() instanceof FlowerBlock && RANDOM != null) cir.setReturnValue(state.with(ModProperties.FLOWERS, random.nextBetween(1,3)).with(Properties.FACING, ThumbAndThicket.getRandomHorizontalDirection(RANDOM)));
+        if (state.getBlock() instanceof FlowerBlock && random != null) cir.setReturnValue(state.with(ModProperties.FLOWERS, random.nextBetween(1,3)).with(Properties.FACING, Direction.Type.HORIZONTAL.random(random)));
     }
 }

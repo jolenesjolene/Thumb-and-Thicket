@@ -143,9 +143,9 @@ public class PillarBlockMixin extends Block {
                     case MAIN_HAND -> slot = EquipmentSlot.MAINHAND;
                     case OFF_HAND -> slot = EquipmentSlot.OFFHAND;
                 }
-                if (rooty) property = state.with(ROOTY, Rooty.NONE);
-                if (branch) property = state.with(BRANCH, false);
-                if (hollow) property = state.with(HOLLOW, false);
+                if (rooty) property = property.with(ROOTY, Rooty.NONE);
+                if (branch) property = property.with(BRANCH, false);
+                if (hollow) property = property.with(HOLLOW, false);
 
                 if (!player.isCreative()) stack.damage(1, player, slot);
                 BlockState newState = property;

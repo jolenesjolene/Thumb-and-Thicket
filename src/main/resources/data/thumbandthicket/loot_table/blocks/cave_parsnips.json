@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:carrot"
+          "name": "thumbandthicket:cave_parsnips"
         }
       ],
       "rolls": 1.0
@@ -41,7 +41,7 @@
               }
             }
           ],
-          "name": "minecraft:carrot"
+          "name": "thumbandthicket:cave_parsnips"
         }
       ],
       "rolls": 1.0

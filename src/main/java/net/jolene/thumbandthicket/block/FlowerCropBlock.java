@@ -61,7 +61,7 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof FlowerCropBlockEntity flowerCropBlockEntity && !world.isClient) {
+        if (blockEntity instanceof FlowerCropBlockEntity flowerCropBlockEntity) {
             flowerCropBlockEntity.thumbandthicket$setFlower(itemStack.getComponents().get(ModDataComponentTypes.FLOWER_TYPE));
         }
         super.onPlaced(world, pos, state, placer, itemStack);
@@ -104,7 +104,10 @@ public class FlowerCropBlock extends BlockWithEntity implements Fertilizable {
         if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
             world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
         } else if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) == 2 && random.nextInt((int)(25.0f / (f = getAvailableMoisture(this, world, pos))) + 1) == 0) {
-            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) world.setBlockState(pos, ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower()).getDefaultState().with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS)).with(Properties.FACING, Direction.random(random)), Block.NOTIFY_LISTENERS);
+            if (world.getBlockEntity(pos) instanceof FlowerCropBlockEntity flowerCropBlockEntity) {
+                Block flowerBlock = ThumbAndThicket.thumbandthicket$getBlockByName(flowerCropBlockEntity.thumbandthicket$getFlower());
+                if (flowerBlock != Blocks.AIR) world.setBlockState(pos,flowerBlock.getDefaultState().with(ModProperties.FLOWERS, state.get(ModProperties.FLOWERS)).with(Properties.FACING, Direction.random(random)), Block.NOTIFY_LISTENERS);
+            }
         }
     }
 

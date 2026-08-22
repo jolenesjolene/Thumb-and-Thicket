@@ -6,14 +6,13 @@ import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.block.WiltedCropBlock;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.*;
 
-import static net.jolene.thumbandthicket.ThumbAndThicket.WITHERED_CROPS;
+import static net.jolene.thumbandthicket.ThumbAndThicket.WILTED_CROPS;
 import static net.jolene.thumbandthicket.util.ModProperties.FERTILIZED;
 
 @Debug(export = true)
@@ -31,12 +30,6 @@ public abstract class CropBlockMixin {
     @Shadow
     public abstract BlockState withAge(int age);
 
-    @Shadow
-    @Final
-    public static IntProperty AGE;
-    @Unique
-    private float WILTING_CHANCE_MULTIPLIER = 1.0f;
-
     @Unique
     private float thumbandthicket$getWiltingChancePerAge(int age) {
         return switch (age) {
@@ -51,13 +44,10 @@ public abstract class CropBlockMixin {
     }
 
     @Unique
-    private void getWitherChancePerWitheredCrop(World world, BlockPos pos) {
-        WILTING_CHANCE_MULTIPLIER = 0.5f;
-        for (BlockPos blockPos : WITHERED_CROPS) {
-            if ((world.getBlockState(pos.add(blockPos)).getBlock() instanceof WiltedCropBlock)) {
-                WILTING_CHANCE_MULTIPLIER = WILTING_CHANCE_MULTIPLIER + 0.25f;
-            }
-        }
+    private float getWiltingChancePerWitheredCrop(World world, BlockPos pos) {
+        float wiltingChance = 0.5f;
+        for (BlockPos blockPos : WILTED_CROPS) if ((world.getBlockState(pos.add(blockPos)).getBlock() instanceof WiltedCropBlock)) return wiltingChance + 0.25f;
+        return wiltingChance;
     }
 
     @WrapMethod(method = "randomTick")
@@ -68,16 +58,10 @@ public abstract class CropBlockMixin {
                 int i = this.getAge(state);
                 float f = getAvailableMoisture((Block) (Object) this, world, pos);
                 if (random.nextInt((int) (25.0F / f) + 1) == 0) {
-                    getWitherChancePerWitheredCrop(world, pos);
-                    if (thumbandthicket$getWiltingChancePerAge(i) > 0 && random.nextFloat() < thumbandthicket$getWiltingChancePerAge(i) * WILTING_CHANCE_MULTIPLIER) {
-                        world.setBlockState(pos, ModBlocks.WILTED_CROP.getDefaultState(), Block.NOTIFY_LISTENERS);
-                    } else {
-                        world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
-                    }
+                    if (thumbandthicket$getWiltingChancePerAge(i) > 0 && random.nextFloat() < thumbandthicket$getWiltingChancePerAge(i) * getWiltingChancePerWitheredCrop(world, pos)) world.setBlockState(pos, ModBlocks.WILTED_CROP.getDefaultState(), Block.NOTIFY_LISTENERS);
+                    else world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
                 }
             }
-        } else {
-            original.call(state, world, pos, random);
-        }
+        } else original.call(state, world, pos, random);
     }
 }

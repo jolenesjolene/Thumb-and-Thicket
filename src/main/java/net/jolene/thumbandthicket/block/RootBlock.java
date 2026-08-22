@@ -46,7 +46,7 @@ public class RootBlock extends BlockWithEntity implements BlockEntityProvider {
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (world.getBlockEntity(pos) instanceof RootBlockEntity rootBlockEntity && !world.isClient) {
             if (world.getBlockState(pos.north()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.east()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.south()).isIn(ModBlockTags.ROOTY_BLOCKS) && world.getBlockState(pos.west()).isIn(ModBlockTags.ROOTY_BLOCKS)) {
-                if (random.nextInt(25) == 0 && world.getBlockState(pos.up()).isOf(Blocks.AIR)) {
+                if (random.nextInt(25) == 0 && world.getBlockState(pos.up()).isReplaceable()) {
                     Block sapling = rootBlockEntity.thumbandthicket$getSapling();
                     if (sapling != Blocks.AIR) {
                         BlockState saplingBlock = sapling.getDefaultState();

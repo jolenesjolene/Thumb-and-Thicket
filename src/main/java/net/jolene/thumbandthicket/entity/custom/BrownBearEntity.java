@@ -58,6 +58,7 @@ public class BrownBearEntity extends AnimalEntity {
         // Retaliation Goal
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        super.initGoals();
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {

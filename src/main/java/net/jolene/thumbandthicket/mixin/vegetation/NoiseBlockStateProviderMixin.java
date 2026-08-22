@@ -34,7 +34,7 @@ public class NoiseBlockStateProviderMixin {
     protected BlockState thumbandthicket$randomizeFlowerBlockstates(List<BlockState> states, double value, Operation<BlockState> original) {
         double d = MathHelper.clamp((1.0 + value) / 2.0, 0.0, 0.9999);
         BlockState state = states.get((int)(d * (double)states.size()));
-        if (state.getBlock() instanceof FlowerBlock && RANDOM != null) return state.with(ModProperties.FLOWERS, RANDOM.nextBetween(1,3)).with(Properties.FACING, ThumbAndThicket.getRandomHorizontalDirection(RANDOM));
+        if (state.getBlock() instanceof FlowerBlock && RANDOM != null) return state.with(ModProperties.FLOWERS, RANDOM.nextBetween(1,3)).with(Properties.FACING, Direction.Type.HORIZONTAL.random(RANDOM));
         return original.call(states, value);
     }
 }

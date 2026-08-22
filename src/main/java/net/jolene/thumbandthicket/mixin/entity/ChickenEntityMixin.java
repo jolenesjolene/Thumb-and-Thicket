@@ -25,27 +25,13 @@ public abstract class ChickenEntityMixin extends AnimalEntity implements EggLayI
 
     @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/ChickenEntity;playSound(Lnet/minecraft/sound/SoundEvent;FF)V", shift = At.Shift.BEFORE), cancellable = true)
     private void thumbandthicket$placeEgg(CallbackInfo ci) {
-//        ChickenEntity entity = ChickenEntity.class.cast(this);
-//        World world = entity.getWorld();
-//        BlockPos pos = entity.getBlockPos();
-//        BlockState state = world.getBlockState(pos);
-//        if (state.isReplaceable() && !state.isOf(ModBlocks.CHICKEN_EGG_BLOCK)) {
-//            world.setBlockState(pos, ModBlocks.CHICKEN_EGG_BLOCK.getDefaultState());
-//            this.emitGameEvent(GameEvent.ENTITY_PLACE);
-//            entity.eggLayTime = this.random.nextInt(6000) + 6000;
-//        } else if (state.isOf(ModBlocks.CHICKEN_EGG_BLOCK)) {
-//            int amount = state.get(Properties.EGGS);
-//            int hatch = state.get(Properties.HATCH);
-//            if (amount < 4) world.setBlockState(pos, ModBlocks.CHICKEN_EGG_BLOCK.getDefaultState().with(Properties.EGGS, amount + 1).with(Properties.HATCH, hatch));
-//            this.emitGameEvent(GameEvent.ENTITY_PLACE);
-//            entity.eggLayTime = this.random.nextInt(6000) + 6000;
-//        }
         ci.cancel();
     }
 
-    @Inject(method = "initGoals", at = @At("HEAD"))
+    @Inject(method = "initGoals", at = @At("TAIL"))
     private void thumbandthicket$addNestGoal(CallbackInfo ci) {
         this.goalSelector.add(0, new FindNestGoal(ChickenEntity.class.cast(this), ModBlocks.CHICKEN_EGG_BLOCK));
+        super.initGoals();
     }
 
     @Override

@@ -8,7 +8,6 @@ import net.minecraft.client.model.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Environment(EnvType.CLIENT)
 @Mixin(ColdChickenModel.class)
 public class ColdChickenModelMixin {
     /**

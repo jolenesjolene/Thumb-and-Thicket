@@ -27,7 +27,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -76,25 +75,6 @@ public class ThumbAndThicket implements ModInitializer {
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 
-    public static @NotNull Direction thumbandthicket$getInvertedDirection(Direction rootBlockDirection) {
-        Direction rootBlockDirectionInverted = rootBlockDirection;
-
-        switch (rootBlockDirection) {
-            case UP -> rootBlockDirectionInverted = Direction.DOWN;
-            case DOWN -> rootBlockDirectionInverted = Direction.UP;
-            case WEST -> rootBlockDirectionInverted = Direction.EAST;
-            case EAST -> rootBlockDirectionInverted = Direction.WEST;
-            case NORTH -> rootBlockDirectionInverted = Direction.SOUTH;
-            case SOUTH -> rootBlockDirectionInverted = Direction.NORTH;
-        }
-        return rootBlockDirectionInverted;
-    }
-
-    public static Direction getRandomHorizontalDirection(Random random) {
-        List<Direction> directions = List.of(Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST);
-        return Util.getRandom(directions, random);
-    }
-
     public static Direction thumbandthicket$determineRootBlockDirection(BlockState state, BlockPos pos, WorldAccess world, Block block) {
         Direction.Axis axis = state.get(AXIS);
 
@@ -130,7 +110,6 @@ public class ThumbAndThicket implements ModInitializer {
                 if (world.getBlockState(pos.offset(rootBlockDirection)).getBlock() == ModBlocks.ROOT_BLOCK) return state.with(ROOTY, Rooty.TOP);
             }
         }
-
         return state;
     }
 
@@ -161,23 +140,20 @@ public class ThumbAndThicket implements ModInitializer {
 
         Direction.Axis axis = state.get(AXIS);
         Block block = state.getBlock();
-
         Direction rootBlockDirection = thumbandthicket$determineRootBlockDirection(state, pos, world, state.getBlock());
 
         Direction dir1, dir2;
         if (rootBlockDirection != null) {
             if (world.getBlockState(pos.offset(rootBlockDirection)).contains(AXIS)) {
                 if (axis == world.getBlockState(pos.offset(rootBlockDirection)).get(AXIS)) {
-                    dir1 = thumbandthicket$getInvertedDirection(rootBlockDirection);
+                    dir1 = rootBlockDirection.getOpposite();
                     dir2 = rootBlockDirection;
                     BlockPos neighborPos1 = pos.offset(dir1);
                     BlockPos neighborPos2 = pos.offset(dir2);
 
                     for (BlockPos neighborPos : new BlockPos[]{neighborPos1, neighborPos2}) {
                         BlockState neighbor = world.getBlockState(neighborPos);
-                        if (neighbor.getBlock() == block && neighbor.contains(SLICE) && neighbor.get(AXIS) == axis) {
-                            return state.with(SLICE, neighbor.get(SLICE));
-                        }
+                        if (neighbor.getBlock() == block && neighbor.contains(SLICE) && neighbor.get(AXIS) == axis) return state.with(SLICE, neighbor.get(SLICE));
                     }
                 }
             }
@@ -230,6 +206,5 @@ public class ThumbAndThicket implements ModInitializer {
 
     public static Random RANDOM = null;
 
-
-    public static final List<BlockPos> WITHERED_CROPS = BlockPos.stream(-1, 0, -1, 1, 1, 1).map(BlockPos::toImmutable).toList();
+    public static final List<BlockPos> WILTED_CROPS = BlockPos.stream(-1, 0, -1, 1, 1, 1).map(BlockPos::toImmutable).toList();
 }

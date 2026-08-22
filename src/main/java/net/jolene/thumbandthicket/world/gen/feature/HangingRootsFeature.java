@@ -59,14 +59,14 @@ public class HangingRootsFeature extends Feature<HangingRootsFeatureConfig> {
 
             caveSurface.ifPresent(surface -> pos.add(0, surface.getCeilingHeight().getAsInt(), 0));
 
-            if (!state.canPlaceAt(world, pos.mutableCopy())) continue;
-            world.setBlockState(pos.mutableCopy(), state,2);
+            if (!state.canPlaceAt(world, pos)) continue;
+            world.setBlockState(pos, state,2);
             if (longer) {
                 if (evenLonger) {
-                    world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.HANGING_PART, HangingPart.MIDDLE), 2);
-                    world.setBlockState(pos.mutableCopy().down(2), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
+                    world.setBlockState(pos.down(), state.with(ModProperties.HANGING_PART, HangingPart.MIDDLE), 2);
+                    world.setBlockState(pos.down(2), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
                 }
-                else world.setBlockState(pos.mutableCopy().down(), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
+                else world.setBlockState(pos.down(), state.with(ModProperties.HANGING_PART, HangingPart.TOP), 2);
             }
             placed++;
         }

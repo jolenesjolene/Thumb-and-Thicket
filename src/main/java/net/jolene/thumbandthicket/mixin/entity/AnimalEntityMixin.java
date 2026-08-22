@@ -125,6 +125,7 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
 
     @Inject(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/AnimalEntity;isBreedingItem(Lnet/minecraft/item/ItemStack;)Z", shift = At.Shift.AFTER), cancellable = true)
     private void thumbandthicket$canBeBread(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        if (!hasGrazed) cir.setReturnValue(ActionResult.FAIL);
+        AnimalEntity animalEntity = (AnimalEntity) (Object) this;
+        if (!hasGrazed && !animalEntity.isBaby()) cir.setReturnValue(ActionResult.FAIL);
     }
 }

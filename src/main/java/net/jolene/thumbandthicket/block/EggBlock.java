@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.TurtleEggBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -39,6 +40,7 @@ public class EggBlock extends TurtleEggBlock {
                     AnimalEntity entity1 = (AnimalEntity) this.entity.create(world);
                     if (entity1 == null) continue;
                     entity1.setBreedingAge(-24000);
+
                     entity1.refreshPositionAndAngles((double)pos.getX() + 0.3 + (double)j * 0.2, pos.getY(), (double)pos.getZ() + 0.3, 0.0f, 0.0f);
                     world.spawnEntity(entity1);
                 }

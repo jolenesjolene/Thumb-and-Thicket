@@ -100,13 +100,13 @@ public abstract class SheepEntityMixin extends MobEntity implements CoatTwoUtil 
         return Random.create().nextBetween(1,3);
     }
 
-//    @Inject(method = "<clinit>", at = @At("HEAD"))
-//    private static void thumbandthicket$addSecondCoat(CallbackInfo ci) {
-//        SECOND_COAT = ;
-//    }
-
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     private static void thumbandthicket$initSecondCoat(DataTracker.Builder builder, CallbackInfo ci) {
         builder.add(SECOND_COAT, false);
+    }
+
+    @Inject(method = "initGoals", at = @At("TAIL"))
+    private void thumbandthicket$addNestGoal(CallbackInfo ci) {
+        super.initGoals();
     }
 }

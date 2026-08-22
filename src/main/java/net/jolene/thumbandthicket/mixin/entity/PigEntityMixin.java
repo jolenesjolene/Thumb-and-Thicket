@@ -77,4 +77,9 @@ public class PigEntityMixin extends MobEntity implements GrazingAnimator {
             return this.eatGrassTimer > 0 ? ((float)Math.PI / 5F) : this.getPitch() * ((float)Math.PI / 180F);
         }
     }
+
+    @Inject(method = "initGoals", at = @At("TAIL"))
+    private void thumbandthicket$addNestGoal(CallbackInfo ci) {
+        super.initGoals();
+    }
 }

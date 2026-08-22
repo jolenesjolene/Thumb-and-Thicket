@@ -62,19 +62,11 @@ public class ClamSlabBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     static void playSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent) {
-        ChestType chestType = state.get(ChestBlock.CHEST_TYPE);
-        if (chestType != ChestType.LEFT) {
-            double d = pos.getX() + 0.5;
-            double e = pos.getY() + 0.5;
-            double f = pos.getZ() + 0.5;
-            if (chestType == ChestType.RIGHT) {
-                Direction direction = ChestBlock.getFacing(state);
-                d += direction.getOffsetX() * 0.5;
-                f += direction.getOffsetZ() * 0.5;
-            }
+        double d = pos.getX() + 0.5;
+        double e = pos.getY() + 0.5;
+        double f = pos.getZ() + 0.5;
 
-            world.playSound(null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
-        }
+        world.playSound(null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
     }
 
     @Override

@@ -8,7 +8,6 @@ import net.minecraft.client.model.ModelData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Environment(EnvType.CLIENT)
 @Mixin(CowVariantModel.class)
 public class CowVariantModelMixin {
 

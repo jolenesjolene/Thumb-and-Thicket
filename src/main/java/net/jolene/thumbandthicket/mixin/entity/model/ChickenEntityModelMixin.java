@@ -8,7 +8,6 @@ import net.minecraft.client.render.entity.model.ChickenEntityModel;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Environment(EnvType.CLIENT)
 @Mixin(ChickenEntityModel.class)
 public class ChickenEntityModelMixin {
 

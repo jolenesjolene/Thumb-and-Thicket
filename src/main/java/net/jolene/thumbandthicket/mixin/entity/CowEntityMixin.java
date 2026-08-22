@@ -1,9 +1,12 @@
 package net.jolene.thumbandthicket.mixin.entity;
 
+import net.jolene.thumbandthicket.block.ModBlocks;
+import net.jolene.thumbandthicket.entity.custom.goals.FindNestGoal;
 import net.jolene.thumbandthicket.util.GrazingAnimator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -75,5 +78,10 @@ public class CowEntityMixin extends MobEntity implements GrazingAnimator {
         } else {
             return this.eatGrassTimer > 0 ? ((float)Math.PI / 5F) : this.getPitch() * ((float)Math.PI / 180F);
         }
+    }
+
+    @Inject(method = "initGoals", at = @At("TAIL"))
+    private void thumbandthicket$addNestGoal(CallbackInfo ci) {
+        super.initGoals();
     }
 }

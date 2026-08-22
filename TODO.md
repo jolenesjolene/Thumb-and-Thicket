@@ -313,6 +313,7 @@
 - Big Water Compat Texture
 - Biomes
   - Overworld Biomes
+  - Unique Water and Fog colors
     - Transition Biomes
     - Clearings in Forests
     - ~~Mud in Rivers and Oceans instead of Dirt~~
@@ -339,6 +340,26 @@
     - Shipwrecks on Stone Spikes
     - Ruined Temples?
 
+### Season System
+- trees kinda lose leaves → texture changes OR store treeshape in root blocks somehow
+- change leaves colors
+- snow WON'T stack (but collect under trees and around edges)
+- simulate snowing in unloaded chunks
+- water freezes from the outside in
+- melt ice correctly
+- icicles under overhangs → air ~2 blocks adjacent
+- crop growth impact → higher withering chance
+- greenhouse glass prevents crop growth impact → checks for glass anywhere above the sapling/crop
+- moss growth on blocks over time
+- season dependent mob spawns
+- long seasons
+- adjusted day and night cycle depending on season
+- leaf litter generates in fall
+- leaves start falling in fall
+- seasonal weather events
+- food spoils → can be preserved in pots underground
+
+### Random Stuff
 - ~~Port Crop wilting system from Progression Respun~~
   - new Textures
   - ~~Villager AI~~
