@@ -1,27 +1,7 @@
 {
   "variants": {
     "": [
-      {"model": "thumbandthicket:block/rooted_grass", "weight": 84},
-
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_1", "y": 0, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_1", "y": 90, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_1", "y": 180, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_1", "y": 270, "x": 0, "weight": 1},
-
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_2", "y": 0, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_2", "y": 90, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_2", "y": 180, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_2", "y": 270, "x": 0, "weight": 1},
-
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_3", "y": 0, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_3", "y": 90, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_3", "y": 180, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_3", "y": 270, "x": 0, "weight": 1},
-
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_4", "y": 0, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_4", "y": 90, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_4", "y": 180, "x": 0, "weight": 1},
-      {"model": "thumbandthicket:block/uproots/uprooted_grass_4", "y": 270, "x": 0, "weight": 1}
+      {"model": "thumbandthicket:block/rooted_grass", "weight": 100}
     ]
   }
 }
