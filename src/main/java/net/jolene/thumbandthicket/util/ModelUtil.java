@@ -45,24 +45,129 @@ public class ModelUtil {
     public static ModelData createChickenModel() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
+        modelPartData.addChild(
+                "body",
+                ModelPartBuilder.create()
+                        .uv(0, 14)
+                        .cuboid(
+                                -3.5F, -5.0F, -3.0F,
+                                7.0F, 6.0F, 8.0F,
+                                new Dilation(0.0F)
+                        )
+                        .uv(0, 0)
+                        .cuboid(
+                                -4.0F, -5.0F, -3.0F,
+                                8.0F, 6.0F, 8.0F,
+                                new Dilation(0.5F)
+                        ),
+                ModelTransform.pivot(0.0F, 19.0F, -1.0F)
+        );
+        modelPartData.addChild(
+                "tail",
+                ModelPartBuilder.create()
+                        .uv(14, 28)
+                        .cuboid(
+                                0.0F, -3.0F, -4.0F,
+                                0.0F, 8.0F, 8.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.pivot(0.0F, 15.0F, 4.0F)
+        );
 
-        ModelTransform transform = ModelTransform.pivot(0.0F, 15.0F, -3.0F);
+        modelPartData.addChild(
+                "head",
+                ModelPartBuilder.create()
+                        .uv(30, 14)
+                        .cuboid(
+                                -2.0F, -4.0F, -3.0F,
+                                4.0F, 5.0F, 3.0F,
+                                new Dilation(0.0F)
+                        )
+                        .uv(30, 32)
+                        .cuboid(
+                                -2.0F, -4.0F, -3.0F,
+                                4.0F, 5.0F, 3.0F,
+                                new Dilation(0.5F)
+                        ),
+                ModelTransform.pivot(0.0F, 14.0F, -2.0F)
+        );
 
-        modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -4.0F, -3.0F, 8.0F, 8.0F, 6.0F, new Dilation(0.0F))
-                .uv(0, 14).cuboid("body_outer",-4.0F, -4.0F, -3.0F, 8.0F, 8.0F, 6.0F, new Dilation(0.5F))
-                .uv(0, 28).cuboid("tail",0.0F, 0.0F, -1.0F, 0.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 16.0F, 0.0F, 1.5708F, 0.0F, 0.0F));
+        modelPartData.addChild(
+                "beak",
+                ModelPartBuilder.create()
+                        .uv(0, 28)
+                        .cuboid(
+                                0.0F, -8.0F, -5.0F,
+                                0.0F, 12.0F, 7.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.pivot(0.0F, 14.0F, -2.0F)
+        );
+        modelPartData.addChild(
+                "red_thing",
+                ModelPartBuilder.create()
+                        .uv(32, 10)
+                        .cuboid(
+                                -2.0F, -2.0F, -5.0F,
+                                4.0F, 2.0F, 2.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.pivot(0.0F, 14.0F, -2.0F)
+        );
 
-        modelPartData.addChild("head", ModelPartBuilder.create().uv(16, 28).cuboid(-2.0F, -6.0F, -2.0F, 4.0F, 6.0F, 3.0F, new Dilation(0.0F))
-                .uv(28, 18).cuboid("head_outer",-2.0F, -6.0F, -2.0F, 4.0F, 6.0F, 3.0F, new Dilation(0.5F)),
-                transform);
+        modelPartData.addChild(
+                "right_leg",
+                ModelPartBuilder.create()
+                        .uv(30, 40)
+                        .cuboid(
+                                -1.5F, 0.0F, -3.0F,
+                                3.0F, 5.0F, 3.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.of(
+                        -1.5F, 19.0F, 1.0F,
+                        0.0F, 0.2182F, 0.0F
+                )
+        );
 
-        modelPartData.addChild("beak", ModelPartBuilder.create().uv(28, 0).cuboid("beak",0.0F, -9.0F, -4.0F, 0.0F, 12.0F, 6.0F, new Dilation(0.0F)), transform);
-        modelPartData.addChild("red_thing", ModelPartBuilder.create().uv(40, 8).cuboid("comb",-2.0F, -4.0F, -4.0F, 4.0F, 2.0F, 2.0F, new Dilation(0.0F)), transform);
+        modelPartData.addChild(
+                "left_leg",
+                ModelPartBuilder.create()
+                        .uv(42, 22)
+                        .cuboid(
+                                -1.5F, 0.0F, -3.0F,
+                                3.0F, 5.0F, 3.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.of(
+                        1.5F, 19.0F, 1.0F,
+                        0.0F, -0.2182F, 0.0F
+                )
+        );
 
-        modelPartData.addChild("right_leg", ModelPartBuilder.create().uv(28, 37).cuboid(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 19.0F, 1.0F));
-        modelPartData.addChild("left_leg", ModelPartBuilder.create().uv(40, 0).cuboid(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(1.0F, 19.0F, 1.0F));
-        modelPartData.addChild("right_wing", ModelPartBuilder.create().uv(30, 27).cuboid(-1.1F, 0.0F, -3.0F, 0.0F, 4.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, 13.0F, 0.0F));
-        modelPartData.addChild("left_wing", ModelPartBuilder.create().uv(16, 37).cuboid(1.1F, 0.0F, -3.0F, 0.0F, 4.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(3.0F, 13.0F, 0.0F));
+        modelPartData.addChild(
+                "right_wing",
+                ModelPartBuilder.create()
+                        .uv(30, 22)
+                        .cuboid(
+                                0.0F, 0.0F, -3.0F,
+                                0.0F, 4.0F, 6.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.pivot(-3.6F, 15.0F, 0.0F)
+        );
+
+        modelPartData.addChild(
+                "left_wing",
+                ModelPartBuilder.create()
+                        .uv(32, 0)
+                        .cuboid(
+                                0.0F, 0.0F, -3.0F,
+                                0.0F, 4.0F, 6.0F,
+                                new Dilation(0.0F)
+                        ),
+                ModelTransform.pivot(3.6F, 15.0F, 0.0F)
+        );
 
         return modelData;
     }
