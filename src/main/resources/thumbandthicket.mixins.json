@@ -95,6 +95,7 @@
     "entity.model.variant.cow.ColdCowModelMixin",
     "entity.model.variant.cow.CowVariantModelMixin",
     "entity.model.variant.cow.WarmCowModelMixin",
-    "entity.model.variant.pig.ColdPigModelMixin"
+    "entity.model.variant.pig.ColdPigModelMixin",
+    "tree.FluidRendererMixin"
   ]
 }

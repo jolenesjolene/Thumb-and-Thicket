@@ -1,6 +1,6 @@
 {
 	"format_version": "1.9.0",
-	"ambientocclusion": false,
+	"ambientocclusion": true,
 	"credit": "Made by gayasslily",
 	"textures": {
 		"roots": "#roots"

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "thumbandthicket:block/gourds/pumpkin_side",
-    "top": "thumbandthicket:block/gourds/pumpkin_top",
-    "bottom": "thumbandthicket:block/gourds/pumpkin_bottom"
+    "side": "minecraft:block/pumpkin_side",
+    "top": "minecraft:block/pumpkin_top",
+    "bottom": "minecraft:block/pumpkin_bottom"
   }
 }

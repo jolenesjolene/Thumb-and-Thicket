@@ -218,7 +218,7 @@
   - Behavior
   - Textures
 - Eggs
-  - Chicken and Parrots lay Eggs as Blocks
+  - ~~Chicken~~ and Parrots lay Eggs as Blocks
   - Blocks
   - Textures
 - More Fish
@@ -240,9 +240,9 @@
   - Squids blind you
   - interactions with other mobs
     - Ocelots lead Players to Temples
-  - Mobs have Litters
+  - ~~Mobs have Litters~~
   - Polar Bears hunt for Fish
-  - Herds flee from attackers
+  - ~~Herds flee from attackers~~
 
 - updated Mob Models
   - Cow
