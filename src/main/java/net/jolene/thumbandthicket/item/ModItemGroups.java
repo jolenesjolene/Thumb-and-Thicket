@@ -59,6 +59,7 @@ public class ModItemGroups {
                             entries.add(ModItems.FLOWER_SEEDS);
 
                             entries.add(Items.APPLE);
+                            entries.add(Items.GOLDEN_APPLE);
                             entries.add(ModItems.ROTTEN_APPLE);
                             entries.add(ModItems.PEAR);
                             //entries.add(ModItems.ROTTEN_PEAR);
