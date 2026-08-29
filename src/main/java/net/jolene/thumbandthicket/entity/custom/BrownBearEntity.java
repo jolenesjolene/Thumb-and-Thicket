@@ -44,7 +44,7 @@ public class BrownBearEntity extends AnimalEntity {
         // Behaviour
         this.goalSelector.add(0, new SwimGoal(this));
 
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, true));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.75D, true));
 
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
         this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.HONEYCOMB), false));

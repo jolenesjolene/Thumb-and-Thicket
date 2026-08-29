@@ -1,6 +1,49 @@
 {
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "thumbandthicket:block/lavender"
-  }
+	"format_version": "1.21.6",
+	"credit": "Made with love by Jolene <3",
+	"parent": "minecraft:block/cross",
+	"ambientocclusion": false,
+	"texture_size": [16, 32],
+	"textures": {
+		"cross": "thumbandthicket:block/lavender"
+	},
+	"elements": [
+		{
+			"from": [8, 0, -1],
+			"to": [8, 32, 17],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#missing"},
+				"east": {"uv": [16, 0, 0, 16], "texture": "#cross"},
+				"south": {"uv": [0, 0, 0, 8], "texture": "#missing"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#cross"},
+				"up": {"uv": [0, 0, 0, 8], "rotation": 180, "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 8], "rotation": 180, "texture": "#missing"}
+			}
+		},
+		{
+			"from": [-1, 0, 8],
+			"to": [17, 32, 8],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#cross"},
+				"east": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#cross"},
+				"west": {"uv": [16, 0, 16, 16], "texture": "#missing"},
+				"up": {"uv": [0, 0, 0, 8], "rotation": 270, "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 8], "rotation": 90, "texture": "#missing"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
 }
