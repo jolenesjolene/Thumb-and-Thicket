@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
-      "model": "thumbandthicket:block/duckweed"
+    "inner=false,waterlogged=false": {
+      "model": "thumbandthicket:block/duckweed_outer"
+    },
+    "inner=false,waterlogged=true": {
+      "model": "thumbandthicket:block/duckweed_outer"
+    },
+    "inner=true,waterlogged=false": {
+      "model": "thumbandthicket:block/duckweed_inner"
+    },
+    "inner=true,waterlogged=true": {
+      "model": "thumbandthicket:block/duckweed_inner"
     }
   }
 }

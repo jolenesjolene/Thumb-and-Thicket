@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.item.ModItems;
-import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -41,7 +40,6 @@ public class ModModelProvider extends FabricModelProvider {
                     ModItems.MOSS_CLUMP,
                     ModItems.WAXED_BRUSH,
                     ModItems.PATINA,
-                    ModItems.DUCKWEED,
                     ModItems.PALE_GOURD_SEEDS
             )),
             Map.entry(Models.HANDHELD, List.of(

@@ -6,7 +6,8 @@
       "state": {
         "Name": "thumbandthicket:duckweed",
         "Properties": {
-          "waterlogged": "true"
+          "inner": "false",
+          "waterlogged": "false"
         }
       }
     },
