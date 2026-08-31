@@ -27,5 +27,19 @@ public class ModEntitySpawns {
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
                 AnimalEntity::isValidNaturalSpawn
         );
+        BiomeModifications.addSpawn(
+                BiomeSelectors.tag(BiomeTags.IS_TAIGA),
+                SpawnGroup.CREATURE,
+                ModEntities.MOOSE,
+                40,
+                2,
+                4
+        );
+        SpawnRestriction.register(
+                ModEntities.MOOSE,
+                SpawnLocationTypes.ON_GROUND,
+                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+                AnimalEntity::isValidNaturalSpawn
+        );
     }
 }

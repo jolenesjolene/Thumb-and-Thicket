@@ -58,6 +58,9 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         FoamRenderer.init();
         ModEntityModelLayers.registerModelLayers();
 
+        EntityModelLayerRegistry.registerModelLayer(MooseModel.MOOSE, MooseModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MOOSE, MooseRenderer::new);
+
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
 
@@ -67,6 +70,8 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(LoraxModel.LORAX,LoraxModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.LORAX, LoraxRenderer::new);
 
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,
+                ModItems.MOOSE_SPAWN_EGG);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,
                 ModItems.BROWN_BEAR_SPAWN_EGG);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,

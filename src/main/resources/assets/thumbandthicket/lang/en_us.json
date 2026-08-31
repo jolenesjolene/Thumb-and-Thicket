@@ -45,9 +45,10 @@
 
   "item.thumbandthicket.beaver_spawn_egg": "Beaver Spawn Egg",
   "entity.thumbandthicket.beaver": "Beaver",
-
   "item.thumbandthicket.brown_bear_spawn_egg": "Brown Bear Spawn Egg",
   "entity.thumbandthicket.brown_bear": "Brown Bear",
+  "item.thumbandthicket.moose_spawn_egg": "Moose Spawn Egg",
+  "entity.thumbandthicket.moose": "Moose",
 
   "item.thumbandthicket.copper_patina": "Copper Patina",
   "item.thumbandthicket.chisel": "Chisel",

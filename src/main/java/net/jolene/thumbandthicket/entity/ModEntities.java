@@ -4,6 +4,7 @@ import net.jolene.thumbandthicket.ThumbAndThicket;
 import net.jolene.thumbandthicket.entity.custom.BeaverEntity;
 import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
 import net.jolene.thumbandthicket.entity.custom.LoraxEntity;
+import net.jolene.thumbandthicket.entity.custom.MooseEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -19,6 +20,10 @@ public class ModEntities {
             Identifier.of(ThumbAndThicket.MOD_ID, "brown_bear"),
             EntityType.Builder.create(BrownBearEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.5f, 1.5f).build());
+    public static final EntityType<MooseEntity> MOOSE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(ThumbAndThicket.MOD_ID, "moose"),
+            EntityType.Builder.create(MooseEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(1.5f, 2.25f).build());
     public static final EntityType<LoraxEntity> LORAX = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(ThumbAndThicket.MOD_ID, "lorax"),
             EntityType.Builder.create(LoraxEntity::new, SpawnGroup.CREATURE)

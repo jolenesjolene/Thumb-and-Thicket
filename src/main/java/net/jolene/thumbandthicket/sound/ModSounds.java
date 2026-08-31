@@ -20,6 +20,12 @@ public class ModSounds {
     public static final SoundEvent BROWN_BEAR_DEATH= registerSoundEvent("entity.brown_bear.death");
     public static final SoundEvent BROWN_BEAR_ATTACK= registerSoundEvent("entity.brown_bear.attack");
 
+    public static final SoundEvent MOOSE_AMBIENT = registerSoundEvent("entity.moose.ambient");
+    public static final SoundEvent MOOSE_HURT = registerSoundEvent("entity.moose.hurt");
+    public static final SoundEvent MOOSE_STEP = registerSoundEvent("entity.moose.step");
+    public static final SoundEvent MOOSE_DEATH= registerSoundEvent("entity.moose.death");
+    public static final SoundEvent MOOSE_ATTACK= registerSoundEvent("entity.moose.attack");
+
     public static final SoundEvent LORAX_AMBIENT = registerSoundEvent("entity.lorax.ambient");
     public static final SoundEvent LORAX_HURT = registerSoundEvent("entity.lorax.hurt");
     public static final SoundEvent LORAX_FLY = registerSoundEvent("entity.lorax.fly");
