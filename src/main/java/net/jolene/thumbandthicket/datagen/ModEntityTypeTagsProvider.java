@@ -20,6 +20,7 @@ public class ModEntityTypeTagsProvider extends FabricTagProvider<EntityType<?>> 
 
     public static final TagKey<EntityType<?>> LARGE_LITTER = TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID , "large_litter"));
     public static final TagKey<EntityType<?>> MEDIUM_LITTER = TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID , "medium_litter"));
+    public static final TagKey<EntityType<?>> GRAZING_ANIMALS = TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID , "grazing_animals"));
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -33,5 +34,19 @@ public class ModEntityTypeTagsProvider extends FabricTagProvider<EntityType<?>> 
                 .add(BROWN_BEAR)
                 .add(EntityType.CAT)
                 .add(EntityType.WOLF);
+        getOrCreateTagBuilder(GRAZING_ANIMALS)
+                .add(EntityType.PIG)
+                .add(EntityType.COW)
+                .add(EntityType.SHEEP)
+//                .add(EntityType.CHICKEN)
+//                .add(EntityType.HORSE)
+//                .add(EntityType.DONKEY)
+//                .add(EntityType.MULE)
+//                .add(EntityType.LLAMA)
+//                .add(EntityType.MOOSHROOM)
+//                .add(EntityType.RABBIT)
+//                .add(EntityType.SNIFFER)
+//                .add(EntityType.GOAT)
+        ;
     }
 }

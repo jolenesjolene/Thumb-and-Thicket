@@ -1,11 +1,19 @@
 package net.jolene.thumbandthicket.entity.custom.goals;
 
+import com.blackgear.vanillabackport.common.api.variant.VariantUtils;
+import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant;
+import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariants;
+import com.blackgear.vanillabackport.core.registries.ModBuiltinRegistries;
 import net.jolene.thumbandthicket.block.ModBlockTags;
+import net.jolene.thumbandthicket.block.ModBlocks;
 import net.jolene.thumbandthicket.util.EggLayInterface;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.state.property.Properties;
@@ -16,12 +24,13 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
+import java.util.Optional;
 
 import static net.minecraft.state.property.Properties.EGGS;
 
 public class FindNestGoal extends Goal {
     private final AnimalEntity animalEntity;
-    private final Block eggBlock;
+    private Block eggBlock;
     @Nullable private BlockPos targetPos;
     private int delay;
 
@@ -71,6 +80,11 @@ public class FindNestGoal extends Goal {
         BlockState state = world.getBlockState(pos);
 
         if (animalEntity instanceof ChickenEntity chickenEntity) {
+            Optional<ChickenVariant> variant = this.getVariantData(chickenEntity);
+            if (variant.isPresent()) {
+                if (VariantUtils.matches(ModBuiltinRegistries.CHICKEN_VARIANTS, variant.get(), ChickenVariants.WARM)) eggBlock = ModBlocks.WARM_CHICKEN_EGG_BLOCK;
+                if (VariantUtils.matches(ModBuiltinRegistries.CHICKEN_VARIANTS, variant.get(), ChickenVariants.COLD)) eggBlock = ModBlocks.COLD_CHICKEN_EGG_BLOCK;
+            }
         }
 
         if (state.isReplaceable() && !state.isOf(eggBlock)) {
@@ -92,5 +106,10 @@ public class FindNestGoal extends Goal {
         BlockPos blockPos = entity.getBlockPos();
         if (!world.getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) return null;
         return BlockPos.findClosest(entity.getBlockPos(), range, range, pos -> world.getBlockState(pos).isIn(ModBlockTags.NEST_BLOCKS)).orElse(null);
+    }
+
+    public Optional<ChickenVariant> getVariantData(ChickenEntity entity) {
+        TrackedData<String> data = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.STRING);
+        return VariantUtils.getOrDefault(ModBuiltinRegistries.CHICKEN_VARIANTS, entity.getDataTracker().get(data));
     }
 }

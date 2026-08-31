@@ -65,6 +65,7 @@ public class PillarBlockMixin extends Block {
         SettingsAccessor accessor = (SettingsAccessor) settings;
         if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.WOOD) builder.add(SLICE).add(ROOTY).add(BRANCH).add(HOLLOW);
         if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.CHERRY_WOOD) builder.add(SLICE).add(ROOTY).add(BRANCH).add(HOLLOW);
+        if (accessor.getInstrument() == NoteBlockInstrument.BASS && accessor.getSoundGroup() == BlockSoundGroup.NETHER_STEM) builder.add(SLICE).add(ROOTY).add(BRANCH).add(HOLLOW);
     }
 
     @Inject(method = "<init>", at = @At("TAIL"))

@@ -30,7 +30,7 @@ public abstract class ChickenEntityMixin extends AnimalEntity implements EggLayI
 
     @Inject(method = "initGoals", at = @At("TAIL"))
     private void thumbandthicket$addNestGoal(CallbackInfo ci) {
-        this.goalSelector.add(0, new FindNestGoal(ChickenEntity.class.cast(this), ModBlocks.CHICKEN_EGG_BLOCK));
+        this.goalSelector.add(0, new FindNestGoal(ChickenEntity.class.cast(this), ModBlocks.TEMPERATE_CHICKEN_EGG_BLOCK));
         super.initGoals();
     }
 

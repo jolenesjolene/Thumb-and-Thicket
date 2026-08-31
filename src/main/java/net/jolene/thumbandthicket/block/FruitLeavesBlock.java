@@ -11,5 +11,6 @@ public class FruitLeavesBlock extends LeavesBlock implements Waterloggable {
         super(settings);
     }
 
+    
 
 }

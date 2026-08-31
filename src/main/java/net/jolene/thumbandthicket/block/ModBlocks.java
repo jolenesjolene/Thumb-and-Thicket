@@ -27,7 +27,7 @@ public class ModBlocks {
     public static final Block SHORT_LILAC = register(new FlowerBlock(StatusEffects.POISON, 10,AbstractBlock.Settings.copy(Blocks.LILAC)), "short_lilac", true);
     public static final Block MILKWEED = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "milkweed", true);
     public static final Block CATTAIL = register(new WaterloggedTallPlantBlock(AbstractBlock.Settings.copy(Blocks.LARGE_FERN)), "cattail", true);
-    public static final Block POISON_IVY = register(new PoisonIvyBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()), "poison_ivy", true);
+    public static final Block POISON_IVY = register(new VineBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()), "poison_ivy", true);
     public static final Block CLOVERS = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS).replaceable()), "clovers", true);
     public static final Block ALGAE = register(new CloverBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)), "algae", true);
     public static final Block DUCKWEED = register(new DuckweedBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD).mapColor(MapColor.DARK_GREEN).noCollision()), "duckweed", false);
@@ -103,7 +103,9 @@ public class ModBlocks {
 
     public static final Block CLAM_SLAB_BLOCK = register(new ClamSlabBlock(AbstractBlock.Settings.create().strength(3.0f, 6.0F).mapColor(MapColor.BROWN).requiresTool()), "clam_slab", true);
 
-    public static final Block CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
+    public static final Block TEMPERATE_CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
+    public static final Block COLD_CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
+    public static final Block WARM_CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
 
     private static Block register(Block block, String name, boolean hasItem) {
         Identifier id = ThumbAndThicket.id(name);

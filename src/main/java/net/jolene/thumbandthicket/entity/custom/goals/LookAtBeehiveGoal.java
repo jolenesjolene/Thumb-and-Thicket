@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +41,7 @@ public class LookAtBeehiveGoal extends Goal {
     protected BlockPos locateClosestHive(BlockView world, Entity entity, int range) {
         BlockPos blockPos = entity.getBlockPos();
         if (!world.getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) return null;
-        return BlockPos.findClosest(entity.getBlockPos(), range, range, pos -> world.getBlockState(pos).isIn(BlockTags.BEEHIVES)).orElse(null);
+        return BlockPos.findClosest(entity.getBlockPos(), range, range, pos -> world.getBlockState(pos).isIn(BlockTags.BEEHIVES) && world.getBlockState(pos).get(Properties.HONEY_LEVEL) > 0).orElse(null);
     }
 
     @Override
@@ -50,7 +51,7 @@ public class LookAtBeehiveGoal extends Goal {
 
     @Override
     public void start() {
-        lookTime = this.getTickCount(40 + this.mob.getRandom().nextInt(40));
+        lookTime = this.getTickCount(200 + this.mob.getRandom().nextInt(200));
     }
 
     @Override

@@ -2,6 +2,7 @@ package net.jolene.thumbandthicket.mixin.entity;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.jolene.thumbandthicket.datagen.ModEntityTypeTagsProvider;
 import net.jolene.thumbandthicket.util.GrazingMemoryHolder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -50,8 +51,10 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
 
     @Override
     public void thumbandthicket$addGrazedPosition(BlockPos pos) {
-        thumbandthicket$grazedPositions.add(pos.toImmutable());
-        if (thumbandthicket$grazedPositions.size() > 16) thumbandthicket$clearGrazedPositions();
+        if (this.getType().isIn(ModEntityTypeTagsProvider.GRAZING_ANIMALS)) {
+            thumbandthicket$grazedPositions.add(pos.toImmutable());
+            if (thumbandthicket$grazedPositions.size() > 16) thumbandthicket$clearGrazedPositions();
+        }
     }
 
     @Override
@@ -71,35 +74,39 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void writeGrazingData(NbtCompound nbt, CallbackInfo ci) {
-        NbtList list = new NbtList();
+        if (this.getType().isIn(ModEntityTypeTagsProvider.GRAZING_ANIMALS)){
+            NbtList list = new NbtList();
 
-        for (BlockPos pos : thumbandthicket$grazedPositions) {
-            NbtCompound posNbt = new NbtCompound();
+            for (BlockPos pos : thumbandthicket$grazedPositions) {
+                NbtCompound posNbt = new NbtCompound();
 
-            posNbt.putInt("x", pos.getX());
-            posNbt.putInt("y", pos.getY());
-            posNbt.putInt("z", pos.getZ());
+                posNbt.putInt("x", pos.getX());
+                posNbt.putInt("y", pos.getY());
+                posNbt.putInt("z", pos.getZ());
 
-            list.add(posNbt);
+                list.add(posNbt);
+            }
+
+            nbt.putBoolean("canBreed", hasGrazed);
+            nbt.put("GrazedPositions", list);
         }
-
-        nbt.putBoolean("canBreed", hasGrazed);
-        nbt.put("GrazedPositions", list);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void readGrazingData(NbtCompound nbt, CallbackInfo ci) {
-        thumbandthicket$grazedPositions.clear();
+        if (this.getType().isIn(ModEntityTypeTagsProvider.GRAZING_ANIMALS)) {
+            thumbandthicket$grazedPositions.clear();
 
-        if (!nbt.contains("GrazedPositions")) return;
-        NbtList list = nbt.getList("GrazedPositions", NbtElement.COMPOUND_TYPE);
+            if (!nbt.contains("GrazedPositions")) return;
+            NbtList list = nbt.getList("GrazedPositions", NbtElement.COMPOUND_TYPE);
 
-        for (int i = 0; i < list.size(); i++) {
-            NbtCompound posNbt = list.getCompound(i);
-            thumbandthicket$grazedPositions.add(new BlockPos(posNbt.getInt("x"), posNbt.getInt("y"), posNbt.getInt("z"))
-            );
+            for (int i = 0; i < list.size(); i++) {
+                NbtCompound posNbt = list.getCompound(i);
+                thumbandthicket$grazedPositions.add(new BlockPos(posNbt.getInt("x"), posNbt.getInt("y"), posNbt.getInt("z"))
+                );
+            }
+            hasGrazed = nbt.getBoolean("canBreed");
         }
-        hasGrazed = nbt.getBoolean("canBreed");
     }
 
     @Override
@@ -116,7 +123,7 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
 
     @Inject(method = "canBreedWith", at = @At(value = "RETURN"), cancellable = true)
     private void thumbandthicket$haveBothGrazed(AnimalEntity other, CallbackInfoReturnable<Boolean> cir) {
-        if (cir.getReturnValue()) {
+        if (cir.getReturnValue() && this.getType().isIn(ModEntityTypeTagsProvider.GRAZING_ANIMALS)) {
             AnimalEntity entity = (AnimalEntity) (Object)this;
             GrazingMemoryHolder holder = (GrazingMemoryHolder) entity;
             GrazingMemoryHolder otherHolder = (GrazingMemoryHolder) other;
@@ -133,7 +140,7 @@ public abstract class AnimalEntityMixin extends MobEntity implements GrazingMemo
     @Inject(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/AnimalEntity;isBreedingItem(Lnet/minecraft/item/ItemStack;)Z", shift = At.Shift.AFTER), cancellable = true)
     private void thumbandthicket$canBeBread(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         AnimalEntity animalEntity = (AnimalEntity) (Object) this;
-        if (!hasGrazed && !animalEntity.isBaby()) cir.setReturnValue(ActionResult.FAIL);
+        if (animalEntity.getType().isIn(ModEntityTypeTagsProvider.GRAZING_ANIMALS)) if (!hasGrazed && !animalEntity.isBaby()) cir.setReturnValue(ActionResult.FAIL);
     }
 
     @WrapOperation(method = "breed(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/AnimalEntity;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;spawnEntityAndPassengers(Lnet/minecraft/entity/Entity;)V"))
