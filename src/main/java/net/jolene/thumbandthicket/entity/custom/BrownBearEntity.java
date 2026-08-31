@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.entity.custom;
 
 import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.entity.custom.goals.LookAtBeehiveGoal;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AnimationState;
@@ -51,6 +52,7 @@ public class BrownBearEntity extends AnimalEntity {
         this.goalSelector.add(4, new FollowParentGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
+        this.goalSelector.add(5, new LookAtBeehiveGoal(this, 8));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
 

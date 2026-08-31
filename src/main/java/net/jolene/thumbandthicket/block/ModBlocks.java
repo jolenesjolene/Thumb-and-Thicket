@@ -49,6 +49,22 @@ public class ModBlocks {
     public static final Block FRUIT_SIGN = register(new SignBlock(ModWoodType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)), "fruit_sign", true);
     public static final Block FRUIT_HANGING_SIGN = register(new HangingSignBlock(ModWoodType.FRUIT, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)), "fruit_hanging_sign", true);
 
+    public static final Block AZALEA_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)), "azalea_log", true);
+    public static final Block AZALEA_WOOD = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)), "azalea_wood", true);
+    public static final Block STRIPPED_AZALEA_LOG = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)), "stripped_azalea_log", true);
+    public static final Block STRIPPED_AZALEA_WOOD = register(new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)), "stripped_azalea_wood", true);
+    public static final Block AZALEA_PLANKS = register(new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)), "azalea_planks", true);
+    public static final Block AZALEA_STAIRS = register(new StairsBlock(AZALEA_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)), "azalea_stairs", true);
+    public static final Block AZALEA_SLAB = register(new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)), "azalea_slab", true);
+    public static final Block AZALEA_FENCE = register(new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)), "azalea_fence", true);
+    public static final Block AZALEA_FENCE_GATE = register(new FenceGateBlock(ModWoodType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)), "azalea_fence_gate", true);
+    public static final Block AZALEA_DOOR = register(new DoorBlock(ModBlockSetType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), "azalea_door", true);
+    public static final Block AZALEA_TRAPDOOR = register(new TrapdoorBlock(ModBlockSetType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)), "azalea_trapdoor", true);
+    public static final Block AZALEA_PRESSURE_PLATE = register(new PressurePlateBlock(ModBlockSetType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)), "azalea_pressure_plate", true);
+    public static final Block AZALEA_BUTTON = register(new ButtonBlock(ModBlockSetType.AZALEA,40, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)), "azalea_button", true);
+    public static final Block AZALEA_SIGN = register(new SignBlock(ModWoodType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)), "azalea_sign", true);
+    public static final Block AZALEA_HANGING_SIGN = register(new HangingSignBlock(ModWoodType.AZALEA, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)), "azalea_hanging_sign", true);
+
     public static final Block SNOWY_BUSH = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_bush", true);
     public static final Block SNOWY_SHORT_GRASS = register(new ShortSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_short_grass", true);
     public static final Block SNOWY_TALL_GRASS = register(new TallSnowyPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.WHITE).replaceable().noCollision().nonOpaque().blockVision((state, world, pos) -> state.get(ModProperties.LAYERS) >= 8).hardness(0.1f).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).dynamicBounds()), "snowy_tall_grass", true);

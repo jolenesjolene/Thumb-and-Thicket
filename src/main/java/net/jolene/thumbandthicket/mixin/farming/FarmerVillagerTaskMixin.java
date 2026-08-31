@@ -27,16 +27,11 @@ public abstract class FarmerVillagerTaskMixin {
 
     @Inject(method = "keepRunning(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/VillagerEntity;J)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;", shift = At.Shift.AFTER, ordinal = 1))
     private void thumbandthicket$removeWiltedCrops(ServerWorld serverWorld, VillagerEntity villagerEntity, long l, CallbackInfo ci, @Local Block block) {
-        if (block instanceof WiltedCropBlock) {
-            serverWorld.breakBlock(this.currentTarget, false, villagerEntity);
-        }
+        if (block instanceof WiltedCropBlock) serverWorld.breakBlock(this.currentTarget, false, villagerEntity);
     }
 
     @WrapMethod(method = "isSuitableTarget")
     private boolean thumbandthicket$chooseWiltedCrop(BlockPos pos, ServerWorld world, Operation<Boolean> original) {
-        BlockState blockState = world.getBlockState(pos);
-        Block block = blockState.getBlock();
-        if (block instanceof WiltedCropBlock) return true;
-        return original.call(pos, world);
+        return original.call(pos, world) || world.getBlockState(pos).getBlock() instanceof WiltedCropBlock;
     }
 }

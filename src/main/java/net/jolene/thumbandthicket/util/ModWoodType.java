@@ -16,6 +16,7 @@ public record ModWoodType(String name, BlockSetType setType, BlockSoundGroup sou
         private static final Map<String, WoodType> VALUES = new Object2ObjectArrayMap<>();
         public static final Codec<WoodType> CODEC = Codec.stringResolver(WoodType::name, VALUES::get);
         public static final WoodType FRUIT = ModWoodType.register(new WoodType("fruit", ModBlockSetType.FRUIT));
+        public static final WoodType AZALEA = ModWoodType.register(new WoodType("azalea", ModBlockSetType.AZALEA));
 
         public ModWoodType(String name, BlockSetType setType) {
             this(name, setType, BlockSoundGroup.WOOD, BlockSoundGroup.HANGING_SIGN, SoundEvents.BLOCK_FENCE_GATE_CLOSE, SoundEvents.BLOCK_FENCE_GATE_OPEN);

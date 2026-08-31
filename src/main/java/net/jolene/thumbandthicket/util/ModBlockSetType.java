@@ -14,6 +14,7 @@ public record ModBlockSetType(String name, boolean canOpenByHand, boolean canOpe
     private static final Map<String, BlockSetType> VALUES = new Object2ObjectArrayMap<>();
     public static final Codec<BlockSetType> CODEC = Codec.stringResolver(BlockSetType::name, VALUES::get);
     public static final BlockSetType FRUIT = register(new BlockSetType("fruit"));
+    public static final BlockSetType AZALEA = register(new BlockSetType("azalea"));
 
     public ModBlockSetType(String name) {
         this(name, true, true, true, ModBlockSetType.ActivationRule.EVERYTHING, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);

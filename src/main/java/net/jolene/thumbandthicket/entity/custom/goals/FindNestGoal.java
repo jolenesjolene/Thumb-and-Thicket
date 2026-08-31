@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.EnumSet;
+
 import static net.minecraft.state.property.Properties.EGGS;
 
 public class FindNestGoal extends Goal {
@@ -26,6 +28,7 @@ public class FindNestGoal extends Goal {
     public FindNestGoal(AnimalEntity animalEntity, Block eggBlock) {
         this.animalEntity = animalEntity;
         this.eggBlock = eggBlock;
+        this.setControls(EnumSet.of(Control.MOVE));
     }
 
     @Override
@@ -55,9 +58,7 @@ public class FindNestGoal extends Goal {
 
     @Override
     public void tick() {
-        if (--this.delay > 0) {
-            return;
-        }
+        if (--this.delay > 0) return;
         this.delay = this.getTickCount(10);
         if (this.targetPos == null) return;
         this.animalEntity.getNavigation().startMovingTo(this.targetPos.getX(), this.targetPos.getY(), this.targetPos.getZ(), 1.0);
@@ -87,11 +88,9 @@ public class FindNestGoal extends Goal {
     }
 
     @Nullable
-    protected BlockPos locateClosestNest(BlockView world, Entity entity, int rangeX) {
+    protected BlockPos locateClosestNest(BlockView world, Entity entity, int range) {
         BlockPos blockPos = entity.getBlockPos();
-        if (!world.getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
-            return null;
-        }
-        return BlockPos.findClosest(entity.getBlockPos(), rangeX, rangeX, pos -> world.getBlockState(pos).isIn(ModBlockTags.NEST_BLOCKS)).orElse(null);
+        if (!world.getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) return null;
+        return BlockPos.findClosest(entity.getBlockPos(), range, range, pos -> world.getBlockState(pos).isIn(ModBlockTags.NEST_BLOCKS)).orElse(null);
     }
 }

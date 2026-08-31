@@ -313,7 +313,7 @@
 - Big Water Compat Texture
 - Biomes
   - Overworld Biomes
-  - Unique Water and Fog colors
+    - Unique Water and Fog colors
     - Transition Biomes
     - Clearings in Forests
     - ~~Mud in Rivers and Oceans instead of Dirt~~
