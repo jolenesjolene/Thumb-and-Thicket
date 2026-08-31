@@ -68,7 +68,7 @@ public class BrownBearModel<T extends BrownBearEntity> extends SinglePartEntityM
         this.getPart().traverse().forEach(ModelPart::resetTransform);
         this.setHeadAngles(netHeadYaw, headPitch);
 
-        this.animateMovement(BrownBearAnimations.walk, limbSwing, limbSwingAmount, 2.75f, 2.5f);
+        this.animateMovement(BrownBearAnimations.walk, limbSwing, limbSwingAmount, 2.75f, 2.75f);
         this.updateAnimation(entity.idleAnimationState, BrownBearAnimations.idle, ageInTicks, 1f);
     }
 

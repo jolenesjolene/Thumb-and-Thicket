@@ -49,7 +49,7 @@ public class BrownBearEntity extends AnimalEntity {
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
         this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.HONEYCOMB), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.0F));
-
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));

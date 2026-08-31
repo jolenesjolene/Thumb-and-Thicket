@@ -180,7 +180,7 @@ public class BeaverModel<T extends BeaverEntity> extends SinglePartEntityModel<T
                     limbSwing,
                     limbSwingAmount,
                     2.75F,
-                    2.5F
+                    2.75F
             );
 
             this.updateAnimation(

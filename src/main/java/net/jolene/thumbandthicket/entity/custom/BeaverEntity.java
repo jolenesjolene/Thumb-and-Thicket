@@ -56,7 +56,7 @@ public class BeaverEntity extends AnimalEntity {
         ));
 
         this.goalSelector.add(4, new FollowParentGoal(this, 1.0D));
-
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
 
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
