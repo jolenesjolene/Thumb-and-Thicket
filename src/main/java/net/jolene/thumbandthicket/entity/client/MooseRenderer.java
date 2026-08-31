@@ -1,7 +1,6 @@
 package net.jolene.thumbandthicket.entity.client;
 
 import net.jolene.thumbandthicket.ThumbAndThicket;
-import net.jolene.thumbandthicket.entity.custom.BeaverEntity;
 import net.jolene.thumbandthicket.entity.custom.MooseEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;

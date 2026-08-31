@@ -1,7 +1,6 @@
 package net.jolene.thumbandthicket.entity.client;
 
 import net.jolene.thumbandthicket.ThumbAndThicket;
-import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
 import net.jolene.thumbandthicket.entity.custom.MooseEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
@@ -69,7 +68,7 @@ public class MooseModel<T extends MooseEntity> extends SinglePartEntityModel<T> 
         this.getPart().traverse().forEach(ModelPart::resetTransform);
         this.setHeadAngles(netHeadYaw, headPitch);
 
-        this.animateMovement(MooseAnimations.walk, limbSwing, limbSwingAmount, 2.75f, 2.5f);
+        this.animateMovement(MooseAnimations.walk, limbSwing, limbSwingAmount, 3.5f, 3.5f);
         this.updateAnimation(entity.idleAnimationState, MooseAnimations.idle, ageInTicks, 1f);
     }
 

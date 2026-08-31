@@ -49,7 +49,7 @@ public class MooseEntity extends AnimalEntity {
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
         this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.STICK), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.0F));
-
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
@@ -63,8 +63,8 @@ public class MooseEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7) // stronger now
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2F)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6) // stronger now
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 5);
     }
