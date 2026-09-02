@@ -23,40 +23,171 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class MooseEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
+    public final AnimationState attackAnimationState = new AnimationState();
 
-    // Angry State
     private static final TrackedData<Boolean> ANGRY =
             DataTracker.registerData(MooseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
+    private int idleAnimationTimeout;
+    private int riderAttackCooldown;
+    private int riderTargetCheckCooldown;
+    private float smoothedHeadPitch;
+    private boolean hasRetaliated;
 
     public MooseEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        if (!getWorld().isClient) {
+            player.startRiding(this);
+        }
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void handleStatus(byte status) {
+        if (status == 4) {
+            attackAnimationState.start(age);
+        } else {
+            super.handleStatus(status);
+        }
+    }
+
+    @Override
+    protected void updatePassengerPosition(Entity passenger, PositionUpdater positionUpdater) {
+        double yaw = Math.toRadians(getYaw());
+
+        positionUpdater.accept(
+                passenger,
+                getX() + Math.sin(yaw) * 0.35D,
+                getY() + getHeight() * 0.725F,
+                getZ() - Math.cos(yaw) * 0.35D
+        );
+    }
+
+    @Override
+    public void travel(Vec3d movementInput) {
+        if (getFirstPassenger() instanceof PlayerEntity player) {
+            float yaw = player.getYaw();
+
+            setYaw(yaw);
+            setBodyYaw(yaw);
+            setHeadYaw(yaw);
+
+            float targetPitch = MathHelper.clamp(player.getPitch(), -45.0F, 25.0F);
+            smoothedHeadPitch += (targetPitch - smoothedHeadPitch) * 0.15F;
+
+            setPitch(smoothedHeadPitch);
+            prevYaw = yaw;
+
+            super.travel(new Vec3d(
+                    player.sidewaysSpeed * 0.2F,
+                    0,
+                    player.forwardSpeed * 0.4F
+            ));
+            return;
+        }
+
+        super.travel(movementInput);
+    }
+
+    private void performAttackEffects(LivingEntity target) {
+        getWorld().sendEntityStatus(this, (byte) 4);
+        spawnCritParticles(target);
+    }
+
+    @Override
+    public boolean tryAttack(Entity target) {
+        if (hasRetaliated) return false;
+
+        boolean result = super.tryAttack(target);
+
+        if (result && !getWorld().isClient()) {
+            hasRetaliated = true;
+
+            if (target instanceof LivingEntity livingTarget) {
+                performAttackEffects(livingTarget);
+            }
+
+            setTarget(null);
+            setAttacker(null);
+            getNavigation().stop();
+            setAngry(false);
+        }
+
+        return result;
+    }
+
+    private void riderAttack() {
+        if (--riderTargetCheckCooldown > 0) return;
+        riderTargetCheckCooldown = 5;
+
+        if (!(getFirstPassenger() instanceof PlayerEntity rider)) return;
+
+        var targets = getWorld().getEntitiesByClass(
+                LivingEntity.class,
+                getBoundingBox()
+                        .stretch(getRotationVec(1.0F))
+                        .expand(0.5),
+                entity -> entity != this && entity != rider
+        );
+
+        if (targets.isEmpty()) return;
+
+        LivingEntity target = targets.getFirst();
+
+        performAttackEffects(target);
+
+        float yaw = getYaw() * MathHelper.RADIANS_PER_DEGREE;
+
+        target.takeKnockback(
+                getAttributeValue(EntityAttributes.GENERIC_ATTACK_KNOCKBACK),
+                MathHelper.sin(yaw),
+                -MathHelper.cos(yaw)
+        );
+
+        riderAttackCooldown = 20;
+    }
+
+    private void spawnCritParticles(LivingEntity target) {
+        if (getWorld() instanceof ServerWorld world) {
+            world.spawnParticles(
+                    net.minecraft.particle.ParticleTypes.CRIT,
+                    target.getX(),
+                    target.getBodyY(0.5),
+                    target.getZ(),
+                    8,
+                    0.35,
+                    0.5,
+                    0.35,
+                    0.15
+            );
+        }
+    }
+
+    @Override
     protected void initGoals() {
-        // Behaviour
-        this.goalSelector.add(0, new SwimGoal(this));
+        goalSelector.add(0, new SwimGoal(this));
+        goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, true));
+        goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
+        goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.STICK), false));
+        goalSelector.add(4, new FollowParentGoal(this, 1.0F));
+        goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
+        goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        goalSelector.add(7, new LookAroundGoal(this));
 
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, true));
-
-        this.goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.STICK), false));
-        this.goalSelector.add(4, new FollowParentGoal(this, 1.0F));
-        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(7, new LookAroundGoal(this));
-
-        // Retaliation Goal
-        this.targetSelector.add(1, new RevengeGoal(this));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         super.initGoals();
     }
 
@@ -64,9 +195,9 @@ public class MooseEntity extends AnimalEntity {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2F)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6) // stronger now
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 5);
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 4);
     }
 
     @Override
@@ -86,22 +217,17 @@ public class MooseEntity extends AnimalEntity {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(ModSounds.MOOSE_STEP, 0.1F, 1.25F);
-    }
-
-    @Override
-    public boolean tryAttack(Entity target) {
-        this.playSound(ModSounds.MOOSE_ATTACK, 1.0F, 1.0F);
-        return super.tryAttack(target);
+        playSound(ModSounds.MOOSE_STEP, 0.1F, 1.25F);
     }
 
     @Override
     public boolean damage(DamageSource source, float amount) {
         boolean result = super.damage(source, amount);
 
-        if (source.getAttacker() instanceof LivingEntity attacker) {
-            this.setTarget(attacker);
-            this.setAngry(true);
+        if (result && source.getAttacker() instanceof LivingEntity attacker) {
+            hasRetaliated = false;
+            setTarget(attacker);
+            setAngry(true);
         }
 
         return result;
@@ -111,23 +237,23 @@ public class MooseEntity extends AnimalEntity {
     public void tick() {
         super.tick();
 
-        if (this.getWorld().isClient()) {
-            this.setupAnimationStates();
+        if (riderAttackCooldown > 0) {
+            riderAttackCooldown--;
+        } else if (getFirstPassenger() instanceof PlayerEntity) {
+            riderAttack();
         }
 
-        if (!this.getWorld().isClient()) {
-            if (this.getTarget() == null) {
-                this.setAngry(false);
-            }
+        if (getWorld().isClient()) {
+            setupAnimationStates();
+        } else if (getTarget() == null && isAngry()) {
+            setAngry(false);
         }
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = 80;
-            this.idleAnimationState.start(this.age);
-        } else {
-            --this.idleAnimationTimeout;
+        if (idleAnimationTimeout-- <= 0) {
+            idleAnimationTimeout = 80;
+            idleAnimationState.start(age);
         }
     }
 
@@ -149,10 +275,11 @@ public class MooseEntity extends AnimalEntity {
     }
 
     public boolean isAngry() {
-        return this.dataTracker.get(ANGRY);
+        return dataTracker.get(ANGRY);
     }
 
     public void setAngry(boolean angry) {
-        this.dataTracker.set(ANGRY, angry);
+        dataTracker.set(ANGRY, angry);
     }
+
 }
