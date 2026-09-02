@@ -32,7 +32,9 @@ public class BrownBearEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    // Angry State
+    private static final int ANGER_DURATION = 20 * 60;
+    private int angerTime = 0;
+
     private static final TrackedData<Boolean> ANGRY =
             DataTracker.registerData(BrownBearEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -42,13 +44,13 @@ public class BrownBearEntity extends AnimalEntity {
 
     @Override
     protected void initGoals() {
-        // Behaviour
         this.goalSelector.add(0, new SwimGoal(this));
 
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.75D, true));
 
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.HONEYCOMB), false));
+        this.goalSelector.add(3, new TemptGoal(this, 1.0F,
+                Ingredient.ofItems(Items.HONEYCOMB), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundGoal(this, 1.0F));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
@@ -56,9 +58,8 @@ public class BrownBearEntity extends AnimalEntity {
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
 
-        // Retaliation Goal
         this.targetSelector.add(1, new RevengeGoal(this));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+
         super.initGoals();
     }
 
@@ -66,7 +67,7 @@ public class BrownBearEntity extends AnimalEntity {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10) // stronger now
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.5);
     }
@@ -101,9 +102,13 @@ public class BrownBearEntity extends AnimalEntity {
     public boolean damage(DamageSource source, float amount) {
         boolean result = super.damage(source, amount);
 
-        if (source.getAttacker() instanceof LivingEntity attacker) {
+        if (!this.getWorld().isClient()
+                && !this.isBaby()
+                && source.getAttacker() instanceof LivingEntity attacker) {
+
             this.setTarget(attacker);
             this.setAngry(true);
+            this.angerTime = ANGER_DURATION;
         }
 
         return result;
@@ -115,13 +120,34 @@ public class BrownBearEntity extends AnimalEntity {
 
         if (this.getWorld().isClient()) {
             this.setupAnimationStates();
+            return;
         }
 
-        if (!this.getWorld().isClient()) {
-            if (this.getTarget() == null) {
-                this.setAngry(false);
+        if (this.isBaby()) {
+            this.stopBeingAngry();
+            return;
+        }
+
+        LivingEntity target = this.getTarget();
+
+        if (target != null && !target.isAlive()) {
+            this.stopBeingAngry();
+            return;
+        }
+
+        if (this.angerTime > 0) {
+            this.angerTime--;
+
+            if (this.angerTime <= 0) {
+                this.stopBeingAngry();
             }
         }
+    }
+
+    private void stopBeingAngry() {
+        this.angerTime = 0;
+        this.setTarget(null);
+        this.setAngry(false);
     }
 
     private void setupAnimationStates() {
