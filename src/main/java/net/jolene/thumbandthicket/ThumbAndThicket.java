@@ -58,6 +58,7 @@ public class ThumbAndThicket implements ModInitializer {
         ModCauldronBehavior.registerCauldronBehavior();
         ModLootTableModifications.modifyLootTables();
         ModDataComponentTypes.registerDataComponentTypes();
+
         ModPlacementModifierType.SNOWY_BELOW.codec();
         // Mob Attributes
         FabricDefaultAttributeRegistry.register(ModEntities.BEAVER, BeaverEntity.createAttributes());

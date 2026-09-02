@@ -71,6 +71,41 @@
       "thumbandthicket:entity/brown_bear/bear_attack_2"
     ]
   },
+  "entity.moose.ambient": {
+    "subtitle": "sounds.thumbandthicket.moose.ambient",
+    "sounds": [
+      "thumbandthicket:entity/moose/moose_idle_1",
+      "thumbandthicket:entity/moose/moose_idle_2",
+      "thumbandthicket:entity/moose/moose_idle_3"
+    ]
+  },
+  "entity.moose.hurt": {
+    "subtitle": "sounds.thumbandthicket.moose.hurt",
+    "sounds": [
+      "thumbandthicket:entity/moose/moose_hurt"
+    ]
+  },
+  "entity.moose.step": {
+    "subtitle": "sounds.thumbandthicket.moose.step",
+    "sounds": [
+      "thumbandthicket:entity/moose/moose_step_1",
+      "thumbandthicket:entity/moose/moose_step_2",
+      "thumbandthicket:entity/moose/moose_step_3"
+    ]
+  },
+  "entity.moose.death": {
+    "subtitle": "sounds.thumbandthicket.moose.death",
+    "sounds": [
+      "thumbandthicket:entity/moose/moose_death"
+    ]
+  },
+  "entity.moose.attack": {
+    "subtitle": "sounds.thumbandthicket.moose.attack",
+    "sounds": [
+      "thumbandthicket:entity/moose/moose_attack_1",
+      "thumbandthicket:entity/moose/moose_attack_2"
+    ]
+  },
 "entity.lorax.ambient": {
 "subtitle": "sounds.thumbandthicket.lorax.ambient",
 "sounds": [

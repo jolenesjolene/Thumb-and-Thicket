@@ -16,7 +16,7 @@ public class MooseRenderer extends MobEntityRenderer<MooseEntity, MooseModel<Moo
                 new MooseModel<>(
                         context.getPart(MooseModel.MOOSE)
                 ),
-                0.25F
+                0.85F
         );
     }
 

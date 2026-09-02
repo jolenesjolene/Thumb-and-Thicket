@@ -61,6 +61,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MooseModel.MOOSE, MooseModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MOOSE, MooseRenderer::new);
 
+
         EntityModelLayerRegistry.registerModelLayer(BrownBearModel.BROWN_BEAR, BrownBearModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BROWN_BEAR, BrownBearRenderer::new);
 
@@ -144,5 +145,7 @@ public class ThumbAndThicketClient implements ClientModInitializer {
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BRINE_SOURCE, ModFluids.FLOWING_BRINE, new SimpleFluidRenderHandler(Identifier.of(MOD_ID, "block/brine_still"), Identifier.of(MOD_ID, "block/brine_flow"), Identifier.of(MOD_ID, "block/brine_overlay")));
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.BRINE_SOURCE, ModFluids.FLOWING_BRINE);
+
     }
+
 }
