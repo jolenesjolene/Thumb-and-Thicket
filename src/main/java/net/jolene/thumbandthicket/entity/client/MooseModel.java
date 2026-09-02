@@ -73,14 +73,15 @@ public class MooseModel<T extends MooseEntity> extends SinglePartEntityModel<T> 
 
         this.getPart().traverse().forEach(ModelPart::resetTransform);
         this.setHeadAngles(netHeadYaw, headPitch);
+
+        this.animateMovement(MooseAnimations.walk, limbSwing, limbSwingAmount, 3.5f, 3.5f);
+        this.updateAnimation(entity.idleAnimationState, MooseAnimations.idle, ageInTicks, 1f);
         this.updateAnimation(
                 entity.attackAnimationState,
                 MooseAnimations.attack,
                 ageInTicks,
                 1.0F
         );
-        this.animateMovement(MooseAnimations.walk, limbSwing, limbSwingAmount, 3.5f, 3.5f);
-        this.updateAnimation(entity.idleAnimationState, MooseAnimations.idle, ageInTicks, 1f);
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {
@@ -95,7 +96,6 @@ public class MooseModel<T extends MooseEntity> extends SinglePartEntityModel<T> 
                        int light, int overlay, float red, float green, float blue, float alpha) {
         root.render(matrices, vertexConsumer, light, overlay);
     }
-
 
     @Override
     public ModelPart getPart() {

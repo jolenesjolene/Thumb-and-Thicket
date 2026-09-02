@@ -34,7 +34,6 @@ import org.jetbrains.annotations.Nullable;
 public class MooseEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
-
     private static final TrackedData<Boolean> ANGRY =
             DataTracker.registerData(MooseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -105,11 +104,7 @@ public class MooseEntity extends AnimalEntity {
 
     private void performAttackEffects(LivingEntity target) {
         getWorld().sendEntityStatus(this, (byte) 4);
-        playSound(
-                ModSounds.MOOSE_ATTACK,
-                1.0F,
-                1.0F
-        );
+        playSound(ModSounds.MOOSE_ATTACK, 1.0F, 1.0F);
         spawnCritParticles(target);
     }
 
@@ -173,11 +168,11 @@ public class MooseEntity extends AnimalEntity {
                     target.getX(),
                     target.getBodyY(0.5),
                     target.getZ(),
-                    10,
-                    0.4,
+                    16,
+                    0.35,
                     0.5,
-                    0.4,
-                    0.5
+                    0.35,
+                    0.8
             );
         }
     }
@@ -201,8 +196,8 @@ public class MooseEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2F)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 6);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 4);
     }
 
     @Override
@@ -286,5 +281,4 @@ public class MooseEntity extends AnimalEntity {
     public void setAngry(boolean angry) {
         dataTracker.set(ANGRY, angry);
     }
-
 }
