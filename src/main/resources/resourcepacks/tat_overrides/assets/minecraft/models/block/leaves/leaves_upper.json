@@ -1,0 +1,48 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/leaves",
+	"ambientocclusion": true,
+	"textures": {
+		"particle": "#all"
+	},
+	"elements": [
+		{
+			"name": "leaves",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#all",
+					"tintindex": 0
+				},
+				"east": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#all",
+					"tintindex": 0
+				},
+				"south": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#all",
+					"tintindex": 0
+				},
+				"west": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#all",
+					"tintindex": 0
+				},
+				"up": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#top",
+					"tintindex": 0
+				},
+				"down": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#bottom",
+					"tintindex": 0
+				}
+			}
+		}
+	]
+}

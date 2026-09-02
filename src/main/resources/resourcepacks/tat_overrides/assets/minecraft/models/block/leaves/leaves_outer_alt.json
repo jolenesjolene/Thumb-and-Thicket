@@ -1,0 +1,50 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/leaves",
+	"textures": {
+		"particle": "#outer"
+	},
+	"elements": [
+		{
+			"name": "outer_1",
+			"from": [-4, 15.99, 0],
+			"to": [0, 15.99, 16],
+			"rotation": {"angle": 0, "axis": "z", "origin": [0, 16, 8]},
+			"faces": {
+				"up": {"uv": [0, 4, 16, 0], "rotation": 270, "texture": "#outer", "tintindex": 0},
+				"down": {"uv": [16, 4, 0, 0], "rotation": 270, "texture": "#outer", "tintindex": 0}
+			}
+		},
+		{
+			"name": "outer_2",
+			"from": [16, 0.01, 0],
+			"to": [20, 0.01, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 8, 16, 4], "rotation": 90, "texture": "#outer", "tintindex": 0},
+				"down": {"uv": [16, 8, 0, 4], "rotation": 90, "texture": "#outer", "tintindex": 0}
+			}
+		},
+		{
+			"name": "outer_3",
+			"from": [0.1, -0.01, -4],
+			"to": [0.1, 15.99, 0],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0.1, 8, 0]},
+			"faces": {
+				"east": {"uv": [0, 12, 16, 8], "rotation": 90, "texture": "#outer", "tintindex": 0},
+				"west": {"uv": [0, 8, 16, 12], "rotation": 90, "texture": "#outer", "tintindex": 0}
+			}
+		},
+		{
+			"name": "outer_4",
+			"from": [15.9, 0, 16],
+			"to": [15.9, 16, 20],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15.9, 0, 16]},
+			"faces": {
+				"east": {"uv": [0, 12, 16, 16], "rotation": 90, "texture": "#outer", "tintindex": 0},
+				"west": {"uv": [16, 16, 0, 12], "rotation": 90, "texture": "#outer", "tintindex": 0}
+			}
+		}
+	]
+}

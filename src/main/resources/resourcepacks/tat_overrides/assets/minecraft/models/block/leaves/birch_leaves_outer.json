@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves/leaves_outer",
+  "textures": {
+    "outer": "block/leaves/birch_leaves_outer",
+    "particle": "block/leaves/birch_leaves_outer"
+  }
+}

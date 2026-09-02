@@ -1,23 +1,9 @@
 {
-	"parent": "minecraft:block/leaves",
+	"parent": "minecraft:block/leaves/leaves_upper",
 	"textures": {
-		"1": "block/leaves/birch_leaves_upper_top",
-		"2": "block/leaves/birch_leaves_upper_bottom",
 		"all": "block/leaves/birch_leaves_upper_side",
+		"top": "block/leaves/birch_leaves_upper_top",
+		"bottom": "block/leaves/birch_leaves_upper_bottom",
 		"particle": "block/leaves/birch_leaves_upper_side"
-	},
-	"elements": [
-		{
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
-			"faces": {
-				"north": { "uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
-				"east":  { "uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
-				"south": { "uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
-				"west":  { "uv": [0, 0, 16, 16], "texture": "#all", "tintindex": 0 },
-				"up":    { "uv": [0, 0, 16, 16], "texture": "#1",   "tintindex": 0 },
-				"down":  { "uv": [0, 0, 16, 16], "texture": "#2",   "tintindex": 0 }
-			}
-		}
-	]
+	}
 }
