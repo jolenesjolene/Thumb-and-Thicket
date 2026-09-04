@@ -38,6 +38,7 @@
     "entity.RabbitEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SnifferEntityMixin",
+    "entity.TurtleEntityMixin",
     "entity.WolfEntityMixin",
     "farming.CropBlockMixin",
     "farming.FarmerVillagerTaskMixin",

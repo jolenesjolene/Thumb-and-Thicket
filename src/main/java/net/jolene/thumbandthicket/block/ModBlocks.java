@@ -102,6 +102,7 @@ public class ModBlocks {
     public static final Block HYDROTHERMAL_VENT = register(new HydrothermalVentBlock(AbstractBlock.Settings.create().hardness(1.5f).mapColor(MapColor.BROWN).requiresTool()), "hydrothermal_vent", true);
 
     public static final Block CLAM_SLAB_BLOCK = register(new ClamSlabBlock(AbstractBlock.Settings.create().strength(3.0f, 6.0F).mapColor(MapColor.BROWN).requiresTool()), "clam_slab", true);
+    public static final Block BARNACLES = register(new Block(AbstractBlock.Settings.create().strength(3.0f, 6.0F).mapColor(MapColor.BROWN).requiresTool()), "barnacles", true);
 
     public static final Block TEMPERATE_CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
     public static final Block COLD_CHICKEN_EGG_BLOCK = register(new EggBlock(AbstractBlock.Settings.copy(Blocks.TURTLE_EGG), EntityType.CHICKEN), "chicken_egg", true);
