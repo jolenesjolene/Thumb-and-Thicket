@@ -98,6 +98,8 @@ public class ModItemGroups {
                             entries.add(ModItems.BEAVER_SPAWN_EGG);
                             entries.add(ModItems.BROWN_BEAR_SPAWN_EGG);
                             entries.add(ModItems.MOOSE_SPAWN_EGG);
+                            entries.add(ModItems.RAW_VENISON);
+                            entries.add(ModItems.COOKED_VENISON);
                             entries.add(ModItems.FUR);
                             entries.add(Items.SHEARS);
                             entries.add(ModItems.WAXED_BRUSH);

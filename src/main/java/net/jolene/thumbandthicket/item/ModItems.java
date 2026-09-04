@@ -29,6 +29,9 @@ public class ModItems {
     public static final FoodComponent DEW_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(5).saturationModifier(0.7F).build();
     public static final FoodComponent SEED_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(1).snack().build();
 
+    public static final FoodComponent RAW_VENISON_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.4f).build();
+    public static final FoodComponent COOKED_VENISON_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(9).saturationModifier(0.9f).build();
+
     public static final FoodComponent LUCKY_CLOVER_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 6400, 0), 1.0F).build();
 
     public static final Item ROTTEN_APPLE = register(new Item(new Item.Settings().maxCount(64).food(ROTTEN_APPLE_FOOD_COMPONENT)), "rotten_apple");
@@ -37,6 +40,10 @@ public class ModItems {
     public static final Item CAVE_PARSNIP = register(new AliasedBlockItem(ModBlocks.CAVE_PARSNIP_CROP, new Item.Settings().maxCount(64).food(PARSNIP_FOOD_COMPONENT)), "cave_parsnip");
     public static final Item CHERRY = register(new Item(new Item.Settings().maxCount(64).food(CHERRY_FOOD_COMPONENT).recipeRemainder(Items.CHERRY_SAPLING)), "cherry");
     public static final Item PRICKLY_PEAR = register(new Item(new Item.Settings().maxCount(64).food(PRICKLY_PEAR_FOOD_COMPONENT)), "prickly_pear");
+
+    public static final Item RAW_VENISON = register(new Item(new Item.Settings().maxCount(64).food(RAW_VENISON_FOOD_COMPONENT)), "raw_venison");
+    public static final Item COOKED_VENISON = register(new Item(new Item.Settings().maxCount(64).food(COOKED_VENISON_COMPONENT)), "cooked_venison");
+
     public static final Item GOLDEN_PRICKLY_PEAR = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(64).food(GOLDEN_PRICKLY_PEAR_FOOD_COMPONENT)), "golden_prickly_pear");
     public static final Item PALE_GOURD_SEEDS = register(new AliasedBlockItem(ModBlocks.PALE_GOURD_STEM, new Item.Settings()), "pale_gourd_seeds");
     public static final Item DEW_BOTTLE = register(new Item(new Item.Settings().rarity(Rarity.RARE).maxCount(16).food(DEW_FOOD_COMPONENT).recipeRemainder(Items.GLASS_BOTTLE)), "dew_bottle");
@@ -82,6 +89,8 @@ public class ModItems {
                     group.addAfter(ModItems.PEAR, ModItems.ORANGE, ModItems.CAVE_PARSNIP, ModItems.CHERRY);
                     group.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModItems.PRICKLY_PEAR);
                     group.addAfter(ModItems.PRICKLY_PEAR, ModItems.GOLDEN_PRICKLY_PEAR);
+                    group.addAfter(Items.COOKED_MUTTON, ModItems.RAW_VENISON);
+                    group.addAfter(ModItems.RAW_VENISON, ModItems.COOKED_VENISON);
                 });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(group -> group.addAfter(
                 Items.POLAR_BEAR_SPAWN_EGG,

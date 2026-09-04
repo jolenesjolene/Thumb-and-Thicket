@@ -11,7 +11,11 @@
       "fallback": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:rooted_dirt"
+          "Name": "minecraft:rooted_dirt",
+          "Properties": {
+            "damp": "true",
+            "stony": "true"
+          }
         }
       },
       "rules": [
@@ -136,7 +140,11 @@
           "then": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:rooted_dirt"
+              "Name": "minecraft:rooted_dirt",
+              "Properties": {
+                "damp": "true",
+                "stony": "true"
+              }
             }
           }
         },

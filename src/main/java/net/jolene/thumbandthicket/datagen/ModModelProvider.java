@@ -18,6 +18,8 @@ public class ModModelProvider extends FabricModelProvider {
                     ModItems.PEAR,
                     ModItems.ORANGE,
                     ModItems.CAVE_PARSNIP,
+                    ModItems.RAW_VENISON,
+                    ModItems.COOKED_VENISON,
                     ModItems.LUCKY_CLOVER,
                     ModItems.PRICKLY_PEAR,
                     ModItems.DEW_BOTTLE,

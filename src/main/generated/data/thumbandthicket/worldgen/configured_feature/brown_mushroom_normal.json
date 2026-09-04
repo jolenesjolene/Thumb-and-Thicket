@@ -13,8 +13,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "1",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "north"
+                    "facing": "north",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -24,8 +26,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "1",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "east"
+                    "facing": "east",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -35,8 +39,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "1",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "south"
+                    "facing": "south",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -46,8 +52,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "1",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "west"
+                    "facing": "west",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -57,8 +65,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "2",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "north"
+                    "facing": "north",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -68,8 +78,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "2",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "east"
+                    "facing": "east",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -79,8 +91,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "2",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "south"
+                    "facing": "south",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -90,8 +104,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "2",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "west"
+                    "facing": "west",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -101,8 +117,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "3",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "north"
+                    "facing": "north",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -112,8 +130,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "3",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "east"
+                    "facing": "east",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -123,8 +143,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "3",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "south"
+                    "facing": "south",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -134,8 +156,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "3",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "west"
+                    "facing": "west",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -145,8 +169,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "4",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "north"
+                    "facing": "north",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -156,8 +182,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "4",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "east"
+                    "facing": "east",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -167,8 +195,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "4",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "south"
+                    "facing": "south",
+                    "stony": "true"
                   }
                 },
                 "weight": 1
@@ -178,8 +208,10 @@
                   "Name": "minecraft:brown_mushroom",
                   "Properties": {
                     "amount": "4",
+                    "damp": "true",
                     "face": "floor",
-                    "facing": "west"
+                    "facing": "west",
+                    "stony": "true"
                   }
                 },
                 "weight": 1

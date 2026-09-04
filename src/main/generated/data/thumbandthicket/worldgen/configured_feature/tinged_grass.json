@@ -8,7 +8,11 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "thumbandthicket:tinged_short_grass"
+              "Name": "thumbandthicket:tinged_short_grass",
+              "Properties": {
+                "damp": "true",
+                "stony": "true"
+              }
             }
           }
         }
