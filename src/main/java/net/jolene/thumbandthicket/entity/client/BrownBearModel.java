@@ -70,6 +70,7 @@ public class BrownBearModel<T extends BrownBearEntity> extends SinglePartEntityM
 
         this.animateMovement(BrownBearAnimations.walk, limbSwing, limbSwingAmount, 2.75f, 2.75f);
         this.updateAnimation(entity.idleAnimationState, BrownBearAnimations.idle, ageInTicks, 1f);
+
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {

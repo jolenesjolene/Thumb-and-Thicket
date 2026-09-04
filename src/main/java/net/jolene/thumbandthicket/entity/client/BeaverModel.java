@@ -156,15 +156,24 @@ public class BeaverModel<T extends BeaverEntity> extends SinglePartEntityModel<T
 
         this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-        this.setHeadAngles(netHeadYaw, headPitch);
-        if (entity.isTouchingWater()) {
-            this.body.pitch = entity.getPitch() * 0.017453292F;
-        } else {
-            this.body.pitch = 0;
+        // Gnawing takes priority
+        if (entity.isGnawing()) {
+
+            this.updateAnimation(
+                    entity.gnawAnimationState,
+                    BeaverAnimations.gnaw,
+                    ageInTicks,
+                    1.0F
+            );
+
+            return;
         }
 
+        this.setHeadAngles(netHeadYaw, headPitch);
 
         if (entity.isTouchingWater()) {
+
+            this.body.pitch = entity.getPitch() * 0.017453292F;
 
             this.updateAnimation(
                     entity.swimAnimationState,
@@ -174,6 +183,8 @@ public class BeaverModel<T extends BeaverEntity> extends SinglePartEntityModel<T
             );
 
         } else {
+
+            this.body.pitch = 0.0F;
 
             this.animateMovement(
                     BeaverAnimations.walk,
