@@ -29,8 +29,8 @@ public class ModItems {
     public static final FoodComponent DEW_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(5).saturationModifier(0.7F).build();
     public static final FoodComponent SEED_FOOD_COMPONENT = (new FoodComponent.Builder()).nutrition(1).snack().build();
 
-    public static final FoodComponent RAW_VENISON_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(0.4f).build();
-    public static final FoodComponent COOKED_VENISON_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(9).saturationModifier(0.9f).build();
+    public static final FoodComponent RAW_VENISON_FOOD_COMPONENT = new FoodComponent.Builder().snack().nutrition(4).saturationModifier(0.4f).build();
+    public static final FoodComponent COOKED_VENISON_COMPONENT = new FoodComponent.Builder().snack().nutrition(9).saturationModifier(0.9f).build();
 
     public static final FoodComponent LUCKY_CLOVER_FOOD_COMPONENT = new FoodComponent.Builder().alwaysEdible().snack().nutrition(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 6400, 0), 1.0F).build();
 
