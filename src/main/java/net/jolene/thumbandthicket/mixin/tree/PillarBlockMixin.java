@@ -125,8 +125,48 @@ public class PillarBlockMixin extends Block {
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.contains(ROOTY) && state.get(ROOTY) != Rooty.NONE) return VoxelShapes.cuboid(-0.000001, 0, -0.000001, 1, 1, 1);
+    public VoxelShape getOutlineShape(
+            BlockState state,
+            BlockView world,
+            BlockPos pos,
+            ShapeContext context
+    ) {
+        if (state.contains(ROOTY)
+                && state.get(ROOTY) != Rooty.NONE) {
+
+            return VoxelShapes.cuboid(
+                    -0.000001,
+                    0,
+                    -0.000001,
+                    1.000001,
+                    1,
+                    1.000001
+            );
+        }
+
+        return VoxelShapes.fullCube();
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(
+            BlockState state,
+            BlockView world,
+            BlockPos pos,
+            ShapeContext context
+    ) {
+        if (state.contains(ROOTY)
+                && state.get(ROOTY) != Rooty.NONE) {
+
+            return VoxelShapes.cuboid(
+                    -0.000001,
+                    0,
+                    -0.000001,
+                    1.000001,
+                    1,
+                    1.000001
+            );
+        }
+
         return VoxelShapes.fullCube();
     }
 
