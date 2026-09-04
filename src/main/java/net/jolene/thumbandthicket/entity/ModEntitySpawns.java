@@ -28,6 +28,20 @@ public class ModEntitySpawns {
                 AnimalEntity::isValidNaturalSpawn
         );
         BiomeModifications.addSpawn(
+                BiomeSelectors.tag(BiomeTags.IS_FOREST),
+                SpawnGroup.CREATURE,
+                ModEntities.DEER,
+                50,
+                3,
+                6
+        );
+        SpawnRestriction.register(
+                ModEntities.DEER,
+                SpawnLocationTypes.ON_GROUND,
+                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+                AnimalEntity::isValidNaturalSpawn
+        );
+        BiomeModifications.addSpawn(
                 BiomeSelectors.tag(BiomeTags.IS_TAIGA),
                 SpawnGroup.CREATURE,
                 ModEntities.MOOSE,

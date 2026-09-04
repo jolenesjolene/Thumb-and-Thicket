@@ -68,8 +68,8 @@ public class ThumbAndThicketClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(BeaverModel.BEAVER, BeaverModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BEAVER, BeaverRenderer::new);
 
-        EntityModelLayerRegistry.registerModelLayer(LoraxModel.LORAX,LoraxModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.LORAX, LoraxRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(DeerModel.DEER,DeerModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.DEER, DeerRenderer::new);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> -1,
                 ModItems.MOOSE_SPAWN_EGG);

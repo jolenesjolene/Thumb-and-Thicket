@@ -1,6 +1,7 @@
 package net.jolene.thumbandthicket.entity.custom;
 
 import net.jolene.thumbandthicket.entity.ModEntities;
+import net.jolene.thumbandthicket.entity.custom.goals.DeerPanicGoal;
 import net.jolene.thumbandthicket.sound.ModSounds;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AnimationState;
@@ -28,78 +29,64 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class LoraxEntity extends AnimalEntity {
+public class DeerEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
 
-    // Angry State
-    private static final TrackedData<Boolean> ANGRY =
-            DataTracker.registerData(LoraxEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final int panicDuration = 20 * 60;
 
-    public LoraxEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public DeerEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     protected void initGoals() {
-        // Behaviour
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, true));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0F));
 
-        this.goalSelector.add(3, new TemptGoal(this, 1.0F, Ingredient.ofItems(Items.SWEET_BERRIES), false));
+        this.goalSelector.add(1, new DeerPanicGoal(this, 1.5D));
+        this.goalSelector.add(3,
+                new TemptGoal(
+                        this,
+                        1.0D,
+                        Ingredient.ofItems(Items.SWEET_BERRIES),
+                        false
+                )
+        );
+
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
-
-        // Retaliation Goal
-        this.targetSelector.add(1, new RevengeGoal(this));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.5);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0D)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2D)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 24.0D);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.LORAX_AMBIENT;
+        return ModSounds.DEER_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return ModSounds.LORAX_HURT;
+        return ModSounds.DEER_STARTLE;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.LORAX_DEATH;
+        return ModSounds.DEER_DEATH;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(ModSounds.LORAX_FLY, 0.1F, 1.25F);
-    }
-
-    @Override
-    public boolean tryAttack(Entity target) {
-        this.playSound(ModSounds.LORAX_ATTACK, 1.0F, 1.0F);
-        return super.tryAttack(target);
+        this.playSound(ModSounds.DEER_STEP, 0.15F, 1.0F);
     }
 
     @Override
     public boolean damage(DamageSource source, float amount) {
-        boolean result = super.damage(source, amount);
-
-        if (source.getAttacker() instanceof LivingEntity attacker) {
-            this.setTarget(attacker);
-            this.setAngry(true);
-        }
-
-        return result;
+        return super.damage(source, amount);
     }
 
     @Override
@@ -109,12 +96,6 @@ public class LoraxEntity extends AnimalEntity {
         if (this.getWorld().isClient()) {
             this.setupAnimationStates();
         }
-
-        if (!this.getWorld().isClient()) {
-            if (this.getTarget() == null) {
-                this.setAngry(false);
-            }
-        }
     }
 
     private void setupAnimationStates() {
@@ -122,42 +103,13 @@ public class LoraxEntity extends AnimalEntity {
     }
 
     @Override
-    public void tickMovement() {
-        if (!this.isOnGround() && this.getVelocity().y < 0) {
-            Vec3d velocity = this.getVelocity();
-
-            this.setVelocity(
-                    velocity.x,
-                    velocity.y * 0.6D,
-                    velocity.z
-            );
-        }
-
-        super.tickMovement();
-    }
-
-    @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.HONEYCOMB);
+        return stack.isOf(Items.APPLE);
     }
 
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.BROWN_BEAR.create(world);
-    }
-
-    @Override
-    protected void initDataTracker(DataTracker.Builder builder) {
-        super.initDataTracker(builder);
-        builder.add(ANGRY, false);
-    }
-
-    public boolean isAngry() {
-        return this.dataTracker.get(ANGRY);
-    }
-
-    public void setAngry(boolean angry) {
-        this.dataTracker.set(ANGRY, angry);
+        return ModEntities.DEER.create(world);
     }
 }

@@ -1,10 +1,7 @@
 package net.jolene.thumbandthicket.entity;
 
 import net.jolene.thumbandthicket.ThumbAndThicket;
-import net.jolene.thumbandthicket.entity.custom.BeaverEntity;
-import net.jolene.thumbandthicket.entity.custom.BrownBearEntity;
-import net.jolene.thumbandthicket.entity.custom.LoraxEntity;
-import net.jolene.thumbandthicket.entity.custom.MooseEntity;
+import net.jolene.thumbandthicket.entity.custom.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -24,10 +21,10 @@ public class ModEntities {
             Identifier.of(ThumbAndThicket.MOD_ID, "moose"),
             EntityType.Builder.create(MooseEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1.5f, 2.25f).build());
-    public static final EntityType<LoraxEntity> LORAX = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(ThumbAndThicket.MOD_ID, "lorax"),
-            EntityType.Builder.create(LoraxEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(1f, 1f).build());
+    public static final EntityType<DeerEntity> DEER = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(ThumbAndThicket.MOD_ID, "deer"),
+            EntityType.Builder.create(DeerEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(1.0f, 1.75f).build());
 
 
     public static void registerModEntities() {

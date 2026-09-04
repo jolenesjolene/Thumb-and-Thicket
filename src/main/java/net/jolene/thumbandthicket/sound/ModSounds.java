@@ -26,11 +26,10 @@ public class ModSounds {
     public static final SoundEvent MOOSE_DEATH= registerSoundEvent("entity.moose.death");
     public static final SoundEvent MOOSE_ATTACK= registerSoundEvent("entity.moose.attack");
 
-    public static final SoundEvent LORAX_AMBIENT = registerSoundEvent("entity.lorax.ambient");
-    public static final SoundEvent LORAX_HURT = registerSoundEvent("entity.lorax.hurt");
-    public static final SoundEvent LORAX_FLY = registerSoundEvent("entity.lorax.fly");
-    public static final SoundEvent LORAX_DEATH= registerSoundEvent("entity.lorax.death");
-    public static final SoundEvent LORAX_ATTACK= registerSoundEvent("entity.lorax.attack");
+    public static final SoundEvent DEER_AMBIENT = registerSoundEvent("entity.deer.ambient");
+    public static final SoundEvent DEER_STARTLE = registerSoundEvent("entity.deer.startle");
+    public static final SoundEvent DEER_STEP = registerSoundEvent("entity.deer.step");
+    public static final SoundEvent DEER_DEATH= registerSoundEvent("entity.deer.death");
 
 
 
