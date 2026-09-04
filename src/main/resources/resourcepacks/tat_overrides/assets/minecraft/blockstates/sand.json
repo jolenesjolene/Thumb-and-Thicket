@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "damp=false": {
+      "model": "minecraft:block/sand"
+    },
+    "damp=true": {
+      "model": "thumbandthicket:block/transitions/damp_sand"
+    }
+  }
+}

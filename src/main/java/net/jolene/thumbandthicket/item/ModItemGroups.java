@@ -47,6 +47,7 @@ public class ModItemGroups {
                             entries.add(Blocks.LILY_PAD);
                             entries.add(ModBlocks.DUCKWEED);
                             entries.add(ModBlocks.ALGAE);
+                            entries.add(ModBlocks.WET_SAND);
 
                             entries.add(ModBlocks.ROOTED_GRASS);
                             entries.add(ModBlocks.ROOTED_PODZOL);

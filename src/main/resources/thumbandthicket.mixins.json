@@ -8,6 +8,7 @@
     "BlocksMixin",
     "CauldronBlockMixin",
     "ChunkGeneratorMixin",
+    "TransitionBlockMixin",
     "EscapeDangerGoalMixin",
     "ExampleMixin",
     "ItemStackMixin",

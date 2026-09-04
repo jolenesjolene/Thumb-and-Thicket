@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stony=false": {
+      "model": "minecraft:block/dirt"
+    },
+    "stony=true": {
+      "model": "thumbandthicket:block/transitions/stony_dirt"
+    }
+  }
+}
